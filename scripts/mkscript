@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+filename=$1
+
+cd "$HOME/scripts"
+touch "$filename"
+chmod +x "$filename"
+echo "#!/usr/bin/env bash" > "$filename"

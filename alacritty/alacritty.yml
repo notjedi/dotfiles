@@ -1,0 +1,85 @@
+# https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/alacritty/alacritty.yml
+# for full config
+
+# Window specific Configuration
+window:
+  padding:
+    x: 6 
+    y: 6
+
+  # Spread additional padding evenly around the terminal content.
+  #dynamic_padding: false
+ 
+  # Window title
+  # title: Alacritty
+
+  # Window class (Linux/BSD only):
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
+
+  
+# Theme Configuration
+# One Dark
+
+colors:
+# Default colors
+  primary:
+    background: '#282c34'
+    foreground: '#abb2bf'
+
+# Normal colors
+  normal:
+# NOTE: Use '#131613' for the `black` color if you'd like to see
+# black text on the background.
+    black:   '#282c34'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#abb2bf'
+
+# Bright colors
+  bright:
+    black:   '#5c6370'
+    red:     '#e06c75'
+    green:   '#98c379'
+    yellow:  '#d19a66'
+    blue:    '#61afef'
+    magenta: '#c678dd'
+    cyan:    '#56b6c2'
+    white:   '#ffffff'
+
+
+# Font Configuration
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Bold
+
+  # The bold font face
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  
+  size: 11
+  
+# Custom key bindings
+key_bindings:
+  - { key: V,        mods: Control,          action: Paste               }
+  - { key: Q,        mods: Control|Shift,          action: Quit                }

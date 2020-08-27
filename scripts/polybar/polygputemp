@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+temp=$(sensors | grep edge)
+
+# Removing text b/w parenthesis
+temp=$(echo $temp | sed -e 's/([^()]*)//g')
+temp=$(echo $temp | tr -d "edge:" | tr '+' ' ' | tr -d ' ')
+
+echo $temp

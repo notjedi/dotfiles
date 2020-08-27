@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+filename="$1"
+# removing extension from the filename
+output=$(echo "$filename" | awk -F '.' '{print $1}')
+
+ffmpeg \
+  -i "$filename" \
+  -r 15 \
+  -vf "scale=512:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse"\
+  "$output".gif
