@@ -27,7 +27,24 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jaredgorski/spacecamp'
     " Lucid Theme
     Plug 'cseelus/vim-colors-lucid'
+    " Shades of Purple Theme
+    Plug 'Rigellute/shades-of-purple.vim'
+    " Material Theme 
+    Plug 'kaicataldo/material.vim', { 'branch': 'main' }
     " Dicord Presence from nvim
     Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
-
+    " Colorizer
+    Plug 'norcalli/nvim-colorizer.lua'
+    " Rainbow Parentheses
+    Plug 'junegunn/rainbow_parentheses.vim'
+    " Startify
+    Plug 'mhinz/vim-startify'
+    " Cool Icons
+    Plug 'ryanoasis/vim-devicons'
+    " Git
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'junegunn/gv.vim'
+    
     call plug#end()

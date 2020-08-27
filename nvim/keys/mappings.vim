@@ -48,5 +48,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Prevent ESC from moving one char to left
+inoremap <silent> <Esc> <C-O>:stopinsert<CR>
+" inoremap <silent> <Esc> <Esc>`^ " This works too
+
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
