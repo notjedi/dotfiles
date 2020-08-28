@@ -46,5 +46,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
+    " Sneak
+    Plug 'justinmk/vim-sneak'
+    "vim-which-key
+    Plug 'liuchengxu/vim-which-key'
+    Plug 'honza/vim-snippets'
+    Plug 'metakirby5/codi.vim'
     
     call plug#end()

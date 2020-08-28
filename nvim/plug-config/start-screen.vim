@@ -1,8 +1,9 @@
 let g:startify_custom_header = [
-        \ '       _  __     _         __  ___         __     ___',
-        \ '      / |/ /  __(_)_ _    /  |/  /__ _____/ /    |_  |',
-        \ '     /    / |/ / /  ` \  / /|_/ / _ `/ __/ _ \  / __/',
-        \ '    /_/|_/|___/_/_/_/_/ /_/  /_/\_,_/\__/_//_/ /____/',
+        \'        _        ___ _____  ___     __             ___',
+        \'       (_)__ ___/ (_) ___ \/ _/__ _/ /______  ___ <  /',
+        \'      / / -_) _  / / / _ `/ _/ _ `/ / __/ _ \/ _ \/ / ',
+        \'   __/ /\__/\_,_/_/\ \_,_/_/ \_,_/_/\__/\___/_//_/_/  ',
+        \'  |___/             \___/                             ',
         \]
 
 let g:startify_session_dir = '~/.config/nvim/session'
@@ -29,10 +30,14 @@ function! StartifyEntryFormat()
     endfunction
 
 let g:startify_bookmarks = [
+            \ { 'a': '~/.bash_aliases' },
+            \ { 'b': '~/.bashrc' },
             \ { 'c': '~/.config/i3/config' },
             \ { 'p': '~/.config/polybar/config' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'b': '~/.bashrc' },
+            \ { 'v': '~/.config/nvim/vim-plug/plugins.vim' },
+            \ { 'w': '/mnt/sdb1/Code'},
+            \ { 'conf': '~/.config' },
             \ ]
 
 let g:startify_enable_special = 0
