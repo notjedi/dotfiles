@@ -43,6 +43,7 @@ exec --no-startup-id python3 $HOME/scripts/randomTheme.py
 exec --no-startup-id $HOME/scripts/remapcaps
 # Start polybar
 exec --no-startup-id polybar pbar -r &
+exec --no-startup-id xset r rate 300 45
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
