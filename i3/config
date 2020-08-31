@@ -256,3 +256,18 @@ exec alacritty -t Alacritty
 # Start spotifyd on startup
 # exec --no-startup-id $HOME/scripts/launchspt
 
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+
+  bindsym l exec i3-msg exit
+
+  bindsym r exec systemctl reboot
+
+  bindsym s exec systemctl shutdown
+
+  bindsym Escape mode "default"
+
+  bindsym Return mode "default"
+
+}
+
+bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
