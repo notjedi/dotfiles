@@ -19,6 +19,12 @@ shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=2000
 
+# vi-mode in bash
+set -o vi
+# vim like exit binding
+bind '"jk":vi-movement-mode'
+# bind '"jk":"\e"'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

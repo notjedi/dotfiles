@@ -32,7 +32,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Start apps during i3 startup
 # Set wallpaper
-exec_always --no-startup-id feh --randomize --bg-scale /mnt/sdb1/Wallpapers/Desktop\ Wallpapers
+exec_always --no-startup-id $HOME/scripts/randomWallpaper 
 # Start compton and system-monitor
 exec --no-startup-id compton --config ~/.config/compton.conf
 # Starting redshift at 2700K on startup

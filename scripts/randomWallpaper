@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+dirname="/mnt/sdb1/Wallpapers/Desktop Wallpapers"
+file=$(ls -A "$dirname" | shuf -n 1)
+
+if [[ -d "$dirname/$file" ]]; then
+  file="$file/$(ls -A "$dirname"/"$file" | shuf -n 1)"
+fi
+
+feh --bg-scale "$dirname"/"$file"
