@@ -31,8 +31,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'Rigellute/shades-of-purple.vim'
     " Material Theme 
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-    " Dicord Presence from nvim
-    Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'
     " Rainbow Parentheses

@@ -79,7 +79,7 @@ def main(args):
     print_info(currentTheme, currentColorScheme, theme, colorScheme)
 
     # Sleep for 5 seconds and exit
-    time.sleep(5)
+    # time.sleep(5)
 
 
 def print_info(currentTheme, currentColorScheme, theme, colorScheme):
