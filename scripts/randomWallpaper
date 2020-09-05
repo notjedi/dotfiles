@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dirname="/mnt/sdb1/Wallpapers/Desktop Wallpapers"
+dirname="/mnt/Seagate/Wallpapers/Desktop Wallpapers"
 file=$(ls -A "$dirname" | shuf -n 1)
 
 if [[ -d "$dirname/$file" ]]; then

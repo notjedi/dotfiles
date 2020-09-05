@@ -29,6 +29,9 @@ bind '"jk":vi-movement-mode'
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# Starship prompt
+# eval "$(starship init bash)"
+
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -45,6 +48,10 @@ fi
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
+
+if [ -f ~/git-sh-prompt ]; then
+  . ~/git-sh-prompt
+fi
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -64,7 +71,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # PS1='\[\033[01;34m\]\W \[\033[00m\]➜ '
-    PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h \[\033[01;34m\]\W \[\033[00m\]➜ '
+    PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h \[\033[01;34m\]\W$(__git_ps1 " (%s)") \[\033[00m\]➜ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -109,10 +116,17 @@ fi
 
 export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/scripts/polybar:$PATH"
-export PATH="$HOME/android-studio/bin:$PATH"
+export PATH="$HOME/src/android-studio/bin:$PATH"
+
+# changing directory colors for 'ls' on hdd
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 export PF_INFO="ascii title os kernel uptime pkgs memory palette"
 export PF_ASCII="linux"
+
+export GIT_PS1_SHOWCOLORHINTS=1 
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 pfetch
 

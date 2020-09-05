@@ -36,7 +36,7 @@ let g:startify_bookmarks = [
             \ { 'p': '~/.config/polybar/config' },
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'v': '~/.config/nvim/vim-plug/plugins.vim' },
-            \ { 'w': '/mnt/sdb1/Code'},
+            \ { 'w': '$HDD/Code'},
             \ { 'conf': '~/.config' },
             \ ]
 

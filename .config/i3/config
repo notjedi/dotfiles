@@ -133,9 +133,9 @@ bindsym $mod+space floating toggle
 # bindsym $mod+space focus mode_toggle
 
 # bindings for flameshot
-bindsym --release Print exec flameshot full --path /mnt/sdb1/Screenshots
-bindsym --release Shift+Print exec flameshot gui --path /mnt/sdb1/Screenshots
-bindsym $mod+y exec flameshot gui --path /mnt/sdb1/Screenshots
+bindsym --release Print exec flameshot full --path $HDD/Screenshots
+bindsym --release Shift+Print exec flameshot gui --path $HDD/Screenshots
+bindsym $mod+y exec flameshot gui --path $HDD/Screenshots
 
 # focus the parent container
 bindsym $mod+a focus parent
