@@ -137,6 +137,11 @@ bindsym --release Print exec flameshot full --path $HDD/Screenshots
 bindsym --release Shift+Print exec flameshot gui --path $HDD/Screenshots
 bindsym $mod+y exec flameshot gui --path $HDD/Screenshots
 
+#Media player controls
+bindsym $mod+p exec playerctl play-pause
+bindsym $mod+bracketleft exec playerctl previous
+bindsym $mod+bracketright exec playerctl next
+
 # focus the parent container
 bindsym $mod+a focus parent
 

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+filename=$1
+
+if [ ! -f $filename ]; then
+  echo "File not found"
+  exit 1
+fi
+
+size=$(identify -format "%wx%h\n" $1 | head -1)
+filewithoutext=$(basename $1 .gif)
+
+ffmpeg -y -i $1 -vf palettegen palette.png
+ffmpeg -y -i $1 -i palette.png \
+  -filter_complex paletteuse -r 10 -s $size "$(echo "$filewithoutext")_comp.gif"
+
+rm palette.png
