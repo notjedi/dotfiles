@@ -41,10 +41,11 @@ exec --no-startup-id redshift -O 2700
 exec --no-startup-id $HOME/scripts/i3/i3autofloatws
 exec --no-startup-id python3 $HOME/scripts/randomTheme.py
 exec --no-startup-id $HOME/scripts/remapcaps
+exec --no-startup-id greenclip daemon
 exec --no-startup-id xdotool key Num_Lock
 # Start polybar
 exec --no-startup-id polybar pbar -r &
-exec --no-startup-id xset r rate 250 40
+exec --no-startup-id xset r rate 300 45
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -135,8 +136,8 @@ bindsym $mod+space floating toggle
 
 # bindings for flameshot
 bindsym --release Print exec flameshot full --path $HDD/Screenshots
-bindsym --release Shift+Print exec flameshot gui --path $HDD/Screenshots
 bindsym $mod+y exec flameshot gui --path $HDD/Screenshots
+bindsym $mod+g exec rofi -modi "greenclip:greenclip print" -show greenclip -run-command '{cmd}' -width 30 -lines 5
 
 #Media player controls
 bindsym $mod+p exec playerctl play-pause

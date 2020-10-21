@@ -64,12 +64,12 @@ colors:
 # Font Configuration
 font:
   normal:
-    family: FiraCode Nerd Font 
-    style: Semibold 
+    family: Hack Nerd Font 
+    style: Bold 
 
   # The bold font face
   bold:
-    family: FiraCode Nerd Font
+    family: Hack Nerd Font
     style: Bold
 
   # The italic font face

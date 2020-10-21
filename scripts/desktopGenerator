@@ -1,0 +1,108 @@
+##!/bin/bash
+
+# stop current script if any error happens
+set -e
+
+readonly SUCCESS=0
+readonly ERRO=1
+readonly ANDROID_SHORTCUT_PATH="${HOME}/.local/share/applications/AndroidStudio.desktop"
+# readonly ANDROID_SHORTCUT_PATH="$HOME/.local/share/applications/teste.desktop"
+
+# display function help information
+dysplayHelp() {
+    echo "Usage: $0 [option...] {p}" >&2
+    echo
+    echo "   -p, --path                 run script using provided android folder path"
+    echo "   -h, --help                 display help  "
+    echo
+    echo "Mandatory parameter:"
+    echo "[p][--path]                   Android folder path ending with bin"
+    echo
+    echo "Optional parameter:"
+    echo "[h][--help]                   display script help"
+    echo
+
+    exit $SUCCESS
+}
+
+# display start operation message
+displayHeader() {
+    echo "Creating Android Studio desktop icon"
+}
+
+# create android shortcut message
+# {@param android_path} represents the android folder path
+createShortcut() {
+    local android_path=$1
+
+    if test -f "$ANDROID_SHORTCUT_PATH"; then
+        echo "Error: shortcut $ANDROID_SHORTCUT_PATH exist"
+        exit $ERRO
+    else
+        touch "$ANDROID_SHORTCUT_PATH"
+    fi
+
+    # check if provided folder exists
+    if [ ! -d "$android_path" ]; then
+        echo "Error: folder $android_path does not exists"
+        exit $ERRO
+    fi
+
+    # check if provided android path ends with  *bin/
+    if [[ "$android_path" != *bin/ ]]; then
+        echo "Error: folder $android_path must ends with bin/"
+        exit $ERRO
+    fi
+
+    echo "[Desktop Entry]" >>$ANDROID_SHORTCUT_PATH
+    echo "Version=1.0" >>$ANDROID_SHORTCUT_PATH
+    echo "Type=Application" >>$ANDROID_SHORTCUT_PATH
+    echo "Name=Android Studio" >>$ANDROID_SHORTCUT_PATH
+    echo "Exec=${android_path}studio.sh %f" >>$ANDROID_SHORTCUT_PATH
+    echo "Icon=${android_path}studio.png" >>$ANDROID_SHORTCUT_PATH
+    echo "Categories=Development;IDE;" >>$ANDROID_SHORTCUT_PATH
+    echo "Terminal=false" >>$ANDROID_SHORTCUT_PATH
+    echo "StartupNotify=true" >>$ANDROID_SHORTCUT_PATH
+    echo "StartupWMClass=jetbrains-android-studio" >>$ANDROID_SHORTCUT_PATH
+    echo "Name[en_GB]=android-studio.desktop" >>$ANDROID_SHORTCUT_PATH
+}
+
+# display success operation message
+end() {
+    echo 'Shortcut created'
+}
+
+# start shortcut operation
+build() {
+    displayHeader
+
+    createShortcut $1
+
+    end
+}
+
+# start reading all script's parameters
+while :; do
+    case "$1" in
+    -p | --path)
+        build $2
+        exit $SUCCESS
+        ;;
+    -h | --help)
+        dysplayHelp
+        exit $SUCCESS
+        ;;
+    --) # End of all options
+        echo "Error: Unknown option: $1" >&2
+        exit $ERRO
+        ;;
+    -*)
+        echo "Error: Unknown option: $1" >&2
+        exit $ERRO
+        ;;
+    *) # No more options
+        echo 'Error: You must provide a valid android path. Check the option [--help][h] for more details.'
+        exit $ERRO
+        ;;
+    esac
+done
