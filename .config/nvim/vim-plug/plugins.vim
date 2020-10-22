@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'metakirby5/codi.vim'
     
     Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
+    " Plug 'plasticboy/vim-markdown'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
     call plug#end()
