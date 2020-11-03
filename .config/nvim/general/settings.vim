@@ -9,10 +9,11 @@ set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler              			            " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
-set iskeyword+=-                      	" treat dash separated words as a word text object"
 set mouse=a                             " Enable your mouse
-set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
+set splitbelow                          " Horizontal splits will automatically be below
+set iskeyword+=-                      	" treat dash separated words as a word text object"
+set formatoptions-=jql                              " Stop newline continution of comments
 set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=2                           " Insert 2 spaces for a tab
@@ -29,12 +30,12 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
-set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
-"set autochdir                           " Your working directory will always be the same as your working directory
 set ignorecase
 set noshowmode
+" set autochdir                           " Your working directory will always be the same as your working directory
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " You can't stop me
 cmap w!! w !sudo tee %

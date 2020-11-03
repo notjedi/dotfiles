@@ -1,6 +1,9 @@
+" g Leader key
+let mapleader=" "
+
 " Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+inoremap <expr> <C-j> ("\<C-n>")
+inoremap <expr> <C-k> ("\<C-p>")
 
 " Use alt + hjkl to resize windows
 nnoremap <M-j>    :resize -2<CR>
@@ -20,14 +23,19 @@ inoremap <M-w>    <C-O>w
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+" Remove highlight after search
+nnoremap // :noh<CR>
+
 " Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
+" inoremap <C-u> <ESC>viwUi
+nnoremap <C-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
+" Close tab
+nnoremap <C-x> :bd<CR>
 
 " Alternate way to save
 nnoremap <C-s> :w<CR>
@@ -42,6 +50,12 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 vnoremap < <gv
 vnoremap > >gv
 
+" Move selected line / block of text in visual mode
+" shift + k to move up
+" shift + j to move down
+xnoremap K :move '<-2<CR>gv-gv
+xnoremap J :move '>+1<CR>gv-gv
+
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -52,5 +66,11 @@ nnoremap <C-l> <C-w>l
 inoremap <silent> <Esc> <C-O>:stopinsert<CR>
 " inoremap <silent> <Esc> <Esc>`^ " This works too
 
+" See history
+nmap <Leader>h :History:<CR>
+
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
+
+" Run code
+nnoremap <F5> :!python3 %<CR>

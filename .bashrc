@@ -114,6 +114,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+source /usr/share/doc/fzf/examples/completion.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
 export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/scripts/polybar:$PATH"
 export PATH="$HOME/src/android-studio/bin:$PATH"
