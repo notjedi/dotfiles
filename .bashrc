@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000000000
+HISTSIZE=10000000000000
 HISTFILESIZE=2000
 
 # vi-mode in bash
@@ -149,6 +149,13 @@ fi
 # Functions
 
 se() { du -a --exclude=coc --exclude=notion-desktop ~/scripts/ ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR; }
+
+allUpdate() { 
+    sudo apt update
+    sudo apt upgrade -y
+    pip list --outdated | tail -n +3 | awk '{print $1}' | xargs -r -i'{}' pip install --upgrade {} || true 
+    sudo youtube-dl -U
+}
 
 codi() {
    local syntax="${1:-python}"

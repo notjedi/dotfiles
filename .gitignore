@@ -1,3 +1,5 @@
 .config/ranger/__pycache__/*
 .config/mpv/watch_later/*
 .config/nvim/autoload/plugged
+.config/nvim/session
+tags

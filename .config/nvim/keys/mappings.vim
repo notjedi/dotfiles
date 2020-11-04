@@ -41,6 +41,7 @@ nnoremap <C-x> :bd<CR>
 nnoremap <C-s> :w<CR>
 " Alternate way to quit
 nnoremap <C-Q> :q!<CR>
+nnoremap <Leader>q :q<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
 " <TAB>: completion.
@@ -67,10 +68,16 @@ inoremap <silent> <Esc> <C-O>:stopinsert<CR>
 " inoremap <silent> <Esc> <Esc>`^ " This works too
 
 " See history
-nmap <Leader>h :History:<CR>
+nmap <leader>h :History:<CR>
+
+" Lazygit
+nmap <leader>fg :FloatermNew lazygit<CR>
+nmap <leader>fp :FloatermNew python3<CR>
+nmap <leader>fs :FloatermNew ncdu<CR>
+nmap <leader>fb :FloatermNew bpytop<CR>
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
 " Run code
-nnoremap <F5> :!python3 %<CR>
+nnoremap <Leader>w :FloatermNew --autoclose=0 python3 %<CR>

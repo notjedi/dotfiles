@@ -33,7 +33,7 @@ colors:
   primary:
     background: "#282c34"
     foreground: "#abb2bf"
-    # background: '#1e2127'
+    # background: '#1E2028'
 
   # Normal colors
   normal:
@@ -79,6 +79,7 @@ font:
 
 # Custom key bindings
 key_bindings:
-  - { key: V, mods: Control, action: Paste }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: C, mods: Alt|Shift, action: Copy }
   - { key: Q, mods: Control|Shift, action: Quit }
-  - { key: N, mods: Control, action: SpawnNewInstance }
+  - { key: N, mods: Control|Shift, action: SpawnNewInstance }

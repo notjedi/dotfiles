@@ -2,63 +2,58 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  " Auto install plugins while entering vim
   " autocmd VimEnter * PlugInstall
   " autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    " Better Syntax Support
+    " Syntax and intellisense
     Plug 'sheerun/vim-polyglot'
-    " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
-    " OneDark Theme
-    Plug 'joshdick/onedark.vim'
-    " Coc for intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    " Airline
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    " Ranger Plugin
-    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-    " SpaceCamp Theme
+    Plug 'honza/vim-snippets'
+    
+    " Themes
+    Plug 'dracula/vim'
+    Plug 'joshdick/onedark.vim'
     Plug 'jaredgorski/spacecamp'
-    " Lucid Theme
     Plug 'cseelus/vim-colors-lucid'
-    " Shades of Purple Theme
+    Plug 'rafi/awesome-vim-colorschemes'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'Rigellute/shades-of-purple.vim'
-    " Material Theme 
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-    " Colorizer
-    Plug 'norcalli/nvim-colorizer.lua'
-    " Rainbow Parentheses
-    Plug 'junegunn/rainbow_parentheses.vim'
-    " Startify
+    
+    " Aesthetics 
     Plug 'mhinz/vim-startify'
-    " Cool Icons
     Plug 'ryanoasis/vim-devicons'
+    Plug 'vim-airline/vim-airline'
+    Plug 'junegunn/rainbow_parentheses.vim'
+    
+    " Navigation
+    Plug 'junegunn/fzf.vim'
+    Plug 'justinmk/vim-sneak'
+    Plug 'airblade/vim-rooter'
+    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    " Plug 'scrooloose/NERDTree'
+    
     " Git
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
-    " FZF
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
-    " Sneak
-    Plug 'justinmk/vim-sneak'
-    "vim-which-key
-    Plug 'liuchengxu/vim-which-key'
-    Plug 'honza/vim-snippets'
-    Plug 'metakirby5/codi.vim'
-    
-    Plug 'godlygeek/tabular'
-    " Plug 'plasticboy/vim-markdown'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'dracula/vim'
 
-    call plug#end()
-    " File Explorer
-    " Plug 'scrooloose/NERDTree'
+    " Markdown
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    " Plug 'plasticboy/vim-markdown'
+
+    " Misc
+    Plug 'metakirby5/codi.vim'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'voldikss/vim-floaterm'
+    Plug 'liuchengxu/vim-which-key'
+    Plug 'norcalli/nvim-colorizer.lua'
+    
+
+call plug#end()
