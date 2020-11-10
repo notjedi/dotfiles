@@ -9,10 +9,12 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    " Syntax and intellisense
-    Plug 'sheerun/vim-polyglot'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Syntax, intellisense and snippets
     Plug 'honza/vim-snippets'
+    Plug 'tpope/vim-commentary'
+    Plug 'sheerun/vim-polyglot'
+    " Plug 'preservim/nerdcommenter'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     
     " Themes
     Plug 'dracula/vim'
@@ -34,6 +36,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'justinmk/vim-sneak'
     Plug 'airblade/vim-rooter'
+    Plug 'unblevable/quick-scope'
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     " Plug 'scrooloose/NERDTree'

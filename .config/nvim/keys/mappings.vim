@@ -47,6 +47,17 @@ nnoremap <C-c> <Esc>
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" NerdCommenter
+" https://stackoverflow.com/a/48690620
+" nmap <C-_> <Plug>NERDCommenterToggle
+" vmap <C-_> <Plug>NERDCommenterToggle
+
+" vim-commentery
+nmap <C-_> gcc
+vmap <C-_> gcc
+nmap cap gcap
+vmap cap gcap
+
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv

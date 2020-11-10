@@ -1,1 +1,4 @@
 # dotfiles
+
+![dotfiles](/dot.png)
+

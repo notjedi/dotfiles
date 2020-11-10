@@ -3,3 +3,4 @@
 .config/nvim/autoload/plugged
 .config/nvim/session
 tags
+*.log

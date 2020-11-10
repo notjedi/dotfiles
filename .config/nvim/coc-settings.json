@@ -26,7 +26,20 @@
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
-  }
+  },
+
+  "codeLens.enable": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.referencesCodeLens.enabled": true,
+  "java.completion.enabled": true,
+  "diagnostic.virtualText": true,
+  "suggest.snippetIndicator": "",
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "➤",
+  "diagnostic.refreshOnInsertMode": true,
+  "signature.enable": true
 
   // "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
 }
