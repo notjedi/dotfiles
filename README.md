@@ -1,4 +1,5 @@
 # dotfiles
 
-![dotfiles](/dot.png)
-
+<p align="center">
+<img src=".github/dot.png">
+</p>

@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000000000000
-HISTFILESIZE=2000
+HISTSIZE=15
+HISTFILESIZE=-1
 
 # vi-mode in bash
 set -o vi
