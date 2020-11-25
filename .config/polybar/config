@@ -121,18 +121,25 @@ label-urgent-padding = 2
 [module/cpu]
 type = internal/cpu
 interval = 2
+
 format-prefix = "💻 "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
 
+
 [module/memory]
-type = internal/memory
+;type = internal/memory
+type = custom/script
+exec = $HOME/scripts/getmem
 interval = 2
+
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix = "💾 "
 format-underline = #4bffdc
-label = %percentage_used%%
+;label = %gb_used%
+
+click-left = notify-send "Mem hogs:" "\n$(/home/jedi/scripts/memintensive)"
 
 [module/date]
 type = internal/date
@@ -191,6 +198,8 @@ internal = 3
 format-warn-underline = ${self.format-underline}
 
 label-warn-foreground = ${colors.secondary}
+
+click-left = notify-send "CPU hogs:" "$(/home/jedi/scripts/cpuintensive)"
 
 [module/powermenu]
 type = custom/menu

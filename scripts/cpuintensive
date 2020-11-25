@@ -1,1 +1,3 @@
 #!/usr/bin/env bash
+
+ps axch -o cmd:20,%cpu --sort=-%cpu | head -n 15
