@@ -17,7 +17,7 @@ shopt -s histappend
 shopt -s autocd
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=15
+HISTSIZE=-1
 HISTFILESIZE=-1
 
 # vi-mode in bash
@@ -29,9 +29,6 @@ bind '"jk":vi-movement-mode'
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# Starship prompt
-# eval "$(starship init bash)"
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -111,22 +108,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+[ -f ~/.aliases ] && . ~/.aliases
 
 source /usr/share/doc/fzf/examples/completion.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
-
-export PATH="$HOME/scripts:$PATH"
-export PATH="$HOME/scripts/polybar:$PATH"
-export PATH="$HOME/src/android-studio/bin:$PATH"
-
-# changing directory colors for 'ls' on hdd
-export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
-
-export PF_INFO="ascii title os kernel uptime pkgs memory palette"
-export PF_ASCII="linux"
 
 export GIT_PS1_SHOWCOLORHINTS=1 
 export GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -144,8 +129,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# eval "$(starship init bash)"
 
 # Functions
 

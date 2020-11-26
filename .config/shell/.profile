@@ -9,12 +9,12 @@
 #umask 022
 
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+# if [ -n "$BASH_VERSION" ]; then
+#     # include .bashrc if it exists
+#     if [ -f "$HOME/.bashrc" ]; then
+# 	. "$HOME/.bashrc"
+#     fi
+# fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -27,6 +27,16 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# changing directory colors for 'ls' on hdd
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+
+export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/scripts/polybar:$PATH"
+export PATH="$HOME/src/android-studio/bin:$PATH"
+
+export PF_INFO="ascii title os kernel uptime pkgs memory palette"
+export PF_ASCII="linux"
 
 export EDITOR="nvim"
 export READER="zathura"
