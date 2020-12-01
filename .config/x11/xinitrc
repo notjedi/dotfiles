@@ -1,0 +1,7 @@
+remapcaps &
+xset r rate 250 45 &
+xdotool key Num_Lock &
+randomWallpaper &
+redshift -O 2700 &
+
+exec dbus-launch i3

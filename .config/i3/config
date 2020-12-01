@@ -181,8 +181,8 @@ bindsym $mod+Return             exec alacritty -t Alacritty
 bindsym $mod+r                  exec rofi -show drun -show-icons -lines 5 -width 30 
 
 ### Flameshot
-bindsym $mod+y                  exec flameshot gui --path $HDD/Screenshots
-bindsym --release Print         exec flameshot full --path $HDD/Screenshots
+bindsym $mod+y                  exec flameshot gui --path $HDD/screenshots
+bindsym --release Print         exec flameshot full --path $HDD/screenshots
 
 ### Greenclip
 bindsym $mod+g                  exec rofi -modi "greenclip:greenclip print" -show greenclip -run-command '{cmd}' -width 30 -lines 5
@@ -196,21 +196,15 @@ bindsym $mod+x                  mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 # Startup programs
 
 ## Start polybar, compton and redshift
-exec --no-startup-id polybar pbar -r &
-exec --no-startup-id compton --config ~/.config/compton.conf
-exec --no-startup-id redshift -O 2700
+exec --no-startup-id polybar master -rq &
+# exec --no-startup-id compton --config ~/.config/compton.conf
 
 ## Custom scripts
-exec_always --no-startup-id $HOME/scripts/randomWallpaper 
 exec --no-startup-id $HOME/scripts/i3/i3autofloatws
 exec --no-startup-id python3 $HOME/scripts/randomTheme.py
-exec --no-startup-id $HOME/scripts/remapcaps
 
 ## Greenclip and keyboard settings
 exec --no-startup-id greenclip daemon
-exec --no-startup-id xset r rate 250 45
-exec --no-startup-id xdotool key Num_Lock
-
 
 # Startup apps
 exec alacritty -t Alacritty

@@ -1,42 +1,82 @@
-alias v="nvim"
-alias l="ls -A"
-alias pip="pip3"
-alias r="ranger"
-alias ..="cd .."
-alias pop="popd"
-alias tr="transmission-remote"
+#!/bin/zsh
+
+# verbose aliases
 alias rm="rm -i"
-alias push="pushd"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+alias mkd="mkdir -pv"
+
+# git aliases
+alias g="git"
 alias ga="git add"
-alias ll='ls -alF'
 alias gp="git push"
-alias ...="cd ../.."
-alias btop="bpytop"
 alias gs="git status"
 alias gc="git commit"
-alias cdmnt="cd $HDD"
+
+# ls aliases
+alias l="ls -A"
+alias ll='ls -alF'
+
+# colorize aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# cd aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ccon="cd $HOME/.config"
+alias chd="cd $HDD"
+alias cco="cd $HDD/Code"
+alias cdd="cd $HDD/Documents"
+alias cdt="cd $HDD/Code/dotfiles"
+alias csc="cd $HDD/screenshots"
+alias caoc="cd $HDD/Code/aoc"
+alias cwal="cd $HDD/wallpapers"
+
+# ranger aliases
+alias rh="ranger $HOME"
 alias rr="ranger $HDD"
+alias rimg="ranger $HDD/Images"
+alias rd="ranger $HDD/Documents"
+alias rmo="ranger $HDD/movies"
+alias rsc="ranger $HDD/screenshots"
+alias rwal="ranger $HDD/wallpapers"
+
+# pacman aliases
+alias p="sudo pacman"
+
+# program aliases
+alias v="nvim"
+alias pip="pip3"
+alias ka="killall"
+alias r="ranger"
+alias btop="bpytop"
 alias python="python3"
 alias sn="sudo -E nvim"
-alias cco="cd $HDD/Code"
-alias list="l | grep -i"
-alias ....="cd ../../.."
-alias conf="cd $HOME/.config"
-alias rmo="ranger $HDD/movies"
-alias fig="figlet -f ansishadow"
-alias cdt="cd $HDD/Code/dotfiles"
-alias caps="xdotool key Caps_Lock"
-alias rsc="ranger $HDD/Screenshots"
+alias tr="transmission-remote"
 alias screenkey="screenkey -s small"
 alias alacritty="alacritty -t Alacritty"
-alias dufolder="du -ah --max-depth=1 | sort -rh"
-alias rwal="ranger $HDD/Wallpapers/desktop"
-alias proj="cd $HDD/Code/Attendance-Manager/; git status"
+alias startx="startx ~/.config/x11/xinitrc"
 alias rw="feh --bg-fill --randomize $HDD/ChrisWallpapers"
-alias flame="flameshot full --path $HDD/Screenshots -d 3000"
 alias android-studio="nohup studio.sh </dev/null &>/dev/null &"
+
+# work
+alias proj="cd $HDD/Code/Attendance-Manager/; git status"
 alias pixel-3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"
+alias build="adb install $HDD/Code/Attendance-Manager/app/build/outputs/apk/debug/app-debug.apk"
 alias pixel-3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu host"
 alias cout="cd /mnt/Seagate/Code/Attendance-Manager/app/build/outputs/apk/debug"
-alias build="adb install $HDD/Code/Attendance-Manager/app/build/outputs/apk/debug/app-debug.apk"
+
+# misc
+alias pop="popd"
+alias push="pushd"
+alias list="l | grep -i"
+alias fig="figlet -f ansishadow"
+alias caps="xdotool key Caps_Lock"
+alias usage="du -ah --max-depth=1 | sort -rh"
 alias recordscreen="ffmpeg -f x11grab -an -s hd1080 -r 25 -v:b 23000 -i :0.0 -g 1 -q:v 0.1 -vcodec libxvid $HDD/Screenshots/screenCapture.mp4"
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
