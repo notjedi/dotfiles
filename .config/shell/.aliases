@@ -5,6 +5,7 @@ alias rm="rm -i"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -vI"
+alias ln="ln -v"
 alias mkd="mkdir -pv"
 
 # git aliases
@@ -53,10 +54,13 @@ alias p="sudo pacman"
 # program aliases
 alias v="nvim"
 alias pip="pip3"
+alias high="highlight --out-format=ansi"
 alias ka="killall"
+alias sudb="sudo updatedb"
 alias r="ranger"
 alias btop="bpytop"
 alias python="python3"
+alias sv="sudo nvim"
 alias sn="sudo -E nvim"
 alias tr="transmission-remote"
 alias screenkey="screenkey -s small"
@@ -73,6 +77,7 @@ alias pixel-3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu
 alias cout="cd /mnt/Seagate/Code/Attendance-Manager/app/build/outputs/apk/debug"
 
 # misc
+alias s="sudo"
 alias pop="popd"
 alias push="pushd"
 alias list="l | grep -i"
