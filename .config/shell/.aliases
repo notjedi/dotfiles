@@ -39,6 +39,7 @@ alias cwal="cd $HDD/wallpapers"
 
 # ranger aliases
 alias rh="ranger $HOME"
+alias rcon="ranger $HOME/.config"
 alias rr="ranger $HDD"
 alias rimg="ranger $HDD/Images"
 alias rd="ranger $HDD/Documents"
