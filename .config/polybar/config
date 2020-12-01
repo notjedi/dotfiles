@@ -139,7 +139,7 @@ format-prefix = "💾 "
 format-underline = #4bffdc
 ;label = %gb_used%
 
-click-left = notify-send "Mem hogs:" "\n$(/home/jedi/scripts/memintensive)"
+click-left = notify-send "Mem hogs:" "\n$($HOME/scripts/memintensive)"
 
 [module/date]
 type = internal/date
@@ -199,7 +199,7 @@ format-warn-underline = ${self.format-underline}
 
 label-warn-foreground = ${colors.secondary}
 
-click-left = notify-send "CPU hogs:" "$(/home/jedi/scripts/cpuintensive)"
+click-left = notify-send "CPU hogs:" "\n$($HOME/scripts/cpuintensive)"
 
 [module/powermenu]
 type = custom/menu

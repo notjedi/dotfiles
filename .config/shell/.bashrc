@@ -19,6 +19,7 @@ shopt -s autocd
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=-1
 HISTFILESIZE=-1
+HISTFILE=~/.cache/bash/history
 
 # vi-mode in bash
 set -o vi
@@ -71,7 +72,8 @@ if [ "$color_prompt" = yes ]; then
     # PS1='\[\033[01;34m\]\W \[\033[00m\]➜ '
     PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h \[\033[01;34m\]\W$(__git_ps1 " (%s)") \[\033[00m\]➜ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h \[\033[01;34m\]\W$(__git_ps1 " (%s)") \[\033[00m\]➜ '
+    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -103,15 +105,20 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# changing directory colors for 'ls' on hdd
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-[ -f ~/.aliases ] && . ~/.aliases
+[ -f ~/.config/shell/.aliases ] && . ~/.config/shell/.aliases
 
-source /usr/share/doc/fzf/examples/completion.bash
-source /usr/share/doc/fzf/examples/key-bindings.bash
+[ -f /usr/share/git/completion/git-prompt.sh ] && . /usr/share/git/completion/git-prompt.sh
+
+[ -f /usr/share/doc/fzf/examples/completion.bash ] && source /usr/share/doc/fzf/examples/completion.bash
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
 export GIT_PS1_SHOWCOLORHINTS=1 
 export GIT_PS1_SHOWUNTRACKEDFILES=1

@@ -1,2 +1,6 @@
 rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
-rofi.terminal: gnome-terminal 
+rofi.terminal: alacritty
+
+element-icon {
+    size:   2.0ch ;
+}

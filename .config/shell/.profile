@@ -35,9 +35,6 @@ export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/scripts/polybar:$PATH"
 export PATH="$HOME/src/android-studio/bin:$PATH"
 
-export PF_INFO="ascii title os kernel uptime pkgs memory palette"
-export PF_ASCII="linux"
-
 export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
@@ -48,3 +45,14 @@ export BROWSER="brave-browser"
 export COLORTERM="truecolor"
 export PAGER="less"
 export WM="i3"
+
+export PF_INFO="ascii title os kernel uptime pkgs memory palette"
+# export PF_ASCII="linux"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export LESSHISTFILE="-"
+
+if [[ "$(tty)" = "/dev/tty1" ]]; then
+    pgrep i3 || startx $HOME/.config/x11/xinitrc
+fi

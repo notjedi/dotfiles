@@ -7,4 +7,4 @@ if [[ -d "$dirname/$file" ]]; then
   file="$file/$(ls -A "$dirname"/"$file" | shuf -n 1)"
 fi
 
-feh --bg-fill "$dirname"/"$file"
+xwallpaper --zoom "$dirname"/"$file"

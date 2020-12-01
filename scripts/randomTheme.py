@@ -9,7 +9,7 @@ import subprocess
 # List of themes and color schemes to choose from
 listOfThemes = ['Material-Ocean', "Bloody", "Dribbblish", "DeepCoral", "Gradianto",
                 "Lovelace", "NoSleep", "OnePunch", "OutrunDark", "TychoAwake",
-                "Vaporwave", "Dark", "Dracula", "Nord", "Arc-Dark"]
+                "Vaporwave", "Dark"]
 listOfColorSchemes = {"Dribbblish": ['base', 'dark', 'dracula', 'nord-dark', "purple",
                                      'nord-light', 'samourai', 'white', "gruvbox", "horizon"],
                       "Vaporwave": ["NewRetro", "SeaPunk"]}

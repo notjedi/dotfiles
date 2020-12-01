@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 STATUS=$(playerctl status 2> /dev/null)
 

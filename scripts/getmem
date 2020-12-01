@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 free -h | awk '/^Mem:/ {print $3}' | sed "s/i//"

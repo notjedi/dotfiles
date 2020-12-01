@@ -53,6 +53,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Misc
     Plug 'metakirby5/codi.vim'
+    Plug 'junegunn/goyo.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key'
