@@ -201,10 +201,9 @@ exec --no-startup-id polybar master -rq &
 
 ## Custom scripts
 exec --no-startup-id $HOME/scripts/i3/i3autofloatws
-exec --no-startup-id python3 $HOME/scripts/randomTheme.py
 
 ## Greenclip and keyboard settings
-exec --no-startup-id greenclip daemon
+# exec --no-startup-id greenclip daemon
 
 # Startup apps
 exec alacritty -t Alacritty

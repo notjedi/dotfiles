@@ -1,10 +1,9 @@
 #!/bin/zsh
 
 # verbose aliases
-alias rm="rm -i"
+alias rm="rm -vi"
 alias cp="cp -iv"
 alias mv="mv -iv"
-alias rm="rm -vI"
 alias ln="ln -v"
 alias mkd="mkdir -pv"
 

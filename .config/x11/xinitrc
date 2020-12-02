@@ -3,5 +3,6 @@ xset r rate 300 45 &
 xdotool key Num_Lock &
 randomWallpaper &
 redshift -O 2700 &
+randomWallpaper &
 
 exec dbus-launch i3

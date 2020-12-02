@@ -43,7 +43,7 @@ export TERMINAL="alacritty"
 export HDD="/mnt/Seagate"
 export BROWSER="brave"
 export COLORTERM="truecolor"
-export PAGER="less"
+export PAGER="most"
 export WM="i3"
 
 export PF_INFO="ascii title os kernel uptime pkgs memory palette"

@@ -1,6 +1,2 @@
-rofi.theme: /usr/share/rofi/themes/Pop-Dark.rasi
 rofi.terminal: alacritty
-
-element-icon {
-    size:   2.0ch ;
-}
+rofi.theme: /home/jedi/.config/rofi/material-ocean
