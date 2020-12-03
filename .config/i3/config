@@ -200,7 +200,7 @@ exec --no-startup-id polybar master -rq &
 # exec --no-startup-id compton --config ~/.config/compton.conf
 
 ## Custom scripts
-exec --no-startup-id $HOME/scripts/i3/i3autofloatws
+# exec --no-startup-id $HOME/scripts/i3/i3autofloatws
 
 ## Greenclip and keyboard settings
 # exec --no-startup-id greenclip daemon

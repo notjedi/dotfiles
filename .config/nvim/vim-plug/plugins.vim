@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'jaredgorski/spacecamp'
     Plug 'cseelus/vim-colors-lucid'
+    Plug 'hzchirs/vim-material'
     Plug 'rafi/awesome-vim-colorschemes'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'Rigellute/shades-of-purple.vim'

@@ -82,6 +82,7 @@ inoremap <silent> <Esc> <C-O>:stopinsert<CR>
 nmap <leader>h :History:<CR>
 
 nmap <leader>v :Goyo<CR>
+nnoremap <Leader>w :w<CR>
 
 " Floaterm
 nmap <leader>fg :FloatermNew lazygit<CR>
@@ -93,5 +94,5 @@ nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
 " Run code
-nnoremap <Leader>w :FloatermNew --autoclose=0 python3 %<CR>
+nnoremap <Leader>d :FloatermNew --autoclose=0 python3 %<CR>
 " nnoremap <Leader>wc :FloatermNew --autoclose=0 g++

@@ -22,14 +22,17 @@ if [ "$currentTheme" == "Dribbblish" ]; then
 fi
 
 if [ "$randomTheme" == "Dribbblish" ]; then
+
     colorScheme=${dribbblish[$RANDOM % ${#dribbblish[@]}]}
     spicetify config color_scheme $colorScheme
     spicetify config extensions dribbblish.js
-    echo $colorScheme
+    notify-send -u low "Spicetify" "Current theme: $randomTheme\t Color scheme: $colorScheme\nPrevious theme: $currentTheme"
 elif [ "$randomTheme" == "Vaporwave" ]; then
+
     colorScheme=${vaporwave[$RANDOM % ${#vaporwave[@]}]}
     spicetify config color_scheme $colorScheme
-    echo $colorScheme
+    notify-send -u low "Spicetify" "Current theme: $randomTheme\t Color scheme: $colorScheme\nPrevious theme: $currentTheme"
 else
     spicetify config color_scheme "''"
+    notify-send -u low "Spicetify" "Current theme: $randomTheme\nPrevious theme: $currentTheme"
 fi

@@ -23,9 +23,10 @@ plugins=(
     git
     dirhistory
     zsh-autosuggestions
-    # z
-    # extract
+    colored-man-pages
     # last-working-dir
+    # extract
+    # z
     )
 
 source $ZSH/oh-my-zsh.sh
