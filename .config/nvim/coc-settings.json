@@ -39,7 +39,8 @@
   "diagnostic.infoSign": "ℹ",
   "diagnostic.hintSign": "➤",
   "diagnostic.refreshOnInsertMode": true,
-  "signature.enable": true
+  "signature.enable": true,
+  "clangd.path": "/home/jedi/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 
   // "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/utils/snips"]
 }

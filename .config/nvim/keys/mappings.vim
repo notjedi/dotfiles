@@ -94,5 +94,5 @@ nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
 " Run code
-nnoremap <Leader>d :FloatermNew --autoclose=0 python3 %<CR>
-" nnoremap <Leader>wc :FloatermNew --autoclose=0 g++
+autocmd filetype python nnoremap <Leader>d :FloatermNew --autoclose=0 python3 %<CR>
+autocmd filetype cpp nnoremap <Leader>d :FloatermNew --autoclose=0 g++ % && ./a.out<CR>
