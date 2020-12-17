@@ -18,7 +18,7 @@
 ## MPD clients (eg. ncmpc) also use that location.
 ##
 #
-#lyrics_directory = ~/.lyrics
+lyrics_directory = ~/.cache/.lyrics
 #
 ##### connection settings #####
 #
@@ -30,7 +30,7 @@
 #
 ## Needed for tag editor and file operations to work.
 ##
-#mpd_music_dir = ~/music
+mpd_music_dir = /mnt/Seagate/Music
 #
 #mpd_crossfade_time = 5
 #

@@ -44,6 +44,7 @@ export HDD="/mnt/Seagate"
 export BROWSER="brave"
 export COLORTERM="truecolor"
 export PAGER="most"
+export TERM="xterm-256color"
 export WM="i3"
 
 export PF_INFO="ascii title os kernel uptime pkgs memory palette"
