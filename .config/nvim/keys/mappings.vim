@@ -94,8 +94,9 @@ nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
 " Run code
-autocmd filetype python nnoremap <Leader>d :FloatermNew --autoclose=0 python3 %<CR>
+autocmd FileType python nnoremap <Leader>d :FloatermNew --autoclose=0 python3 %<CR>
 " compile with same filename
-autocmd filetype cpp nnoremap <Leader>d :FloatermNew --autoclose=0 g++ % -o %<.out && ./%<.out <CR>
+autocmd FileType cpp,cc nnoremap <Leader>d :FloatermNew --autoclose=0 g++ % -o %<.out && ./%<.out <CR>
+autocmd FileType c nnoremap <Leader>d :FloatermNew --autoclose=0 gcc % -o %<.out && ./%<.out <CR>
 " without -o flag - default which is a.out
 " autocmd filetype cpp nnoremap <Leader>d :FloatermNew --autoclose=0 g++ % && ./a.out<CR>

@@ -37,7 +37,12 @@ set termguicolors                       " enable 256 bit color support"
 set cursorline                          " highlight current line
 set autochdir                           " Your working directory will always be the same as your working directory
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+
 autocmd FileType json setlocal commentstring=//\ %s
+" autocmd FileType c,cpp,cc
+"     \ autocmd BufWritePre normal gg=G
+" autocmd BufWritePre *.cpp normal gg=G
+" autocmd BufWritePre *.cc normal gg=G
 " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " autocmd VimEnter * colorscheme dracula
 

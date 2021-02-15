@@ -175,7 +175,7 @@ format-prefix = "💾 "
 format-underline = #4bffdc
 ;label = %gb_used%
 
-click-left = notify-send -u low "Mem hogs:" "\n$($HOME/scripts/memintensive)"
+click-left = notify-send -u low "Mem hogs:" "\n$($HOME/scripts/polybar/memintensive)"
 
 [module/date]
 type = internal/date
@@ -235,7 +235,7 @@ format-warn-underline = ${self.format-underline}
 
 label-warn-foreground = ${colors.secondary}
 
-click-left = notify-send -u low "CPU hogs:" "\n$($HOME/scripts/cpuintensive)"
+click-left = notify-send -u low "CPU hogs:" "\n$($HOME/scripts/polybar/cpuintensive)"
 
 [module/powermenu]
 type = custom/menu

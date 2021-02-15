@@ -1,22 +1,3 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
-
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
-# if running bash
-# if [ -n "$BASH_VERSION" ]; then
-#     # include .bashrc if it exists
-#     if [ -f "$HOME/.bashrc" ]; then
-# 	. "$HOME/.bashrc"
-#     fi
-# fi
-
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -43,7 +24,7 @@ export TERMINAL="alacritty"
 export HDD="/mnt/Seagate"
 export BROWSER="brave"
 export COLORTERM="truecolor"
-export PAGER="most"
+export PAGER="less"
 export TERM="xterm-256color"
 export WM="i3"
 
@@ -75,6 +56,7 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export VSCODE_EXTENSIONS="$HOME/.cache/vscode/extensions"
 export LESSHISTFILE="-"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep Xorg && startx $HOME/.config/x11/xinitrc

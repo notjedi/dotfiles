@@ -1,7 +1,8 @@
 remapcaps &
 xset r rate 300 45 &
 xdotool key Num_Lock &
-redshift -O 2700 &
+redshift -O 2600 &
+xrdb .config/x11/.Xresources
 randomTheme &
 randomWallpaper &
 

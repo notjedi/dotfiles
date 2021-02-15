@@ -36,3 +36,5 @@ else
     spicetify config color_scheme "''"
     notify-send -u low "Spicetify" "Current theme: $randomTheme\nPrevious theme: $currentTheme"
 fi
+
+spicetify update
