@@ -56,6 +56,7 @@ alias p="doas pacman"
 # program aliases
 alias v="nvim" \
     pip="pip3" \
+    goo="tuxi" \
     high="highlight --out-format=ansi" \
     ka="killall" \
     sudb="doas updatedb" \
@@ -85,6 +86,7 @@ alias proj="cd $HDD/Code/Attendance-Manager/; git status" \
 
 # misc
 alias s="doas" \
+    pipup="pip list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' pip install --upgrade {} || true" \
     pop="popd" \
     push="pushd" \
     list="l | grep -i" \
