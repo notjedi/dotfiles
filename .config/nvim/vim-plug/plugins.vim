@@ -59,6 +59,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key'
     Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
     
 
 call plug#end()

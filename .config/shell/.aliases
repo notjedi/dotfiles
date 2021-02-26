@@ -5,6 +5,7 @@ alias rm="rm -vi" \
     cp="cp -iv" \
     mv="mv -iv" \
     ln="ln -v" \
+    less="less -I" \
     mkd="mkdir -pv"
 
 # git aliases
@@ -51,7 +52,14 @@ alias rh="ranger $HOME" \
     rwal="ranger $HDD/wallpapers"
 
 # pacman aliases
-alias p="doas pacman"
+alias p="doas pacman" \
+    lspacs="pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $ 4$ 5, name}' | sort -hr" \
+    lsorphan="pacman -Qtdq"
+
+
+# mining
+alias eth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.Worker:@asia1.ethermine.org:4444 -R --display-interval 30 --HWMON 1" \
+    cth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx580@cthpool.net:8008"
 
 # program aliases
 alias v="nvim" \
