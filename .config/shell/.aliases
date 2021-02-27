@@ -67,6 +67,7 @@ alias v="nvim" \
     goo="tuxi" \
     high="highlight --out-format=ansi" \
     ka="killall" \
+    yout="straw-viewer" \
     sudb="doas updatedb" \
     r="ranger" \
     cls="clear" \
