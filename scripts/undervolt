@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-
-doas sh -c "echo 's 7 1350 1000' > /sys/class/drm/card0/device/pp_od_clk_voltage"
-doas sh -c "echo 's 6 1300 990' > /sys/class/drm/card0/device/pp_od_clk_voltage"
-doas sh -c "echo 's 5 1250 980' > /sys/class/drm/card0/device/pp_od_clk_voltage"
-doas sh -c "echo 's 4 1215 970' > /sys/class/drm/card0/device/pp_od_clk_voltage"
-doas sh -c "echo 's 3 1145 960' > /sys/class/drm/card0/device/pp_od_clk_voltage"
-doas sh -c "echo 'c' > /sys/class/drm/card0/device/pp_od_clk_voltage"

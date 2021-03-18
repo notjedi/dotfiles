@@ -7,14 +7,15 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 # changing directory colors for 'ls' on hdd
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 export PATH="$HOME/scripts:$PATH"
 export PATH="$HOME/scripts/polybar:$PATH"
-export PATH="$HOME/src/android-studio/bin:$PATH"
 
 export EDITOR="nvim"
 export READER="zathura"

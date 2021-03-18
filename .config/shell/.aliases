@@ -36,6 +36,10 @@ alias ..="cd .." \
     cdt="cd $HDD/Code/dotfiles" \
     csc="cd $HDD/screenshots" \
     cwal="cd $HDD/wallpapers"
+    caoc="cd $HDD/Code/cp/aoc" \
+    cler="cd $HDD/Code/cp/euler" \
+    cses="cd $HDD/Code/cp/cses" \
+    ccp="cd $HDD/Code/cp"
 
 # ranger aliases
 alias rh="ranger $HOME" \
@@ -58,8 +62,9 @@ alias p="doas pacman" \
 
 
 # mining
-alias eth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.Worker:@asia1.ethermine.org:4444 -R --display-interval 30 --HWMON 1" \
-    cth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx580@cthpool.net:8008"
+alias eth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx580:@asia1.ethermine.org:4444 -R --display-interval 30 --HWMON 1" \
+    hiveth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx580:@aspac1-eth.hiveon.net:4444 --display-interval 30 --HWMON 1 --report-hashrate" \
+    xmr="doas xmrig"
 
 # program aliases
 alias v="nvim" \
@@ -67,7 +72,7 @@ alias v="nvim" \
     goo="tuxi" \
     high="highlight --out-format=ansi" \
     ka="killall" \
-    yout="straw-viewer" \
+    yout="pipe-viewer" \
     sudb="doas updatedb" \
     r="ranger" \
     cls="clear" \
@@ -78,29 +83,18 @@ alias v="nvim" \
     trr="transmission-remote" \
     screenkey="screenkey -s small" \
     alacritty="alacritty -t Alacritty" \
-    startx="startx ~/.config/x11/xinitrc" \
-    rw="feh --bg-fill --randomize $HDD/ChrisWallpapers" \
-    android-studio="nohup studio.sh </dev/null &>/dev/null &"
-
-# work
-alias proj="cd $HDD/Code/Attendance-Manager/; git status" \
-    ccp="cd $HDD/Code/cp" \
-    caoc="cd $HDD/Code/cp/aoc" \
-    cler="cd $HDD/Code/cp/euler" \
-    cses="cd $HDD/Code/cp/cses" \
-    pixel-3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
-    build="adb install $HDD/Code/Attendance-Manager/app/build/outputs/apk/debug/app-debug.apk" \
-    pixel-3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu host" \
-    cout="cd /mnt/Seagate/Code/Attendance-Manager/app/build/outputs/apk/debug"
+    startx="startx ~/.config/x11/xinitrc"
 
 # misc
 alias s="doas" \
-    pipup="pip list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' pip install --upgrade {} || true" \
     pop="popd" \
     push="pushd" \
-    list="l | grep -i" \
+    fi="l | grep -i" \
     fig="figlet -f ansishadow" \
     caps="xdotool key Caps_Lock" \
     usage="du -ah --max-depth=1 | sort -rh" \
+    pipup="pip list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' pip install --upgrade {} || true" \
+    pixel-3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
+    pixel-3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu host" \
     recordscreen="ffmpeg -f x11grab -an -s hd1080 -r 25 -v:b 23000 -i :0.0 -g 1 -q:v 0.1 -vcodec libxvid $HDD/Screenshots/screenCapture.mp4" \
     alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

@@ -21,7 +21,7 @@ DISABLE_AUTO_TITLE="true"
 
 plugins=(
     git
-    dirhistory
+    # dirhistory
     zsh-autosuggestions
     colored-man-pages
     # last-working-dir

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+file="/sys/class/drm/card0/device/pp_od_clk_voltage"
+
+echo 's 7 1350 970' > $file
+echo 's 6 1300 960' > $file
+echo 's 5 1250 950' > $file
+echo 's 4 1215 940' > $file
+echo 's 3 1145 930' > $file
+echo 's 2 900 810' > $file
+echo 'c' > $file
