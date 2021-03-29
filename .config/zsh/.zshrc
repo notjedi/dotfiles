@@ -22,9 +22,12 @@ zstyle ':vcs_info:*' enable git svn
 precmd() {
     vcs_info
 }
-autoload -U compinit && compinit && _comp_options+=(globdots)
+autoload -U compinit && compinit
+_comp_options+=(globdots)
 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:approximate:*' max-errors 3 numeric
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
 zstyle ':vcs_info:*' stagedstr '%F{green}🗸%f '

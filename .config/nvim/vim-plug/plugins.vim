@@ -13,8 +13,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'honza/vim-snippets'
     Plug 'tpope/vim-commentary'
     Plug 'sheerun/vim-polyglot'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
     " Plug 'preservim/nerdcommenter'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     
     " Themes
     Plug 'dracula/vim'
@@ -53,7 +54,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'plasticboy/vim-markdown'
 
     " Misc
-    Plug 'metakirby5/codi.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'voldikss/vim-floaterm'

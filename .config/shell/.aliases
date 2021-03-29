@@ -68,9 +68,10 @@ alias eth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx58
 
 # program aliases
 alias v="nvim" \
-    pip="pip3" \
+    pip="doas pip3" \
     goo="tuxi" \
     high="highlight --out-format=ansi" \
+    jup="jupyter notebook & disown" \
     ka="killall" \
     yout="pipe-viewer" \
     sudb="doas updatedb" \

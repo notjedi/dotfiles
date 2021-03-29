@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-pip uninstall python-xlib
-pip uninstall ueberzug
-sudo -H pip install ueberzug

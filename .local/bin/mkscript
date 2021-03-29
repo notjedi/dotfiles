@@ -5,7 +5,7 @@ filename=$1
 # Exit if filename is not specified
 [ -z $filename ] && echo "Filename not specified" && exit 1
 
-cd "$HOME/scripts"
+cd "$HOME/.local/bin"
 touch "$filename"
 chmod +x "$filename"
 echo "#!/usr/bin/env bash" > "$filename"

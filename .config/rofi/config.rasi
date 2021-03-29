@@ -1,0 +1,4 @@
+configuration {
+	terminal: "alacritty";
+	theme: "/home/jedi/.config/rofi/material-ocean";
+}

@@ -121,7 +121,7 @@ bindsym $mod+Shift+l            move up
 bindsym $mod+Shift+semicolon    move right
 
 ### Kill window
-bindsym $mod+k                  kill
+bindsym $mod+k                  exec $HOME/.local/bin/killprocess
 bindsym $mod+q                  kill
 
 ### Fullscreen and floating toggle
@@ -186,7 +186,7 @@ bindsym --release Print         exec flameshot full --path $HDD/screenshots
 
 ### Greenclip
 bindsym $mod+g                  exec rofi -modi "greenclip:greenclip print" -show greenclip -run-command '{cmd}' -width 30 -lines 5
-bindsym $mod+s                  exec $HOME/scripts/emojiselect
+bindsym $mod+s                  exec $HOME/.local/bin/emojiselect
 
 ### Mode keybinds
 bindsym $mod+c                  mode "resize"
@@ -200,11 +200,11 @@ exec --no-startup-id polybar master -rq &
 # exec --no-startup-id compton --config ~/.config/compton.conf
 
 ## Custom scripts
-# exec --no-startup-id $HOME/scripts/i3/i3autofloatws
+# exec --no-startup-id $HOME/.local/bin/i3/i3autofloatws
 
 ## Greenclip and keyboard settings
 # exec --no-startup-id greenclip daemon
 
 # Startup apps
-exec alacritty -t Alacritty
-# exec --no-startup-id $HOME/scripts/launchspt
+exec alacritty
+# exec --no-startup-id $HOME/.local/bin/launchspt
