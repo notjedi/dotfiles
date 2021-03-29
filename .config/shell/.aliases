@@ -80,6 +80,7 @@ alias v="nvim" \
     python="python3" \
     sv="doas nvim" \
     sn="doas -E nvim" \
+    ws="watch sensors" \
     trr="transmission-remote" \
     screenkey="screenkey -s small" \
     alacritty="alacritty -t Alacritty" \

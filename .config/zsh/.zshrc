@@ -1,43 +1,41 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/home/jedi/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
+autoload -U colors && colors
+
+PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
+PS1+="${vcs_info_msg_0_}"
 
 pfetch
 
-# auto correct commands
-# setopt correct
 setopt interactive_comments
-setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_SPACE
+setopt prompt_subst
+setopt autocd
 
 HISTSIZE=100000000
 SAVEHIST=100000000
 HISTFILE=~/.cache/zsh/history
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+precmd() {
+    vcs_info
+}
+autoload -U compinit && compinit && _comp_options+=(globdots)
 
-DISABLE_AUTO_TITLE="true"
-
-plugins=(
-    git
-    # dirhistory
-    zsh-autosuggestions
-    colored-man-pages
-    # last-working-dir
-    # extract
-    # z
-    )
-
-source $ZSH/oh-my-zsh.sh
-
-compinit
-_comp_options+=(globdots)
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
+zstyle ':vcs_info:*' stagedstr '%F{green}🗸%f '
+zstyle ':vcs_info:git*' formats "%F{blue}(%b)%f %u%c"
+zstyle ':completion:*' menu select
 
 # use vi mode
 bindkey -v
 KEYTIMEOUT=40
 bindkey -M viins 'jk' vi-cmd-mode
+bindkey -v '^?' backward-delete-char
 
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -50,26 +48,22 @@ zle -N vi-yank-arg
 bindkey -M vicmd _ vi-yank-arg
 
 # Change cursor shape for different vi modes.
-# function zle-keymap-select {
-#   if [[ ${KEYMAP} == vicmd ]] ||
-#      [[ $1 = 'block' ]]; then
-#     echo -ne '\e[1 q'
-#   elif [[ ${KEYMAP} == main ]] ||
-#        [[ ${KEYMAP} == viins ]] ||
-#        [[ ${KEYMAP} = '' ]] ||
-#        [[ $1 = 'beam' ]]; then
-#     echo -ne '\e[5 q'
-#   fi
+# function zle-keymap-select () {
+#     case $KEYMAP in
+#         vicmd) echo -ne '\e[1 q';;      # block
+#         viins|main) echo -ne '\e[5 q';; # beam
+#     esac
 # }
 # zle -N zle-keymap-select
 # echo -ne '\e[5 q' # Use beam shape cursor on startup.
 
-[ -f ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+[ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
