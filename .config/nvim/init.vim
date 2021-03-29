@@ -35,3 +35,9 @@ luafile $HOME/.config/nvim/lua/plugins/compe-config.lua
 " lsp
 luafile $HOME/.config/nvim/lua/lsp/python-ls.lua
 luafile $HOME/.config/nvim/lua/lsp/clangd-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/vim-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/json-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/yaml-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/go-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/bash-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/virtual-text.lua
