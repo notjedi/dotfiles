@@ -52,12 +52,6 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " nmap <C-_> <Plug>NERDCommenterToggle
 " vmap <C-_> <Plug>NERDCommenterToggle
 
-" vim-commentery
-nmap <C-_> gcc
-vmap <C-_> gcc
-nmap cap gcap
-vmap cap gcap
-
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv

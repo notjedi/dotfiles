@@ -11,43 +11,47 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Syntax, intellisense and snippets
     Plug 'honza/vim-snippets'
-    Plug 'tpope/vim-commentary'
+    Plug 'hrsh7th/nvim-compe'
+    Plug 'glepnir/lspsaga.nvim'
     Plug 'sheerun/vim-polyglot'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    " Plug 'preservim/nerdcommenter'
+    Plug 'terrortylor/nvim-comment'
     
     " Themes
     Plug 'dracula/vim'
+    Plug 'hzchirs/vim-material'
     Plug 'joshdick/onedark.vim'
     Plug 'jaredgorski/spacecamp'
     Plug 'cseelus/vim-colors-lucid'
-    Plug 'hzchirs/vim-material'
     Plug 'rafi/awesome-vim-colorschemes'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline-themes'
     Plug 'Rigellute/shades-of-purple.vim'
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
     
     " Aesthetics 
+    Plug 'romgrk/barbar.nvim'
     Plug 'mhinz/vim-startify'
+    Plug 'windwp/nvim-autopairs'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline'
+    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'junegunn/rainbow_parentheses.vim'
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     
     " Navigation
     Plug 'junegunn/fzf.vim'
     Plug 'justinmk/vim-sneak'
-    Plug 'airblade/vim-rooter'
     Plug 'unblevable/quick-scope'
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    " Plug 'scrooloose/NERDTree'
     
     " Git
+    Plug 'junegunn/gv.vim'
+    Plug 'tpope/vim-rhubarb'
     Plug 'mhinz/vim-signify'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
-    Plug 'junegunn/gv.vim'
+    Plug 'airblade/vim-rooter'
 
     " Markdown
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -55,11 +59,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Misc
     Plug 'junegunn/goyo.vim'
-    Plug 'jiangmiao/auto-pairs'
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key'
     Plug 'norcalli/nvim-colorizer.lua'
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
     
 
 call plug#end()

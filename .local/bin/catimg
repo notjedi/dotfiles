@@ -59,6 +59,7 @@ else
   #IMG="tmp.png"
 fi
 
+
 # Display the image
 I=0
 convert "$IMG" -resize $COLS\> +dither `echo $REMAP` txt:- 2>/dev/null |

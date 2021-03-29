@@ -36,6 +36,7 @@ set noshowmode                          " prevent --INSERT-- from showing"
 set termguicolors                       " enable 256 bit color support"
 set cursorline                          " highlight current line
 set autochdir                           " Your working directory will always be the same as your working directory
+set laststatus=2                        " galaxyline doesn't show up if it's not set to 2
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
 autocmd FileType json setlocal commentstring=//\ %s
