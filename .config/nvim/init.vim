@@ -36,6 +36,7 @@ luafile $HOME/.config/nvim/lua/plugins/nvim-comment.lua
 luafile $HOME/.config/nvim/lua/plugins/nvim-autopairs.lua
 luafile $HOME/.config/nvim/lua/plugins/barbar.lua
 luafile $HOME/.config/nvim/lua/plugins/galaxyline.lua
+luafile $HOME/.config/nvim/lua/plugins/lspsaga.lua
 
 " lsp
 luafile $HOME/.config/nvim/lua/lsp/python-ls.lua

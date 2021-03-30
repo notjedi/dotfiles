@@ -29,6 +29,29 @@ local colors = {
     info_yellow = '#FFCC66'
 }
 
+local function scrollbar_instance(scroll_bar_chars)
+  local current_line = vim.fn.line('.')
+  local total_lines = vim.fn.line('$')
+  local default_chars = {'__', '▁▁', '▂▂', '▃▃', '▄▄', '▅▅', '▆▆', '▇▇', '██'}
+  local chars = scroll_bar_chars or default_chars
+  local index = 1
+
+  if  current_line == 1 then
+    index = 1
+  elseif current_line == total_lines then
+    index = #chars
+  else
+    local line_no_fraction = vim.fn.floor(current_line) / vim.fn.floor(total_lines)
+    index = vim.fn.float2nr(line_no_fraction * #chars)
+    if index == 0 then
+      index = 1
+    end
+  end
+  return chars[index]
+end
+
+local scrollBar = scrollbar_instance
+
 local checkwidth = function()
   local squeeze_width  = vim.fn.winwidth(0) / 2
   if squeeze_width > 40 then
@@ -67,17 +90,17 @@ gls.left[1] = {
 
             local mode_color = {
                 n = colors.blue,
-                i = colors.green,
+                i = colors.light_green,
                 v = colors.purple,
                 [''] = colors.purple,
                 V = colors.purple,
-                c = colors.magenta,
+                c = colors.red,
                 no = colors.blue,
                 s = colors.orange,
                 S = colors.orange,
                 [''] = colors.orange,
                 ic = colors.yellow,
-                R = colors.red,
+                R = colors.magenta,
                 Rv = colors.red,
                 cv = colors.blue,
                 ce = colors.blue,
@@ -90,7 +113,7 @@ gls.left[1] = {
             vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color[vim.fn.mode()])
             local vim_mode = vim.fn.mode()
             -- return '▊ '
-            return alias[vim_mode] .. ' '
+            return '  ' .. alias[vim_mode] .. '  '
         end,
         highlight = {colors.red, colors.bg}
     }
@@ -115,7 +138,7 @@ gls.left[3] ={
 gls.left[4] = {
     GitIcon = {
         provider = function()
-            return '  '
+            return '   '
         end,
         condition = condition.check_git_workspace,
         separator = ' ',
@@ -175,10 +198,21 @@ gls.right[3] = {
 gls.right[4] = {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.info_yellow, colors.bg}}}
 
 
-gls.right[6] = {
+gls.right[5] = {
     LineInfo = {
         provider = 'LineColumn',
         separator = '  ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[6] = {
+    Space = {
+        provider = function()
+            return '|'
+        end,
+        separator = ' ',
         separator_highlight = {'NONE', colors.bg},
         highlight = {colors.grey, colors.bg}
     }
@@ -193,14 +227,21 @@ gls.right[7] = {
     }
 }
 
-gls.right[10] = {
-    FileEncode = {
-        provider = 'FileEncode',
-        condition = condition.hide_in_width,
-        separator = ' ',
-        separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.grey, colors.bg}
+gls.right[8] = {
+    ScrollBar = {
+        provider = scrollBar,
+        highlight = {colors.yellow, colors.purple}
     }
 }
+
+-- gls.right[10] = {
+--     FileEncode = {
+--         provider = 'FileEncode',
+--         condition = condition.hide_in_width,
+--         separator = ' ',
+--         separator_highlight = {'NONE', colors.bg},
+--         highlight = {colors.grey, colors.bg}
+--     }
+-- }
 
 gl.load_galaxyline()
