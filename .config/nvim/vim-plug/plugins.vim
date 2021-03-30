@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'neovim/nvim-lspconfig'
     Plug 'terrortylor/nvim-comment'
+    Plug 'kosayoda/nvim-lightbulb'
     
     " Themes
     Plug 'dracula/vim'
@@ -55,7 +56,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Markdown
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    " Plug 'plasticboy/vim-markdown'
 
     " Misc
     Plug 'junegunn/goyo.vim'
