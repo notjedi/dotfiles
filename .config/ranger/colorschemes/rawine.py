@@ -23,16 +23,13 @@ class Default(ColorScheme):
                 attr = normal
                 fg = black
             if context.media:
-                if context.image:
-                    fg = magenta
-                else:
-                    fg = magenta
+                fg = magenta
             if context.container:
                 attr |= bold
                 fg = cyan
             if context.directory:
                 attr |= normal
-                fg = black
+                fg = red
             elif context.executable and not \
                 any((context.media, context.container,
                      context.fifo, context.socket)):

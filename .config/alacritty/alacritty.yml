@@ -23,59 +23,85 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 5000
+  history: 2000
+  auto_scroll: true
+
+cursor:
+  unfocused_hollow: true
+  # style:
+    # blinking: Always
 
 # Theme Configuration
-# One Dark
 
+# Material Ocean
 colors:
-  # Default colors
   primary:
-    background: "#282c34"
-    foreground: "#abb2bf"
-    # background: '#1E2028'
+    background: '#0f111a'
+    foreground: '#D8DEE9'
 
-  # Normal colors
+  cursor:
+    cursor: '#ff4151'
+
   normal:
-    # NOTE: Use '#131613' for the `black` color if you'd like to see
-    # black text on the background.
-    black: "#282c34"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#d19a66"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#abb2bf"
+    black:      '#4C566A'
+    red:        '#BF616A'
+    green:      '#A3BE8C'
+    yellow:     '#EBCB8B'
+    blue:       '#81A1C1'
+    magenta:    '#B48EAD'
+    cyan:       '#88C0D0'
+    white:      '#E5E9F0'
 
-  # Bright colors
-  bright:
-    black: "#5c6370"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#d19a66"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#ffffff"
+
+# One Dark
+# colors:
+#   # Default colors
+#   primary:
+#     background: "#282c34"
+#     foreground: "#abb2bf"
+#     # background: '#1E2028'
+# 
+#   # Normal colors
+#   normal:
+#     # NOTE: Use '#131613' for the `black` color if you'd like to see
+#     # black text on the background.
+#     black: "#282c34"
+#     red: "#e06c75"
+#     green: "#98c379"
+#     yellow: "#d19a66"
+#     blue: "#61afef"
+#     magenta: "#c678dd"
+#     cyan: "#56b6c2"
+#     white: "#abb2bf"
+# 
+#   # Bright colors
+#   bright:
+#     black: "#5c6370"
+#     red: "#e06c75"
+#     green: "#98c379"
+#     yellow: "#d19a66"
+#     blue: "#61afef"
+#     magenta: "#c678dd"
+#     cyan: "#56b6c2"
+#     white: "#ffffff"
 
 # Font Configuration
 font:
   normal:
-    family: Hack Nerd Font
-    style: Bold
+    family: JetBrainsMono Nerd Font
+    style: Regular
 
   # The bold font face
   bold:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   # The italic font face
   italic:
-    family: Hack Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Italic
 
-  size: 11
+  size: 9
 
 # Custom key bindings
 key_bindings:

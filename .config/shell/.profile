@@ -1,17 +1,9 @@
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [ -d "$HOME/.cargo/bin" ] ; then
-    PATH="$HOME/.cargo/bin:$PATH"
-fi
-
+[ -f "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
 # changing directory colors for 'ls' on hdd
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
-export PATH="$HOME/scripts:$PATH"
-export PATH="$HOME/scripts/polybar:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/polybar:$PATH"
 
 export EDITOR="nvim"
 export READER="zathura"
@@ -56,6 +48,7 @@ export LESSHISTFILE="-"
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/jupyter"
 export CONDA_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/condarc"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
+GTK2_RC_FILES=/usr/share/themes/dracula/gtk-2.0/gtkrc
 export PYTHONUSERBASE="/usr/local/bin"
 
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"

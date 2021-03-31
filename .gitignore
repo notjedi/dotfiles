@@ -1,4 +1,5 @@
 .config/ranger/__pycache__/*
+.config/ranger/colorschemes/__pycache__/*
 .config/mpv/watch_later/*
 .config/mpd/playlists
 .config/nvim/autoload/plugged

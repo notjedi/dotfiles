@@ -4,6 +4,10 @@ xdotool key Num_Lock &
 redshift -O 2600 &
 xrdb .config/x11/.Xresources
 setbg &
+dunst &
 randomTheme &
+# xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
 
-exec dbus-launch i3
+while true; do
+    ssh-agent dwm >/dev/null 2>&1
+done
