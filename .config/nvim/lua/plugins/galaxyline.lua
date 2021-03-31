@@ -123,7 +123,7 @@ gls.left[2] = {
   FileName = {
     provider = 'FileName',
     condition = buffer_not_empty,
-    highlight = {colors.fg,colors.line_bg,'bold'}
+    highlight = {colors.fg, colors.bg, 'bold'}
   }
 }
 
@@ -131,7 +131,7 @@ gls.left[3] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.line_bg},
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
   },
 }
 
