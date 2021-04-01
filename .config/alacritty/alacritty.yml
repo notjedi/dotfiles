@@ -101,7 +101,7 @@ font:
     family: JetBrainsMono Nerd Font
     style: Italic
 
-  size: 9
+  size: 9.5
 
 # Custom key bindings
 key_bindings:

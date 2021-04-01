@@ -11,6 +11,7 @@ alias rm="rm -vi" \
 # git aliases
 alias g="git" \
     ga="git add" \
+    gd="git diff" \
     gp="git push" \
     gs="git status" \
     gc="git commit"

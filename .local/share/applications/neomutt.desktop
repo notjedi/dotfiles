@@ -2,7 +2,7 @@
 Name=NeoMutt E-Mail Client
 Name[en_US]=NeoMutt E-Mail Client
 Comment=Terminal Based E-Mail Client
-Exec=st -c 'neomutt-send' -e neomutt %u
+Exec=alacritty -e neomutt %u
 Terminal=false
 Categories=Utility
 Type=Application

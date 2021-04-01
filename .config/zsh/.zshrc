@@ -19,9 +19,8 @@ HISTFILE=~/.cache/zsh/history
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-precmd() {
-    vcs_info
-}
+precmd() { vcs_info }
+
 autoload -U compinit && compinit
 _comp_options+=(globdots)
 
