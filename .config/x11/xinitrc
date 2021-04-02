@@ -1,13 +1,14 @@
-remapcaps &
-xset r rate 300 45 &
-xdotool key Num_Lock &
-redshift -O 2600 &
-xrdb .config/x11/.Xresources
+remaps &
 setbg &
 dunst &
+redshift -O 2600 &
+compton &
+xrdb .config/x11/.Xresources
 randomTheme &
+
+# reverse scroll
 # xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
 
-while true; do
-    ssh-agent dwm >/dev/null 2>&1
+while ;; do
+    ssh-agent dwm || break
 done

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+xset r rate 300 50
+xdotool key 'Num_Lock'
+
+if [ "$1" == "-r" ]; then
+  xmodmap -e "keycode 66 = Caps_Lock" && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to default"
+  killall xcape 2>/dev/null
+else
+  setxkbmap -option caps:super && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to Super_L"
+  # map super to escape when it's pressed on it's own
+  killall xcape 2>/dev/null; xcape -e 'Super_L=Escape'
+  # turn off caps if it's already turned on
+  xset -q | grep "Caps Lock:\s*on" && xdotool key 'Caps_Lock'
+fi

@@ -167,7 +167,7 @@ ramp-coreload-7 = █
 [module/memory]
 ;type = internal/memory
 type = custom/script
-exec = $HOME/.local/bin/getmem
+exec = getmem
 interval = 2
 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -175,7 +175,7 @@ format-prefix = "💾 "
 format-underline = #4bffdc
 ;label = %gb_used%
 
-click-left = notify-send -u low "Mem hogs:" "\n$($HOME/.local/bin/polybar/memintensive)"
+click-left = notify-send -u low "Mem hogs:" "\n$(memintensive)"
 
 [module/date]
 type = internal/date
@@ -224,7 +224,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = custom/script
-exec = $HOME/.local/bin/polybar/polycputemp
+exec = polycputemp
 warn-temperature = 55
 
 format = <label>
@@ -235,7 +235,7 @@ format-warn-underline = ${self.format-underline}
 
 label-warn-foreground = ${colors.secondary}
 
-click-left = notify-send -u low "CPU hogs:" "\n$($HOME/.local/bin/polybar/cpuintensive)"
+click-left = notify-send -u low "CPU hogs:" "\n$(cpuintensive)"
 
 [module/powermenu]
 type = custom/menu
@@ -268,7 +268,7 @@ menu-2-1-exec = menu-open-0
 
 [module/title]
 type = custom/script
-exec = $HOME/.local/bin/polybar/polytitle
+exec = polytitle
 
 label = %output%
 label-maxlen = 20
@@ -276,7 +276,7 @@ interval = 0
 
 [module/player]
 type = custom/script
-exec = $HOME/.local/bin/polybar/polyspotify
+exec = polyspotify
 
 format-underline = ${colors.grey}
 

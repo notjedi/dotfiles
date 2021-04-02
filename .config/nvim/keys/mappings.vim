@@ -23,6 +23,9 @@ inoremap <M-w>    <C-O>w
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+nmap gj <Plug>(signify-next-hunk)
+nmap gk <Plug>(signify-prev-hunk)
+
 " Remove highlight after search
 nnoremap // :noh<CR>
 
