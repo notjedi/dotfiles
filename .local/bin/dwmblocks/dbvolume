@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+volume=$(pamixer --get-volume)
+
+case $BUTTON in
+    1) pamixer -t;;
+    3) setsid -f $TERMINAL -e pulsemixer;;
+    4) pamixer --allow-boost -i 5;;
+    5) pamixer --allow-boost -d 5;;
+esac
+
+if [ $volume -gt 70 ]; then
+    icon="🔊"
+elif [ $volume -gt 30 ]; then
+    icon="🔉"
+else
+    icon="🔈"
+fi
+
+[ $(pamixer --get-mute) = true ] && echo "🔇 muted" && exit
+
+echo "$icon $volume"

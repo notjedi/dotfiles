@@ -26,6 +26,9 @@ inoremap kj <Esc>
 nmap gj <Plug>(signify-next-hunk)
 nmap gk <Plug>(signify-prev-hunk)
 
+" select current block
+nmap vv {v}
+
 " Remove highlight after search
 nnoremap // :noh<CR>
 

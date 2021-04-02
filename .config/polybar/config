@@ -224,7 +224,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = custom/script
-exec = polycputemp
+exec = cputemp
 warn-temperature = 55
 
 format = <label>

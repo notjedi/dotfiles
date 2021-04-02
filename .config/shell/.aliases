@@ -76,7 +76,7 @@ alias v="nvim" \
     yout="pipe-viewer" \
     sudb="doas updatedb" \
     r="ranger" \
-    kp="killprocess"
+    kp="killprocess" \
     cls="clear" \
     btop="bpytop" \
     python="python3" \
@@ -91,6 +91,7 @@ alias v="nvim" \
 # misc
 alias s="doas" \
     pop="popd" \
+    dt="date +'%a - %I:%M:%S - %d-%b'" \
     co='cd $HDD/Code/$(ls $HDD/Code | fzf)' \
     push="pushd" \
     fi="l | grep -i" \

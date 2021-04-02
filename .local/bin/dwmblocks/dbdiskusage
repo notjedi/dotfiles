@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+usage=$(df -h / | awk '/^\/dev/ { print $5 }')
+
+case $BUTTON in
+    1) notify-send -t 10000 -u low "Disk Usage:" "\n$(lsblk -o NAME,SIZE,FSUSE%,FSAVAIL,MOUNTPOINT)";;
+    2) notify-send -t 5000 -u low "Disk Usage:" "\n$(df -h --output=target,size,used,avail,pcent $HOME $HDD)";;
+    3) setsid -f $TERMINAL -e ncdu $HOME;;
+esac
+
+echo "📂 $usage"

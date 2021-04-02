@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+mem=$(free -h | awk '/^Mem:/ { print $3 }' | sed 's/i//')
+
+case $BUTTON in
+    1) notify-send -u low -t 3000 "Mem Hogs:" "\n$(memintensive)";;
+    3) setsid -f $TERMINAL -e bpytop;;
+esac
+
+echo "💾 $mem"

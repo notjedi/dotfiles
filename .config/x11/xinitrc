@@ -2,6 +2,7 @@ remaps &
 setbg &
 dunst &
 redshift -O 2600 &
+dwmblocks &
 compton &
 xrdb .config/x11/.Xresources
 randomTheme &
@@ -9,6 +10,6 @@ randomTheme &
 # reverse scroll
 # xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
 
-while ;; do
+while true; do
     ssh-agent dwm || break
 done

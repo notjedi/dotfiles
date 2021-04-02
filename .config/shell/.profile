@@ -3,7 +3,7 @@
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin/polybar:$PATH"
+export PATH="$HOME/.local/bin/dwmblocks:$PATH"
 
 export EDITOR="nvim"
 export READER="zathura"
