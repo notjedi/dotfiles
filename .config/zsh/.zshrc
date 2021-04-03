@@ -51,8 +51,6 @@ zstyle ':completion:*' menu select
 # bindkey -M menuselect 'l' vi-forward-char
 # bindkey -M menuselect 'j' vi-down-line-or-history
 
-conf() { du -a $HDD/Code/dotfiles/.config/* ~/.local/bin/* | awk '{ print $2 }' | sed "s|/mnt/Seagate/Code/dotfiles|$HOME|" | fzf | xargs -r $EDITOR }
-
 vi-yank-arg() {
   NUMERIC=1 zle .vi-add-next
   zle .insert-last-word

@@ -37,19 +37,21 @@ cursor:
 colors:
   primary:
     background: '#0f111a'
-    foreground: '#D8DEE9'
+    foreground: '#E5E9F0'
 
   cursor:
-    cursor: '#ff4151'
+    cursor: '#FF4151'
 
   normal:
     black:      '#4C566A'
-    red:        '#BF616A'
-    green:      '#A3BE8C'
-    yellow:     '#EBCB8B'
+    red:        '#B8252A'
+    # red:        '#C2331D'
+    # red:        '#911D21'
+    green:      '#98c379'
+    yellow:     '#d19a66'
     blue:       '#81A1C1'
-    magenta:    '#B48EAD'
-    cyan:       '#88C0D0'
+    magenta:    '#c678dd'
+    cyan:       '#61afef'
     white:      '#E5E9F0'
 
 

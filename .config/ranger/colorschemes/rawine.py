@@ -68,7 +68,7 @@ class Default(ColorScheme):
             attr |= normal
             if context.hostname:
                 attr |= bold
-                fg = context.bad and red or black
+                fg = context.bad and black or cyan
             elif context.directory:
                 fg = magenta
             elif context.tab:
@@ -80,9 +80,9 @@ class Default(ColorScheme):
         elif context.in_statusbar:
             if context.permissions:
                 if context.good:
-                    fg = black
-                elif context.bad:
                     fg = magenta
+                elif context.bad:
+                    fg = yellow
             if context.marked:
                 attr |= bold | reverse
                 fg = yellow

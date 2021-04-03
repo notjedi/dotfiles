@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-temp=$(sensors | grep Tdie | grep -o '[0-9]*[.].*')
+temp=$(sensors | grep Tdie | grep -o '[0-9]*[.].*' | tr -d ' ')
 
 case $BUTTON in
     1) notify-send -u low "GPU temp:" "\n🔥 $(gputemp)";;
