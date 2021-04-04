@@ -45,16 +45,18 @@ export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
 export CONDA_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/condarc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-export LESSHISTFILE="-"
+
+export VSCODE_EXTENSIONS="${XDG_DATA_HOME:-$HOME/.local/share}/vscode/extensions"
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
+export GRADLE_USER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gradle"
+export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
+export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
 GTK2_RC_FILES=/usr/share/themes/dracula/gtk-2.0/gtkrc
 export PYTHONUSERBASE="/usr/local/bin"
-# dwm breaks java applications
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
-export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export VSCODE_EXTENSIONS="$HOME/.cache/vscode/extensions"
-export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export _JAVA_AWT_WM_NONREPARENTING=1 # fix for java applications in dwm
+export LESSHISTFILE="-"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep Xorg && startx $HOME/.config/x11/xinitrc

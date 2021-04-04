@@ -7,7 +7,7 @@ set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
-set ruler              			            " Show the cursor position all the time
+set ruler              			        " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
 set mouse=a                             " Enable your mouse
 set splitright                          " Vertical splits will automatically be to the right
@@ -29,6 +29,8 @@ set showtabline=2                       " Always show tabs
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
+syntax on
+colorscheme dracula
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set ignorecase                          " ignorecase case while searching
@@ -45,7 +47,6 @@ autocmd FileType json setlocal commentstring=//\ %s
 " autocmd BufWritePre *.cpp normal gg=G
 " autocmd BufWritePre *.cc normal gg=G
 " autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" autocmd VimEnter * colorscheme dracula
 
 " You can't stop me
-cmap w!! w !sudo tee %
+cmap w!! w !doas tee %

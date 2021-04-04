@@ -100,7 +100,7 @@ alias s="doas" \
     caps="xdotool key Caps_Lock" \
     usage="du -ah --max-depth=1 | sort -rh" \
     pipup="pip3 list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' doas pip3 install --upgrade {} || true" \
-    pixel-3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
-    pixel-3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu host" \
+    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
+    pixel3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu host" \
     recordscreen="ffmpeg -f x11grab -an -s hd1080 -r 25 -v:b 23000 -i :0.0 -g 1 -q:v 0.1 -vcodec libxvid $HDD/Screenshots/screenCapture.mp4" \
     alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

@@ -9,7 +9,7 @@ case $BUTTON in
     5) pamixer --allow-boost -d 5;;
 esac
 
-if [ $volume -gt 70 ]; then
+if [ $volume -ge 70 ]; then
     icon="🔊"
 elif [ $volume -gt 30 ]; then
     icon="🔉"

@@ -33,27 +33,94 @@ cursor:
 
 # Theme Configuration
 
-# Material Ocean
+# shades of purple
+# colors:
+#   # Default colors
+#   primary:
+#     background: "#1E1E3F"
+#     foreground: "#E1EFFF"
+# 
+#   # Colors the cursor will use if `custom_cursor_colors` is true
+#   cursor:
+#     text: "#1E1E3F"
+#     cursor: "#FAD000"
+# 
+#   # Normal colors
+#   normal:
+#     black: "#000000"
+#     red: "#EC3A37"
+#     green: "#75e44c"
+#     yellow: "#FAD000"
+#     blue: "#6943FF"
+#     magenta: "#FF2C70"
+#     cyan: "#80FCFF"
+#     white: "#FFFFFF"
+# 
+#   # Bright colors
+#   bright:
+#     black: "#5C5C61"
+#     red: "#3A37F5"
+#     green: "#3AD900"
+#     yellow: "#FAD000"
+#     blue: "#6943FF"
+#     magenta: "#FB94FF"
+#     cyan: "#80FCFF"
+#     white: "#2D2B55"
+
+# Dracula theme
 colors:
   primary:
-    background: '#0f111a'
-    foreground: '#E5E9F0'
-
+    background: '#282a36'
+    foreground: '#f8f8f2'
   cursor:
-    cursor: '#FF4151'
-
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+    bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '#44475a'
   normal:
-    black:      '#4C566A'
-    red:        '#B8252A'
-    # red:        '#C2331D'
-    # red:        '#911D21'
-    green:      '#98c379'
-    yellow:     '#d19a66'
-    blue:       '#81A1C1'
-    magenta:    '#c678dd'
-    cyan:       '#61afef'
-    white:      '#E5E9F0'
-
+    black:   '#000000'
+    red:     '#ff5555'
+    green:   '#50fa7b'
+    yellow:  '#f1fa8c'
+    blue:    '#bd93f9'
+    magenta: '#ff79c6'
+    cyan:    '#8be9fd'
+    white:   '#bfbfbf'
+  bright:
+    black:   '#4d4d4d'
+    red:     '#ff6e67'
+    green:   '#5af78e'
+    yellow:  '#f4f99d'
+    blue:    '#caa9fa'
+    magenta: '#ff92d0'
+    cyan:    '#9aedfe'
+    white:   '#e6e6e6'
+  dim:
+    black:   '#14151b'
+    red:     '#ff2222'
+    green:   '#1ef956'
+    yellow:  '#ebf85b'
+    blue:    '#4d5b86'
+    magenta: '#ff46b0'
+    cyan:    '#59dffc'
+    white:   '#e6e6d1'
 
 # One Dark
 # colors:

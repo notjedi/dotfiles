@@ -10,6 +10,7 @@ randomTheme &
 # reverse scroll
 # xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
 
+/* dbus-launch i3 */
 while true; do
     ssh-agent dwm || break
 done

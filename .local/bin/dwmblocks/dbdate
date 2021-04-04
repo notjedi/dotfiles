@@ -9,4 +9,4 @@ case $BUTTON in
     3) notify-send -u low -t 10000 "$(cal)";;
 esac
 
-echo "$icon$(date +"%I:%M") "
+echo "$icon$(date +"%I:%M %p") "

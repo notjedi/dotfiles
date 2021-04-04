@@ -8,4 +8,4 @@ case $BUTTON in
     3) setsid -f $TERMINAL -e ncdu $HOME;;
 esac
 
-echo " 📂 $usage"
+echo "📂 $usage"
