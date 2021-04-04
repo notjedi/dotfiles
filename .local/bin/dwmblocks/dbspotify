@@ -2,12 +2,17 @@
 
 STATUS=$(playerctl status 2> /dev/null)
 
+case $BUTTON in
+    1) playerctl previous;;
+    2) playerctl play-pause;;
+    3) playerctl next;;
+esac
+
 if [ "$STATUS" != "Playing" ] && [ "$STATUS" != "Paused" ] && [ "$STATUS" != "Stopped" ];  then
     echo ""
 else
     ARTIST=$(playerctl metadata artist 2>/dev/null)
-    TITLE=$(playerctl metadata title 2>/dev/null | cut -c 1-20)
-    # TITLE=$(echo "$TITLE" | cut -c 1-20)
+    TITLE=$(playerctl metadata title 2>/dev/null | cut -c 1-25)
     # TITLE=$(echo $TITLE | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{ print $1 }') 
 
     if [ "$TITLE" == "" ]; then
