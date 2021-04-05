@@ -18,6 +18,6 @@ else
     if [ "$TITLE" == "" ]; then
         echo ""
     else
-        echo "   $TITLE - $ARTIST"
+        echo "  $TITLE - $ARTIST"
     fi
 fi

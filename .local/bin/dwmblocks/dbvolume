@@ -5,8 +5,8 @@ volume=$(pamixer --get-volume)
 case $BUTTON in
     1) pamixer -t;;
     3) setsid -f $TERMINAL -e pulsemixer;;
-    4) pamixer --allow-boost -i 5;;
-    5) pamixer --allow-boost -d 5;;
+    4) pamixer --allow-boost -i 5 && pkill -RTMIN+10 dwmblocks;;
+    5) pamixer --allow-boost -d 5 && pkill -RTMIN+10 dwmblocks;;
 esac
 
 if [ $volume -ge 70 ]; then
