@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'neovim/nvim-lspconfig'
     Plug 'terrortylor/nvim-comment'
-    Plug 'kosayoda/nvim-lightbulb'
     
     " Themes
     Plug 'dracula/vim'
@@ -59,7 +58,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Misc
     Plug 'junegunn/goyo.vim'
+    Plug 'andweeb/presence.nvim'
     Plug 'voldikss/vim-floaterm'
+    Plug 'rhysd/vim-startuptime'
     Plug 'liuchengxu/vim-which-key'
     Plug 'norcalli/nvim-colorizer.lua'
     
