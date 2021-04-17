@@ -1,15 +1,13 @@
-remaps &
-/* setbg & */
 dunst &
-redshift -O 2600 &
+remaps &
 dwmblocks &
-/* compton & */
-xrdb .config/x11/.Xresources
 randomTheme &
+redshift -O 2600 &
+xrdb .config/x11/.Xresources
 xwallpaper --zoom /mnt/Seagate/wallpapers/Anime/spider-verse.png &
 
-# reverse scroll
-# xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
+/* setbg & */
+/* compton & */
 
 while true; do
     ssh-agent dwm || break
