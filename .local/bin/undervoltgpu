@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 
+# voltage and core clock config for my Radeon RX 580 (mining)
 # https://www.reddit.com/r/Amd/comments/agwroj/how_to_overclock_your_amd_gpu_on_linux/
 file="/sys/class/drm/card0/device/pp_od_clk_voltage"
 
 # Undervolt
-echo 's 7 1350 970' > $file
-echo 's 6 1300 960' > $file
-echo 's 5 1250 950' > $file
-echo 's 4 1215 940' > $file
-echo 's 3 1145 930' > $file
-echo 's 2 900 810' > $file
+echo 's 7 1175 850' > $file
+echo 's 6 1100 830' > $file
+echo 's 5 1050 820' > $file
+echo 's 4 1000 810' > $file
+echo 's 3 900 800' > $file
+# echo 's 2 800 700' > $file
 
 # Overclock Memory
-echo 'm 1 1000 700' > $file
+echo 'm 1 1000 750' > $file
 echo 'm 2 2200 800' > $file
 
 # Commit changes

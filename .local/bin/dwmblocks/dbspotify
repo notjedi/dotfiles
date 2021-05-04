@@ -15,9 +15,5 @@ else
     TITLE=$(playerctl metadata title 2>/dev/null | cut -c 1-25)
     # TITLE=$(echo $TITLE | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{ print $1 }') 
 
-    if [ "$TITLE" == "" ]; then
-        echo ""
-    else
-        echo "  $TITLE - $ARTIST"
-    fi
+    [ "$ARTIST" != "" ] && echo "  $TITLE - $ARTIST" || echo ""
 fi
