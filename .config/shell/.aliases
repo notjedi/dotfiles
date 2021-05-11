@@ -57,6 +57,7 @@ alias rh="ranger $HOME" \
 
 # pacman aliases
 alias p="doas pacman" \
+    install='yay -S $(yay -Ssq | fzf | tr -d "\n")'
     lspacs="pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $ 4$ 5, name}' | sort -hr" \
     lsorphan="pacman -Qtdq"
 
