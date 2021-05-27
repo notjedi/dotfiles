@@ -5,11 +5,14 @@ zstyle ':vcs_info:*' enable git svn
 precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%b'
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
+zstyle ':vcs_info:*' stagedstr '%F{green}✔%f '
+zstyle ':vcs_info:git*' formats "%F{blue}(%b)%f %u%c"
 
 PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
-PS1+='%F{blue}${vcs_info_msg_0_}%f '
+PS1+='%F{blue}${vcs_info_msg_0_}%f'
 
 pfetch
 
@@ -33,10 +36,6 @@ export LC_ALL=en_US.UTF-8
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:approximate:*' max-errors 3 numeric
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
-zstyle ':vcs_info:*' stagedstr '%F{green}🗸%f '
-zstyle ':vcs_info:git*' formats "%F{blue}(%b)%f %u%c"
 zstyle ':completion:*' menu select
 
 # Change cursor shape for different vi modes.
