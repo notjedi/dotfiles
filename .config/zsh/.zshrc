@@ -1,8 +1,15 @@
 autoload -U colors && colors
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '%b'
+
 PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
-PS1+="${vcs_info_msg_0_}"
+PS1+='%F{blue}${vcs_info_msg_0_}%f '
 
 pfetch
 
@@ -16,10 +23,6 @@ setopt autocd
 HISTSIZE=100000000
 SAVEHIST=100000000
 HISTFILE=~/.cache/zsh/history
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-precmd() { vcs_info }
 
 autoload -U compinit && compinit
 _comp_options+=(globdots)
