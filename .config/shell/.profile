@@ -1,5 +1,6 @@
 # changing directory colors for 'ls' on hdd
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/dwmblocks:$PATH"
