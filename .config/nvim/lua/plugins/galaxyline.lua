@@ -234,6 +234,14 @@ gls.right[8] = {
     }
 }
 
+gls.right[9] = {
+    Space = {
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
 -- gls.right[10] = {
 --     FileEncode = {
 --         provider = 'FileEncode',

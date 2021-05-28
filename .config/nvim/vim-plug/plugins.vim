@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Themes
     Plug 'dracula/vim'
+    Plug 'dylanaraps/wal.vim'
     Plug 'hzchirs/vim-material'
     Plug 'joshdick/onedark.vim'
     Plug 'jaredgorski/spacecamp'
