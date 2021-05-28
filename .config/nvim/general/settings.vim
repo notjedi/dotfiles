@@ -34,6 +34,7 @@ colorscheme dracula
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set ignorecase                          " ignorecase case while searching
+set smartcase                           " case sensitive search only if i type in caps
 set noshowmode                          " prevent --INSERT-- from showing" 
 set termguicolors                       " enable 256 bit color support"
 set cursorline                          " highlight current line

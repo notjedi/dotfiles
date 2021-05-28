@@ -4,7 +4,7 @@ dwmblocks &
 randomTheme &
 redshift -O 2600 &
 xrdb .config/x11/.Xresources
-xwallpaper --zoom /mnt/Seagate/wallpapers/Anime/spider-verse.png &
+xwallpaper --zoom /mnt/Seagate/wallpapers/Anime/sky.jpg &
 
 /* setbg & */
 /* compton & */
