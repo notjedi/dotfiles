@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
 dirname="/mnt/Seagate/wallpapers"
-file=$(ls -A "$dirname" | shuf -n 1)
+file=$(find "$dirname" -type f | shuf -n 1)
 
-if [[ -d "$dirname/$file" ]]; then
-  file="$file/$(ls -A "$dirname"/"$file" | shuf -n 1)"
-fi
-
-xwallpaper --zoom "$dirname"/"$file"
+wal -i "$file"

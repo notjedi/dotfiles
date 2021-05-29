@@ -1,4 +1,5 @@
 configuration {
-	terminal: "alacritty";
+	terminal: "st";
 	theme: "/home/jedi/.config/rofi/material-ocean";
+	/* theme: "/home/jedi/.cache/wal/colors-rofi-dark.rasi"; */
 }
