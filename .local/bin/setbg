@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
+# if [ $# -eq 0 ]
+if [ ! -z "$1" ]; then
+    wal -i "$1"; rm -f $HOME/.fehbg
+    exit 0
+fi
+
 dirname="/mnt/Seagate/wallpapers"
 file=$(find "$dirname" -type f | shuf -n 1)
-
-wal -i "$file"
+wal -i "$file"; rm -f $HOME/.fehbg

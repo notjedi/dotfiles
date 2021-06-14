@@ -78,6 +78,22 @@ autoload edit-command-line;
 zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+function countdown(){
+    date1=$((`date +%s` + $1)); 
+    while [ "$date1" -ge `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+    done
+}
+
+function stopwatch() {
+    date1=`date +%s`; 
+    while true; do 
+        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+        sleep 0.1
+    done
+}
+
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets
 [ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases

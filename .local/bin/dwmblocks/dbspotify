@@ -12,7 +12,8 @@ if [ "$STATUS" != "Playing" ] && [ "$STATUS" != "Paused" ] && [ "$STATUS" != "St
     echo ""
 else
     ARTIST=$(playerctl metadata artist 2>/dev/null)
-    TITLE=$(playerctl metadata title 2>/dev/null | cut -c 1-25)
+    TITLE=$(playerctl metadata title 2>/dev/null | cut -c 1-25 | sed 's/ - Remas.*//g')
+    # TITLE=$(playerctl metadata title 2>/dev/null | cut -c 1-25)
     # TITLE=$(echo $TITLE | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{ print $1 }') 
 
     [ "$ARTIST" != "" ] && echo "  $TITLE - $ARTIST" || echo ""

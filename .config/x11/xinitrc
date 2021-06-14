@@ -1,12 +1,11 @@
-dunst &
+setbg &
 remaps &
+compton &
 dwmblocks &
 randomTheme &
 redshift -O 2600 &
 xrdb .config/x11/.Xresources
-
-setbg &
-/* compton & */
+dunst &
 
 while true; do
     ssh-agent dwm || break
