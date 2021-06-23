@@ -94,6 +94,21 @@ function stopwatch() {
     done
 }
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jedi/.local/share/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jedi/.local/share/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/jedi/.local/share/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jedi/.local/share/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets
 [ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases

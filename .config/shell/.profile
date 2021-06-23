@@ -3,8 +3,10 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/npm/bin:$PATH"
 export PATH="$HOME/.local/bin/dwmblocks:$PATH"
-[ -f "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/share/miniconda/condabin:$PATH"
+[ -f "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 
 export COLORTERM="truecolor"
 export TERM="xterm-256color"
@@ -35,13 +37,15 @@ export LESS_TERMCAP_me=$(tput sgr0)
 
 export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/jupyter"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
+# export CONDARC="${$XDG_CONFIG_HOME:-$HOME/.config}/conda/condarc"
+export CONDA_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/conda"
 export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython"
-export CONDA_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}/condarc"
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
 export VSCODE_EXTENSIONS="${XDG_DATA_HOME:-$HOME/.local/share}/vscode/extensions"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export GRADLE_USER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gradle"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:-/usr/lib/pkgconfig}"

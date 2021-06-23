@@ -41,7 +41,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Navigation
     Plug 'junegunn/fzf.vim'
-    Plug 'justinmk/vim-sneak'
+    " Plug 'justinmk/vim-sneak'
     Plug 'unblevable/quick-scope'
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
@@ -62,7 +62,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'andweeb/presence.nvim'
     Plug 'voldikss/vim-floaterm'
     Plug 'rhysd/vim-startuptime'
-    Plug 'liuchengxu/vim-which-key'
+    " Plug 'liuchengxu/vim-which-key'
     Plug 'norcalli/nvim-colorizer.lua'
     
 
