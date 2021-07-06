@@ -8,7 +8,7 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
 zstyle ':vcs_info:*' stagedstr '%F{green}✔%f '
-zstyle ':vcs_info:git*' formats "%F{blue}(%b)%f %u%c"
+zstyle ':vcs_info:git*' formats "%F{blue}( %b)%f %u%c"
 
 PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
@@ -94,8 +94,7 @@ function stopwatch() {
     done
 }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+# conda stuff
 __conda_setup="$('/home/jedi/.local/share/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -107,9 +106,9 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets
 [ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases
+[ -f ~/.config/shell/.functions ] && source ~/.config/shell/.functions
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh

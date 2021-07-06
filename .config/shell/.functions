@@ -1,0 +1,21 @@
+#!/bin/bash
+
+usage() {
+    du "$1" -ah --max-depth=1 2>/dev/null | sort -rh
+}
+
+co() {
+    cd $(ls "$HDD/Code" | fzf | sed "s|^|"$HDD"/Code/|")
+}
+
+conf() {
+    find $HDD/Code/dotfiles/ -type f | grep -vi '.git\|watch_later\|autoload\|pycache\|fonts' | fzf | xargs -r $EDITOR
+}
+
+pipup() {
+    pip3 list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' doas pip3 install --upgrade {} || true
+}
+
+lspacs() {
+    pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $4 $5, name}' | sort -hr
+}

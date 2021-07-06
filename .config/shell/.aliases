@@ -2,9 +2,9 @@
 
 # verbose aliases
 alias rm="rm -vi" \
+    ln="ln -v" \
     cp="cp -iv" \
     mv="mv -iv" \
-    ln="ln -v" \
     less="less -I" \
     mkd="mkdir -pv"
 
@@ -14,6 +14,7 @@ alias g="git" \
     gd="git diff" \
     gp="git push" \
     gs="git status" \
+    gr="git remote" \
     gc="git commit"
 
 # ls aliases
@@ -23,85 +24,58 @@ alias l="ls -A" \
 # colorize aliases
 alias ls='ls --color=auto' \
     grep='grep --color=auto' \
-    fgrep='fgrep --color=auto' \
-    egrep='egrep --color=auto'
 
 # cd aliases
 alias ..="cd .." \
-    ...="cd ../.." \
-    ....="cd ../../.." \
-    cfg="cd $HOME/.config" \
     chd="cd $HDD" \
+    ...="cd ../.." \
+    cfg="cd $HOME/.config" \
     cdd="cd $HDD/Documents" \
-    cdt="cd $HDD/Code/dotfiles" \
+    cdo="cd $HOME/Downloads" \
     csc="cd $HDD/screenshots" \
-    cwal="cd $HDD/wallpapers" \
-    caoc="cd $HDD/Code/cp/aoc" \
-    cler="cd $HDD/Code/cp/euler" \
-    cses="cd $HDD/Code/cp/cses" \
-    ccp="cd $HDD/Code/cp"
+    cwal="cd $HDD/wallpapers"
 
 # ranger aliases
 alias rh="ranger $HOME" \
-    rfg="ranger $HOME/.config" \
-    rdo="ranger $HOME/Downloads" \
     rr="ranger $HDD" \
-    rbo="ranger $HDD/books" \
     rco="ranger $HDD/Code" \
-    rdt="ranger $HDD/Code/dotfiles" \
+    rmo="ranger $HDD/movies" \
     rim="ranger $HDD/Images" \
     rd="ranger $HDD/Documents" \
-    rmo="ranger $HDD/movies" \
+    rfg="ranger $HOME/.config" \
+    rdo="ranger $HOME/Downloads" \
     rsc="ranger $HDD/screenshots" \
     rwal="ranger $HDD/wallpapers"
 
 # pacman aliases
 alias p="doas pacman" \
-    install='yay -S $(yay -Ssq | fzf | tr -d "\n")'
-    lspacs="pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $ 4$ 5, name}' | sort -hr" \
+    install='yay -S $(yay -Ssq | fzf | tr -d "\n")' \
     lsorphan="pacman -Qtdq"
 
-
 # mining
-alias eth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx580:@asia1.ethermine.org:4444 -R --display-interval 30 --HWMON 1" \
-    hiveth="ethminer -P stratum://0x9A203A02517AFd41DbC2Ff5f248e6987Be7cA958.rx580:@aspac1-eth.hiveon.net:4444 --display-interval 30 --HWMON 1 --report-hashrate" \
-    xmr="doas xmrig"
+alias xmr="doas xmrig"
 
 # program aliases
 alias v="nvim" \
-    pip="doas pip3" \
-    goo="tuxi" \
-    high="highlight --out-format=ansi" \
-    jup="jupyter notebook & disown" \
-    ka="killall" \
-    yout="pipe-viewer" \
-    sudb="doas updatedb" \
     r="ranger" \
-    kp="killprocess" \
-    cls="clear" \
+    ka="killall" \
     btop="bpytop" \
-    python="python3" \
     sv="doas nvim" \
+    pip="doas pip3" \
+    python="python3" \
     sn="doas -E nvim" \
+    yout="pipe-viewer" \
     ws="watch sensors" \
+    sudb="doas updatedb" \
     trr="transmission-remote" \
     screenkey="screenkey -s small" \
-    alacritty="alacritty -t Alacritty" \
+    jup="jupyter notebook & disown" \
     startx="startx ~/.config/x11/xinitrc"
 
 # misc
-alias s="doas" \
-    pop="popd" \
-    dt="date +'%a - %I:%M:%S - %d-%b'" \
-    conf="find $HDD/Code/dotfiles/ -type f | grep -vi '.git\|watch_later\|autoload\|pycache\|fonts' | fzf | xargs -r $EDITOR" \
-    co='cd $(ls $HDD/Code | fzf | sed "s|^|'"$HDD"'/Code/|")' \
+alias pop="popd" \
     push="pushd" \
     fi="l | grep -i" \
     fig="figlet -f ansishadow" \
     caps="xdotool key Caps_Lock" \
-    usage="du -ah --max-depth=1 | sort -rh" \
-    pipup="pip3 list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' doas pip3 install --upgrade {} || true" \
-    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
-    pixel3xl="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3_XL_API_30 -gpu host" \
-    recordscreen="ffmpeg -f x11grab -an -s hd1080 -r 25 -v:b 23000 -i :0.0 -g 1 -q:v 0.1 -vcodec libxvid $HDD/Screenshots/screenCapture.mp4" \
-    alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"
