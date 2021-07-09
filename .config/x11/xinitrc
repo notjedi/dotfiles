@@ -1,6 +1,6 @@
 setbg &
 remaps &
-compton &
+/* compton & */
 dwmblocks &
 randomTheme &
 redshift -O 2600 &

@@ -19,7 +19,7 @@ alias g="git" \
 
 # ls aliases
 alias l="ls -A" \
-    ll='ls -alF'
+    ll='ls -ahlF'
 
 # colorize aliases
 alias ls='ls --color=auto' \
@@ -29,6 +29,7 @@ alias ls='ls --color=auto' \
 alias ..="cd .." \
     chd="cd $HDD" \
     ...="cd ../.." \
+    cco="cd $HDD/Code" \
     cfg="cd $HOME/.config" \
     cdd="cd $HDD/Documents" \
     cdo="cd $HOME/Downloads" \
@@ -67,8 +68,6 @@ alias v="nvim" \
     yout="pipe-viewer" \
     ws="watch sensors" \
     sudb="doas updatedb" \
-    trr="transmission-remote" \
-    screenkey="screenkey -s small" \
     jup="jupyter notebook & disown" \
     startx="startx ~/.config/x11/xinitrc"
 

@@ -5,6 +5,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/share/npm/bin:$PATH"
 export PATH="$HOME/.local/bin/dwmblocks:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export PATH="$HOME/.local/share/miniconda/condabin:$PATH"
 [ -f "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 
