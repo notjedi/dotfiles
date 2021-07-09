@@ -1,10 +1,20 @@
+# ranger
 .config/ranger/__pycache__/*
 .config/ranger/colorschemes/__pycache__/*
+
+# mpv & mpd
 .config/mpv/watch_later/*
 .config/mpd/playlists
+
+#nvim
 .config/nvim/autoload/plugged
 .config/nvim/session
-.config/zsh/.zcompdump
-.config/zsh/.zcompdump-falcon1-5.8
 tags
 *.log
+
+# zsh
+.config/zsh/.zcompdump
+.config/zsh/.zcompdump-falcon1-5.8
+
+# passwords
+*passwords

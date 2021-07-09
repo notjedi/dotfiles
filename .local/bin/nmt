@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+eval "$(gpg -dq $HOME/.config/mutt/passwords.gpg)"
+exec neomutt "$@"

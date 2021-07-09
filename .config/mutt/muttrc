@@ -1,0 +1,23 @@
+source primary-gmail.profile
+
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# source colors.muttrc
+source dracula.muttrc
+
+# Folder hooks
+folder-hook 'primary.gmail' 'source ~/.config/mutt/primary-gmail.profile'
+folder-hook 'work.gmail' 'source ~/.config/mutt/work-gmail.profile'
+folder-hook 'uni.gmail' 'source ~/.config/mutt/uni-gmail.profile'
+
+macro index <F1> '<sync-mailbox><enter-command>source ~/.config/mutt/primary-gmail.profile<enter><change-folder>!<enter>'
+macro index <F2> '<sync-mailbox><enter-command>source ~/.config/mutt/work-gmail.profile<enter><change-folder>!<enter>'
+macro index <F3> '<sync-mailbox><enter-command>source ~/.config/mutt/uni-gmail.profile<enter><change-folder>!<enter>'
+
+set new_mail_command = 'notify-send -t 3 "Neomutt" "New mail"'
+set send_charset = "utf-8:iso-8859-15:us-ascii"
+set assumed_charset = "utf-8"
+set charset = "utf-8"
+set mail_check = 120
+set move = no
