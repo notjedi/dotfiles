@@ -17,4 +17,5 @@ tags
 .config/zsh/.zcompdump-falcon1-5.8
 
 # passwords
-*passwords
+passwords
+passwords.gpg
