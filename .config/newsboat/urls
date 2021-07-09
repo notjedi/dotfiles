@@ -1,11 +1,43 @@
-https://lukesmith.xyz/rss.xml "linux" "~Luke Smith"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "linux" "~Luke Smith (YouTube)"
-https://landchad.net/rss.xml "linux" "~Landchad"
+.*0/0..
+---PERSONAL---
+https://github.com/jedi2610.private.atom?token=bamboozled "~github feed"
+https://jedi2610.github.io/atom.xml "~jedi"
 
 .*0/0..
----VIDEOS---
+---YOUTUBE---
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "linux" "~Luke Smith (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "linux" "~Mental Outlaw"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA "educational" "~Vsauce"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCngn7SVujlvskHRvRKc1cTw "linux" "~bugswriter"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "educational" "~3Blue1Brown"
 
+.*0/0..
+---LINUX---
+https://www.archlinux.org/feeds/news/ "linux" "~Arch Linux News"
+https://www.reddit.com/r/unixporn.rss "linux" "~r/unixporn"
+https://landchad.net/rss.xml "linux" "~landchad.net"
+https://lukesmith.xyz/rss.xml "linux" "~Luke Smith"
+
+.*0/0..
+---SCIENCE---
 https://karpathy.github.io/feed.xml "ml" "~Andrej karpathy"
 https://vitalik.ca/feed.xml "bl" "~Vitalik Buterin"
-https://www.archlinux.org/feeds/news/ "linux" "~Arch Linux News"
-https://jedi2610.github.io/atom.xml "~jedi"
+https://lexfridman.com/feed/podcast/ "educational" "~lexfridman podcast"
+https://lexfridman.com/feed/ "educational" "~lexfridman"
+
+.*0/0..
+---BLOCKCHAIN---
+https://blog.ethereum.org/feed.xml "bl" "~blog.ethereum.com"
+https://ethereumworldnews.com/feed/ "bl" "~ethereumworldnews.com"
+https://blog.oleganza.com/rss "bl" "~oleganza.com"
+
+.*0/0..
+---TWITTER---
+https://nitter.42l.fr/VitalikButerin/rss "twitter" "~vitalk"
+https://nitter.42l.fr/lexfridman/rss "twitter" "~lexfridman"
+https://nitter.42l.fr/karpathy/rss "twitter" "~karpathy"
+https://nitter.42l.fr/elonmusk/rss "twitter" "~elonmusk"
+
+.*0/0..
+---MISC---
+https://satishgunjal.com/feed.xml "educational" "~satishgunjal.com"
