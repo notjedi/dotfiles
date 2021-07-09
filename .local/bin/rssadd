@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+RSSFILE="${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls"
+
+if grep "^$1$" "$RSSFILE" >/dev/null; then
+	notify-send "You already have this RSS feed."
+else
+	echo "$1" >> "$RSSFILE" && notify-send "RSS feed added."
+fi
