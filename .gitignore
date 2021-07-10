@@ -19,3 +19,6 @@ tags
 # passwords
 passwords
 passwords.gpg
+
+# mail profies
+profiles/

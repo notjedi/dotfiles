@@ -1,4 +1,4 @@
-source primary-gmail.profile
+source profiles/primary-gmail.profile
 
 set ssl_starttls = yes
 set ssl_force_tls = yes
@@ -7,9 +7,9 @@ set ssl_force_tls = yes
 source dracula.muttrc
 
 # Folder hooks
-folder-hook 'primary.gmail' 'source ~/.config/mutt/primary-gmail.profile'
-folder-hook 'work.gmail' 'source ~/.config/mutt/work-gmail.profile'
-folder-hook 'uni.gmail' 'source ~/.config/mutt/uni-gmail.profile'
+folder-hook 'primary.gmail' 'source ~/.config/mutt/profiles/primary-gmail.profile'
+folder-hook 'work.gmail' 'source ~/.config/mutt/profiles/work-gmail.profile'
+folder-hook 'uni.gmail' 'source ~/.config/mutt/profiles/uni-gmail.profile'
 
 macro index <F1> '<sync-mailbox><enter-command>source ~/.config/mutt/primary-gmail.profile<enter><change-folder>!<enter>'
 macro index <F2> '<sync-mailbox><enter-command>source ~/.config/mutt/work-gmail.profile<enter><change-folder>!<enter>'

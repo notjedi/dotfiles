@@ -42,6 +42,7 @@ alias rh="ranger $HOME" \
     rco="ranger $HDD/Code" \
     rmo="ranger $HDD/movies" \
     rim="ranger $HDD/Images" \
+    rlo="ranger $HOME/.local" \
     rd="ranger $HDD/Documents" \
     rfg="ranger $HOME/.config" \
     rdo="ranger $HOME/Downloads" \
