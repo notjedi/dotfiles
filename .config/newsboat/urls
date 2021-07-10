@@ -12,7 +12,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "ed
 .*0/0..
 ---LINUX---
 https://www.archlinux.org/feeds/news/ "linux" "~Arch Linux News"
-https://www.reddit.com/r/unixporn.rss "linux" "~r/unixporn"
+https://www.reddit.com/r/unixporn.rss?limit=100 "linux" "~r/unixporn"
 https://landchad.net/rss.xml "linux" "~landchad.net"
 https://lukesmith.xyz/rss.xml "linux" "~Luke Smith"
 
@@ -39,3 +39,5 @@ https://nitter.42l.fr/elonmusk/rss "twitter" "~elonmusk"
 .*0/0..
 ---MISC---
 https://satishgunjal.com/feed.xml "educational" "~satishgunjal.com"
+https://oleganza.com/rss/ "educational" "~oleganza-new"
+https://blog.deepjyoti30.dev/feed.xml "educational" "~deepjyoti30"

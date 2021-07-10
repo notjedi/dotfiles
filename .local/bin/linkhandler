@@ -5,9 +5,9 @@ case "$1" in
     *mkv|*mp4|*webm|*avi|*youtube.com/watch*|*youtube.com/playlist*)
         setsid -f mpv "$1" >/dev/null 2>&1 ;;
     *png|*jpg|*jpeg|*gif)
-        curl -sL "$1" > "/tmp/$file" && sxiv -a "/tmp/$file" >/dev/null 2>&1 ;;
+        curl -sL "$1" > "/tmp/$file" && setsid -f sxiv -a "/tmp/$file" >/dev/null 2>&1 ;;
     *pdf)
-        curl -sL "$1" > "/tmp/$file" && zathura "/tmp/$file" >/dev/null 2>&1 ;;
+        curl -sL "$1" > "/tmp/$file" && setsid -f zathura "/tmp/$file" >/dev/null 2>&1 ;;
     *mp3|*flac|*opus)
         curl -sL "$1" > "/tmp/$file" && st -e mpv --no-video "/tmp/$file" >/dev/null 2>&1 ;;
     *)

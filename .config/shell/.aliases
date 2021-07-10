@@ -60,7 +60,10 @@ alias xmr="doas xmrig"
 # program aliases
 alias v="nvim" \
     r="ranger" \
+    nb="newsboat"\
+    py="python3" \
     ka="killall" \
+    ipy="ipython" \
     btop="bpytop" \
     sv="doas nvim" \
     pip="doas pip3" \
