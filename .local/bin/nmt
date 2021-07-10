@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-eval "$(gpg -dq $HOME/.config/mutt/passwords.gpg)"
+# https://www.mail-archive.com/mutt-users@mutt.org/msg36375.html
+eval "$(gpg -dq $HOME/.config/mutt/passwords.gpg || echo "Failed")" 2>/dev/null || exit 0
 exec neomutt "$@"

@@ -54,7 +54,7 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
-GTK2_RC_FILES=/usr/share/themes/dracula/gtk-2.0/gtkrc
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc"
 export PYTHONUSERBASE="/usr/local/bin"
 export _JAVA_AWT_WM_NONREPARENTING=1 # fix for java applications in dwm
 export LESSHISTFILE="-"
