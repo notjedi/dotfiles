@@ -90,6 +90,10 @@ nmap <leader>fp :FloatermNew python3<CR>
 nmap <leader>fs :FloatermNew ncdu<CR>
 nmap <leader>fb :FloatermNew bpytop<CR>
 
+" spell check
+nmap <leader>j ]S
+nmap <leader>k [S
+
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 

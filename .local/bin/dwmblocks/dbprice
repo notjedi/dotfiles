@@ -23,5 +23,7 @@ esac
 
 [ -z $cur ] && exit
 
-price=$(curl -s "rate.sx/1$cur" | sed 's|\..*||g')
-echo "$icon \$$price"
+# price=$(curl -s "rate.sx/1$cur" | sed 's|\..*||g')
+# echo "$icon \$$price"
+price=$(curl -s "inr.rate.sx/1$cur")
+printf "%s %0.2f\n" $icon $price

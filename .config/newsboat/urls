@@ -21,7 +21,6 @@ https://lukesmith.xyz/rss.xml "linux" "~Luke Smith"
 https://karpathy.github.io/feed.xml "ml" "~Andrej karpathy"
 https://vitalik.ca/feed.xml "bl" "~Vitalik Buterin"
 https://lexfridman.com/feed/podcast/ "educational" "~lexfridman podcast"
-https://lexfridman.com/feed/ "educational" "~lexfridman"
 
 .*0/0..
 ---BLOCKCHAIN---
@@ -41,3 +40,11 @@ https://nitter.42l.fr/elonmusk/rss "twitter" "~elonmusk"
 https://satishgunjal.com/feed.xml "educational" "~satishgunjal.com"
 https://oleganza.com/rss/ "educational" "~oleganza-new"
 https://blog.deepjyoti30.dev/feed.xml "educational" "~deepjyoti30"
+https://hyperelliptic.blogspot.com/feeds/posts/default
+https://andrea.corbellini.name/feed.rss
+https://blog.opencog.org/feed/
+https://opencog.org/feed/
+https://github.com/opencog/opencog/commits/master.atom
+https://bengoertzel.substack.com/feed
+https://goertzel.org/feed/
+https://multiverseaccordingtoben.blogspot.com/feeds/posts/default?alt=rss

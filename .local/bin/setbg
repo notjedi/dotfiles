@@ -8,4 +8,4 @@ fi
 
 dirname="/mnt/Seagate/wallpapers"
 file=$(find "$dirname" -type f | shuf -n 1)
-wal -i "$file"; rm -f $HOME/.fehbg
+wal -i "$file"; (sleep 0.1 && rm -f $HOME/.fehbg)

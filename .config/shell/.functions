@@ -13,7 +13,7 @@ conf() {
 }
 
 pipup() {
-    pip3 list --outdated | tail -n +3 | awk '{print $ 1}' | xargs -r -i'{}' doas pip3 install --upgrade {} || true
+    pip3 list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' | xargs -r -i'{}' doas pip3 install --upgrade {} || true
 }
 
 lspacs() {

@@ -40,7 +40,11 @@ set termguicolors                       " enable 256 bit color support"
 set cursorline                          " highlight current line
 set autochdir                           " Your working directory will always be the same as your working directory
 set laststatus=2                        " galaxyline doesn't show up if it's not set to 2
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+
+" setlocal spell spelllang=en_us
+au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vim alternatively you can run :source $MYVIMRC
+" https://stackoverflow.com/questions/7894330/preserve-last-editing-position-in-vim
+autocmd BufReadPost * silent! normal! g`"
 
 autocmd FileType json setlocal commentstring=//\ %s
 " autocmd FileType c,cpp,cc
