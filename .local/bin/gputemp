@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-temp=$(sensors | grep edge)
+temp=$(sensors | grep "temp1.*(high")
 
 # Removing text b/w parenthesis
-temp=$(echo $temp | sed -e 's/([^()]*)//g')
-temp=$(echo $temp | tr -d "edge:" | tr '+' ' ' | tr -d ' ')
+# temp=$(echo $temp | sed -e 's/([^()]*)//g')
+# temp=$(sensors | grep "temp1.*(high" | awk '{ print $2 }')
+temp=$(echo $temp | awk '{ print $2 }' | tr '+' ' ' | tr -d ' ')
 
 echo $temp

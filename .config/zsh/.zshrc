@@ -106,7 +106,14 @@ else
     fi
 fi
 unset __conda_setup
-export PATH="/home/jedi/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
+# export CUDA_BIN_PATH=/opt/cuda/bin
+# export PATH=/opt/cuda/lib64:$PATH
+# export LD_LIBRARY_PATH=/opt/cuda/targets/x86_64-linux/lib
+# export CPATH=/opt/cuda/bin:/opt/cuda/targets/x86_64-linux/include
+# export CUDA_HOME=/opt/cuda
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64
+# export PATH=$PATH:$CUDA_HOME/bin
 
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets

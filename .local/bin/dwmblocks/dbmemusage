@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-mem=$(free -h | awk '/^Mem:/ { print $3 }' | sed 's/i//')
+# mem=$(free -h | awk '/^Mem:/ { print $3 }' | sed 's/i//')
+mem=$(free | awk '/^Mem:/ { print int(($2-$NF) / 1024) }')
+
+if [ "$mem" -lt 1000 ]; then
+    mem="$(echo $mem)M"
+else
+    mem=$(printf '%.1fG' $(echo "scale=1; $mem/1000" | bc -l))
+fi
 
 case $BUTTON in
     1) notify-send -u low -t 3000 "Mem Hogs:" "\n$(memintensive)";;
