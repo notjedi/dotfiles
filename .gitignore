@@ -1,5 +1,6 @@
 # ranger
 .config/ranger/__pycache__/*
+.config/ranger/plugins/__pycache__/*
 .config/ranger/colorschemes/__pycache__/*
 
 # mpv & mpd

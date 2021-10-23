@@ -78,22 +78,6 @@ autoload edit-command-line;
 zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-function countdown(){
-    date1=$((`date +%s` + $1)); 
-    while [ "$date1" -ge `date +%s` ]; do 
-     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
-     sleep 0.1
-    done
-}
-
-function stopwatch() {
-    date1=`date +%s`; 
-    while true; do 
-        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
-        sleep 0.1
-    done
-}
-
 # conda stuff
 __conda_setup="$('/home/jedi/.local/share/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then

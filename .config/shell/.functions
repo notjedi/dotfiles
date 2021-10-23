@@ -28,3 +28,19 @@ pacusage() {
     # https://serverfault.com/questions/375096/bash-sed-awk-etc-remove-every-other-newline/375104
     pacman -Qi | egrep '^(Name|Installed)' | cut -f2 -d':' | paste - - | sed 's/^ //g; s/ K/K/g; s/ M/M/g' | tr -d '\t' | sort -rhk 2 | less
 }
+
+countdown(){
+    date1=$((`date +%s` + $1)); 
+    while [ "$date1" -ge `date +%s` ]; do 
+     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+    done
+}
+
+stopwatch() {
+    date1=`date +%s`; 
+    while true; do 
+        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+        sleep 0.1
+    done
+}
