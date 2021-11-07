@@ -2,10 +2,14 @@
 
 # if [ $# -eq 0 ]
 if [ ! -z "$1" ]; then
-    wal -i "$1"; rm -f $HOME/.fehbg
+    xwallpaper --zoom "$file"
+    wal -n -i "$file";
     exit 0
 fi
 
 dirname="/mnt/Seagate/wallpapers"
 file=$(find "$dirname" -type f | shuf -n 1)
-wal -i "$file"; (sleep 0.1 && rm -f $HOME/.fehbg)
+
+# set bg
+xwallpaper --zoom "$file"
+wal -n -i "$file";
