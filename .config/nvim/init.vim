@@ -28,7 +28,6 @@ source $HOME/.config/nvim/plug-config/signify.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/quickscope.vim
-source $HOME/.config/nvim/plug-config/nvim-tree.vim
 " source $HOME/.config/nvim/keys/which-key.vim
 
 luafile $HOME/.config/nvim/lua/plugins/plug-colorizer.lua
@@ -37,9 +36,8 @@ luafile $HOME/.config/nvim/lua/plugins/nvim-comment.lua
 luafile $HOME/.config/nvim/lua/plugins/nvim-autopairs.lua
 luafile $HOME/.config/nvim/lua/plugins/barbar.lua
 luafile $HOME/.config/nvim/lua/plugins/galaxyline.lua
-luafile $HOME/.config/nvim/lua/plugins/presence.lua
+" luafile $HOME/.config/nvim/lua/plugins/presence.lua
 luafile $HOME/.config/nvim/lua/plugins/lspsaga.lua
-" luafile $HOME/.config/nvim/lua/plugins/nvim-lightbulb.lua
 
 " lsp
 luafile $HOME/.config/nvim/lua/lsp/python-ls.lua
@@ -51,3 +49,4 @@ luafile $HOME/.config/nvim/lua/lsp/go-ls.lua
 luafile $HOME/.config/nvim/lua/lsp/bash-ls.lua
 luafile $HOME/.config/nvim/lua/lsp/lua-ls.lua
 luafile $HOME/.config/nvim/lua/lsp/virtual-text.lua
+" source $HOME/.config/nvim/plug-config/nvim-tree.vim

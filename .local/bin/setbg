@@ -2,8 +2,8 @@
 
 # if [ $# -eq 0 ]
 if [ ! -z "$1" ]; then
-    xwallpaper --zoom "$file"
-    wal -n -i "$file";
+    xwallpaper --zoom "$1"
+    wal -n -i "$1";
     exit 0
 fi
 
