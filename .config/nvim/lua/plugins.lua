@@ -26,6 +26,7 @@ vim.cmd [[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
+  vim.notify("Cannot load packer!")
   return
 end
 
@@ -47,10 +48,14 @@ return packer.startup(function(use)
   -- Themes
   use 'dracula/vim'
   use 'dylanaraps/wal.vim'
-  use 'joshdick/onedark.vim'
   use 'jaredgorski/spacecamp'
+  use 'folke/tokyonight.nvim'
   use 'kaicataldo/material.vim'
   use 'Rigellute/shades-of-purple.vim'
+  use {
+    'catppuccin/nvim',
+    as = 'catppuccin'
+  }
 
   -- Aesthetics 
   use 'windwp/nvim-autopairs'
@@ -58,7 +63,6 @@ return packer.startup(function(use)
   use 'junegunn/rainbow_parentheses.vim'
 
   -- Navigation
-  use 'junegunn/fzf.vim'
   use 'unblevable/quick-scope'
   use 'kyazdani42/nvim-tree.lua'
 
