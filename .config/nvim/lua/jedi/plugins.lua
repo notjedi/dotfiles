@@ -46,15 +46,16 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Themes
-  use 'dracula/vim'
-  use 'dylanaraps/wal.vim'
-  use 'jaredgorski/spacecamp'
-  use 'folke/tokyonight.nvim'
+  use { 'dracula/vim', opt = true }
+  use { 'dylanaraps/wal.vim', opt = true }
+  use { 'jaredgorski/spacecamp', opt = true }
+  use { 'folke/tokyonight.nvim', opt = true }
   use 'kaicataldo/material.vim'
-  use 'Rigellute/shades-of-purple.vim'
+  use { 'Rigellute/shades-of-purple.vim', opt = true }
   use {
     'catppuccin/nvim',
-    as = 'catppuccin'
+    as = 'catppuccin',
+    opt = true
   }
 
   -- Aesthetics 
@@ -66,12 +67,19 @@ return packer.startup(function(use)
   -- Navigation
   use 'phaazon/hop.nvim'
   use 'kyazdani42/nvim-tree.lua'
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  -- use {
+  --   'nvim-telescope/telescope.nvim',
+  --   requires = { {'nvim-lua/plenary.nvim'} },
+  --   as = 'telescope'
+  -- }
 
   -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
   use 'airblade/vim-rooter'
 
   -- Misc
