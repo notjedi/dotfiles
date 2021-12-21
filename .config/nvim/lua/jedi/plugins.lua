@@ -61,9 +61,10 @@ return packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'kyazdani42/nvim-web-devicons'
   use 'junegunn/rainbow_parentheses.vim'
+  use 'norcalli/nvim-colorizer.lua'
 
   -- Navigation
-  use 'unblevable/quick-scope'
+  use 'phaazon/hop.nvim'
   use 'kyazdani42/nvim-tree.lua'
 
   -- Git
