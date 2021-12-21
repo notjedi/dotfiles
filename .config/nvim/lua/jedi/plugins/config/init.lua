@@ -4,6 +4,7 @@ local M = {}
 local function add(modname)
   local modulepath = string.format('%s.%s', currentmod, modname)
   local success, results = pcall(require, modulepath)
+  -- modulepath = jedi.plugins.config
   if not success then
     vim.notify('Cannot load' .. modname)
     return

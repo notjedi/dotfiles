@@ -45,3 +45,9 @@ require('gitsigns').setup {
     enable = false,
   },
 }
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap("n", "gj", ":lua require('gitsigns').next_hunk()<CR>", opts)
+keymap("n", "gk", ":lua require('gitsigns').prev_hunk()<CR>", opts)

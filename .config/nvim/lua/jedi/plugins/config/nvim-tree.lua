@@ -62,4 +62,4 @@ vim.g.nvim_tree_indent_markers = 1
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", opts)

@@ -16,10 +16,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
+-- TODO: source config when a file in nvim config dir changes
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    autocmd BufWritePost init.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -60,7 +61,7 @@ packer.startup(function(use)
   -- Aesthetics 
   use 'windwp/nvim-autopairs'
   use 'kyazdani42/nvim-web-devicons'
-  use 'junegunn/rainbow_parentheses.vim'
+  use { 'junegunn/rainbow_parentheses.vim', opt = true }
   use 'norcalli/nvim-colorizer.lua'
 
   -- Navigation
@@ -74,10 +75,11 @@ packer.startup(function(use)
   }
 
   -- Misc
-  use { 'junegunn/goyo.vim', cmd = 'Goyo'}
+  use { 'junegunn/goyo.vim', cmd = 'Goyo', opt = true }
   use { 'iamcco/markdown-preview.nvim',
     run = 'cd app && npm install',
-    cmd = 'MarkdownPreview'
+    ft = { 'markdown' },
+    opt = true
   }
   use { 'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim'
