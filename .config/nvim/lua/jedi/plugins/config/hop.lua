@@ -1,10 +1,5 @@
-local status_ok, hop = pcall(require, "hop")
-if not status_ok then
-  vim.notify("Hop not available")
-  return
-end
+require('hop').setup()
 
-hop.setup()
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 

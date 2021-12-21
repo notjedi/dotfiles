@@ -39,21 +39,20 @@ packer.init {
   },
 }
 
-return packer.startup(function(use)
+packer.startup(function(use)
 
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'wbthomason/packer.nvim'
 
   -- Themes
+  use 'kaicataldo/material.vim'
   use { 'dracula/vim', opt = true }
   use { 'dylanaraps/wal.vim', opt = true }
   use { 'jaredgorski/spacecamp', opt = true }
   use { 'folke/tokyonight.nvim', opt = true }
-  use 'kaicataldo/material.vim'
   use { 'Rigellute/shades-of-purple.vim', opt = true }
-  use {
-    'catppuccin/nvim',
+  use { 'catppuccin/nvim',
     as = 'catppuccin',
     opt = true
   }
@@ -67,27 +66,21 @@ return packer.startup(function(use)
   -- Navigation
   use 'phaazon/hop.nvim'
   use 'kyazdani42/nvim-tree.lua'
-  -- use {
-  --   'nvim-telescope/telescope.nvim',
-  --   requires = { {'nvim-lua/plenary.nvim'} },
-  --   as = 'telescope'
-  -- }
 
   -- Git
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    }
-  }
   use 'airblade/vim-rooter'
+  use { 'lewis6991/gitsigns.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   -- Misc
-  use {'junegunn/goyo.vim', cmd = 'Goyo'}
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', cmd = 'MarkdownPreview'}
-  use {
-    "folke/todo-comments.nvim",
-    requires = { {'nvim-lua/plenary.nvim' } }
+  use { 'junegunn/goyo.vim', cmd = 'Goyo'}
+  use { 'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    cmd = 'MarkdownPreview'
+  }
+  use { 'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
@@ -95,3 +88,5 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
+
+require 'jedi.plugins.config'.setup()

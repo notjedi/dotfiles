@@ -1,4 +1,4 @@
-require'todo-comments'.setup {
+require('todo-comments').setup {
   keywords = {
     FIX = {
       icon = " ",
@@ -11,6 +11,7 @@ require'todo-comments'.setup {
     PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" }, signs = false },
     NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
   },
+
   highlight = {
     before = "",
     keyword = "bg",
@@ -20,11 +21,12 @@ require'todo-comments'.setup {
     max_line_len = 400,
     exclude = {},
   },
+
   colors = {
     error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
     warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
     info = { "DiagnosticInfo", "#2563EB" },
     hint = { "DiagnosticHint", "#10B981" },
     default = { "Identifier", "#7C3AED" },
-  }
+  },
 }
