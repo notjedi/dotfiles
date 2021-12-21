@@ -66,6 +66,10 @@ return packer.startup(function(use)
   -- Navigation
   use 'phaazon/hop.nvim'
   use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   -- Git
   use 'airblade/vim-rooter'
@@ -73,6 +77,10 @@ return packer.startup(function(use)
   -- Misc
   use {'junegunn/goyo.vim', cmd = 'Goyo'}
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', cmd = 'MarkdownPreview'}
+  use {
+    "folke/todo-comments.nvim",
+    requires = { {'nvim-lua/plenary.nvim' } }
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
