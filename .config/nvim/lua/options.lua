@@ -39,7 +39,8 @@ end
 
 vim.opt.shortmess:append "c"
 
+vim.cmd "colorscheme material"
 vim.cmd "set formatoptions-=jql"    -- TODO: doesn't work
 vim.cmd "set iskeyword+=-"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd "syntax enable"
+vim.cmd "syntax on"
