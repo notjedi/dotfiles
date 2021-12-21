@@ -15,11 +15,11 @@ local opts = {
     numberwidth = 4,
     pumheight = 10,
     relativenumber = false,
-    scrolloff = 8,
+    scrolloff = 10,
     shiftwidth = 4,
     showmode = false,
     showtabline = 2,
-    sidescrolloff = 8,
+    sidescrolloff = 10,
     signcolumn = "yes",
     smartcase = true,
     smartindent = true,
@@ -39,7 +39,6 @@ end
 
 vim.opt.shortmess:append "c"
 
-vim.cmd "colorscheme material"
 vim.cmd "set formatoptions-=jql"    -- TODO: doesn't work
 vim.cmd "set iskeyword+=-"
 vim.cmd "set whichwrap+=<,>,[,],h,l"

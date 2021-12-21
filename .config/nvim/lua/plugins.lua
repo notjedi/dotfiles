@@ -66,7 +66,7 @@ return packer.startup(function(use)
   use 'airblade/vim-rooter'
 
   -- Misc
-  use 'junegunn/goyo.vim'
+  use {'junegunn/goyo.vim', cmd = 'Goyo'}
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', cmd = 'MarkdownPreview'}
 
   -- Automatically set up your configuration after cloning packer.nvim
