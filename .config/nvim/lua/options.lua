@@ -27,6 +27,7 @@ local opts = {
     splitright = true,
     swapfile = false,
     tabstop = 4,
+    termguicolors = true,
     timeoutlen = 1000,
     undofile = true,
     updatetime = 300,
