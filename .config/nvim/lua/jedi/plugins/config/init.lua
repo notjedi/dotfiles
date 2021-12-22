@@ -16,6 +16,7 @@ end
 M.setup = function()
   add 'hop'
   add 'gitsigns'
+  add 'telescope'
   add 'nvim-tree'
   add 'nvim-autopairs'
   add 'nvim-colorizer'
