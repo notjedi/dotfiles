@@ -82,7 +82,12 @@ packer.startup(function(use)
     opt = true
   }
   use { 'folke/todo-comments.nvim',
-    requires = 'nvim-lua/plenary.nvim'
+    requires = 'nvim-lua/plenary.nvim',
+    opt = true,
+    cmd = { 'TodoLocList', 'TodoTelescope' },
+    config = function()
+      require('jedi.plugins.config.todo-comments').config()
+    end
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

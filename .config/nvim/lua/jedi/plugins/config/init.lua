@@ -17,7 +17,6 @@ M.setup = function()
   add 'hop'
   add 'gitsigns'
   add 'nvim-tree'
-  add 'todo-comments'
   add 'nvim-autopairs'
   add 'nvim-colorizer'
   add 'nvim-web-devicons'
