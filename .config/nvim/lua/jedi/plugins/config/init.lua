@@ -18,6 +18,7 @@ M.setup = function()
   add 'gitsigns'
   add 'telescope'
   add 'nvim-tree'
+  add 'treesitter'
   add 'nvim-autopairs'
   add 'nvim-colorizer'
   add 'nvim-web-devicons'

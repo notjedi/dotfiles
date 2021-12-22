@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -72,9 +71,12 @@ packer.startup(function(use)
   }
 
   -- Git
-  use 'airblade/vim-rooter'
   use { 'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim'
+  }
+  use { 'airblade/vim-rooter',
+    opt = true,
+    cmd = { 'Rooter', 'RooterToggle' }
   }
 
   -- Misc
@@ -83,6 +85,9 @@ packer.startup(function(use)
     run = 'cd app && npm install',
     ft = { 'markdown' },
     opt = true
+  }
+  use { 'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
   }
   use { 'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim',
