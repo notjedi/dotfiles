@@ -47,11 +47,10 @@ packer.startup(function(use)
 
   -- Themes
   use 'kaicataldo/material.vim'
-  use { 'dracula/vim', opt = true }
-  use { 'dylanaraps/wal.vim', opt = true }
-  use { 'jaredgorski/spacecamp', opt = true }
+  use { 'chriskempson/base16-vim', opt = true }
   use { 'folke/tokyonight.nvim', opt = true }
   use { 'Rigellute/shades-of-purple.vim', opt = true }
+  use { 'dracula/vim', as = 'dracula', opt = true }
   use { 'catppuccin/nvim',
     as = 'catppuccin',
     opt = true
