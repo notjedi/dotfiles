@@ -60,7 +60,6 @@ packer.startup(function(use)
   -- Aesthetics 
   use 'windwp/nvim-autopairs'
   use 'kyazdani42/nvim-web-devicons'
-  use { 'junegunn/rainbow_parentheses.vim', opt = true }
   use 'norcalli/nvim-colorizer.lua'
 
   -- Navigation

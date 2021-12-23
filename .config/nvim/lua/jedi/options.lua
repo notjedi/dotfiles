@@ -1,5 +1,4 @@
 local opts = {
-    autochdir = true,
     backup = false,
     clipboard = "unnamedplus",
     cmdheight = 1,
@@ -42,5 +41,4 @@ vim.opt.shortmess:append "c"
 
 vim.cmd "set formatoptions-=jql"    -- TODO: doesn't work
 vim.cmd "set iskeyword+=-"
-vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "syntax on"
