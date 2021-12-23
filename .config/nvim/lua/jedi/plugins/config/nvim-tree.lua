@@ -58,7 +58,6 @@ require('nvim-tree').setup {
   }
 }
 
-vim.g.nvim_tree_indent_markers = 1
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 

@@ -15,7 +15,6 @@ keymap('n', '<C-k>', '<C-w>k', opts)
 keymap('n', '<C-l>', '<C-w>l', opts)
 
 -- Leader keymaps
-keymap('n', '<leader>e', ':Lex 30<CR>', opts)
 keymap('n', '<leader>w', ':w<CR>', opts)
 keymap('n', '<leader>q', ':q<CR>', opts)
 
