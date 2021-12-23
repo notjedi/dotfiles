@@ -65,6 +65,9 @@ packer.startup(function(use)
   -- Navigation
   use 'phaazon/hop.nvim'
   use 'kyazdani42/nvim-tree.lua'
+  use { 'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
   use { 'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
