@@ -6,7 +6,7 @@ local function add(modname)
   local success, results = pcall(require, modulepath)
   -- modulepath = jedi.plugins.config
   if not success then
-    vim.notify('Cannot load' .. modname)
+    vim.notify('Cannot load ' .. modname)
     return
   end
 
@@ -19,6 +19,7 @@ M.setup = function()
   add 'telescope'
   add 'nvim-tree'
   add 'impatient'
+  add 'toggleterm'
   add 'bufferline'
   add 'treesitter'
   add 'nvim-autopairs'

@@ -79,6 +79,7 @@ packer.startup(function(use)
 
   -- Misc
   use 'lewis6991/impatient.nvim'
+  use 'akinsho/toggleterm.nvim'
   use { 'junegunn/goyo.vim', cmd = 'Goyo', opt = true }
   use { 'iamcco/markdown-preview.nvim',
     run = 'cd app && npm install',
