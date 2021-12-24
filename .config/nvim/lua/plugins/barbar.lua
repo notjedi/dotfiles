@@ -1,6 +1,0 @@
-vim.api.nvim_set_keymap('n', '<TAB>', ':BufferNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-,>', ':BufferMovePrevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-.>', ':BufferMoveNext<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<M-f>', ':BufferPick<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-x>', ':BufferClose<CR>', { noremap = true, silent = true })

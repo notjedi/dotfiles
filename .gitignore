@@ -10,6 +10,7 @@
 #nvim
 .config/nvim/autoload/plugged
 .config/nvim/session
+.config/nvim/plugin
 tags
 *.log
 
