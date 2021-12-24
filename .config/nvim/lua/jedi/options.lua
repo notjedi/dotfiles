@@ -39,6 +39,7 @@ end
 
 vim.opt.shortmess:append "c"
 
+vim.cmd [[match Errormsg '\%>80v.\+']]
 vim.cmd "set formatoptions-=jql"    -- TODO: doesn't work
 vim.cmd "set iskeyword+=-"
 vim.cmd "syntax on"
