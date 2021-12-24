@@ -18,6 +18,7 @@ M.setup = function()
   add 'gitsigns'
   add 'telescope'
   add 'nvim-tree'
+  add 'impatient'
   add 'bufferline'
   add 'treesitter'
   add 'nvim-autopairs'
