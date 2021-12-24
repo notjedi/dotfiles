@@ -51,10 +51,7 @@ packer.startup(function(use)
   use { 'folke/tokyonight.nvim', opt = true }
   use { 'Rigellute/shades-of-purple.vim', opt = true }
   use { 'dracula/vim', as = 'dracula', opt = true }
-  use { 'catppuccin/nvim',
-    as = 'catppuccin',
-    opt = true
-  }
+  use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
 
   -- Aesthetics 
   use 'windwp/nvim-autopairs'
