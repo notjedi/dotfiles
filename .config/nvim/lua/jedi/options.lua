@@ -27,7 +27,8 @@ local opts = {
     swapfile = false,
     tabstop = 4,
     termguicolors = true,
-    timeoutlen = 1000,
+    textwidth = 100,
+    timeoutlen = 500,
     undofile = true,
     updatetime = 300,
     wrap = false
@@ -39,7 +40,5 @@ end
 
 vim.opt.shortmess:append "c"
 
-vim.cmd [[match Errormsg '\%>80v.\+']]
-vim.cmd "set formatoptions-=jql"    -- TODO: doesn't work
-vim.cmd "set iskeyword+=-"
-vim.cmd "syntax on"
+vim.cmd [[set iskeyword+=-]]
+vim.cmd [[syntax on]]

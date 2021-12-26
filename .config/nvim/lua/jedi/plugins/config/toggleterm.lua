@@ -8,7 +8,7 @@ toggleterm.setup({
 	shade_terminals = true,
 	shading_factor = 2,
 	start_in_insert = true,
-	insert_mappings = true,
+	insert_mappings = false,
 	persist_size = true,
 	direction = "float",
 	close_on_exit = true,
@@ -24,13 +24,16 @@ toggleterm.setup({
 })
 
 function _G.set_terminal_keymaps()
-  local opts = { noremap = true }
-  vim.api.nvim_buf_set_keymap(0, 't', '<Esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+  local buf_keymap = vim.api.nvim_buf_set_keymap
+  local opts = { silent = true, noremap = true }
+  buf_keymap(0, 't', '<leader>t', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
+  buf_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+  buf_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+  buf_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+  buf_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd([[autocmd! TermOpen term://* lua set_terminal_keymaps()]])
+vim.cmd([[autocmd FileType python nnoremap <Leader>d :TermExec cmd='python3 %'<CR>]])
+vim.cmd([[autocmd FileType cpp,cc nnoremap <Leader>d :TermExec cmd='g++ % -o %<.out && ./%<.out'<CR>]])
+vim.cmd([[autocmd FileType c nnoremap <Leader>d :TermExec cmd='gcc % -o %<.out && ./%<.out'<CR>]])
