@@ -64,7 +64,6 @@ alias v="nvim" \
     py="python3" \
     ka="killall" \
     ipy="ipython" \
-    btop="bpytop" \
     sv="doas nvim" \
     pip="doas pip3" \
     python="python3" \

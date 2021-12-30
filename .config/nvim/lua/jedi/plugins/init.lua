@@ -53,7 +53,7 @@ packer.startup(function(use)
   use { 'dracula/vim', as = 'dracula', opt = true }
   use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
 
-  -- Aesthetics 
+  -- Aesthetics
   use 'windwp/nvim-autopairs'
   use 'kyazdani42/nvim-web-devicons'
   use 'norcalli/nvim-colorizer.lua'
