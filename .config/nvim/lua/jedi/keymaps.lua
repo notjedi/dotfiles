@@ -48,11 +48,11 @@ keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)
 
 -- Move text up and down
-keymap('v', 'J', ':m .+1<CR>==', opts)
-keymap('v', 'K', ':m .-2<CR>==', opts)
-keymap('v', 'p', "'_dP", opts)
+keymap('v', '<C-j>', ':m .+1<CR>==', opts)
+keymap('v', '<C-k>', ':m .-2<CR>==', opts)
+-- keymap('v', 'p', "'_dP", opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
-keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
+keymap('x', '<C-j>', ":move '>+1<CR>gv-gv", opts)
+keymap('x', '<C-k>', ":move '<-2<CR>gv-gv", opts)

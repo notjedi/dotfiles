@@ -4,6 +4,7 @@ local opts = {
     cmdheight = 1,
     completeopt = { "menu", "noselect" },
     conceallevel = 0,
+    cursorline = true,
     expandtab = true,
     fileencoding = "utf-8",
     guicursor = "i:block",

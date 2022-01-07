@@ -16,6 +16,7 @@ vim.cmd [[
     autocmd!
     autocmd ColorScheme * let w:m1=matchadd('ErrorMsg', '\%>100v.\+', -1)
     autocmd ColorScheme * let w:m2=matchadd('ExtraWhitespace', '\s\+$', -1)
-    autocmd ColorScheme * highlight ExtraWhitespace guibg=NONE guifg=red gui=underline augroup end
+    autocmd ColorScheme * highlight ExtraWhitespace guibg=NONE guifg=red gui=underline
+  augroup end
 
 ]]
