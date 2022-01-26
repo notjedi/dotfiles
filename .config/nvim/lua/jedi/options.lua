@@ -5,6 +5,7 @@ local opts = {
     completeopt = { "menu", "noselect" },
     conceallevel = 0,
     cursorline = true,
+    dictionary = "/usr/share/dict/words",
     expandtab = true,
     fileencoding = "utf-8",
     guicursor = "i:block",

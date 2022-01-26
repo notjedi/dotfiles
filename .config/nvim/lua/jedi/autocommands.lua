@@ -19,4 +19,9 @@ vim.cmd [[
     autocmd ColorScheme * highlight ExtraWhitespace guibg=NONE guifg=red gui=underline
   augroup end
 
+  augroup _delete_trailing_space
+    au BufWritePre * %s/\s\+$//e
+    au BufWritePre * %s/\n\+\%$//e
+  augroup end
+
 ]]
