@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-list=$(transmission-remote -t all -i | 
-    grep "Name:\|Have:\|Total size:" | 
+list=$(transmission-remote -t all -i |
+    grep "Name:\|Have:\|Total size:" |
         sed " # Replacing different words
         s/.*Name://;
         s/.*Have:/Downloaded:/;

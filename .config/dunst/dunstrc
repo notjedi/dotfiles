@@ -76,12 +76,12 @@ foreground = "#f8f8f2"
 ; background = "#0F111A"
 ; foreground = "#a4a4a4"
 ; timeout = 5
-; 
+;
 ; [urgency_normal]
 ; background = "#0F111A"
 ; foreground = "#a4a4a4"
 ; timeout = 5
-; 
+;
 ; [urgency_critical]
 ; background = "#0F111A"
 ; foreground = "#a4a4a4"

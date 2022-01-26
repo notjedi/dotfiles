@@ -35,10 +35,10 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3 
+line-size = 3
 line-color = #f00
 
-border-size = 0 
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -53,8 +53,8 @@ font-2 = Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2
 font-4 = Source Han Sans CN:pixelsize=10;1
 font-5 = Source Han Sans JP:pixelsize=10;1
 
-modules-left = i3 title 
-modules-center = player 
+modules-left = i3 title
+modules-center = player
 modules-right = filesystem pulseaudio memory cpu temperature date powermenu
 
 tray-position = right
@@ -202,7 +202,7 @@ ramp-volume-0 = "🔈"
 ramp-volume-1 = "🔉"
 ramp-volume-2 = "🔊"
 
-label-muted = 🔇 muted 
+label-muted = 🔇 muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -214,7 +214,7 @@ bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
-bar-volume-indicator = 
+bar-volume-indicator =
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
@@ -230,7 +230,7 @@ warn-temperature = 55
 format = <label>
 format-prefix = "🔥 "
 format-underline = #f50a4d
-internal = 3 
+internal = 3
 format-warn-underline = ${self.format-underline}
 
 label-warn-foreground = ${colors.secondary}
@@ -283,7 +283,7 @@ format-underline = ${colors.grey}
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
-interval = 2 
+interval = 2
 
 [settings]
 screenchange-reload = true

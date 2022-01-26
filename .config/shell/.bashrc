@@ -119,7 +119,7 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 [ -f /usr/share/doc/fzf/examples/completion.bash ] && source /usr/share/doc/fzf/examples/completion.bash
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
-export GIT_PS1_SHOWCOLORHINTS=1 
+export GIT_PS1_SHOWCOLORHINTS=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWDIRTYSTATE=1
 
@@ -140,10 +140,10 @@ fi
 
 se() { du -a --exclude=coc --exclude=notion-desktop ~/scripts/ ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR; }
 
-allUpdate() { 
+allUpdate() {
     sudo apt update
     sudo apt upgrade -y
-    pip list --outdated | tail -n +3 | awk '{print $1}' | xargs -r -i'{}' pip install --upgrade {} || true 
+    pip list --outdated | tail -n +3 | awk '{print $1}' | xargs -r -i'{}' pip install --upgrade {} || true
     sudo youtube-dl -U
 }
 

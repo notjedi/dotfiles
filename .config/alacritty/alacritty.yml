@@ -39,12 +39,12 @@ cursor:
 #   primary:
 #     background: "#1E1E3F"
 #     foreground: "#E1EFFF"
-# 
+#
 #   # Colors the cursor will use if `custom_cursor_colors` is true
 #   cursor:
 #     text: "#1E1E3F"
 #     cursor: "#FAD000"
-# 
+#
 #   # Normal colors
 #   normal:
 #     black: "#000000"
@@ -55,7 +55,7 @@ cursor:
 #     magenta: "#FF2C70"
 #     cyan: "#80FCFF"
 #     white: "#FFFFFF"
-# 
+#
 #   # Bright colors
 #   bright:
 #     black: "#5C5C61"
@@ -129,7 +129,7 @@ colors:
 #     background: "#282c34"
 #     foreground: "#abb2bf"
 #     # background: '#1E2028'
-# 
+#
 #   # Normal colors
 #   normal:
 #     # NOTE: Use '#131613' for the `black` color if you'd like to see
@@ -142,7 +142,7 @@ colors:
 #     magenta: "#c678dd"
 #     cyan: "#56b6c2"
 #     white: "#abb2bf"
-# 
+#
 #   # Bright colors
 #   bright:
 #     black: "#5c6370"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-listOfThemes=("Material-Ocean" "Bloody" "Dribbblish" "DeepCoral" 
-                    "Gradianto" "Lovelace" "NoSleep" "OnePunch" 
+listOfThemes=("Material-Ocean" "Bloody" "Dribbblish" "DeepCoral"
+                    "Gradianto" "Lovelace" "NoSleep" "OnePunch"
                     "OutrunDark" "TychoAwake" "Vaporwave" "Dark")
 
 dribbblish=("base" "dark" "dracula" "nord-dark" "purple" "samourai" "gruvbox" "horizon")
@@ -16,7 +16,7 @@ do
 done
 
 spicetify config current_theme $randomTheme
-    
+
 if [ "$currentTheme" == "Dribbblish" ]; then
     spicetify config extensions dribbblish.js-
 fi

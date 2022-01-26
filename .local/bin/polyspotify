@@ -10,7 +10,7 @@ else
       S_ICON=" "
     fi
     METADATA="$(playerctl metadata title 2> /dev/null) - $(playerctl metadata artist 2> /dev/null)"
-    TRIM=$(echo $METADATA | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{print $1}') 
+    TRIM=$(echo $METADATA | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{print $1}')
     ARTIST=$(playerctl metadata artist 2> /dev/null)
     FULL_META=$(playerctl metadata 2> /dev/null)
     case $STATUS in
