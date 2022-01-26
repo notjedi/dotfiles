@@ -40,26 +40,6 @@ zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' menu select
 
-# preview directory's content with exa when completing cd
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
-# switch group using `,` and `.`
-# zstyle ':fzf-tab:*' switch-group ',' '.'
-
-# Change cursor shape for different vi modes.
-# function zle-keymap-select () {
-#     case $KEYMAP in
-#         vicmd) echo -ne '\e[1 q';;      # block
-#         viins|main) echo -ne '\e[5 q';; # beam
-#     esac
-# }
-# zle -N zle-keymap-select
-# echo -ne '\e[5 q' # Use beam shape cursor on startup.
-
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-
 vi-yank-arg() {
   NUMERIC=1 zle .vi-add-next
   zle .insert-last-word
@@ -77,27 +57,6 @@ bindkey -v '^?' backward-delete-char
 autoload edit-command-line;
 zle -N edit-command-line
 bindkey '^e' edit-command-line
-
-# conda stuff
-__conda_setup="$('/home/jedi/.local/share/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jedi/.local/share/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/home/jedi/.local/share/miniconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jedi/.local/share/miniconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-# export CUDA_BIN_PATH=/opt/cuda/bin
-# export PATH=/opt/cuda/lib64:$PATH
-# export LD_LIBRARY_PATH=/opt/cuda/targets/x86_64-linux/lib
-# export CPATH=/opt/cuda/bin:/opt/cuda/targets/x86_64-linux/include
-# export CUDA_HOME=/opt/cuda
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64
-# export PATH=$PATH:$CUDA_HOME/bin
 
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets

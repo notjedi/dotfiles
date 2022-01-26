@@ -30,18 +30,25 @@ pacusage() {
     pacman -Qi | egrep '^(Name|Installed)' | cut -f2 -d':' | paste - - | sed 's/^ //g; s/ K/K/g; s/ M/M/g' | tr -d '\t' | sort -rhk 2 | less
 }
 
-countdown(){
-    date1=$((`date +%s` + $1)); 
-    while [ "$date1" -ge `date +%s` ]; do 
-     echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
-     sleep 0.1
+countdown() {
+    date1=$((`date +%s` + $1));
+    while [ "$date1" -ge `date +%s` ]; do
+        echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
+        sleep 0.1
     done
 }
 
+condainit() {
+    export PATH="/home/jedi/.miniconda3/bin:$PATH"
+    __conda_setup="$('/home/jedi/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    [[ $? -eq 0 ]] && echo $__conda_setup | eval    # eval $__conda_setup doesn't works smh
+    unset __conda_setup
+}
+
 stopwatch() {
-    date1=`date +%s`; 
-    while true; do 
-        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"; 
+    date1=`date +%s`;
+    while true; do
+        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
         sleep 0.1
     done
 }
