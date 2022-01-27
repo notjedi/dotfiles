@@ -41,57 +41,47 @@ packer.init {
 
 packer.startup(function(use)
 
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'wbthomason/packer.nvim'
+  use { 'nvim-lua/popup.nvim'}
+  use { 'nvim-lua/plenary.nvim'}
+  use { 'wbthomason/packer.nvim'}
 
   -- Themes
-  use 'kaicataldo/material.vim'
-  use { 'chriskempson/base16-vim', opt = true }
+  use { 'kaicataldo/material.vim' }
   use { 'folke/tokyonight.nvim', opt = true }
-  use { 'Rigellute/shades-of-purple.vim', opt = true }
+  use { 'chriskempson/base16-vim', opt = true }
   use { 'dracula/vim', as = 'dracula', opt = true }
+  use { 'Rigellute/shades-of-purple.vim', opt = true }
   use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
+  use { 'rose-pine/neovim', as = 'rose-pine', opt = true }
 
   -- Aesthetics
-  use 'windwp/nvim-autopairs'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'norcalli/nvim-colorizer.lua'
+  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'kyazdani42/nvim-web-devicons' }
 
   -- Navigation
-  use 'phaazon/hop.nvim'
-  use 'kyazdani42/nvim-tree.lua'
-  use { 'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
-  use { 'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
+  use { 'phaazon/hop.nvim' }
+  use { 'kyazdani42/nvim-tree.lua' }
+  use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+
+  -- life made easy plugins
+  use { 'windwp/nvim-autopairs' }
+  use { 'akinsho/toggleterm.nvim' }
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Git
-  use { 'lewis6991/gitsigns.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use { 'airblade/vim-rooter',
-    opt = true,
-    cmd = { 'Rooter', 'RooterToggle' }
-  }
+  use { 'airblade/vim-rooter', cmd = { 'Rooter', 'RooterToggle' } }
+  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Misc
-  use 'lewis6991/impatient.nvim'
-  use 'akinsho/toggleterm.nvim'
-  use { 'junegunn/goyo.vim', cmd = 'Goyo', opt = true }
-  use { 'iamcco/markdown-preview.nvim',
-    run = 'cd app && npm install',
-    ft = { 'markdown' },
-    opt = true
-  }
-  use { 'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
+  use { 'lewis6991/impatient.nvim' }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', ft = { 'markdown' } }
+  use { 'folke/zen-mode.nvim',
+    cmd = 'ZenMode',
+    config = "require('jedi.plugins.config.zen-mode').config()"
   }
   use { 'folke/todo-comments.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    opt = true,
     cmd = { 'TodoLocList', 'TodoTelescope' },
     config = function()
       require('jedi.plugins.config.todo-comments').config()

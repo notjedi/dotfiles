@@ -73,8 +73,7 @@ require('telescope').setup {
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<leader>f", ":lua require('telescope.builtin').find_files()<CR>", opts)
 keymap("n", "<leader>g", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap("n", "<leader>h", ":lua require('telescope.builtin').command_history()<CR>", opts)
 keymap("n", "<leader>c", ":lua require('telescope.builtin').colorscheme()<CR>", opts)
--- keymap("n", "<leader>f", ":lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
+keymap("n", "<leader>f", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
