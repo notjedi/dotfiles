@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!usr/bin/env bash
+
 adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db > app.db
 adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db-wal > app.db-wal
 adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db-shm > app.db-shm

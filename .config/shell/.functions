@@ -41,7 +41,7 @@ countdown() {
 condainit() {
     export PATH="/home/jedi/.miniconda3/bin:$PATH"
     __conda_setup="$('/home/jedi/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    [[ $? -eq 0 ]] && echo $__conda_setup | eval    # eval $__conda_setup doesn't works smh
+    [[ $? -eq 0 ]] && echo $__conda_setup | eval    # eval $__conda_setup doesn't work smh
     unset __conda_setup
 }
 
@@ -65,4 +65,8 @@ function pomo() {
     while true; do
         date '+%H:%M' && sleep "${sec:?}" && notify-send -u critical -t 0 -a pomo "${msg:?}"
     done
+}
+
+function yta() {
+    mpv --loop --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
