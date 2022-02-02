@@ -1,17 +1,17 @@
 local opts = {
   backup = false,
-  clipboard = "unnamedplus",
+  clipboard = 'unnamedplus',
   cmdheight = 1,
-  completeopt = { "menu", "noselect" },
+  completeopt = { 'menu', 'noselect' },
   conceallevel = 0,
   cursorline = true,
-  dictionary = "/usr/share/dict/words",
+  dictionary = '/usr/share/dict/words',
   expandtab = true,
-  fileencoding = "utf-8",
-  guicursor = "i:block",
+  fileencoding = 'utf-8',
+  guicursor = 'i:block',
   hlsearch = true,
   ignorecase = true,
-  mouse = "a",
+  mouse = 'a',
   number = true,
   numberwidth = 4,
   pumheight = 10,
@@ -21,7 +21,7 @@ local opts = {
   showmode = false,
   showtabline = 2,
   sidescrolloff = 10,
-  signcolumn = "yes",
+  signcolumn = 'yes',
   smartcase = true,
   smartindent = true,
   splitbelow = true,
@@ -40,7 +40,7 @@ for key, value in pairs(opts) do
   vim.opt[key] = value
 end
 
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append('c')
 
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[syntax on]])

@@ -1,4 +1,4 @@
-require("nvim-tree").setup {
+require('nvim-tree').setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
@@ -14,10 +14,10 @@ require("nvim-tree").setup {
   diagnostics = {
     enable = false,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = '',
+      info = '',
+      warning = '',
+      error = '',
     },
   },
   update_focused_file = {
@@ -42,7 +42,7 @@ require("nvim-tree").setup {
     width = 30,
     height = 30,
     hide_root_folder = false,
-    side = "left",
+    side = 'left',
     auto_resize = false,
     mappings = {
       custom_only = false,
@@ -50,10 +50,10 @@ require("nvim-tree").setup {
     },
     number = false,
     relativenumber = false,
-    signcolumn = "yes",
+    signcolumn = 'yes',
   },
   trash = {
-    cmd = "trash",
+    cmd = 'trash',
     require_confirm = true,
   },
 }
@@ -61,4 +61,4 @@ require("nvim-tree").setup {
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", opts)
+keymap('n', '<leader>e', ':NvimTreeFindFileToggle<CR>', opts)

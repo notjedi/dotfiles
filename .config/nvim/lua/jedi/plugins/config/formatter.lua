@@ -1,12 +1,12 @@
-require("formatter").setup {
+require('formatter').setup {
   filetype = {
 
     sh = {
       -- Shell Script Formatter
       function()
         return {
-          exe = "shfmt",
-          args = { "-i", 2, "-ci", "-sr" },
+          exe = 'shfmt',
+          args = { '-i', 2, '-ci', '-sr' },
           stdin = true,
         }
       end,
@@ -16,11 +16,11 @@ require("formatter").setup {
       -- prettier
       function()
         return {
-          exe = "prettier",
+          exe = 'prettier',
           args = {
-            "--stdin-filepath",
+            '--stdin-filepath',
             vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-            "--single-quote",
+            '--single-quote',
           },
           stdin = true,
         }
@@ -31,11 +31,11 @@ require("formatter").setup {
       -- stylua
       function()
         return {
-          exe = "stylua --indent-type Spaces --column-width 100 --call-parentheses NoSingleTable",
+          exe = 'stylua --indent-type Spaces --column-width 100 --call-parentheses NoSingleTable',
           args = {
-            "--indent-width",
-            2,
-            "-",
+            '--indent-width 2',
+            '--quote-style AutoPreferSingle',
+            '-',
           },
           stdin = true,
         }
@@ -46,10 +46,10 @@ require("formatter").setup {
       -- clang-format
       function()
         return {
-          exe = "clang-format",
-          args = { "--assume-filename", vim.api.nvim_buf_get_name(0) },
+          exe = 'clang-format',
+          args = { '--assume-filename', vim.api.nvim_buf_get_name(0) },
           stdin = true,
-          cwd = vim.fn.expand("%:p:h"), -- Run clang-format in cwd of the file.
+          cwd = vim.fn.expand('%:p:h'), -- Run clang-format in cwd of the file.
         }
       end,
     },
@@ -58,8 +58,8 @@ require("formatter").setup {
       -- black
       function()
         return {
-          exe = "black",
-          args = { "-S", "-l", 100, "-" },
+          exe = 'black',
+          args = { '-S', '-l', 100, '-' },
           stdin = true,
         }
       end,

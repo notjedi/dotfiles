@@ -1,29 +1,29 @@
-require("gitsigns").setup {
+require('gitsigns').setup {
   signs = {
-    add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+    add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
     change = {
-      hl = "GitSignsChange",
-      text = "▎",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
+      hl = 'GitSignsChange',
+      text = '▎',
+      numhl = 'GitSignsChangeNr',
+      linehl = 'GitSignsChangeLn',
     },
     delete = {
-      hl = "GitSignsDelete",
-      text = "契",
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
+      hl = 'GitSignsDelete',
+      text = '契',
+      numhl = 'GitSignsDeleteNr',
+      linehl = 'GitSignsDeleteLn',
     },
     topdelete = {
-      hl = "GitSignsDelete",
-      text = "契",
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
+      hl = 'GitSignsDelete',
+      text = '契',
+      numhl = 'GitSignsDeleteNr',
+      linehl = 'GitSignsDeleteLn',
     },
     changedelete = {
-      hl = "GitSignsChange",
-      text = "▎",
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
+      hl = 'GitSignsChange',
+      text = '▎',
+      numhl = 'GitSignsChangeNr',
+      linehl = 'GitSignsChangeLn',
     },
   },
 
@@ -40,8 +40,8 @@ require("gitsigns").setup {
   current_line_blame = false,
   current_line_blame_opts = {
     virt_text = true,
-    virt_text_pos = "eol",
-    delay = 1000,
+    virt_text_pos = 'eol',
+    delay = 100,
     ignore_whitespace = false,
   },
 
@@ -54,9 +54,9 @@ require("gitsigns").setup {
   status_formatter = nil,
   max_file_length = 40000,
   preview_config = {
-    border = "single",
-    style = "minimal",
-    relative = "cursor",
+    border = 'single',
+    style = 'minimal',
+    relative = 'cursor',
     row = 0,
     col = 1,
   },
@@ -64,10 +64,26 @@ require("gitsigns").setup {
   yadm = {
     enable = false,
   },
+
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, lhs, rhs, opts)
+      opts = vim.tbl_extend('force', { noremap = true, silent = true }, opts or {})
+      vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
+    end
+
+    -- Navigation
+    map('n', 'gj', ":lua require('gitsigns').next_hunk()<CR>")
+    map('n', 'gk', ":lua require('gitsigns').prev_hunk()<CR>")
+
+    -- Actions
+    map('n', '<leader>gS', ':Gitsigns stage_buffer<CR>')
+    map('n', '<leader>gR', ':Gitsigns reset_buffer<CR>')
+    map('n', '<leader>gp', ':Gitsigns preview_hunk<CR>')
+    map('n', '<leader>gb', ':Gitsigns blame_line<CR>')
+    map('n', '<leader>gd', ':Gitsigns diffthis<CR>')
+    map('n', '<leader>gD', ":lua require'gitsigns'.diffthis('~')<CR>")
+    map('n', '<leader>gh', ':Gitsigns toggle_deleted<CR>')
+  end,
 }
-
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-keymap("n", "gj", ":lua require('gitsigns').next_hunk()<CR>", opts)
-keymap("n", "gk", ":lua require('gitsigns').prev_hunk()<CR>", opts)

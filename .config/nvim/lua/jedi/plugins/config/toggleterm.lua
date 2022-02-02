@@ -1,4 +1,4 @@
-toggleterm = require("toggleterm")
+toggleterm = require('toggleterm')
 
 toggleterm.setup {
   size = 20,
@@ -10,15 +10,15 @@ toggleterm.setup {
   start_in_insert = true,
   insert_mappings = false,
   persist_size = true,
-  direction = "float",
+  direction = 'float',
   close_on_exit = true,
   shell = vim.o.shell,
   float_opts = {
-    border = "curved",
+    border = 'curved',
     winblend = 0,
     highlights = {
-      border = "Normal",
-      background = "Normal",
+      border = 'Normal',
+      background = 'Normal',
     },
   },
 }
@@ -26,11 +26,11 @@ toggleterm.setup {
 function _G.set_terminal_keymaps()
   local buf_keymap = vim.api.nvim_buf_set_keymap
   local opts = { silent = true, noremap = true }
-  buf_keymap(0, "t", "<leader>t", [[<C-\><C-n>:ToggleTerm<CR>]], opts)
-  buf_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-  buf_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-  buf_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-  buf_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+  buf_keymap(0, 't', '<leader>t', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
+  buf_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+  buf_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+  buf_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+  buf_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
 
 vim.cmd([[autocmd! TermOpen term://* lua set_terminal_keymaps()]])

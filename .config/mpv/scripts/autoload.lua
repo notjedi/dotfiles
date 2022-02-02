@@ -21,9 +21,9 @@ audio=true
 
 MAXENTRIES = 5000
 
-local msg = require("mp.msg")
-local options = require("mp.options")
-local utils = require("mp.utils")
+local msg = require('mp.msg')
+local options = require('mp.options')
+local utils = require('mp.utils')
 
 o = {
   disabled = false,
@@ -53,41 +53,41 @@ function SetUnion(a, b)
 end
 
 EXTENSIONS_VIDEO = Set {
-  "mkv",
-  "avi",
-  "mp4",
-  "ogv",
-  "webm",
-  "rmvb",
-  "flv",
-  "wmv",
-  "mpeg",
-  "mpg",
-  "m4v",
-  "3gp",
+  'mkv',
+  'avi',
+  'mp4',
+  'ogv',
+  'webm',
+  'rmvb',
+  'flv',
+  'wmv',
+  'mpeg',
+  'mpg',
+  'm4v',
+  '3gp',
 }
 
 EXTENSIONS_AUDIO = Set {
-  "mp3",
-  "wav",
-  "ogm",
-  "flac",
-  "m4a",
-  "wma",
-  "ogg",
-  "opus",
+  'mp3',
+  'wav',
+  'ogm',
+  'flac',
+  'm4a',
+  'wma',
+  'ogg',
+  'opus',
 }
 
 EXTENSIONS_IMAGES = Set {
-  "jpg",
-  "jpeg",
-  "png",
-  "tif",
-  "tiff",
-  "gif",
-  "webp",
-  "svg",
-  "bmp",
+  'jpg',
+  'jpeg',
+  'png',
+  'tif',
+  'tiff',
+  'gif',
+  'webp',
+  'svg',
+  'bmp',
 }
 
 EXTENSIONS = Set {}
@@ -103,17 +103,17 @@ end
 
 function add_files_at(index, files)
   index = index - 1
-  local oldcount = mp.get_property_number("playlist-count", 1)
+  local oldcount = mp.get_property_number('playlist-count', 1)
   for i = 1, #files do
-    mp.commandv("loadfile", files[i], "append")
-    mp.commandv("playlist-move", oldcount + i - 1, index + i - 1)
+    mp.commandv('loadfile', files[i], 'append')
+    mp.commandv('playlist-move', oldcount + i - 1, index + i - 1)
   end
 end
 
 function get_extension(path)
-  match = string.match(path, "%.([^%.]+)$")
+  match = string.match(path, '%.([^%.]+)$')
   if match == nil then
-    return "nomatch"
+    return 'nomatch'
   else
     return match
   end
@@ -134,11 +134,11 @@ end
 -- split a string into a table of number and string values
 function splitbynum(s)
   local result = {}
-  for x, y in (s or ""):gmatch("(%d*)(%D*)") do
-    if x ~= "" then
+  for x, y in (s or ''):gmatch('(%d*)(%D*)') do
+    if x ~= '' then
       table.insert(result, tonumber(x))
     end
-    if y ~= "" then
+    if y ~= '' then
       table.insert(result, y)
     end
   end
@@ -146,7 +146,7 @@ function splitbynum(s)
 end
 
 function clean_key(k)
-  k = (" " .. k .. " "):gsub("%s+", " "):sub(2, -2):lower()
+  k = (' ' .. k .. ' '):gsub('%s+', ' '):sub(2, -2):lower()
   return splitbynum(k)
 end
 
@@ -155,9 +155,9 @@ function alnumcomp(x, y)
   local xt, yt = clean_key(x), clean_key(y)
   for i = 1, math.min(#xt, #yt) do
     local xe, ye = xt[i], yt[i]
-    if type(xe) == "string" then
+    if type(xe) == 'string' then
       ye = tostring(ye)
-    elseif type(ye) == "string" then
+    elseif type(ye) == 'string' then
       xe = tostring(xe)
     end
     if xe ~= ye then
@@ -170,40 +170,40 @@ end
 local autoloaded = nil
 
 function find_and_add_entries()
-  local path = mp.get_property("path", "")
+  local path = mp.get_property('path', '')
   local dir, filename = utils.split_path(path)
-  msg.trace(("dir: %s, filename: %s"):format(dir, filename))
+  msg.trace(('dir: %s, filename: %s'):format(dir, filename))
   if o.disabled then
-    msg.verbose("stopping: autoload disabled")
+    msg.verbose('stopping: autoload disabled')
     return
   elseif #dir == 0 then
-    msg.verbose("stopping: not a local path")
+    msg.verbose('stopping: not a local path')
     return
   end
 
-  local pl_count = mp.get_property_number("playlist-count", 1)
+  local pl_count = mp.get_property_number('playlist-count', 1)
   -- check if this is a manually made playlist
   if
     (pl_count > 1 and autoloaded == nil)
     or (pl_count == 1 and EXTENSIONS[string.lower(get_extension(filename))] == nil)
   then
-    msg.verbose("stopping: manually made playlist")
+    msg.verbose('stopping: manually made playlist')
     return
   else
     autoloaded = true
   end
 
-  local pl = mp.get_property_native("playlist", {})
-  local pl_current = mp.get_property_number("playlist-pos-1", 1)
-  msg.trace(("playlist-pos-1: %s, playlist: %s"):format(pl_current, utils.to_string(pl)))
+  local pl = mp.get_property_native('playlist', {})
+  local pl_current = mp.get_property_number('playlist-pos-1', 1)
+  msg.trace(('playlist-pos-1: %s, playlist: %s'):format(pl_current, utils.to_string(pl)))
 
-  local files = utils.readdir(dir, "files")
+  local files = utils.readdir(dir, 'files')
   if files == nil then
-    msg.verbose("no other files in directory")
+    msg.verbose('no other files in directory')
     return
   end
   table.filter(files, function(v, k)
-    if string.match(v, "^%.") then
+    if string.match(v, '^%.') then
       return false
     end
     local ext = get_extension(v)
@@ -214,8 +214,8 @@ function find_and_add_entries()
   end)
   table.sort(files, alnumcomp)
 
-  if dir == "." then
-    dir = ""
+  if dir == '.' then
+    dir = ''
   end
 
   -- Find the current pl entry (dir+"/"+filename) in the sorted dir list
@@ -229,21 +229,21 @@ function find_and_add_entries()
   if current == nil then
     return
   end
-  msg.trace("current file position in files: " .. current)
+  msg.trace('current file position in files: ' .. current)
 
   local append = { [-1] = {}, [1] = {} }
   for direction = -1, 1, 2 do -- 2 iterations, with direction = -1 and +1
     for i = 1, MAXENTRIES do
       local file = files[current + i * direction]
       local pl_e = pl[pl_current + i * direction]
-      if file == nil or file[1] == "." then
+      if file == nil or file[1] == '.' then
         break
       end
 
       local filepath = dir .. file
       if pl_e then
         -- If there's a playlist entry, and it's the same file, stop.
-        msg.trace(pl_e.filename .. " == " .. filepath .. " ?")
+        msg.trace(pl_e.filename .. ' == ' .. filepath .. ' ?')
         if pl_e.filename == filepath then
           break
         end
@@ -251,11 +251,11 @@ function find_and_add_entries()
 
       if direction == -1 then
         if pl_current == 1 then -- never add additional entries in the middle
-          msg.info("Prepending " .. file)
+          msg.info('Prepending ' .. file)
           table.insert(append[-1], 1, filepath)
         end
       else
-        msg.info("Adding " .. file)
+        msg.info('Adding ' .. file)
         table.insert(append[1], filepath)
       end
     end
@@ -265,4 +265,4 @@ function find_and_add_entries()
   add_files_at(pl_current, append[-1])
 end
 
-mp.register_event("start-file", find_and_add_entries)
+mp.register_event('start-file', find_and_add_entries)
