@@ -5,20 +5,19 @@ icon=$2
 
 getFavCoins() {
 
-    notify-send -u low -t 1000 "🔃 Updating prices"
-    declare -a coins=("BTC" "ETH" "XMR" "MATIC" "DOT" "ADA")
-    for i in "${coins[@]}"
-    do
-        price=$(curl -s "rate.sx/1$i" | awk '{ printf ("%.2f", $1) }')
-        out="$out \n$i: $price"
-    done
-    printf "$out"
+  notify-send -u low -t 1000 "🔃 Updating prices"
+  declare -a coins=("BTC" "ETH" "XMR" "MATIC" "DOT" "ADA")
+  for i in "${coins[@]}"; do
+    price=$(curl -s "rate.sx/1$i" | awk '{ printf ("%.2f", $1) }')
+    out="$out \n$i: $price"
+  done
+  printf "$out"
 }
 
 case $BUTTON in
-    # 🤑
-    1) notify-send -u low -t 5000 "💰 Crypto prices:" "$(getFavCoins)";;
-    3) setsid -f $TERMINAL -e cointop;;
+  # 🤑
+  1) notify-send -u low -t 5000 "💰 Crypto prices:" "$(getFavCoins)" ;;
+  3) setsid -f $TERMINAL -e cointop ;;
 esac
 
 [ -z $cur ] && exit

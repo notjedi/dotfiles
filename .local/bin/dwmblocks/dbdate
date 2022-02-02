@@ -4,9 +4,9 @@
 icon=""
 
 case $BUTTON in
-    1) echo "$icon$(date +'%a %I:%M %d-%b ')" && exit;;
-    2) setsid -f $TERMINAL -e calcurse;;
-    3) notify-send -u low -t 10000 "$(cal)";;
+  1) echo "$icon$(date +'%a %I:%M %d-%b ')" && exit ;;
+  2) setsid -f $TERMINAL -e calcurse ;;
+  3) notify-send -u low -t 10000 "$(cal)" ;;
 esac
 
 echo "$icon$(date +"%I:%M %p") "

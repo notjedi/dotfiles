@@ -3,18 +3,18 @@
 volume=$(pamixer --get-volume)
 
 case $BUTTON in
-    1) pamixer -t;;
-    3) setsid -f $TERMINAL -e pulsemixer;;
-    4) pamixer --allow-boost -i 5 && pkill -RTMIN+10 dwmblocks;;
-    5) pamixer --allow-boost -d 5 && pkill -RTMIN+10 dwmblocks;;
+  1) pamixer -t ;;
+  3) setsid -f $TERMINAL -e pulsemixer ;;
+  4) pamixer --allow-boost -i 5 && pkill -RTMIN+10 dwmblocks ;;
+  5) pamixer --allow-boost -d 5 && pkill -RTMIN+10 dwmblocks ;;
 esac
 
 if [ $volume -ge 70 ]; then
-    icon="🔊"
+  icon="🔊"
 elif [ $volume -gt 30 ]; then
-    icon="🔉"
+  icon="🔉"
 else
-    icon="🔈"
+  icon="🔈"
 fi
 
 [ $(pamixer --get-mute) = true ] && echo "🔇 muted" && exit

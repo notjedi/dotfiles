@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-chosen=$( cut -d ';' -f1 ~/.local/bin/emoji | rofi -dmenu -i -lines 10 -width 40 2>/dev/null | awk '{print $1}' )
+chosen=$(cut -d ';' -f1 ~/.local/bin/emoji | rofi -dmenu -i -lines 10 -width 40 2> /dev/null | awk '{print $1}')
 
 [ -z "$chosen" ] && exit
 
 if [ -n "$1" ]; then
-    xdotool type $chosen
+  xdotool type $chosen
 else
-    echo "$chosen" | tr -d "\n" | xclip -selection clipboard
-    notify-send "Emoji" "$chosen copied to clipboard"
+  echo "$chosen" | tr -d "\n" | xclip -selection clipboard
+  notify-send "Emoji" "$chosen copied to clipboard"
 fi

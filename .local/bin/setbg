@@ -2,9 +2,9 @@
 
 # if [ $# -eq 0 ]
 if [ ! -z "$1" ]; then
-    xwallpaper --zoom "$1"
-    wal -n -i "$1";
-    exit 0
+  xwallpaper --zoom "$1"
+  wal -n -i "$1"
+  exit 0
 fi
 
 dirname="/mnt/Seagate/wallpapers"
@@ -12,4 +12,4 @@ file=$(find "$dirname" -type f | shuf -n 1)
 
 # set bg
 xwallpaper --zoom "$file"
-wal -n -i "$file";
+wal -n -i "$file"

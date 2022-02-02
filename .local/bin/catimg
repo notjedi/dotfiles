@@ -25,10 +25,16 @@ while getopts qw:c:h opt; do
   case "$opt" in
     w) WIDTH="$OPTARG" ;;
     c) CHAR="$OPTARG" ;;
-    h) help; exit ;;
-    *) help ; exit 1;;
-    esac
-  done
+    h)
+      help
+      exit
+      ;;
+    *)
+      help
+      exit 1
+      ;;
+  esac
+done
 
 while [ "$1" ]; do
   IMG="$1"
@@ -51,7 +57,7 @@ if [ "$WIDTH" -gt "$COLS" ]; then
 fi
 
 REMAP=""
-if convert "$IMG" -resize $COLS\> +dither -remap $COLOR_FILE /dev/null ; then
+if convert "$IMG" -resize $COLS\> +dither -remap $COLOR_FILE /dev/null; then
   REMAP="-remap $COLOR_FILE"
 else
   echo "The version of convert is too old, don't expect good results :(" >&2
@@ -59,33 +65,32 @@ else
   #IMG="tmp.png"
 fi
 
-
 # Display the image
 I=0
-convert "$IMG" -resize $COLS\> +dither `echo $REMAP` txt:- 2>/dev/null |
-sed -e 's/.*none.*/NO NO NO/g' -e '1d;s/^.*(\(.*\)[,)].*$/\1/g;y/,/ /' |
-while read R G B f; do
-  if [ ! "$R" = "NO" ]; then
-    if [ "$R" -eq "$G" -a "$G" -eq "$B" ]; then
-      ((
-      I++,
-      IDX = 232 + R * 23 / 255
-      ))
+convert "$IMG" -resize $COLS\> +dither $(echo $REMAP) txt:- 2> /dev/null |
+  sed -e 's/.*none.*/NO NO NO/g' -e '1d;s/^.*(\(.*\)[,)].*$/\1/g;y/,/ /' |
+  while read R G B f; do
+    if [ ! "$R" = "NO" ]; then
+      if [ "$R" -eq "$G" -a "$G" -eq "$B" ]; then
+        ((\
+        I++, \
+        IDX = 232 + R * 23 / 255))
+
+      else
+        ((\
+        I++, \
+        IDX = 16 + \
+        R * 5 / 255 * 36 + \
+        G * 5 / 255 * 6 + \
+        B * 5 / 255))
+
+      fi
+      #echo "$R,$G,$B: $IDX"
+      echo -ne "\e[48;5;${IDX}m${CHAR}"
     else
-      ((
-      I++,
-      IDX = 16
-      + R * 5 / 255 * 36
-      + G * 5 / 255 * 6
-      + B * 5 / 255
-      ))
+      ((I++))
+      echo -ne "\e[0m${CHAR}"
     fi
-    #echo "$R,$G,$B: $IDX"
-    echo -ne "\e[48;5;${IDX}m${CHAR}"
-  else
-    (( I++ ))
-    echo -ne "\e[0m${CHAR}"
-  fi
-  # New lines
-  (( $I % $WIDTH )) || echo -e "\e[0m"
-done
+    # New lines
+    (($I % $WIDTH)) || echo -e "\e[0m"
+  done

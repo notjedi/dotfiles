@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 listOfThemes=("Material-Ocean" "Bloody" "Dribbblish" "DeepCoral"
-                    "Gradianto" "Lovelace" "NoSleep" "OnePunch"
-                    "OutrunDark" "TychoAwake" "Vaporwave" "Dark")
+  "Gradianto" "Lovelace" "NoSleep" "OnePunch"
+  "OutrunDark" "TychoAwake" "Vaporwave" "Dark")
 
 dribbblish=("base" "dark" "dracula" "nord-dark" "purple" "samourai" "gruvbox" "horizon")
 vaporwave=("NewRetro" "SeaPunk")
@@ -10,31 +10,30 @@ vaporwave=("NewRetro" "SeaPunk")
 currentTheme=$(spicetify config current_theme)
 randomTheme=$currentTheme
 
-while [ "$currentTheme" == "$randomTheme" ];
-do
-    randomTheme=${listOfThemes[$RANDOM % ${#listOfThemes[@]}]}
+while [ "$currentTheme" == "$randomTheme" ]; do
+  randomTheme=${listOfThemes[$RANDOM % ${#listOfThemes[@]}]}
 done
 
 spicetify config current_theme $randomTheme
 
 if [ "$currentTheme" == "Dribbblish" ]; then
-    spicetify config extensions dribbblish.js-
+  spicetify config extensions dribbblish.js-
 fi
 
 if [ "$randomTheme" == "Dribbblish" ]; then
 
-    colorScheme=${dribbblish[$RANDOM % ${#dribbblish[@]}]}
-    spicetify config color_scheme $colorScheme
-    spicetify config extensions dribbblish.js
-    notify-send -u low "Spicetify" "Current theme: $randomTheme\t Color scheme: $colorScheme\nPrevious theme: $currentTheme"
+  colorScheme=${dribbblish[$RANDOM % ${#dribbblish[@]}]}
+  spicetify config color_scheme $colorScheme
+  spicetify config extensions dribbblish.js
+  notify-send -u low "Spicetify" "Current theme: $randomTheme\t Color scheme: $colorScheme\nPrevious theme: $currentTheme"
 elif [ "$randomTheme" == "Vaporwave" ]; then
 
-    colorScheme=${vaporwave[$RANDOM % ${#vaporwave[@]}]}
-    spicetify config color_scheme $colorScheme
-    notify-send -u low "Spicetify" "Current theme: $randomTheme\t Color scheme: $colorScheme\nPrevious theme: $currentTheme"
+  colorScheme=${vaporwave[$RANDOM % ${#vaporwave[@]}]}
+  spicetify config color_scheme $colorScheme
+  notify-send -u low "Spicetify" "Current theme: $randomTheme\t Color scheme: $colorScheme\nPrevious theme: $currentTheme"
 else
-    spicetify config color_scheme "''"
-    notify-send -u low "Spicetify" "Current theme: $randomTheme\nPrevious theme: $currentTheme"
+  spicetify config color_scheme "''"
+  notify-send -u low "Spicetify" "Current theme: $randomTheme\nPrevious theme: $currentTheme"
 fi
 
 spicetify update
