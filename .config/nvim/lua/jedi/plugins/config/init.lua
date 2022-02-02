@@ -19,6 +19,7 @@ M.setup = function()
   add 'telescope'
   add 'nvim-tree'
   add 'impatient'
+  add 'formatter'
   add 'toggleterm'
   add 'bufferline'
   add 'treesitter'
