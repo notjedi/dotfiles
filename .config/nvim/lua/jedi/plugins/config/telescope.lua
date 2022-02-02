@@ -1,12 +1,12 @@
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
-require('telescope').setup {
+require("telescope").setup {
   defaults = {
 
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    file_ignore_patterns = { '.git' },
+    file_ignore_patterns = { ".git" },
 
     mappings = {
       i = {
@@ -60,14 +60,14 @@ require('telescope').setup {
         ["<C-u>"] = actions.preview_scrolling_up,
         ["<C-d>"] = actions.preview_scrolling_down,
         ["?"] = actions.which_key,
-      }
-    }
+      },
+    },
   },
   pickers = {
     find_files = {
-      hidden = true
-    }
-  }
+      hidden = true,
+    },
+  },
 }
 
 local keymap = vim.api.nvim_set_keymap
@@ -76,4 +76,9 @@ local opts = { noremap = true, silent = true }
 keymap("n", "<leader>g", ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap("n", "<leader>h", ":lua require('telescope.builtin').command_history()<CR>", opts)
 keymap("n", "<leader>c", ":lua require('telescope.builtin').colorscheme()<CR>", opts)
-keymap("n", "<leader>f", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
+keymap(
+  "n",
+  "<leader>f",
+  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
+  opts
+)

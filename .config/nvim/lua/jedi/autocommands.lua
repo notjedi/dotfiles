@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
   augroup _general
     autocmd!
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Search', timeout = 200})
@@ -24,4 +24,4 @@ vim.cmd [[
     au BufWritePre * %s/\n\+\%$//e
   augroup end
 
-]]
+]])

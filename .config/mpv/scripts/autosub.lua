@@ -1,7 +1,7 @@
 -- default keybinding: b
 -- add the following to your input.conf to change the default keybinding:
 -- keyname script_binding auto_load_subs
-local utils = require 'mp.utils'
+local utils = require("mp.utils")
 
 function display_error()
   mp.msg.warn("Subtitle download failed: ")

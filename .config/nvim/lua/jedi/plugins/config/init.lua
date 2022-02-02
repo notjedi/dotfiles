@@ -2,11 +2,11 @@ local currentmod = (...)
 local M = {}
 
 local function add(modname)
-  local modulepath = string.format('%s.%s', currentmod, modname)
+  local modulepath = string.format("%s.%s", currentmod, modname)
   local success, results = pcall(require, modulepath)
   -- modulepath = jedi.plugins.config
   if not success then
-    vim.notify('Cannot load ' .. modname)
+    vim.notify("Cannot load " .. modname)
     return
   end
 
@@ -14,19 +14,18 @@ local function add(modname)
 end
 
 M.setup = function()
-  add 'hop'
-  add 'gitsigns'
-  add 'telescope'
-  add 'nvim-tree'
-  add 'impatient'
-  add 'formatter'
-  add 'toggleterm'
-  add 'bufferline'
-  add 'treesitter'
-  add 'nvim-autopairs'
-  add 'nvim-colorizer'
-  add 'nvim-web-devicons'
-
+  add("hop")
+  add("gitsigns")
+  add("telescope")
+  add("nvim-tree")
+  add("impatient")
+  add("formatter")
+  add("toggleterm")
+  add("bufferline")
+  add("treesitter")
+  add("nvim-autopairs")
+  add("nvim-colorizer")
+  add("nvim-web-devicons")
 end
 
 return M
