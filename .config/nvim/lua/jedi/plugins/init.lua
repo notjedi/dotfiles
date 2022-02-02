@@ -64,6 +64,7 @@ packer.startup(function(use)
 
   -- life made easy plugins
   use { 'windwp/nvim-autopairs' }
+  use { 'numToStr/Comment.nvim' }
   use { 'akinsho/toggleterm.nvim' }
   use { 'mhartington/formatter.nvim' }
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }

@@ -75,7 +75,7 @@ local opts = { noremap = true, silent = true }
 
 keymap('n', '<leader>g', ":lua require('telescope.builtin').live_grep()<CR>", opts)
 keymap('n', '<leader>h', ":lua require('telescope.builtin').command_history()<CR>", opts)
-keymap('n', '<leader>c', ":lua require('telescope.builtin').colorscheme()<CR>", opts)
+keymap('n', '<leader>C', ":lua require('telescope.builtin').colorscheme()<CR>", opts)
 keymap(
   'n',
   '<leader>f',
