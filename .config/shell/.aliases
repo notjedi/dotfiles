@@ -13,9 +13,11 @@ alias g="git" \
     ga="git add" \
     gd="git diff" \
     gp="git push" \
+    gr="git reset" \
     gs="git status" \
-    gr="git remote" \
-    gc="git commit"
+    gc="git commit" \
+    gre="git remote" \
+    gch="git checkout"
 
 # ls aliases
 alias l="ls -A" \
@@ -51,8 +53,8 @@ alias rh="ranger $HOME" \
 
 # pacman aliases
 alias p="doas pacman" \
-    install='yay -S $(yay -Ssq | fzf | tr -d "\n")' \
-    lsorphan="pacman -Qtdq"
+    lsorphan="pacman -Qtdq" \
+    install='doas pacman -S $(pacman -Ssq | fzf | tr -d "\n")'
 
 # mining
 alias xmr="doas xmrig"
@@ -77,7 +79,7 @@ alias v="nvim" \
 # misc
 alias pop="popd" \
     push="pushd" \
-    fi="l | grep -i" \
+    fi="ls -A | grep -i" \
     fig="figlet -f ansishadow" \
     caps="xdotool key Caps_Lock" \
     pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"

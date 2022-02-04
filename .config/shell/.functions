@@ -10,7 +10,7 @@ co() {
 }
 
 conf() {
-    find $HDD/Code/dotfiles/ -type f | grep -vi '.git\|watch_later\|autoload\|pycache\|fonts' | fzf | xargs -r $EDITOR
+    find $HDD/Code/dotfiles/ -type f | grep -vi '\.git\|watch_later\|autoload\|pycache\|fonts' | fzf | xargs -r $EDITOR
 }
 
 pipup() {

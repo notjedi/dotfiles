@@ -1,0 +1,48 @@
+[user]
+	email = krithickumarub@protonmail.com
+	name = Krithic Kumar
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    line-numbers = true
+
+[pull]
+	ff = only
+
+[filter "token"]
+	clean = sed -e '/jedi2610.private.atom/d'
+	smudge = sed -e '/jedi2610.private.atom/d'
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[difftool]
+    prompt = false
+
+[diff]
+    tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+    tool = nvimdiff
+	conflictstyle = diff3
+
+[mergetool]
+    prompt = true
+
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
