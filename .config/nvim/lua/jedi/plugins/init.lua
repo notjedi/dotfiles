@@ -45,10 +45,9 @@ packer.startup(function(use)
   use { 'wbthomason/packer.nvim' }
 
   -- Themes
-  use { 'kaicataldo/material.vim' }
+  use { 'marko-cerovac/material.nvim' }
   use { 'folke/tokyonight.nvim', opt = true }
-  use { 'chriskempson/base16-vim', opt = true }
-  use { 'dracula/vim', as = 'dracula', opt = true }
+  use { 'Mofiqul/dracula.nvim', opt = true }
   use { 'Rigellute/shades-of-purple.vim', opt = true }
   use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
   use { 'rose-pine/neovim', as = 'rose-pine', opt = true }

@@ -54,38 +54,20 @@ close = ctrl+space
 close_all = ctrl+shift+space
 history = ctrl+grave
 
-# dracula theme
+# catppuccin theme
 [urgency_low]
-; background = "#282a36"
-; foreground = "#6272a4"
-background = "#282a36"
-foreground = "#bd93f9"
+background = "#1E1D2F"
+foreground = "#D9E0EE"
 timeout = 10
 
 [urgency_normal]
-background = "#282a36"
-foreground = "#bd93f9"
+background = "#575268"
+foreground = "#D9E0EE"
 timeout = 10
 
 [urgency_critical]
-background = "#ff5555"
-foreground = "#f8f8f2"
-
-# Material-Ocean theme
-; [urgency_low]
-; background = "#0F111A"
-; foreground = "#a4a4a4"
-; timeout = 5
-;
-; [urgency_normal]
-; background = "#0F111A"
-; foreground = "#a4a4a4"
-; timeout = 5
-;
-; [urgency_critical]
-; background = "#0F111A"
-; foreground = "#a4a4a4"
-; frame_color = "#a4a4a4"
-; timeout = 10
+background  = "#1E1D2F"
+foreground  = "#F28FAD"
+frame_color = "#f8bd96"
 
 # /* vim:ft=dosini
