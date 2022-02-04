@@ -78,12 +78,12 @@ require('gitsigns').setup {
     map('n', 'gk', ":lua require('gitsigns').prev_hunk()<CR>")
 
     -- Actions
-    map('n', '<leader>gS', ':Gitsigns stage_buffer<CR>')
-    map('n', '<leader>gR', ':Gitsigns reset_buffer<CR>')
-    map('n', '<leader>gp', ':Gitsigns preview_hunk<CR>')
-    map('n', '<leader>gb', ':Gitsigns blame_line<CR>')
-    map('n', '<leader>gd', ':Gitsigns diffthis<CR>')
-    map('n', '<leader>gD', ":lua require'gitsigns'.diffthis('~')<CR>")
-    map('n', '<leader>gh', ':Gitsigns toggle_deleted<CR>')
+    map('n', 'gS', ':Gitsigns stage_buffer<CR>')
+    map('n', 'gR', ':Gitsigns reset_buffer<CR>')
+    map('n', 'gp', ':Gitsigns preview_hunk<CR>')
+    map('n', 'gB', ':Gitsigns blame_line<CR>')
+    map('n', 'gdi', ':Gitsigns diffthis<CR>')
+    map('n', 'gDi', ":lua require'gitsigns'.diffthis('~')<CR>")
+    map('n', 'gh', ':Gitsigns toggle_deleted<CR>')
   end,
 }

@@ -6,7 +6,7 @@ require('telescope').setup {
     prompt_prefix = ' ',
     selection_caret = ' ',
     path_display = { 'smart' },
-    file_ignore_patterns = { '.git' },
+    file_ignore_patterns = { '.git', '.pth', 'events.out.*' },
 
     mappings = {
       i = {
@@ -79,6 +79,6 @@ keymap('n', '<leader>C', ":lua require('telescope.builtin').colorscheme()<CR>", 
 keymap(
   'n',
   '<leader>f',
-  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>",
+  ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer=false }))<CR>",
   opts
 )
