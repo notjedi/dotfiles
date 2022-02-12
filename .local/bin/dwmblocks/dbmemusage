@@ -11,7 +11,7 @@ fi
 
 case $BUTTON in
   1) notify-send -u low -t 3000 "Mem Hogs:" "\n$(memintensive)" ;;
-  3) setsid -f $TERMINAL -e bpytop ;;
+  3) setsid -f $TERMINAL -e btop ;;
 esac
 
 echo "💾 $mem"

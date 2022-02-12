@@ -15,6 +15,7 @@ end
 
 M.setup = function()
   add('hop')
+  add('lualine')
   add('comment')
   add('gitsigns')
   add('telescope')
