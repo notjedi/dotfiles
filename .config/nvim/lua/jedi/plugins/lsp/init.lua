@@ -13,20 +13,10 @@ local function add(modname)
 end
 
 M.setup = function()
-  add('hop')
-  add('lualine')
-  add('comment')
-  add('gitsigns')
-  add('telescope')
-  add('nvim-tree')
-  add('impatient')
-  add('formatter')
-  add('toggleterm')
-  add('bufferline')
-  add('treesitter')
-  add('nvim-autopairs')
-  add('nvim-colorizer')
-  add('nvim-web-devicons')
+  add('cmp')
+  add('lsp-installer')
+  add('handlers').setup()
+  vim.notify('LSP support added.')
 end
 
 return M

@@ -46,7 +46,7 @@ require('formatter').setup {
       -- clang-format
       function()
         return {
-          exe = 'clang-format',
+          exe = 'clang-format -style="{IndentWidth: 4}"',
           args = { '--assume-filename', vim.api.nvim_buf_get_name(0) },
           stdin = true,
           cwd = vim.fn.expand('%:p:h'), -- Run clang-format in cwd of the file.
@@ -81,7 +81,7 @@ require('formatter').setup {
       function()
         return {
           exe = 'black',
-          args = { '-S', '-l', 100, '-' },
+          args = { '-S', '-l', 80, '-' },
           stdin = true,
         }
       end,
@@ -89,12 +89,6 @@ require('formatter').setup {
   },
 }
 
-vim.api.nvim_exec(
-  [[
-  augroup FormatAutogroup
-    autocmd!
-    autocmd BufWritePost *.c,*.js,*.hs,*.py,*.cpp,*.cc,*.lua FormatWrite
-  augroup END
-]],
-  true
-)
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap('n', '<leader>F', ':Format<CR>', opts)

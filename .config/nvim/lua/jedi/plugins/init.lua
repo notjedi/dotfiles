@@ -48,11 +48,12 @@ packer.startup(function(use)
   use { 'marko-cerovac/material.nvim' }
   use { 'folke/tokyonight.nvim', opt = true }
   use { 'Mofiqul/dracula.nvim', opt = true }
-  use { 'Rigellute/shades-of-purple.vim', opt = true }
+  use { 'Rigellute/shades-of-purple.vim', opt = true } -- vim
   use { 'catppuccin/nvim', as = 'catppuccin', opt = true }
   use { 'rose-pine/neovim', as = 'rose-pine', opt = true }
 
   -- Aesthetics
+  use { 'hoob3rt/lualine.nvim' }
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'kyazdani42/nvim-web-devicons' }
 
@@ -66,20 +67,43 @@ packer.startup(function(use)
   use { 'numToStr/Comment.nvim' }
   use { 'akinsho/toggleterm.nvim' }
   use { 'mhartington/formatter.nvim' }
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
 
   -- Git
-  use { 'airblade/vim-rooter', cmd = { 'Rooter', 'RooterToggle' } }
+  -- use { 'jedi2610/nvim-rooter.lua' }
+  use {
+    '/mnt/Seagate/Code/nvim-rooter.lua',
+    config = function()
+      require('nvim-rooter').setup {}
+    end,
+  }
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- cmp & lsp
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-path' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'neovim/nvim-lspconfig' }
+  use { 'williamboman/nvim-lsp-installer' }
 
   -- Misc
   use { 'lewis6991/impatient.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', ft = { 'markdown' } }
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    ft = { 'markdown' },
+  }
   use {
     'folke/zen-mode.nvim',
     cmd = 'ZenMode',
-    config = "require('jedi.plugins.config.zen-mode').config()",
+    config = function()
+      require('jedi.plugins.config.zen-mode').config()
+    end,
   }
   use {
     'folke/todo-comments.nvim',
@@ -97,3 +121,7 @@ packer.startup(function(use)
 end)
 
 require('jedi.plugins.config').setup()
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+keymap('n', '<leader>l', ":lua require('jedi.plugins.lsp').setup()<CR>", opts)
