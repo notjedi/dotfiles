@@ -65,7 +65,7 @@ local function lsp_keymaps(bufnr)
     '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>',
     opts
   )
-  -- vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting_sync()' ]])
 end
 
 M.on_attach = function(client, bufnr)

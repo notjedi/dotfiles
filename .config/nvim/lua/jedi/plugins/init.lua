@@ -66,7 +66,6 @@ packer.startup(function(use)
   use { 'windwp/nvim-autopairs' }
   use { 'numToStr/Comment.nvim' }
   use { 'akinsho/toggleterm.nvim' }
-  use { 'mhartington/formatter.nvim' }
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -85,10 +84,13 @@ packer.startup(function(use)
   -- cmp & lsp
   use { 'hrsh7th/nvim-cmp' }
   use { 'hrsh7th/cmp-path' }
+  use { 'L3MON4D3/LuaSnip' }
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'neovim/nvim-lspconfig' }
+  use { 'saadparwaiz1/cmp_luasnip' }
   use { 'williamboman/nvim-lsp-installer' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
 
   -- Misc
   use { 'lewis6991/impatient.nvim' }
