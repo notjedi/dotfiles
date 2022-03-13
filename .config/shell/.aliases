@@ -53,8 +53,10 @@ alias rh="ranger $HOME" \
 
 # pacman aliases
 alias p="doas pacman" \
-    lsorphan="pacman -Qtdq" \
-    install='doas pacman -S $(pacman -Ssq | fzf | tr -d "\n")'
+    pacorphan="pacman -Qtdq" \
+    pacins='doas pacman -S $(pacman -Ssq | fzf | tr -d "\n")' \
+    pacsort=" pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -rh | bat" \
+    pacls="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 
 # mining
 alias xmr="doas xmrig"
@@ -82,4 +84,5 @@ alias pop="popd" \
     fi="ls -A | grep -i" \
     fig="figlet -f ansishadow" \
     caps="xdotool key Caps_Lock" \
-    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"
+    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
+    cargoup="cargo install --list | grep -v '^ ' | cut -d' ' -f1 | xargs cargo install"
