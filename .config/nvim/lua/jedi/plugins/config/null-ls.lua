@@ -10,11 +10,13 @@ null_ls.setup {
     formatting.prettier.with {
       extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' },
     },
+    formatting.rustfmt,
     formatting.black.with { extra_args = { '-S', '-l 80' } },
     formatting.shfmt.with { extra_args = { '-i 2', '-ci', '-sr' } },
-    formatting.stylua, --indent-type Spaces --column-width 100 --call-parentheses NoSingleTable --indent-width 2 --quote-style AutoPreferSingle
-    formatting.rustfmt,
     formatting.clang_format.with { extra_args = { '-style="{IndentWidth: 4}"' } },
+    formatting.stylua.with {
+      extra_args = { '--config-path', vim.fn.expand('~/.config/stylua.toml') },
+    },
 
     diagnostics.flake8,
     diagnostics.luacheck,
@@ -23,7 +25,7 @@ null_ls.setup {
     diagnostics.pydocstyle,
     diagnostics.shellcheck,
 
-    completion.spell,
+    completion.spell.with { filetypes = { 'md', 'txt' } },
     hover.dictionary,
   },
 }

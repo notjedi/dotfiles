@@ -72,6 +72,7 @@ packer.startup(function(use)
   }
 
   -- Git
+  -- use { 'dstein64/vim-startuptime' }
   -- use { 'jedi2610/nvim-rooter.lua' }
   use {
     '/mnt/Seagate/Code/nvim-rooter.lua',
