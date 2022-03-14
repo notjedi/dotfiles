@@ -1,72 +1,83 @@
 #!/bin/bash
 
-usage() {
+function usage() {
     du "$1" -ah --max-depth=1 2>/dev/null | sort -rh
 }
 
-co() {
-    dir=$(ls "$HDD/Code" | fzf)
-    [ -z $dir ] || cd $(echo "$dir" | sed "s|^|"$HDD"/Code/|")
+function co() {
+    dir=$(find "$HDD/Code" -maxdepth 1 -type d,l | fzf)
+    [ -z "$dir" ] || cd "$dir" || exit
 }
 
-conf() {
-    find $HDD/Code/dotfiles/ -type f | grep -vi '\.git\|watch_later\|autoload\|pycache\|fonts' | fzf | xargs -r $EDITOR
+function conf() {
+    find "$HDD/Code/dotfiles/" -type f | grep -vi '\.git\|watch_later\|autoload\|pycache\|fonts' | \
+        fzf | xargs -r "$EDITOR"
 }
 
-pipup() {
-    pip3 list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' | xargs -r -i'{}' doas pip3 install --upgrade {} || true
+function fzfcd() {
+    dir=$(find -L . -maxdepth 3 -path './.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
+        'devtmpfs' -o -fstype 'proc' -prune -o -type d,l  -print 2>/dev/null | cut -b3- | fzf)
+    [ -z "$dir" ] || cd "$dir" || exit
 }
 
-lspacs() {
+function fzfcdhidden() {
+    dir=$(find -L . -maxdepth 3 -path '.' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
+        'devtmpfs' -o -fstype 'proc' -prune -o -type d,l  -print 2>/dev/null | cut -b3- | fzf)
+    [ -z "$dir" ] || cd "$dir" || exit
+}
+
+function open() {
+    find . -type f -maxdepth 3 2>/dev/null | grep -vi \
+        '\.git\|watch_later\|autoload\|pycache\|fonts\|tags' | fzf | xargs -r "$EDITOR"
+}
+
+function pipup() {
+    pip3 list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' | \
+        xargs -r -I'{}' doas pip3 install --upgrade {} || true
+}
+
+function lspacs() {
     pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $4 $5, name}' | sort -hr
 }
 
-lsalias() {
+function pacusage() {
+    # https://serverfault.com/questions/375096/bash-sed-awk-etc-remove-every-other-newline/375104
+    pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste - - | \
+        sed 's/^ //g; s/ K/K/g; s/ M/M/g' | tr -d '\t' | sort -rhk 2 | less
+}
+
+function lsalias() {
     alias | awk -F'[ =]' '{ print $2 }' | tr -d "'"
 }
 
-pacusage() {
-    # https://serverfault.com/questions/375096/bash-sed-awk-etc-remove-every-other-newline/375104
-    pacman -Qi | egrep '^(Name|Installed)' | cut -f2 -d':' | paste - - | sed 's/^ //g; s/ K/K/g; s/ M/M/g' | tr -d '\t' | sort -rhk 2 | less
-}
-
-countdown() {
-    date1=$((`date +%s` + $1));
-    while [ "$date1" -ge `date +%s` ]; do
-        echo -ne "$(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r";
-        sleep 0.1
-    done
-}
-
-condainit() {
+function condainit() {
     export PATH="/home/jedi/.miniconda3/bin:$PATH"
     __conda_setup="$('/home/jedi/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    [[ $? -eq 0 ]] && echo $__conda_setup | eval    # eval $__conda_setup doesn't work smh
+    [[ "$?" -eq 0 ]] && echo "$__conda_setup" | eval
     unset __conda_setup
-}
-
-stopwatch() {
-    date1=`date +%s`;
-    while true; do
-        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
-        sleep 0.1
-    done
-}
-
-function pomo() {
-    arg1=$1
-    shift
-    args="$*"
-
-    min=${arg1:?Example: pomo 15 Take a break}
-    sec=$((min * 60))
-    msg="${args:?Example: pomo 15 Take a break}"
-
-    while true; do
-        date '+%H:%M' && sleep "${sec:?}" && notify-send -u critical -t 0 -a pomo "${msg:?}"
-    done
 }
 
 function yta() {
     mpv --loop --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
+
+function countdown() {
+    date1=$(($(date +%s) + $1));
+    while [ "$date1" -ge "$(date +%s)" ]; do
+        echo -ne "$(date -u --date @$((date1 - $(date +%s))) +%H:%M:%S)\r";
+        sleep 0.1
+    done
+}
+
+function stopwatch() {
+    date1=$(date +%s);
+    while true; do
+        echo -ne "$(date -u --date @$(($(date +%s) - date1)) +%H:%M:%S)\r";
+        sleep 0.1
+    done
+}
+
+
+bindkey -s '^o' 'open\n'
+bindkey -s '^f' 'fzfcd\n'
+bindkey -s '^g' 'fzfcdhidden\n'
