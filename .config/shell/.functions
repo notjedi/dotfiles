@@ -5,13 +5,13 @@ function usage() {
 }
 
 function co() {
-    dir=$(find "$HDD/Code" -maxdepth 1 -type d,l | fzf)
-    [ -z "$dir" ] || cd "$dir" || exit
+    dir=$(find "$HDD/Code" -maxdepth 1 -type d,l | awk -F/ '{ print $NF }'| fzf)
+    [ -z "$dir" ] || cd "$HDD/Code/$dir" || exit
 }
 
 function conf() {
     find "$HDD/Code/dotfiles/" -type f | grep -vi '\.git\|watch_later\|autoload\|pycache\|fonts' | \
-        fzf | xargs -r "$EDITOR"
+        sed "s|^"$HDD"/Code/dotfiles/||" | fzf | xargs -I'{}' -r $EDITOR $HDD/Code/dotfiles/{}
 }
 
 function fzfcd() {
@@ -28,7 +28,8 @@ function fzfcdhidden() {
 
 function open() {
     find . -type f -maxdepth 3 2>/dev/null | grep -vi \
-        '\.git\|watch_later\|autoload\|pycache\|fonts\|tags' | fzf | xargs -r "$EDITOR"
+        '\.git\|\.miniconda3\|\.android\|\.cache\|\.librewolf\|watch_later\|autoload\|pycache\|fonts\|tags' \
+        | fzf | xargs -r "$EDITOR"
 }
 
 function pipup() {
@@ -78,6 +79,7 @@ function stopwatch() {
 }
 
 
+bindkey -s '^h' 'conf\n'
 bindkey -s '^o' 'open\n'
 bindkey -s '^f' 'fzfcd\n'
 bindkey -s '^g' 'fzfcdhidden\n'

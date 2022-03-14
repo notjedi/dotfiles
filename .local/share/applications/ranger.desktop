@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
 Name=ranger
-GenericName=File Manager
 Comment=Launches the ranger file manager
 Icon=utilities-terminal
-Terminal=false
-Exec=st -e ranger
+Terminal=true
+Exec=ranger
 Categories=ConsoleOnly;System;FileTools;FileManager
-MimeType=inode/directory;inode/mount-point;x-scheme-handler/ssh;x-scheme-handler/smb;x-scheme-handler/nfs;x-scheme-handler/ftp;application/x-directory;
+MimeType=inode/directory;
+Keywords=File;Manager;Browser;Explorer;Launcher;Vi;Vim;Python

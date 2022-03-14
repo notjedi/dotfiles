@@ -4,9 +4,10 @@ export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/git"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d "$HOME/.local/jedi/bin/" ]] && export PATH="$HOME/.local/jedi/bin:$PATH"
 [[ -d "$HOME/.local/share/npm/bin" ]] && export PATH="$HOME/.local/share/npm/bin:$PATH"
-[[ -d "$HOME/.local/bin/dwmblocks" ]] && export PATH="$HOME/.local/bin/dwmblocks:$PATH"
 [[ -d "$HOME/.local/share/cargo/bin" ]] && export PATH="$HOME/.local/share/cargo/bin:$PATH"
+[[ -d "$HOME/.local/jedi/bin/dwmblocks" ]] && export PATH="$HOME/.local/jedi/bin/dwmblocks:$PATH"
 [[ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]] && export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 [[ -d "$HOME/.local/share/miniconda/condabin" ]] && export PATH="$HOME/.local/share/miniconda/condabin:$PATH"
 
@@ -61,7 +62,6 @@ export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-export PYTHONUSERBASE="/usr/local/bin"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export LESSHISTFILE="-"
 

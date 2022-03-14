@@ -1,10 +1,10 @@
+pfetch
 autoload -U colors && colors
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 precmd() { vcs_info }
 
-# Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
 zstyle ':vcs_info:*' stagedstr '%F{green}✔%f '
@@ -13,8 +13,6 @@ zstyle ':vcs_info:git*' formats "%F{blue}( %b)%f %u%c"
 PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
 PS1+='%F{blue}${vcs_info_msg_0_}%f'
-
-pfetch
 
 setopt interactive_comments
 setopt HIST_IGNORE_ALL_DUPS
@@ -57,6 +55,8 @@ bindkey -v '^?' backward-delete-char
 autoload edit-command-line;
 zle -N edit-command-line
 bindkey '^e' edit-command-line
+
+bindkey -s '^a' 'bc -lq\n'
 
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets

@@ -69,7 +69,6 @@ alias v="nvim" \
     ka="killall" \
     ipy="ipython" \
     sv="doas nvim" \
-    pip="doas pip3" \
     python="python3" \
     sn="doas -E nvim" \
     yout="pipe-viewer" \
