@@ -25,7 +25,7 @@ null_ls.setup {
     diagnostics.pydocstyle,
     diagnostics.shellcheck,
 
-    completion.spell.with { filetypes = { 'md', 'txt' } },
+    completion.spell.with { filetypes = { 'markdown', 'txt' } },
     hover.dictionary,
   },
 }

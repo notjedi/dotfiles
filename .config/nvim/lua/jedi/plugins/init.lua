@@ -82,6 +82,9 @@ packer.startup(function(use)
   }
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+  -- utils
+  use { 'vimwiki/vimwiki' }
+
   -- cmp & lsp
   use { 'hrsh7th/nvim-cmp' }
   use { 'hrsh7th/cmp-path' }
@@ -96,6 +99,8 @@ packer.startup(function(use)
   -- Misc
   use { 'lewis6991/impatient.nvim' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+  -- lazy load
   use {
     'iamcco/markdown-preview.nvim',
     run = 'cd app && npm install',
