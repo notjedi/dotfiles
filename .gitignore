@@ -24,3 +24,5 @@ passwords.gpg
 
 # mail profies
 profiles/
+
+.fuse*

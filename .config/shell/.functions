@@ -33,8 +33,8 @@ function open() {
 }
 
 function pipup() {
-    pip3 list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' | \
-        xargs -r -I'{}' doas pip3 install --upgrade {} || true
+    pip list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' | \
+        xargs -r -I'{}' pip install --upgrade {} || true
 }
 
 function lspacs() {
@@ -80,6 +80,6 @@ function stopwatch() {
 
 
 bindkey -s '^h' 'conf\n'
-bindkey -s '^o' 'open\n'
+bindkey -s '^k' 'open\n'
 bindkey -s '^f' 'fzfcd\n'
 bindkey -s '^g' 'fzfcdhidden\n'
