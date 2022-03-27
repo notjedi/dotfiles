@@ -77,13 +77,17 @@ packer.startup(function(use)
   use {
     '/mnt/Seagate/Code/nvim-rooter.lua',
     config = function()
-      require('nvim-rooter').setup {}
+      require('nvim-rooter').setup {
+        rooter_patterns = { '.git', '.hg', '.svn' },
+        trigger_patterns = { '*' },
+        manual = false,
+      }
     end,
   }
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- utils
-  use { 'vimwiki/vimwiki' }
+  use { 'vimwiki/vimwiki', cmd = 'VimwikiStart' }
 
   -- cmp & lsp
   use { 'hrsh7th/nvim-cmp' }

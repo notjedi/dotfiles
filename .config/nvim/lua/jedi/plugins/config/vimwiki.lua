@@ -10,7 +10,18 @@ vim.g.vimwiki_list = {
 }
 
 vim.g.vimwiki_global_ext = 0
-vim.g.vimwiki_listsyms = '✗○◐●✓'
+vim.g.vimwiki_listsyms = '○◐●✓'
 vim.g.vimwiki_listsym_rejected = '✗'
 vim.vimwiki_table_auto_fmt = 1
--- vimwiki_key_mappings = { 'all_maps': 0, }
+vim.g.vimwiki_key_mappings = { all_maps = 0 }
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap('n', '<leader>vs', ':VimwikiStart<CR>', opts)
+keymap('n', '<leader>vw', ':VimwikiIndex<CR>', opts)
+keymap('n', '<CR>', ':VimwikiFollowLink<CR>', opts)
+
+vim.cmd([[
+    autocmd BufRead,BufNewFile /mnt/Seagate/Code/vimwiki/** :VimwikiStart
+]])

@@ -1,4 +1,3 @@
-pfetch
 autoload -U colors && colors
 
 autoload -Uz vcs_info
@@ -57,6 +56,15 @@ zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 bindkey -s '^a' 'bc -lq\n'
+
+# https://stackoverflow.com/questions/17051123/source-a-file-in-zsh-when-entering-a-directory
+autoload -U add-zsh-hook
+load-local-conf() {
+     if [[ -d pystk_gym ]]; then
+       source venv/bin/activate
+     fi
+}
+add-zsh-hook chpwd load-local-conf
 
 [ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets

@@ -16,6 +16,7 @@ keymap('n', '<C-l>', '<C-w>l', opts)
 
 -- Leader keymaps
 keymap('n', '<leader>w', ':w<CR>', opts)
+keymap('n', '<leader>W', ':w!<CR>', opts)
 keymap('n', '<leader>q', ':q<CR>', opts)
 
 -- Resize with arrows

@@ -1,5 +1,6 @@
 setbg &
 remaps &
+clipmenud &
 dwmblocks &
 redshift -O 2600 &
 xrdb .config/x11/.Xresources

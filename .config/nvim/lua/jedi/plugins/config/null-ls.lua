@@ -11,7 +11,7 @@ null_ls.setup {
       extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' },
     },
     formatting.rustfmt,
-    formatting.black.with { extra_args = { '-S', '-l 80' } },
+    formatting.black.with { extra_args = { '-S', '-l 100' } },
     formatting.shfmt.with { extra_args = { '-i 2', '-ci', '-sr' } },
     formatting.clang_format.with { extra_args = { '-style="{IndentWidth: 4}"' } },
     formatting.stylua.with {
@@ -25,8 +25,8 @@ null_ls.setup {
     diagnostics.pydocstyle,
     diagnostics.shellcheck,
 
-    completion.spell.with { filetypes = { 'markdown', 'txt' } },
-    hover.dictionary,
+    completion.spell.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
+    hover.dictionary.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
   },
 }
 
