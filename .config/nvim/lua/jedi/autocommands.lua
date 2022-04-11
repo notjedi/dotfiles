@@ -24,4 +24,8 @@ vim.cmd([[
     au BufWritePre * %s/\n\+\%$//e
   augroup end
 
+  augroup _vim_wiki_start
+    autocmd BufRead,BufNewFile /mnt/Seagate/Code/vimwiki/** :VimwikiStart
+  augroup end
+
 ]])

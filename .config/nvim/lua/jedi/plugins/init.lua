@@ -87,7 +87,10 @@ packer.startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- utils
-  use { 'vimwiki/vimwiki', cmd = 'VimwikiStart' }
+  use { 'vimwiki/vimwiki', cmd = 'VimwikiStart', config = function()
+    require('jedi.plugins.config.vimwiki').config()
+  end
+  }
 
   -- cmp & lsp
   use { 'hrsh7th/nvim-cmp' }
