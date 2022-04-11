@@ -1,5 +1,5 @@
 # changing directory colors for 'ls' on hdd
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/git"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
@@ -59,6 +59,7 @@ export VSCODE_PORTABLE="${XDG_DATA_HOME/$HOME/.local/share}/vscode"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
+export STACK_ROOT="${XDG_DATA_HOME:-$HOME/.local/share}/stack"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"

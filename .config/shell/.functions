@@ -80,7 +80,7 @@ function stopwatch() {
 
 
 bindkey -s '^n' 'co\n'
-bindkey -s '^y' 'conf\n'
+bindkey -s '^p' 'conf\n'
 bindkey -s '^k' 'open\n'
 bindkey -s '^f' 'fzfcd\n'
 bindkey -s '^g' 'fzfcdhidden\n'

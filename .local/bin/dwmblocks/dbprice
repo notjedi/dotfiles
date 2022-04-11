@@ -11,19 +11,19 @@ getFavCoins() {
     price=$(curl -s "rate.sx/1$i" | awk '{ printf ("%.2f", $1) }')
     out="$out \n$i: $price"
   done
-  printf "$out"
+  printf '%s' "$out"
 }
 
 case $BUTTON in
   # 🤑
   1) notify-send -u low -t 5000 "💰 Crypto prices:" "$(getFavCoins)" ;;
-  3) setsid -f $TERMINAL -e cointop ;;
+  3) setsid -f "$TERMINAL" -e cointop ;;
 esac
 
-[ -z $cur ] && exit
+[ -z "$cur" ] && exit
 
 # price=$(curl -s "rate.sx/1$cur" | sed 's|\..*||g')
 # echo "$icon \$$price"
-price=$(curl -s "inr.rate.sx/1$cur")
-printf "%s %0.2f\n" $icon $price
+price=$(curl --max-time 5 -s "inr.rate.sx/1$cur")
+printf "%s %0.2f\n" "$icon" "$price"
 # echo $(printf "%s %0.2f\n" $icon $price)

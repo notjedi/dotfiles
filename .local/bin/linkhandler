@@ -5,7 +5,7 @@ case "$1" in
   *mkv | *mp4 | *webm | *avi | *youtube.com/watch* | *youtube.com/playlist*)
     setsid -f mpv "$1" > /dev/null 2>&1
     ;;
-  *png | *jpg | *jpeg | *gif)
+  *png | *pngblob | *jpg | *jpeg | *gif)
     curl -sL "$1" -o "/tmp/$file" && setsid -f sxiv -a "/tmp/$file" > /dev/null 2>&1
     ;;
   *pdf)
