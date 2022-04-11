@@ -1,5 +1,8 @@
 configuration {
+    modi: "run,drun,window";
+    show-icons: true;
+    drun-display-format: "{icon} {name}";
 	terminal: "st";
-	theme: "/home/jedi/.config/rofi/material-ocean";
-	/* theme: "/home/jedi/.cache/wal/colors-rofi-dark.rasi"; */
 }
+
+@theme "material-ocean"

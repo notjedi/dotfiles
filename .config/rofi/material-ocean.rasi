@@ -4,17 +4,26 @@
   licensed under GNU's GPL 3
 */
 
+/* * { */
+/*   background: #0f111a; */
+/*   foreground: #f1f1f1; */
+/*   selected: #ff4151; */
+/*   font: "JetBrainsMono Nerd Font 11"; */
+/* } */
+
 * {
-  background: #0f111a;
-  foreground: #f1f1f1;
-  selected: #ff4151;
+  background: #1E1D2F;
+  foreground: #D9E0EE;
+  selected: #F28FAD;
   font: "JetBrainsMono Nerd Font 11";
 }
 
 window {
+  border-radius: 10px;
   transparency: "real";
   background-color: @background;
   text-color: @foreground;
+  width: 30%;
 }
 
 prompt {
@@ -36,7 +45,7 @@ inputbar {
   text-color: @foreground;
   expand: false;
   border: 0px 0px 0px 0px;
-  border-radius: 0px;
+  border-radius: 10px;
   border-color: @selected;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 4px 0px;
@@ -62,6 +71,7 @@ case-indicator {
 listview {
   background-color: @background;
   columns: 1;
+  lines: 5;
   spacing: 5px;
   cycle: true;
   dynamic: true;
@@ -79,7 +89,7 @@ element {
   background-color: @background;
   text-color: @foreground;
   orientation: horizontal;
-  border-radius: 4px;
+  border-radius: 0px;
   padding: 0px 0px 0px 0px;
 }
 
@@ -99,7 +109,7 @@ element selected {
   background-color: @selected;
   text-color: @background;
   border: 0px;
-  border-radius: 0px;
+  border-radius: 4px;
   border-color: @selected;
 }
 
