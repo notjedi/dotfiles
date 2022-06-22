@@ -73,7 +73,7 @@ packer.startup(function(use)
 
   -- Git
   -- use { 'dstein64/vim-startuptime' }
-  -- use { 'jedi2610/nvim-rooter.lua' }
+  -- use { 'notjedi/nvim-rooter.lua' }
   use {
     '/mnt/Seagate/Code/nvim-rooter.lua',
     config = function()
@@ -86,10 +86,14 @@ packer.startup(function(use)
   }
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+
   -- utils
-  use { 'vimwiki/vimwiki', cmd = 'VimwikiStart', config = function()
-    require('jedi.plugins.config.vimwiki').config()
-  end
+  use {
+    'vimwiki/vimwiki',
+    cmd = 'VimwikiStart',
+    config = function()
+      require('jedi.plugins.config.vimwiki').config()
+    end,
   }
 
   -- cmp & lsp

@@ -18,7 +18,9 @@ null_ls.setup {
       extra_args = { '--config-path', vim.fn.expand('~/.config/stylua.toml') },
     },
 
-    diagnostics.flake8,
+    diagnostics.flake8.with {
+      extra_args = { '--max-line-length', 100, '--ignore', 'E265,E266' },
+    },
     diagnostics.luacheck,
     diagnostics.cppcheck,
     diagnostics.codespell,

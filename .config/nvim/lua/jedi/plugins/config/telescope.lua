@@ -6,7 +6,7 @@ require('telescope').setup {
     prompt_prefix = ' ',
     selection_caret = ' ',
     path_display = { 'smart' },
-    file_ignore_patterns = { '.git', '.pth', 'events.out.*' },
+    file_ignore_patterns = { '.git', '.pth', 'events.out.*', '.jpg', '.png', '.jpeg' },
 
     mappings = {
       i = {
