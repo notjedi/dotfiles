@@ -52,9 +52,16 @@ function lsalias() {
 }
 
 function condainit() {
-    export PATH="/home/jedi/.miniconda3/bin:$PATH"
     __conda_setup="$('/home/jedi/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    [[ "$?" -eq 0 ]] && echo "$__conda_setup" | eval
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/jedi/.miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/jedi/.miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/jedi/.miniconda3/bin:$PATH"
+        fi
+    fi
     unset __conda_setup
 }
 

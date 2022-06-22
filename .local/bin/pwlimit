@@ -1,4 +1,3 @@
-nvidia-smi -pm 1
-nvidia-smi -pl 80
-nvidia-smi -i 0 -lgc 1200,1200
-DISPLAY=:0
+nvidia-smi -pm 1;
+nvidia-smi -pl 80;
+nvidia-smi -i 0 -lgc 1200,1200;

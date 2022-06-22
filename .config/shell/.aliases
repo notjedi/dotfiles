@@ -75,6 +75,7 @@ alias v="nvim" \
     yout="pipe-viewer" \
     ws="watch sensors" \
     sudb="doas updatedb" \
+    ta="tmux attach-session" \
     jup="jupyter notebook & disown" \
     startx="startx ~/.config/x11/xinitrc"
 

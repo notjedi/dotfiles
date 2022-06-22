@@ -11,9 +11,7 @@ notification_height = 10
 separator_height = 0
 padding = 8
 horizontal_padding = 10
-frame_width = 0
-; frame_color = "#a4a4a4"
-frame_color = "#282a36"
+frame_width = 2
 separator_color = frame
 sort = yes
 idle_threshold = 120
@@ -36,14 +34,13 @@ show_indicators = yes
 icon_position = left
 max_icon_size = 64
 icon_path = /usr/share/icons/gnome/17x16/status/:/usr/share/icons/gnome/16x16/devices/
-# icon_path = /home/blacksuan19/.local/share/icons/Material-Ocean/22x22/actions/
 
 ### History ###
 sticky_history = yes
 history_length = 20
 
 ### Misc/Advanced ###
-browser = /usr/bin/brave
+browser = /usr/bin/librewolf
 always_run_script = true
 title = Dunst
 class = Dunst
@@ -55,19 +52,21 @@ close_all = ctrl+shift+space
 history = ctrl+grave
 
 # catppuccin theme
+separator_color= frame
+
 [urgency_low]
-background = "#1E1D2F"
+background = "#1E1E2E"
 foreground = "#D9E0EE"
-timeout = 10
+frame_color = "#96CDFB"
 
 [urgency_normal]
-background = "#575268"
+background = "#1E1E2E"
 foreground = "#D9E0EE"
-timeout = 10
+frame_color = "#96CDFB"
 
 [urgency_critical]
-background  = "#1E1D2F"
-foreground  = "#F28FAD"
-frame_color = "#f8bd96"
+background = "#1E1E2E"
+foreground = "#D9E0EE"
+frame_color = "#F8BD96"
 
 # /* vim:ft=dosini
