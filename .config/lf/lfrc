@@ -91,9 +91,16 @@ map i push A<a-b><a-b><a-f>
 map a push A<a-b>
 map B bulkrename
 
-map gd cd ~/Downloads
-map gc cd ~/.config
+map gdt cd /mnt/Seagate/Code/dotfiles
+map gwa cd /mnt/Seagate/wallpapers
+map gsc cd /mnt/Seagate/screenshot
+map gsy cd /mnt/Seagate/syncthing
+map gco cd /mnt/Seagate/Code
+map gex cd /mnt/Seagate
 map gls cd ~/.local/src
+map gdo cd ~/Downloads
+map gcn cd ~/.config
+map gll cd ~/.local
 
 map mk push :mkdir<space>
 map mf push :mkfile<space>

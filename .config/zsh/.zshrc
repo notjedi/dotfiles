@@ -14,10 +14,15 @@ PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
 PS1+='%F{blue}${vcs_info_msg_0_}%f'
 
 setopt interactive_comments
-setopt HIST_IGNORE_ALL_DUPS
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_SPACE
+setopt hist_ignore_all_dups
+setopt inc_append_history
+setopt hist_ignore_space
 setopt prompt_subst
+setopt autopushd
+setopt share_history
+setopt pushdignoredups
+setopt hist_reduce_blanks
+setopt correct
 setopt autocd
 
 HISTSIZE=100000000

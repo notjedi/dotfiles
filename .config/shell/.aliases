@@ -51,6 +51,19 @@ alias rh="ranger $HOME" \
     rsc="ranger $HDD/screenshots" \
     rwal="ranger $HDD/wallpapers"
 
+# lf aliases
+alias lh="lf $HOME" \
+    lr="lf $HDD" \
+    lco="lf $HDD/Code" \
+    lmo="lf $HDD/movies" \
+    lim="lf $HDD/Images" \
+    llo="lf $HOME/.local" \
+    ld="lf $HDD/Documents" \
+    lfg="lf $HOME/.config" \
+    ldo="lf $HOME/Downloads" \
+    lsc="lf $HDD/screenshots" \
+    lwal="lf $HDD/wallpapers"
+
 # pacman aliases
 alias p="doas pacman" \
     pacorphan="pacman -Qtdq" \
