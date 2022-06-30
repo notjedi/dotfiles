@@ -1,5 +1,2 @@
-require('jedi.options')
-require('jedi.keymaps')
-require('jedi.autocommands')
-require('jedi.colorscheme')
-require('jedi.plugins')
+-- Load Modules:
+require("core")
