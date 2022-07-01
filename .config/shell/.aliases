@@ -93,8 +93,9 @@ alias v="nvim" \
     startx="startx ~/.config/x11/xinitrc"
 
 # misc
-alias pop="popd" \
+alias pp="popd" \
     push="pushd" \
+    usg="dust -rxd 1" \
     fin="ls -A | grep -i" \
     fig="figlet -f ansishadow" \
     caps="xdotool key Caps_Lock" \

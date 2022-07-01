@@ -10,7 +10,7 @@ zstyle ':vcs_info:*' stagedstr '%F{green}✔%f '
 zstyle ':vcs_info:git*' formats "%F{blue}( %b)%f %u%c"
 
 PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PS1+=" %{$fg[cyan]%}%c%{$reset_color%} "
+PS1+=" %{$fg[cyan]%}%c%{$reset_color%} " # λ
 PS1+='%F{blue}${vcs_info_msg_0_}%f'
 
 setopt interactive_comments
