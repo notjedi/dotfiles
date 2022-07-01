@@ -77,6 +77,14 @@ function config.null_ls()
   }
 end
 
+function config.rooter()
+  require('nvim-rooter').setup {
+    rooter_patterns = { '.git', '.hg', '.svn' },
+    trigger_patterns = { '*' },
+    manual = false,
+  }
+end
+
 function config.zenmode()
   require('zen-mode').setup {
     window = {

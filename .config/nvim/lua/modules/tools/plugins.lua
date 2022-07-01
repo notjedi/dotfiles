@@ -14,6 +14,7 @@ package {
 }
 
 package { 'Vonr/align.nvim', opt = true }
+package { 'notjedi/nvim-rooter.lua', event = 'CursorMoved', config = conf.rooter }
 
 package {
   'jose-elias-alvarez/null-ls.nvim',
