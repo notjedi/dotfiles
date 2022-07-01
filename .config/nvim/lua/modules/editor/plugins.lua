@@ -14,7 +14,14 @@ package {
 
 package {
   'phaazon/hop.nvim',
-  cmd = { 'HopWordCurrentLineAC', 'HopWordCurrentLineBC', 'HopWordAC', 'HopWordBC', 'HopLineStartAC', 'HopLineStartBC' },
+  cmd = {
+    'HopWordCurrentLineAC',
+    'HopWordCurrentLineBC',
+    'HopWordAC',
+    'HopWordBC',
+    'HopLineStartAC',
+    'HopLineStartBC',
+  },
   config = conf.hop,
 }
 

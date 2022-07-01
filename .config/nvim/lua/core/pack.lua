@@ -39,10 +39,11 @@ function Packer:load_packer()
   packer.reset()
   local use = packer.use
   self:load_plugins()
-  use { 'lewis6991/impatient.nvim',
+  use {
+    'lewis6991/impatient.nvim',
     config = function()
       require('impatient')
-    end
+    end,
   }
   use { 'wbthomason/packer.nvim', opt = true }
   for _, repo in ipairs(self.repos) do

@@ -1,66 +1,34 @@
-local hide_in_width = function()
-  return vim.fn.winwidth(0) > 80
-end
-
-local diff = {
-  'diff',
-  colored = true,
-  symbols = { added = '樂', modified = ' ', removed = ' ' }, -- changes diff symbols
-  cond = hide_in_width,
-}
-
-local mode = {
-  'mode',
-  fmt = function(str)
-    return str
-  end,
-}
-
-local filetype = {
-  'filetype',
-  icons_enabled = false,
-  icon = nil,
-}
-
 local branch = {
   'branch',
-  icons_enabled = true,
   icon = '',
 }
 
-local location = {
-  'location',
-  padding = 1,
-}
-
-local spaces = function()
-  return 'spaces: ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth')
-end
-
 require('lualine').setup {
   options = {
-    icons_enabled = true,
     theme = 'catppuccin',
-    component_separators = { left = '', right = '' },
+    component_separators = '|',
     section_separators = { left = '', right = '' },
     disabled_filetypes = { 'dashboard', 'NvimTree', 'Outline' },
-    always_divide_middle = true,
   },
   sections = {
-    lualine_a = { branch, diagnostics },
-    lualine_b = { mode },
+    lualine_a = {
+      { 'mode', right_padding = 2 },
+    },
+    lualine_b = { branch, 'filename' },
     lualine_c = {},
-    lualine_x = { diff, spaces, 'encoding', filetype },
-    lualine_y = {},
-    lualine_z = { location },
+    lualine_x = {},
+    lualine_y = { 'diff', 'filetype', 'progress' },
+    lualine_z = {
+      { 'location', left_padding = 2 },
+    },
   },
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = { 'filename' },
     lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'location' },
+    lualine_c = {},
+    lualine_x = {},
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = { 'location' },
   },
   tabline = {},
   extensions = {},
