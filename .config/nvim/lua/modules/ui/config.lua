@@ -102,12 +102,10 @@ function config.nvim_tree()
       args = {},
     },
     renderer = {
+      highlight_git = false,
       icons = {
-        glyphs = {
-          git = {
-            -- deleted = "",
-            deleted = '',
-          },
+        show = {
+          git = false,
         },
       },
     },
@@ -226,48 +224,6 @@ function config.gitsigns()
       ['n gh'] = { "<cmd>lua require'gitsigns'.toggle_deleted()<CR>" },
     },
   }
-end
-
-function config.indent_blankline()
-  vim.g.indent_blankline_char = '│'
-  vim.g.indent_blankline_show_first_indent_level = true
-  vim.g.indent_blankline_filetype_exclude = {
-    'dashboard',
-    'DogicPrompt',
-    'log',
-    'fugitive',
-    'gitcommit',
-    'packer',
-    'markdown',
-    'json',
-    'txt',
-    'vista',
-    'help',
-    'todoist',
-    'NvimTree',
-    'git',
-    'TelescopePrompt',
-    'undotree',
-    '', -- for all buffers without a file type
-  }
-  vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile', 'prompt' }
-  vim.g.indent_blankline_show_trailing_blankline_indent = false
-  vim.g.indent_blankline_show_current_context = true
-  vim.g.indent_blankline_context_patterns = {
-    'class',
-    'function',
-    'method',
-    'block',
-    'list_literal',
-    'selector',
-    '^if',
-    '^table',
-    'if_statement',
-    'while',
-    'for',
-  }
-  -- because lazy load indent-blankline so need readd this autocmd
-  vim.cmd('autocmd CursorMoved * IndentBlanklineRefresh')
 end
 
 return config

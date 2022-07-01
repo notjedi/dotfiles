@@ -6,7 +6,7 @@ local map_args = bind.map_args
 require('keymap.config')
 
 local plug_map = {
-  -- Packer
+  -- packer
   ['n|<leader>pu'] = map_cr('PackerUpdate'):with_silent():with_noremap():with_nowait(),
   ['n|<leader>pi'] = map_cr('PackerInstall'):with_silent():with_noremap():with_nowait(),
   ['n|<leader>pc'] = map_cr('PackerCompile'):with_silent():with_noremap():with_nowait(),
@@ -27,11 +27,8 @@ local plug_map = {
   -- nvim-tree
   ['n|<leader>e'] = map_cr('NvimTreeFindFileToggle'):with_noremap():with_silent(),
 
-  -- MarkdownPreview
-  ['n|<leader>om'] = map_cu('MarkdownPreview'):with_noremap():with_silent(),
-
-  -- Telescope
-  ['n|<leader>bb'] = map_cu('Telescope buffers'):with_noremap():with_silent(),
+  -- telescope
+  ['n|<leader>fb'] = map_cu('Telescope buffers'):with_noremap():with_silent(),
   ['n|<leader>fc'] = map_cu('Telescope command_history'):with_noremap():with_silent(),
   ['n|<leader>fa'] = map_cu('Telescope live_grep'):with_noremap():with_silent(),
   ['n|<leader>ff'] = map_cu('Telescope find_files'):with_noremap():with_silent(),
@@ -44,7 +41,28 @@ local plug_map = {
     :with_noremap()
     :with_silent(),
 
-  -- QuickRun
+  -- hop
+  ['n|s'] = map_cr('HopWordAC'):with_noremap():with_silent(),
+  ['n|S'] = map_cr('HopWordBC'):with_noremap():with_silent(),
+  ['n|t'] = map_cr('HopWordCurrentLineAC'):with_noremap():with_silent(),
+  ['n|T'] = map_cr('HopWordCurrentLineBC'):with_noremap():with_silent(),
+  ['n|<leader>l'] = map_cr('HopLineStartAC'):with_noremap():with_silent(),
+  ['n|<leader>L'] = map_cr('HopLineStartBC'):with_noremap():with_silent(),
+
+  -- toggleterm
+  ['n|<leader>t'] = map_cr('ToggleTerm'):with_noremap():with_silent(),
+  ['t|<C-h>'] = map_cmd([[<C-\><C-n><C-W>h]]):with_noremap():with_silent(),
+  ['t|<C-j>'] = map_cmd([[<C-\><C-n><C-W>j]]):with_noremap():with_silent(),
+  ['t|<C-k>'] = map_cmd([[<C-\><C-n><C-W>k]]):with_noremap():with_silent(),
+  ['t|<C-l>'] = map_cmd([[<C-\><C-n><C-W>l]]):with_noremap():with_silent(),
+  ['t|<leader>t'] = map_cmd([[<C-\><C-n>:ToggleTerm<CR>]]):with_noremap():with_silent(),
+
+  -- null-ls
+  ['n|<leader>F'] = map_cr('lua vim.lsp.buf.formatting_sync(nil, 2000)')
+    :with_noremap()
+    :with_silent(),
+
+  -- quickrun
   ['n|<leader>r'] = map_cr("<cmd>lua require'internal.quickrun'.run_command()")
     :with_noremap()
     :with_silent(),

@@ -14,19 +14,19 @@ package {
 
 package {
   'phaazon/hop.nvim',
-  event = 'BufRead',
+  cmd = { 'HopWordCurrentLineAC', 'HopWordCurrentLineBC', 'HopWordAC', 'HopWordBC', 'HopLineStartAC', 'HopLineStartBC' },
   config = conf.hop,
 }
 
 package {
   'akinsho/toggleterm.nvim',
-  cmd = 'ToggleTerm',
+  cmd = { 'ToggleTerm', 'TermExec' },
   config = conf.toggleterm,
 }
 
 package {
   'norcalli/nvim-colorizer.lua',
-  event = 'BufRead',
+  cmd = { 'ColorizerToggle', 'ColorizerAttachToBuffer' },
   config = conf.colorizer,
 }
 

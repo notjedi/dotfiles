@@ -17,8 +17,6 @@ package {
   requires = 'kyazdani42/nvim-web-devicons',
 }
 
-package { 'lukas-reineke/indent-blankline.nvim', event = 'BufRead', config = conf.indent_blankline }
-
 package {
   'akinsho/nvim-bufferline.lua',
   event = 'BufEnter',

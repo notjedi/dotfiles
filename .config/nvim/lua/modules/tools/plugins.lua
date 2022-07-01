@@ -9,7 +9,7 @@ package {
 
 package {
   'numToStr/Comment.nvim',
-  event = { 'CursorMoved', 'InsertEnter' },
+  event = { 'InsertEnter' },
   config = conf.comment,
 }
 
@@ -17,14 +17,9 @@ package { 'Vonr/align.nvim', opt = true }
 
 package {
   'jose-elias-alvarez/null-ls.nvim',
-  event = 'BufRead',
+  event = 'InsertEnter',
   config = conf.null_ls,
 }
-
--- package {
---   'lewis6991/impatient.nvim',
---   config = conf.impatient,
--- }
 
 package {
   'folke/zen-mode.nvim',
@@ -38,11 +33,3 @@ package {
   cmd = { 'TodoLocList', 'TodoTelescope' },
   config = conf.todo_comments,
 }
-
--- TODO: write a new markdown preview plugin
--- package {'iamcco/markdown-preview.nvim',
---   ft = 'markdown',
---   config = function ()
---     vim.g.mkdp_auto_start = 0
---   end
--- }

@@ -8,7 +8,6 @@ local def_map = {
   -- normal
   ['n|cl'] = map_cmd('veu'),
   ['n|cu'] = map_cmd('veU'),
-  ['n|tw'] = map_cmd([[:%s/\s\+$//e<CR> :%s/\n\+\%$//e<CR>]]):with_noremap(),
   ['n|Y'] = map_cmd('y$'),
   ['n|W'] = map_cr('w!'),
   ['n|Q'] = map_cr('q!'),
@@ -24,7 +23,7 @@ local def_map = {
   ['n|<C-Left>'] = map_cr('vertical -2'):with_noremap():with_silent(),
   ['n|<leader>ss'] = map_cu('SessionSave'):with_noremap(),
   ['n|<leader>sl'] = map_cu('SessionLoad'):with_noremap(),
-  ['n|<leader>tw'] = map_cu('TrimTrailingWhitespace'):with_noremap(),
+  ['n|<leader>tw'] = map_cmd([[:%s/\s\+$//e<CR> :%s/\n\+\%$//e<CR>]]):with_noremap(),
   ['n|<leader>w'] = map_cu('write'):with_noremap(),
   ['n|<leader>q'] = map_cu('quit'):with_noremap(),
 

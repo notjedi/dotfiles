@@ -53,6 +53,7 @@ function config.null_ls()
       formatting.prettier.with {
         extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' },
       },
+      formatting.jq,
       formatting.rustfmt,
       formatting.black.with { extra_args = { '-S', '-l 100' } },
       formatting.shfmt.with { extra_args = { '-i 2', '-ci', '-sr' } },
@@ -74,14 +75,6 @@ function config.null_ls()
       hover.dictionary.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
     },
   }
-
-  -- local keymap = vim.api.nvim_set_keymap
-  -- local opts = { noremap = true, silent = true }
-  -- keymap('n', '<leader>F', ':lua vim.lsp.buf.formatting_sync()<CR>', opts)
-end
-
-function config.impatient()
-  require('impatient')
 end
 
 function config.zenmode()

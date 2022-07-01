@@ -62,14 +62,6 @@ end
 
 function config.hop()
   require('hop').setup()
-
-  local keymap = vim.api.nvim_set_keymap
-  local opts = { noremap = true, silent = true }
-
-  keymap('n', 'f', ':HopWordCurrentLineAC<CR>', opts)
-  keymap('n', 'F', ':HopWordCurrentLineBC<CR>', opts)
-  keymap('n', 's', ':HopWordAC<CR>', opts)
-  keymap('n', 'S', ':HopWordBC<CR>', opts)
 end
 
 function config.toggleterm()
@@ -77,7 +69,6 @@ function config.toggleterm()
 
   toggleterm.setup {
     size = 20,
-    open_mapping = [[<leader>t]],
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -98,22 +89,11 @@ function config.toggleterm()
     },
   }
 
-  function _G.set_terminal_keymaps()
-    local buf_keymap = vim.api.nvim_buf_set_keymap
-    local opts = { silent = true, noremap = true }
-    buf_keymap(0, 't', '<leader>t', [[<C-\><C-n>:ToggleTerm<CR>]], opts)
-    buf_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-    buf_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-    buf_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-    buf_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-  end
-
-  vim.cmd([[autocmd! TermOpen term://* lua set_terminal_keymaps()]])
-  vim.cmd([[autocmd FileType python nnoremap <Leader>d :TermExec cmd='python3 %'<CR>]])
+  vim.cmd([[autocmd FileType python nnoremap <leader>d :TermExec cmd='python3 %'<CR>]])
+  vim.cmd([[autocmd FileType c nnoremap <leader>d :TermExec cmd='gcc % -o %<.out && ./%<.out'<CR>]])
   vim.cmd(
-    [[autocmd FileType cpp,cc nnoremap <Leader>d :TermExec cmd='g++ % -o %<.out && ./%<.out'<CR>]]
+    [[autocmd FileType cpp,cc nnoremap <leader>d :TermExec cmd='g++ % -o %<.out && ./%<.out'<CR>]]
   )
-  vim.cmd([[autocmd FileType c nnoremap <Leader>d :TermExec cmd='gcc % -o %<.out && ./%<.out'<CR>]])
 end
 
 function config.colorizer()
