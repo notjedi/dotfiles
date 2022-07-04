@@ -49,7 +49,7 @@ function config.rose_pine()
 end
 
 function config.lualine()
-  require('modules.ui.lualine_cfg')
+  require('modules.ui.bubbles')
 end
 
 function config.nvim_bufferline()
