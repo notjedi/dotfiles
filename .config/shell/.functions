@@ -5,7 +5,7 @@ function usage() {
 }
 
 function co() {
-    dir=$(find "$HDD/Code/" -maxdepth 1 -type d,l | awk -F/ '{ print $NF }'| fzf)
+    dir=$(ls "$HDD/Code" | fzf)
     [ -z "$dir" ] || cd "$HDD/Code/$dir" || exit
 }
 
@@ -85,9 +85,8 @@ function stopwatch() {
     done
 }
 
-
-bindkey -s '^n' 'co\n'
-bindkey -s '^p' 'conf\n'
-bindkey -s '^k' 'open\n'
-bindkey -s '^f' 'fzfcd\n'
-bindkey -s '^g' 'fzfcdhidden\n'
+bindkey -s '^n' '^uco\n'
+bindkey -s '^p' '^uconf\n'
+bindkey -s '^k' '^uopen\n'
+bindkey -s '^f' '^ufzfcd\n'
+bindkey -s '^g' '^ufzfcdhidden\n'

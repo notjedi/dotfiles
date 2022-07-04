@@ -1,10 +1,10 @@
+# vim: set ft=sh:
 setbg &
+dunst &
 remaps &
 clipmenud &
 dwmblocks &
 redshift -O 2600 &
-xrdb .config/x11/.Xresources
-dunst &
 
 while true; do
     ssh-agent dwm || break

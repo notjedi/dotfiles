@@ -3,12 +3,12 @@
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set icons
+set icons true
 set period 1
 set info size
-set hidden
+set hidden true
 set tabstop 4
-set dircounts
+set dircounts true
 
 set previewer ctpv
 set cleaner ctpvclear
@@ -26,6 +26,14 @@ cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
 cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+
+cmd open ${{
+    test -L $f && f=$(readlink -f $f)
+    case $(file --mime-type $f -b) in
+        text/*) nvim $fx;;
+        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
 
 cmd unarchive ${{
   case "$f" in
