@@ -1,0 +1,19 @@
+[Default Applications]
+x-scheme-handler/http=librewolf.desktop
+x-scheme-handler/https=librewolf.desktop
+image/png=sxiv.desktop
+application/pdf=org.pwmt.zathura.desktop
+x-scheme-handler/web+cardano=brave-browser.desktop
+text/html=librewolf.desktop
+x-scheme-handler/about=librewolf.desktop
+x-scheme-handler/unknown=librewolf.desktop
+image/jpeg=sxiv.desktop
+image/tiff=sxiv.desktop
+text/plain=nvim.desktop
+image/gif=mpv.desktop
+
+[Added Associations]
+text/x-matlab=visual-studio-code-url-handler.desktop;nvim.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;brave-browser.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/jpeg=sxiv.desktop;

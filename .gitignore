@@ -1,13 +1,11 @@
 # ranger
-.config/ranger/__pycache__/*
-.config/ranger/plugins/__pycache__/*
-.config/ranger/colorschemes/__pycache__/*
+__pycache__
 
 # mpv & mpd
 .config/mpv/watch_later/*
 .config/mpd/playlists
 
-#nvim
+# nvim
 .config/nvim/autoload/plugged
 .config/nvim/session
 .config/nvim/plugin
@@ -25,4 +23,11 @@ passwords.gpg
 # mail profies
 profiles/
 
+# general
 .fuse*
+
+# transmission
+.config/transmission-daemon/blocklists
+.config/transmission-daemon/torrents
+.config/transmission-daemon/resume
+.config/transmission-daemon/dht.dat
