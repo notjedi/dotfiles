@@ -23,17 +23,3 @@ package {
   config = conf.nvim_bufferline,
   requires = 'kyazdani42/nvim-web-devicons',
 }
-
-package {
-  'kyazdani42/nvim-tree.lua',
-  cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
-  config = conf.nvim_tree,
-  requires = 'kyazdani42/nvim-web-devicons',
-}
-
-package {
-  'lewis6991/gitsigns.nvim',
-  event = { 'BufRead', 'BufNewFile' },
-  config = conf.gitsigns,
-  requires = { 'nvim-lua/plenary.nvim', opt = true },
-}

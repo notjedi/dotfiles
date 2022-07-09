@@ -40,43 +40,6 @@ function config.comment()
   }
 end
 
-function config.null_ls()
-  local null_ls = require('null-ls')
-  local diagnostics = null_ls.builtins.diagnostics
-  local formatting = null_ls.builtins.formatting
-  local completion = null_ls.builtins.completion
-  local hover = null_ls.builtins.hover
-
-  null_ls.setup {
-    debug = false,
-    sources = {
-      formatting.prettier.with {
-        extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' },
-      },
-      formatting.jq,
-      formatting.rustfmt,
-      formatting.black.with { extra_args = { '-S', '-l 100' } },
-      formatting.shfmt.with { extra_args = { '-i 2', '-ci', '-sr' } },
-      formatting.clang_format.with { extra_args = { '-style="{IndentWidth: 4}"' } },
-      formatting.stylua.with {
-        extra_args = { '--config-path', vim.fn.expand('~/.config/stylua.toml') },
-      },
-
-      diagnostics.flake8.with {
-        extra_args = { '--max-line-length', 100, '--ignore', 'E265,E266' },
-      },
-      diagnostics.luacheck,
-      diagnostics.cppcheck,
-      diagnostics.codespell,
-      diagnostics.pydocstyle,
-      diagnostics.shellcheck,
-
-      completion.spell.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
-      hover.dictionary.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
-    },
-  }
-end
-
 function config.rooter()
   require('nvim-rooter').setup {
     rooter_patterns = { '.git', '.hg', '.svn' },
@@ -127,6 +90,97 @@ function config.todo_comments()
       default = { 'Identifier', '#7C3AED' },
     },
   }
+end
+
+function config.gitsigns()
+  if not packer_plugins['plenary.nvim'].loaded then
+    vim.cmd([[packadd plenary.nvim]])
+  end
+
+  require('gitsigns').setup {
+    signs = {
+      add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+      change = {
+        hl = 'GitSignsChange',
+        text = '▎',
+        numhl = 'GitSignsChangeNr',
+        linehl = 'GitSignsChangeLn',
+      },
+      delete = {
+        hl = 'GitSignsDelete',
+        text = '契',
+        numhl = 'GitSignsDeleteNr',
+        linehl = 'GitSignsDeleteLn',
+      },
+      topdelete = {
+        hl = 'GitSignsDelete',
+        text = '契',
+        numhl = 'GitSignsDeleteNr',
+        linehl = 'GitSignsDeleteLn',
+      },
+      changedelete = {
+        hl = 'GitSignsChange',
+        text = '▎',
+        numhl = 'GitSignsChangeNr',
+        linehl = 'GitSignsChangeLn',
+      },
+    },
+
+    signcolumn = true,
+    numhl = false,
+    linehl = false,
+    word_diff = false,
+    watch_gitdir = {
+      interval = 1000,
+      follow_files = true,
+    },
+
+    attach_to_untracked = true,
+    current_line_blame = false,
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = 'eol',
+      delay = 100,
+      ignore_whitespace = false,
+    },
+
+    current_line_blame_formatter_opts = {
+      relative_time = false,
+    },
+
+    sign_priority = 6,
+    update_debounce = 100,
+    status_formatter = nil,
+    max_file_length = 40000,
+    preview_config = {
+      border = 'single',
+      style = 'minimal',
+      relative = 'cursor',
+      row = 0,
+      col = 1,
+    },
+
+    yadm = {
+      enable = false,
+    },
+
+    keymaps = {
+      noremap = true,
+      buffer = true,
+
+      ['n gdi'] = { "<cmd>lua require'gitsigns'.diffthis()<CR>" },
+      ['n gB'] = { "<cmd>lua require'gitsigns'.blame_line()<CR>" },
+      ['n gj'] = { "<cmd>lua require('gitsigns').next_hunk()<CR>" },
+      ['n gk'] = { "<cmd>lua require('gitsigns').prev_hunk()<CR>" },
+      ['n gp'] = { "<cmd>lua require'gitsigns'.preview_hunk()<CR>" },
+      ['n gDi'] = { "<cmd>lua require'gitsigns'.diffthis('~')<CR>" },
+      ['n gh'] = { "<cmd>lua require'gitsigns'.toggle_deleted()<CR>" },
+    },
+  }
+end
+
+function config.colorizer()
+  require('colorizer').setup { '*' }
 end
 
 return config

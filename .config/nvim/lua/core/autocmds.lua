@@ -18,8 +18,4 @@ vim.cmd([[
     autocmd ColorScheme * let w:m2=matchadd('ExtraWhitespace', '\s\+$', -1)
     autocmd ColorScheme * highlight ExtraWhitespace guibg=NONE guifg=red gui=underline
   augroup end
-
-  augroup _vim_wiki_start
-    autocmd BufRead,BufNewFile /mnt/Seagate/Code/vimwiki/** :VimwikiStart
-  augroup end
 ]])

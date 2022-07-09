@@ -32,9 +32,10 @@ package {
 }
 
 package {
-  'norcalli/nvim-colorizer.lua',
-  cmd = { 'ColorizerToggle', 'ColorizerAttachToBuffer' },
-  config = conf.colorizer,
+  'kyazdani42/nvim-tree.lua',
+  cmd = { 'NvimTreeToggle', 'NvimTreeFindFileToggle' },
+  config = conf.nvim_tree,
+  requires = 'kyazdani42/nvim-web-devicons',
 }
 
 package { 'antoinemadec/FixCursorHold.nvim', event = 'BufReadPre' }

@@ -12,6 +12,7 @@ local def_map = {
   ['n|cu'] = map_cmd('veU'),
   ['n|cl'] = map_cmd('veu'),
   ['n|<C-q>'] = map_cr('wq'),
+  ['n|<leader>C'] = map_cr('cd %:h'),
   ['n|<C-h>'] = map_cmd('<C-w>h'):with_noremap(),
   ['n|<C-l>'] = map_cmd('<C-w>l'):with_noremap(),
   ['n|<C-j>'] = map_cmd('<C-w>j'):with_noremap(),

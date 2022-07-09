@@ -12,11 +12,36 @@ function config.telescope()
     defaults = {
       prompt_prefix = '🔭 ',
       selection_caret = '➜ ',
-      file_ignore_patterns = { '.git', '.pth', 'events.out.*', '.jpg', '.png', '.jpeg' },
+      file_ignore_patterns = {
+        'dist/.*',
+        '%.git/.*',
+        '%.vim/.*',
+        'node_modules/.*',
+        '%.idea/.*',
+        '%.vscode/.*',
+        '%.history/.*',
+        '.pth',
+        '.jpg',
+        '.png',
+        '.jpeg',
+        'events.out.*',
+      },
 
       layout_config = {
         horizontal = { prompt_position = 'top', results_width = 0.6 },
         vertical = { mirror = false },
+      },
+
+      vimgrep_arguments = {
+        'rg',
+        '--ignore',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--hidden',
+        '--smart-case',
       },
 
       sorting_strategy = 'ascending',
@@ -96,8 +121,65 @@ function config.toggleterm()
   )
 end
 
-function config.colorizer()
-  require('colorizer').setup { '*' }
+function config.nvim_tree()
+  require('nvim-tree').setup {
+    disable_netrw = true,
+    hijack_netrw = true,
+    open_on_setup = false,
+    ignore_ft_on_setup = {},
+    open_on_tab = false,
+    hijack_cursor = false,
+    update_cwd = true,
+    hijack_directories = {
+      enable = true,
+      auto_open = true,
+    },
+    diagnostics = {
+      enable = false,
+    },
+    update_focused_file = {
+      enable = true,
+      ignore_list = {},
+    },
+    system_open = {
+      cmd = nil,
+      args = {},
+    },
+    renderer = {
+      highlight_git = false,
+      icons = {
+        show = {
+          git = false,
+        },
+      },
+    },
+    filters = {
+      dotfiles = false,
+      custom = { '.DS_Store' },
+    },
+    git = {
+      enable = true,
+      ignore = true,
+      timeout = 1000,
+    },
+    view = {
+      width = 30,
+      height = 30,
+      hide_root_folder = false,
+      side = 'left',
+      mappings = {
+        custom_only = false,
+        list = {},
+      },
+      number = false,
+      relativenumber = false,
+      signcolumn = 'yes',
+    },
+    trash = {
+      cmd = 'rip',
+      require_confirm = true,
+    },
+  }
 end
 
 return config

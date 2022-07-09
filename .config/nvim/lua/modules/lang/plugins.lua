@@ -10,3 +10,9 @@ package {
 }
 
 package { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
+
+package {
+  'jose-elias-alvarez/null-ls.nvim',
+  event = 'InsertEnter',
+  config = conf.null_ls,
+}

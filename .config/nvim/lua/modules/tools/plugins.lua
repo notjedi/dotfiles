@@ -13,14 +13,20 @@ package {
   config = conf.comment,
 }
 
-package { 'Vonr/align.nvim', opt = true }
-package { 'notjedi/nvim-rooter.lua', event = 'CursorMoved', config = conf.rooter }
+package {
+  'norcalli/nvim-colorizer.lua',
+  cmd = { 'ColorizerToggle', 'ColorizerAttachToBuffer' },
+  config = conf.colorizer,
+}
 
 package {
-  'jose-elias-alvarez/null-ls.nvim',
-  event = 'InsertEnter',
-  config = conf.null_ls,
+  'lewis6991/gitsigns.nvim',
+  event = { 'BufRead', 'BufNewFile' },
+  config = conf.gitsigns,
+  requires = { 'nvim-lua/plenary.nvim', opt = true },
 }
+
+package { 'notjedi/nvim-rooter.lua', event = 'CursorMoved', config = conf.rooter }
 
 package {
   'folke/zen-mode.nvim',

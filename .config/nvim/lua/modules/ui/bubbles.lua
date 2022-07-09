@@ -1,7 +1,3 @@
--- Bubbles config for lualine
--- Author: lokesh-krishna
--- MIT license, see LICENSE for more details.
-
 -- stylua: ignore
 -- https://github.com/catppuccin/palette/blob/main/lib/builder.lua
 -- https://github.com/catppuccin/palette/blob/main/scss/Catppuccin.scss
