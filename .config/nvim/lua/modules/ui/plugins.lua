@@ -3,12 +3,12 @@ local conf = require('modules.ui.config')
 
 -- colorscheme
 package { 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin }
-package { 'marko-cerovac/material.nvim', cmd = 'LoadColors', config = conf.material }
+package { 'Mofiqul/dracula.nvim', cmd = 'LoadColors', config = conf.dracula }
 package { 'rebelot/kanagawa.nvim', cmd = 'LoadColors', config = conf.kanagawa }
 package { 'folke/tokyonight.nvim', cmd = 'LoadColors', config = conf.tokyonight }
-package { 'Mofiqul/dracula.nvim', cmd = 'LoadColors', config = conf.dracula }
-package { 'Rigellute/shades-of-purple.vim', cmd = 'LoadColors', config = conf.shades_of_purple } -- vim
+package { 'marko-cerovac/material.nvim', cmd = 'LoadColors', config = conf.material }
 package { 'rose-pine/neovim', as = 'rose-pine', cmd = 'LoadColors', config = conf.rose_pine }
+package { 'Rigellute/shades-of-purple.vim', cmd = 'LoadColors', config = conf.shades_of_purple } -- vim
 
 package {
   'nvim-lualine/lualine.nvim',

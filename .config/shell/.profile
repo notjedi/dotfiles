@@ -1,3 +1,5 @@
+#!/bin/bash
+
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.local/jedi/bin/" ]] && export PATH="$HOME/.local/jedi/bin:$PATH"
 [[ -d "$HOME/.local/share/go/bin" ]] && export PATH="$HOME/.local/share/go/bin:$PATH"
@@ -74,7 +76,7 @@ export LF_ICONS="di=📁:\
 fi=📃:\
 tw=🤝:\
 ow=📂:\
-ln=⛓:\
+ln=🔗:\
 or=❌:\
 ex=🎯:\
 *.txt=✍:\
@@ -124,6 +126,7 @@ ex=🎯:\
 *.wmv=🎥:\
 *.m4b=🎥:\
 *.flv=🎥:\
+*.vid=🎥:\
 *.zip=📦:\
 *.rar=📦:\
 *.7z=📦:\

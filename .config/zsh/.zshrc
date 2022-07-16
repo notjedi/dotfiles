@@ -13,17 +13,17 @@ PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PS1+=" %{$fg[cyan]%}%c%{$reset_color%} " # λ
 PS1+='%F{blue}${vcs_info_msg_0_}%f'
 
-setopt interactive_comments
-setopt hist_ignore_all_dups
-setopt inc_append_history
-setopt hist_ignore_space
-setopt prompt_subst
+setopt autocd
+setopt correct
 setopt autopushd
+setopt prompt_subst
 setopt share_history
 setopt pushdignoredups
+setopt hist_ignore_space
 setopt hist_reduce_blanks
-setopt correct
-setopt autocd
+setopt inc_append_history
+setopt hist_ignore_all_dups
+setopt interactive_comments
 
 HISTSIZE=100000000
 SAVEHIST=100000000
@@ -60,7 +60,7 @@ autoload edit-command-line;
 zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-bindkey -s '^a' 'bc -lq\n'
+bindkey -s '^a' '^ueva\n'
 
 # https://stackoverflow.com/questions/17051123/source-a-file-in-zsh-when-entering-a-directory
 autoload -U add-zsh-hook
@@ -71,8 +71,8 @@ load-local-conf() {
 }
 add-zsh-hook chpwd load-local-conf
 
-[ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
-[ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets
 [ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases
+[ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets
 [ -f ~/.config/shell/.functions ] && source ~/.config/shell/.functions
+[ -f /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ] && source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh

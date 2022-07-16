@@ -1,30 +1,29 @@
 # vi: ft=sh
 
-set shellopts '-eu'
 set ifs "\n"
-set scrolloff 10
-set icons true
 set period 1
-set info size
-set hidden true
 set tabstop 4
+set info size
+set icons true
+set hidden true
+set scrolloff 10
+set shellopts '-eu'
 set dircounts true
-
 set previewer ctpv
 set cleaner ctpvclear
 
 &ctpv -s $id
-
 cmd on-quit $ctpv -e $id
+
 cmd setbg "$1"
 cmd bulkrename $vimv
 
-cmd mkdir %mkdir -p "$@"
 cmd mkfile %touch "$@"
+cmd mkdir %mkdir -p "$@"
 cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
-cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
 cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
 cmd yank-basename $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
 
 cmd open ${{
@@ -76,14 +75,14 @@ cmd paste-async &{{
 }}
 
 # Bindings
-map <c-f> $lf -remote "send $id select '$(fzf)'"
 map C clear
 map <enter> shell
+map <c-f> $lf -remote "send $id select '$(fzf)'"
 
 map d
-map dD delete
 map dd cut
 map dt trash
+map dD delete
 
 map y
 map yy copy
@@ -93,22 +92,22 @@ map yn yank-basename
 
 # rename
 map A rename
+map B bulkrename
 map c push A<c-u>
 map I push A<c-a>
-map i push A<a-b><a-b><a-f>
 map a push A<a-b>
-map B bulkrename
+map i push A<a-b><a-b><a-f>
 
-map gdt cd /mnt/Seagate/Code/dotfiles
-map gwa cd /mnt/Seagate/wallpapers
-map gsc cd /mnt/Seagate/screenshot
-map gsy cd /mnt/Seagate/syncthing
-map gco cd /mnt/Seagate/Code
-map gex cd /mnt/Seagate
-map gls cd ~/.local/src
-map gdo cd ~/Downloads
-map gcn cd ~/.config
 map gll cd ~/.local
+map gcn cd ~/.config
+map gdo cd ~/Downloads
+map gls cd ~/.local/src
+map gex cd /mnt/Seagate
+map gco cd /mnt/Seagate/Code
+map gsy cd /mnt/Seagate/syncthing
+map gsc cd /mnt/Seagate/screenshot
+map gwa cd /mnt/Seagate/wallpapers
+map gdt cd /mnt/Seagate/Code/dotfiles
 
 map mk push :mkdir<space>
 map mf push :mkfile<space>
@@ -116,10 +115,10 @@ map mf push :mkfile<space>
 map ua unarchive
 map bg $setbg $f
 
-map W $setsid -f $TERMINAL >/dev/null 2>&1
-map V push :!nvim<space>
-map E unarchive
 map S share
+map E unarchive
+map V push :!nvim<space>
+map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 # cmd mode mappings
 cmap <up>   cmd-history-prev

@@ -58,8 +58,51 @@ function config.null_ls()
       diagnostics.shellcheck,
       diagnostics.golangci_lint,
 
-      completion.spell.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
-      hover.dictionary.with { filetypes = { 'markdown', 'txt', 'vimwiki' } },
+      completion.spell.with { filetypes = { 'markdown', 'text' } },
+      hover.dictionary.with { filetypes = { 'markdown', 'text' } },
+    },
+  }
+end
+
+function config.mkdnflow()
+  require('mkdnflow').setup {
+    links = {
+      transform_explicit = function(text)
+        text = text:gsub(' ', '-')
+        text = text:lower()
+        return text
+      end,
+    },
+    use_mappings_table = true,
+    mappings = {
+      MkdnNextLink = { 'n', '<Tab>' },
+      MkdnPrevLink = { 'n', '<S-Tab>' },
+      MkdnNextHeading = { 'n', '<leader>]' },
+      MkdnPrevHeading = { 'n', '<leader>[' },
+      MkdnGoBack = { 'n', '\\\\' },
+      MkdnGoForward = { 'n', '||' },
+      MkdnFollowLink = { { 'n', 'v' }, '<CR>' },
+      MkdnDestroyLink = { 'n', '<M-CR>' },
+      MkdnMoveSource = { 'n', '<F2>' },
+      MkdnYankAnchorLink = { 'n', 'ya' },
+      MkdnYankFileAnchorLink = { 'n', 'yfa' },
+      MkdnIncreaseHeading = { 'n', '+' },
+      MkdnDecreaseHeading = { 'n', '-' },
+      MkdnToggleToDo = { { 'n', 'v' }, '<C-Space>' },
+      MkdnNewListItem = false,
+      MkdnExtendList = false,
+      MkdnUpdateNumbering = { 'n', '<leader>nn' },
+      MkdnTableNextCell = { 'i', '<Tab>' },
+      MkdnTablePrevCell = { 'i', '<S-Tab>' },
+      MkdnTableNextRow = false,
+      MkdnTablePrevRow = { 'i', '<M-CR>' },
+      MkdnTableNewRowBelow = { { 'n', 'i' }, '<leader>ir' },
+      MkdnTableNewRowAbove = { { 'n', 'i' }, '<leader>iR' },
+      MkdnTableNewColAfter = { { 'n', 'i' }, '<leader>ic' },
+      MkdnTableNewColBefore = { { 'n', 'i' }, '<leader>iC' },
+      MkdnCR = false,
+      MkdnTab = false,
+      MkdnSTab = false,
     },
   }
 end

@@ -4,8 +4,7 @@ function usage() {
     du "$1" -ah --max-depth=1 2>/dev/null | sort -rh
 }
 
-function co() {
-    dir=$(ls "$HDD/Code" | fzf)
+function co() { dir=$(ls "$HDD/Code" | fzf)
     [ -z "$dir" ] || cd "$HDD/Code/$dir" || exit
 }
 
@@ -24,6 +23,21 @@ function fzfcdhidden() {
     dir=$(find -L . -maxdepth 3 -path '.' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
         'devtmpfs' -o -fstype 'proc' -prune -o -type d,l  -print 2>/dev/null | cut -b3- | fzf)
     [ -z "$dir" ] || cd "$dir" || exit
+}
+
+# https://news.ycombinator.com/item?id=32106770
+function fcd() {
+    local dir;
+
+    while true; do
+        dir="$(ls -a1p | grep '/$' | grep -v '^./$' |
+        fzf --height 40% --reverse --no-multi --preview 'pwd' --preview-window=up,1,border-none --no-info)"
+        if [[ -z "${dir}" ]]; then
+            break
+        else
+            cd "${dir}" || return
+        fi
+    done
 }
 
 function open() {

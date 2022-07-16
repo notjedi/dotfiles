@@ -1,4 +1,5 @@
-# vim: set ft=sh:
+#!/bin/sh
+
 setbg &
 dunst &
 remaps &

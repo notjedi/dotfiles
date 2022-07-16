@@ -16,3 +16,9 @@ package {
   event = 'InsertEnter',
   config = conf.null_ls,
 }
+
+package {
+  'jakewvincent/mkdnflow.nvim',
+  ft = { 'markdown' },
+  config = conf.mkdnflow,
+}

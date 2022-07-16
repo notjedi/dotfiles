@@ -11,5 +11,6 @@ dirname="/mnt/Seagate/wallpapers"
 file=$(find "$dirname" -type f | shuf -n 1)
 
 # set bg
+ln -sfv "$file" .cache/curr-wallpaper.jpg
 xwallpaper --zoom "$file"
 wal -n -i "$file"
