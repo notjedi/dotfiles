@@ -8,5 +8,5 @@ dwmblocks &
 redshift -O 2600 &
 
 while true; do
-    ssh-agent dwm || break
+  ssh-agent dwm || break
 done

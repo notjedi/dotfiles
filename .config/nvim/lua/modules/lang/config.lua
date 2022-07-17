@@ -43,6 +43,7 @@ function config.null_ls()
       formatting.rustfmt,
       formatting.black.with { extra_args = { '-S', '-l 100' } },
       formatting.shfmt.with { extra_args = { '-i 2', '-ci', '-sr' } },
+      formatting.beautysh.with { extra_args = { '-i 2' } },
       formatting.clang_format.with { extra_args = { '-style="{IndentWidth: 4}"' } },
       formatting.stylua.with {
         extra_args = { '--config-path', vim.fn.expand('~/.config/stylua.toml') },
@@ -67,6 +68,7 @@ end
 function config.mkdnflow()
   require('mkdnflow').setup {
     links = {
+      conceal = true,
       transform_explicit = function(text)
         text = text:gsub(' ', '-')
         text = text:lower()

@@ -31,7 +31,6 @@ alias ls='ls --color=auto' \
 alias ..="cd .." \
     chd="cd $HDD" \
     ...="cd ../.." \
-    cco="cd $HDD/Code" \
     cfg="cd $HOME/.config" \
     cdd="cd $HDD/Documents" \
     cdo="cd $HOME/Downloads" \
@@ -41,7 +40,6 @@ alias ..="cd .." \
 # ranger aliases
 alias rh="ranger $HOME" \
     rr="ranger $HDD" \
-    rco="ranger $HDD/Code" \
     rmo="ranger $HDD/movies" \
     rim="ranger $HDD/Images" \
     rlo="ranger $HOME/.local" \
@@ -54,7 +52,6 @@ alias rh="ranger $HOME" \
 # lf aliases
 alias lh="lf $HOME" \
     lr="lf $HDD" \
-    lco="lf $HDD/Code" \
     lmo="lf $HDD/movies" \
     lim="lf $HDD/Images" \
     llo="lf $HOME/.local" \
@@ -99,6 +96,6 @@ alias pp="popd" \
     fin="ls -A | grep -i" \
     fig="figlet -f ansishadow" \
     caps="xdotool key Caps_Lock" \
-    notes="nvim $HDD/Code/vimwiki/index.md" \
+    notes="nvim $GRAB_HOME/github.com/notjedi/journal-old/index.md" \
     pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
     cargoup="cargo install --list | grep -v '^ ' | cut -d' ' -f1 | xargs cargo install"

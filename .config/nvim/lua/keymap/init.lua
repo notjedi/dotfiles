@@ -37,7 +37,7 @@ local plug_map = {
   ['n|<leader>fh'] = map_cu('Telescope oldfiles'):with_noremap():with_silent(),
   ['n|<leader>fl'] = map_cu('Telescope loclist'):with_noremap():with_silent(),
   ['n|<leader>ft'] = map_cu('Telescope help_tags'):with_noremap():with_silent(),
-  ['n|<leader>fd'] = map_cu('Telescope dotfiles path=' .. os.getenv('HDD') .. 'Code/dotfiles')
+  ['n|<leader>fd'] = map_cu('Telescope dotfiles path=' .. os.getenv('GRAB_HOME') .. 'github.com/notjedi/dotfiles')
     :with_noremap()
     :with_silent(),
 
