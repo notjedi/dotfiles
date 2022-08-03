@@ -6,10 +6,10 @@ precmd() { vcs_info }
 
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
-zstyle ':vcs_info:*' stagedstr '%F{green}✔%f '
+zstyle ':vcs_info:*' stagedstr '%F{green}✔%f ' # '●'
 zstyle ':vcs_info:git*' formats "%F{blue}( %b)%f %u%c"
 
-PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )" # ﬦ   
 PS1+=" %{$fg[cyan]%}%c%{$reset_color%} " # λ
 PS1+='%F{blue}${vcs_info_msg_0_}%f'
 
@@ -65,9 +65,8 @@ bindkey -s '^a' '^ueva\n'
 # https://stackoverflow.com/questions/17051123/source-a-file-in-zsh-when-entering-a-directory
 autoload -U add-zsh-hook
 load-local-conf() {
-     if [[ -d pystk_gym ]]; then
-       source venv/bin/activate
-     fi
+     [ -d pystk_gym ] && source venv/bin/activate
+     [ -f go.mod ] && alias gg="go run ."
 }
 add-zsh-hook chpwd load-local-conf
 

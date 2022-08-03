@@ -15,7 +15,6 @@ package {
 
 package {
   'norcalli/nvim-colorizer.lua',
-  cmd = { 'ColorizerToggle', 'ColorizerAttachToBuffer' },
   config = conf.colorizer,
 }
 

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# same as https://github.com/machinateur/android-chrome-tab-transfer but as a 5 line shell script
+
+# https://android.stackexchange.com/questions/56635/how-can-i-export-the-list-of-open-chrome-tabs/199496#199496
+# https://unix.stackexchange.com/questions/88307/escape-sequences-with-echo-e-in-different-shells
+# https://superuser.com/questions/1285136/cat-command-and-echo
+
+# default chrome remote debugging port on android is 9222
+adb forward tcp:9222 localabstract:chrome_devtools_remote
+tabs=$(curl http://localhost:9222/json/list)
+echo "$tabs" | jq -r '.[] | .url' > tabs.txt
+echo "$tabs" | jq -r '.[] | {title,url}' > tabs.json
+(echo -e "# Tabs\n"; echo "$tabs" | jq -r '.[] | "* [" + (.title) + "](" + (.url) + ")"') > tabs.md
