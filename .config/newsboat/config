@@ -1,5 +1,5 @@
 # show-read-feeds no
-auto-reload yes
+auto-reload no
 reload-threads 10
 download-retries 3
 download-timeout 10

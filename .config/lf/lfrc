@@ -1,7 +1,7 @@
 # vi: ft=sh
 
 set ifs "\n"
-set period 1
+set period 5
 set tabstop 4
 set info size
 set icons true
@@ -32,6 +32,10 @@ cmd open ${{
         text/*) nvim $fx;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
+}}
+
+cmd usg ${{
+  dust -rxd 1 | bat --pager "less -R"
 }}
 
 cmd unarchive ${{
@@ -115,6 +119,7 @@ map mf push :mkfile<space>
 map ua unarchive
 map bg $setbg $f
 
+map U usg
 map S share
 map E unarchive
 map V push :!nvim<space>

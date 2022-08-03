@@ -31,3 +31,4 @@ profiles/
 .config/transmission-daemon/torrents
 .config/transmission-daemon/resume
 .config/transmission-daemon/dht.dat
+.config/transmission-daemon/stats.json

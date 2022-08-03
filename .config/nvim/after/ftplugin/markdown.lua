@@ -7,3 +7,4 @@ vim.opt_local.tabstop = 2
 local keymap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true, silent = true }
 keymap(0, 'n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
+-- https://github.com/Vui-Chee/spamd

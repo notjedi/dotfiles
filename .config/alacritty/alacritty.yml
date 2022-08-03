@@ -1,54 +1,42 @@
-# https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/alacritty/alacritty.yml
-# for full config
-
 # Window specific Configuration
 window:
   padding:
     x: 6
     y: 6
 
-  # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  title: Alacritty
 
-  # Window title
-  # title: Alacritty
-
-  # Window class (Linux/BSD only):
   class:
-    # Application instance name
     instance: Alacritty
-    # General application class
     general: Alacritty
 
 scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
   history: 2000
   auto_scroll: true
 
 cursor:
   unfocused_hollow: true
-  # style:
-    # blinking: Always
+
+env:
+  TERM: xterm-256color
 
 # Theme Configuration
 import:
   - /home/jedi/.config/alacritty/catppuccin.yml
 
-# Font Configuration
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    # family: Hasklug Nerd Font
+    # family: JetBrainsMono Nerd Font
+    family: monospace
     style: Regular
 
-  # The bold font face
   bold:
-    family: JetBrainsMono Nerd Font
+    family: monospace
     style: Bold
 
-  # The italic font face
   italic:
-    family: JetBrainsMono Nerd Font
+    family: monospace
     style: Italic
 
   size: 9.5

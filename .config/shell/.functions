@@ -5,12 +5,17 @@ function usage() {
 }
 
 function co() {
-  cd $GRAB_HOME/github.com/$(find $GRAB_HOME/github.com -mindepth 2 -maxdepth 2 -type d -printf '%P\n' | fzf) || return
+  local dir
+  dir=$(find $GRAB_HOME/github.com -mindepth 2 -maxdepth 2 -type d -printf '%P\n' | fzf)
+  [ -z "$dir" ] || cd "$GRAB_HOME/github.com/$dir" || exit
 }
 
 function conf() {
-  find "$GRAB_HOME/github.com/notjedi/dotfiles/" -type f | grep -vi '\.git\|watch_later\|autoload\|pycache\|fonts' |
-    sed "s|^"$GRAB_HOME"/github.com/notjedi/dotfiles/||" | fzf | xargs -I'{}' -r $EDITOR $GRAB_HOME/github.com/notjedi/dotfiles/{}
+  dir="$GRAB_HOME/github.com/notjedi/dotfiles/"
+  find "$dir" -type f |
+    grep -vi '\.git\|watch_later\|autoload\|license\|\.*md\|resume\|torrent\|pycache\|fonts\/' |
+      sed "s|^"$dir"||" | fzf |
+        xargs -I'{}' -r $EDITOR $dir{}
 }
 
 function fzfcd() {

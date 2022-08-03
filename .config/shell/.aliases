@@ -39,7 +39,7 @@ alias ..="cd .." \
 
 # ranger aliases
 alias rh="ranger $HOME" \
-    rr="ranger $HDD" \
+    rhd="ranger $HDD" \
     rmo="ranger $HDD/movies" \
     rim="ranger $HDD/Images" \
     rlo="ranger $HOME/.local" \
@@ -51,12 +51,13 @@ alias rh="ranger $HOME" \
 
 # lf aliases
 alias lh="lf $HOME" \
-    lr="lf $HDD" \
+    lhd="lf $HDD" \
     lmo="lf $HDD/movies" \
     lim="lf $HDD/Images" \
     llo="lf $HOME/.local" \
     ld="lf $HDD/Documents" \
     lfg="lf $HOME/.config" \
+    lsy="lf $HDD/syncthing" \
     ldo="lf $HOME/Downloads" \
     lsc="lf $HDD/screenshots" \
     lwal="lf $HDD/wallpapers"

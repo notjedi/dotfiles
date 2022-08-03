@@ -1,3 +1,4 @@
+# vim: ft=cfg
 ncmpcpp_directory                     = ~/.cache/ncmpcpp
 lyrics_directory                      = ~/.cache/ncmpcpp/lyrics
 mpd_host                              = 127.0.0.1
