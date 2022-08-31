@@ -20,7 +20,7 @@ tags
 passwords
 passwords.gpg
 
-# mail profies
+# mail profiles
 profiles/
 
 # general
@@ -32,3 +32,7 @@ profiles/
 .config/transmission-daemon/resume
 .config/transmission-daemon/dht.dat
 .config/transmission-daemon/stats.json
+
+.local/share/fonts/misc
+
+.uuid
