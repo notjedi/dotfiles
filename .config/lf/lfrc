@@ -83,6 +83,11 @@ map C clear
 map <enter> shell
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 
+map m
+map mm mark-save
+map mk push :mkdir<space>
+map mf push :mkfile<space>
+
 map d
 map dd cut
 map dt trash
@@ -113,10 +118,6 @@ map gsc cd /mnt/Seagate/screenshot
 map gwa cd /mnt/Seagate/wallpapers
 map gdt cd /mnt/Seagate/Code/dotfiles
 
-map mk push :mkdir<space>
-map mf push :mkfile<space>
-
-map ua unarchive
 map bg $setbg $f
 
 map U usg

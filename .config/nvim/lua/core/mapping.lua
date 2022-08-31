@@ -22,10 +22,10 @@ local def_map = {
   ['n|<leader>ss'] = map_cu('SessionSave'):with_noremap(),
   ['n|<leader>sl'] = map_cu('SessionLoad'):with_noremap(),
   ['n|<C-x>'] = map_cr('bdelete'):with_noremap():with_silent(),
-  ['n|<C-Up>'] = map_cr('resize +2'):with_noremap():with_silent(),
-  ['n|<C-Down>'] = map_cr('resize -2'):with_noremap():with_silent(),
-  ['n|<C-Left>'] = map_cr('vertical -2'):with_noremap():with_silent(),
-  ['n|<C-Right>'] = map_cr('vertical +2'):with_noremap():with_silent(),
+  ['n|<C-Up>'] = map_cr('resize -2'):with_noremap():with_silent(),
+  ['n|<C-Down>'] = map_cr('resize +2'):with_noremap():with_silent(),
+  ['n|<C-Left>'] = map_cr('vertical resize -2'):with_noremap():with_silent(),
+  ['n|<C-Right>'] = map_cr('vertical resize +2'):with_noremap():with_silent(),
   ['n|<leader>tw'] = map_cmd([[:%s/\s\+$//e<CR> :%s/\n\+\%$//e<CR>]]):with_noremap(),
 
   -- insert

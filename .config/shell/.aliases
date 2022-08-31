@@ -16,6 +16,7 @@ alias g="git" \
     gr="git reset" \
     gs="git status" \
     gc="git commit" \
+    gsh="git switch" \
     gre="git remote" \
     gch="git checkout"
 
@@ -25,7 +26,7 @@ alias l="ls -A" \
 
 # colorize aliases
 alias ls='ls --color=auto' \
-    grep='grep --color=auto' \
+    grep='grep --color=auto'
 
 # cd aliases
 alias ..="cd .." \
@@ -66,7 +67,6 @@ alias lh="lf $HOME" \
 alias p="doas pacman" \
     pacorphan="pacman -Qtdq" \
     pacins='doas pacman -S $(pacman -Ssq | fzf | tr -d "\n")' \
-    pacsort=" pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -rh | bat" \
     pacls="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 
 # mining
@@ -82,21 +82,22 @@ alias v="nvim" \
     ipy="ipython" \
     sv="doas nvim" \
     python="python3" \
-    sn="doas -E nvim" \
+    sn="sudo -E nvim" \
     yout="pipe-viewer" \
     ws="watch sensors" \
     sudb="doas updatedb" \
-    ta="tmux attach-session" \
     jup="jupyter notebook & disown" \
     startx="startx ~/.config/x11/xinitrc"
 
 # misc
 alias pp="popd" \
     push="pushd" \
+    gg="go run ." \
     usg="dust -rxd 1" \
     fin="ls -A | grep -i" \
+    ta="tmux attach-session" \
     fig="figlet -f ansishadow" \
+    sag="ssh-add $HOME/.ssh/git" \
     caps="xdotool key Caps_Lock" \
     notes="nvim $GRAB_HOME/github.com/notjedi/journal-old/index.md" \
-    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
-    cargoup="cargo install --list | grep -v '^ ' | cut -d' ' -f1 | xargs cargo install"
+    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"

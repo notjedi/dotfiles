@@ -6,7 +6,7 @@ precmd() { vcs_info }
 
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}✗%f '
-zstyle ':vcs_info:*' stagedstr '%F{green}✔%f ' # '●'
+zstyle ':vcs_info:*' stagedstr '%F{green}✔ %f ' # '●'
 zstyle ':vcs_info:git*' formats "%F{blue}( %b)%f %u%c"
 
 PS1="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )" # ﬦ   

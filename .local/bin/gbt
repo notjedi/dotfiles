@@ -11,4 +11,5 @@ adb forward tcp:9222 localabstract:chrome_devtools_remote
 tabs=$(curl http://localhost:9222/json/list)
 echo "$tabs" | jq -r '.[] | .url' > tabs.txt
 echo "$tabs" | jq -r '.[] | {title,url}' > tabs.json
-(echo -e "# Tabs\n"; echo "$tabs" | jq -r '.[] | "* [" + (.title) + "](" + (.url) + ")"') > tabs.md
+(echo -e "# Tabs\n"; echo "$tabs" | jq -r '.[] | "* [" + (if .title == "" then "No title" else
+.title end) + "](" + (.url) + ")"') > tabs.md

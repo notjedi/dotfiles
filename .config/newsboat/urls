@@ -1,5 +1,5 @@
 ---personal---
-https://jedi2610.github.io/atom.xml "~jedi"
+https://notjedi.github.io/atom.xml "~jedi"
 
 .*0/0..
 ---ml---
@@ -18,6 +18,7 @@ http://jck.bio/feed.xml science biology books ml
 
 .*0/0..
 ---programming---
+https://www.stephendiehl.com/feed.rss fav
 https://geohot.github.io/blog/feed.xml programming fav
 https://blog.burntsushi.net/index.xml rust programming fav
 https://dave.cheney.net/feed go programming programming-lang fav
@@ -25,6 +26,7 @@ https://jeremykun.com/feed/ math programming fav "~Math ∩ Programming"
 https://research.swtch.com/feed.atom programming-lang programming go fav
 https://thesquareplanet.com/feed.xml rust programming-lang programming fav
 https://notes.eatonphil.com/rss.xml compilers parsers books programming sql fav "~eatonphil"
+https://benhoyt.com/writings/rss.xml compilers programming performance fav
 https://simonwillison.net/atom/everything/ programming misc
 https://til.simonwillison.net/tils/feed.atom programming til misc
 https://dkb.io/rss.xml life programming
@@ -51,6 +53,7 @@ https://briancallahan.net/blog/feed.xml compilers parsers low-level
 https://tgdwyer.github.io/feed.xml compilers parsers low-level
 https://www.wezm.net/v2/rss.xml programming-lang low-level programming rust
 https://mabez.dev/rss.xml rust low-level
+https://www.righto.com/feeds/posts/default low-level hardware
 https://bitshifter.github.io/atom.xml low-level gpu raytracing
 https://hugotunius.se/feed.xml rust programming-lang programming low-level
 
@@ -82,3 +85,43 @@ https://www.haskellforall.com/feeds/posts/default programming-lang functional
 https://peppe.rs/index.xml misc
 https://mzucker.github.io/feed.xml misc
 
+https://phaazon.net/blog/feed
+https://kseo.github.io/rss.xml
+https://igor.io/index.atom
+https://ano.ee/feed.xml
+https://raphlinus.github.io/feed.xml
+https://wuciawe.github.io/rss.xml
+https://fabianfuchsml.github.io/feed.xml
+
+https://www.scattered-thoughts.net/atom.xml
+https://rayanfam.com/feed.xml
+https://austinhenley.com/blog/feed.rss
+https://blog.paranoidcoding.com/atom.xml
+https://lemire.me/blog/feed/
+https://www.johndcook.com/blog/feed/
+https://blog.acolyer.org/feed/
+https://blog.sigplan.org/feed/
+https://ericlippert.com/feed/
+https://thume.ca/atom.xml
+https://ruslanspivak.com/feeds/all.atom.xml
+https://blog.stephenmarz.com/feed/
+https://journal.stuffwithstuff.com/rss.xml
+https://blog.regehr.org/feed
+https://www.hillelwayne.com/post/index.xml
+https://danluu.com/atom.xml
+https://jvns.ca/atom.xml
+
+https://robertheaton.com/feed.xml
+https://dev.to/feed/captainsafia
+https://without.boats/index.xml
+https://wingolog.org/feed/atom
+https://chelseatroy.com/feed/
+https://blog.jfo.click/feed.xml
+https://blog.jessfraz.com/index.xml
+https://kamalmarhubi.com/blog/feed.xml
+https://aphyr.com/posts.atom
+https://blog.plover.com/index.rss
+https://blog.nelhage.com/atom.xml
+https://rachelbythebay.com/w/atom.xml
+https://osblog.stephenmarz.com/feed.rss
+https://web.archive.org/web/20190211005943/http://www.uliaea.ca/atom.xml
