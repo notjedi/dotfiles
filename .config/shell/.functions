@@ -13,7 +13,7 @@ function co() {
 function conf() {
   dir="$GRAB_HOME/github.com/notjedi/dotfiles/"
   find "$dir" -type f |
-    grep -vi '\.git\|watch_later\|autoload\|license\|\.*md\|resume\|torrent\|pycache\|fonts\/' |
+    grep -vi '\.git\|watch_later\|autoload\|license\|\.*md\|resume\|torrent\|pycache\|fonts' |
       sed "s|^"$dir"||" | fzf |
         xargs -I'{}' -r $EDITOR $dir{}
 }
@@ -86,6 +86,11 @@ function condainit() {
     fi
   fi
   unset __conda_setup
+}
+
+function pyenvinit() {
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
 }
 
 function yta() {

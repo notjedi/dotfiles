@@ -64,6 +64,8 @@ function config.null_ls()
       diagnostics.codespell,
       diagnostics.pydocstyle,
       diagnostics.shellcheck,
+      -- diagnostics.revive,
+      -- .with { extra_args = { '-config', vim.fn.expand('~/.config/revive.toml') }, },
       -- diagnostics.buf,
       -- diagnostics.mypy,
       -- diagnostics.pylint,

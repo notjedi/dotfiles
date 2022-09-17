@@ -60,10 +60,13 @@ function config.nvim_bufferline()
 
       close_icon = '',
       modified_icon = '●',
-      indicator_icon = '▎',
       buffer_close_icon = '',
       left_trunc_marker = '',
       right_trunc_marker = '',
+      indicator = {
+        icon = '▎',
+        style = 'icon',
+      },
 
       offsets = {
         {
