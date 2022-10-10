@@ -48,3 +48,4 @@ end
 vim.opt.shortmess:append('c')
 vim.cmd('set iskeyword+=-')
 vim.cmd('syntax on')
+vim.cmd('xnoremap p "_dP')
