@@ -70,6 +70,7 @@ load-local-conf() {
 }
 add-zsh-hook chpwd load-local-conf
 
+[ -f ~/.config/zsh/atuin.zsh ] && source ~/.config/zsh/atuin.zsh
 [ -f ~/.config/shell/.aliases ] && source ~/.config/shell/.aliases
 [ -f ~/.config/zsh/fzf-widgets ] && source ~/.config/zsh/fzf-widgets
 [ -f ~/.config/shell/.functions ] && source ~/.config/shell/.functions
