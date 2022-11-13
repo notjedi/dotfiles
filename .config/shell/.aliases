@@ -13,6 +13,7 @@ alias g="git" \
     ga="git add" \
     gd="git diff" \
     gp="git push" \
+    gpu="git pull" \
     gr="git reset" \
     gs="git status" \
     gc="git commit" \

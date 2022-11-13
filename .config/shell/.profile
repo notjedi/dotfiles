@@ -68,6 +68,7 @@ export VSCODE_EXTENSIONS="$XDG_DATA_HOME/vscode/extensions"
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 
 export LESSHISTFILE="-"
+export RUSTC_WRAPPER="sccache"
 export GRAB_HOME="$HOME/workspace"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH"
