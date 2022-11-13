@@ -18,6 +18,17 @@ package {
 }
 
 package {
+  'neovim/nvim-lspconfig',
+  event = 'BufRead',
+}
+
+package {
+  'simrat39/rust-tools.nvim',
+  event = 'InsertEnter',
+  config = conf.rust_tools,
+}
+
+package {
   'jakewvincent/mkdnflow.nvim',
   ft = { 'markdown' },
   config = conf.mkdnflow,

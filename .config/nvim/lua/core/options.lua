@@ -45,6 +45,10 @@ for key, value in pairs(opts) do
   vim.opt[key] = value
 end
 
+-- https://www.reddit.com/r/neovim/comments/xw2vjy/comment/ir4ecuz/
+vim.g.do_filetype_lua = true
+vim.g.did_load_filetypes = false
+
 vim.opt.shortmess:append('c')
 vim.cmd('set iskeyword+=-')
 vim.cmd('syntax on')
