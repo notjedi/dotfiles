@@ -22,7 +22,7 @@ env:
 
 # Theme Configuration
 import:
-  - /home/jedi/.config/alacritty/catppuccin.yml
+  - .config/alacritty/catppuccin.yml
 
 font:
   normal:

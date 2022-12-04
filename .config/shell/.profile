@@ -2,6 +2,7 @@
 
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.local/jedi/bin/" ]] && export PATH="$HOME/.local/jedi/bin:$PATH"
+[[ -d "/opt/android-studio/bin" ]] && export PATH="/opt/android-studio/bin:$PATH"
 [[ -d "$HOME/.local/share/go/bin" ]] && export PATH="$HOME/.local/share/go/bin:$PATH"
 [[ -d "$HOME/.local/share/npm/bin" ]] && export PATH="$HOME/.local/share/npm/bin:$PATH"
 [[ -d "$HOME/.local/share/cargo/bin" ]] && export PATH="$HOME/.local/share/cargo/bin:$PATH"
