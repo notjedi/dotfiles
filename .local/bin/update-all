@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# rust and cargo
+rustup update
+cargo install-update --all
+
+# go packages
+gup update
+
+# github extension
+gh extension upgrade --all
+
+# python packages
+pip list --outdated | tail -n +3 | awk '{print $1}' | xargs -r -I'{}' pip install --upgrade {} || true
+
+# system packages
+yay -Syyu
+paru -Syyu
+
+# misc updates
+tldr -u
+sudo updatedb

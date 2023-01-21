@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# https://stackoverflow.com/questions/701505/best-way-to-choose-a-random-file-from-a-directory-in-a-shell-script
+# https://serverfault.com/questions/407033/how-can-i-edit-the-welcome-message-when-ssh-start
+# https://askubuntu.com/questions/676374/how-to-disable-welcome-message-after-ssh-login
+# https://gist.github.com/bearlike/d5c90dd24e43e0c5cf89342ac4331358
+
+# TEXTART_DIR="/usr/local/share/arttime/textart"
+TEXTART_DIR="$HOME/.local/share/arttime/textart"
+
+if [ -z "$1" ]; then
+  # Pick random art from TEXTART_DIR directory
+  sed '/Custom/d' "$(find "$TEXTART_DIR" -type f | shuf -n1)"
+  exit 0
+fi
+
+if [ -f "$TEXTART_DIR/$1" ]; then
+  sed '/Custom/d' "$TEXTART_DIR/$1"
+else
+  echo "$1" does not exist in "$TEXTART_DIR".
+fi
