@@ -6,14 +6,6 @@ local map_callback = bind.map_callback
 local et = bind.escape_termcode
 
 local plug_map = {
-	-- Plugin: accelerate-jk
-	["n|j"] = map_callback(function()
-		return et("<Plug>(accelerated_jk_gj)")
-	end):with_expr(),
-	["n|k"] = map_callback(function()
-		return et("<Plug>(accelerated_jk_gk)")
-	end):with_expr(),
-
 	-- Plugin: auto_session
 	["n|<leader>ss"] = map_cu("SaveSession"):with_noremap():with_silent():with_desc("session: Save"),
 	["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent():with_desc("session: Restore"),
@@ -86,9 +78,6 @@ local plug_map = {
 	["n|<leader>k"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
 	["n|<leader>c"] = map_cu("HopChar1"):with_noremap():with_desc("jump: Goto one char"),
 	["n|<leader>cc"] = map_cu("HopChar2"):with_noremap():with_desc("jump: Goto two chars"),
-
-	-- Plugin: treehopper
-	["o|m"] = map_cu("require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),
 
 	-- Plugin: tabout
 	["i|<A-l>"] = map_cmd("<Plug>(TaboutMulti)"):with_silent():with_noremap():with_desc("edit: Goto end of pair"),

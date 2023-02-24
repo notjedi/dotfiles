@@ -53,25 +53,10 @@ ui["shaunsingh/nord.nvim"] = {
 	lazy = true,
 	config = require("ui.nord"),
 }
-ui["rcarriga/nvim-notify"] = {
-	lazy = true,
-	event = "VeryLazy",
-	config = require("ui.notify"),
-}
-ui["folke/paint.nvim"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("ui.paint"),
-}
 ui["dstein64/nvim-scrollview"] = {
 	lazy = true,
 	event = "BufReadPost",
 	config = require("ui.scrollview"),
-}
-ui["edluffy/specs.nvim"] = {
-	lazy = true,
-	event = "CursorMoved",
-	config = require("ui.specs"),
 }
 
 return ui

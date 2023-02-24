@@ -25,6 +25,7 @@ local function load_options()
 		conceallevel = 0,
 		cursorcolumn = true,
 		cursorline = true,
+        -- guicursor = 'i:block',
 		diffopt = "filler,iwhite,internal,algorithm:patience",
 		display = "lastline",
 		encoding = "utf-8",
@@ -48,14 +49,14 @@ local function load_options()
 		laststatus = 2,
 		linebreak = true,
 		list = true,
-		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+		-- listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
 		magic = true,
 		mousescroll = "ver:3,hor:6",
 		number = true,
 		previewheight = 12,
 		pumheight = 15,
 		redrawtime = 1500,
-		relativenumber = true,
+		relativenumber = false,
 		ruler = true,
 		scrolloff = 2,
 		sessionoptions = "curdir,help,tabpages,winsize",
@@ -82,7 +83,8 @@ local function load_options()
 		termguicolors = true,
 		timeout = true,
 		-- You will feel delay when you input <Space> at lazygit interface if you set it a positive value like 300(ms).
-		timeoutlen = 0,
+		-- timeoutlen = 0,
+        timeoutlen = 500,
 		ttimeout = true,
 		ttimeoutlen = 0,
 		undodir = global.cache_dir .. "undo/",
@@ -92,7 +94,7 @@ local function load_options()
 		viewoptions = "folds,cursor,curdir,slash,unix",
 		virtualedit = "block",
 		visualbell = true,
-		whichwrap = "h,l,<,>,[,],~",
+		-- whichwrap = "h,l,<,>,[,],~",
 		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
 		wildignorecase = true,
 		winminwidth = 10,
@@ -122,11 +124,6 @@ local function load_options()
 		vim.o[name] = value
 	end
 
-	-- Fix sqlite3 missing-lib issue on Windows
-	if global.is_windows then
-		-- Download the DLLs form https://www.sqlite.org/download.html
-		vim.g.sqlite_clib_path = global.home .. "/Documents/sqlite-dll-win64-x64-3400100/sqlite3.dll"
-	end
 end
 
 load_options()

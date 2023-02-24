@@ -1,10 +1,5 @@
 local editor = {}
 
-editor["rainbowhxch/accelerated-jk.nvim"] = {
-	lazy = true,
-	event = "VeryLazy",
-	config = require("editor.accelerated-jk"),
-}
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
@@ -14,11 +9,6 @@ editor["m4xshen/autoclose.nvim"] = {
 	lazy = true,
 	event = "InsertEnter",
 	config = require("editor.autoclose"),
-}
-editor["max397574/better-escape.nvim"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("editor.better-escape"),
 }
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
@@ -81,14 +71,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-		{ "mrjones2014/nvim-ts-rainbow" },
-		{ "JoosepAlviste/nvim-ts-context-commentstring" },
-		{ "mfussenegger/nvim-treehopper" },
-		{ "andymass/vim-matchup" },
-		{
-			"windwp/nvim-ts-autotag",
-			config = require("editor.autotag"),
-		},
 		{
 			"NvChad/nvim-colorizer.lua",
 			config = require("editor.colorizer"),

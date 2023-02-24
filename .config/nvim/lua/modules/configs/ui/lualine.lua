@@ -6,11 +6,6 @@ return function()
 		ui = require("modules.utils.icons").get("ui", true),
 	}
 
-	local function escape_status()
-		local ok, m = pcall(require, "better_escape")
-		return ok and m.waiting and icons.misc.EscapeST or ""
-	end
-
 	local _cache = { context = "", bufnr = -1 }
 	local function lspsaga_symbols()
 		local exclude = {
@@ -114,7 +109,6 @@ return function()
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
 			lualine_c = { lspsaga_symbols },
 			lualine_x = {
-				{ escape_status },
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
