@@ -1,126 +1,131 @@
-local fn, uv, api = vim.fn, vim.loop, vim.api
-local vim_path = vim.fn.stdpath('config')
-local data_dir = string.format('%s/site/', vim.fn.stdpath('data'))
-local modules_dir = vim_path .. '/lua/modules'
-local packer_compiled = data_dir .. 'lua/packer_compiled.lua'
-local packer = nil
+local fn, api = vim.fn, vim.api
+local global = require("core.global")
+local is_mac = global.is_mac
+local vim_path = global.vim_path
+local data_dir = global.data_dir
+local lazy_path = data_dir .. "lazy/lazy.nvim"
+local modules_dir = vim_path .. "/lua/modules"
 
-local Packer = {}
-Packer.__index = Packer
+local settings = require("core.settings")
+local use_ssh = settings.use_ssh
 
-function Packer:load_plugins()
-  self.repos = {}
+local icons = {
+	kind = require("modules.utils.icons").get("kind"),
+	documents = require("modules.utils.icons").get("documents"),
+	ui = require("modules.utils.icons").get("ui"),
+	ui_sep = require("modules.utils.icons").get("ui", true),
+	misc = require("modules.utils.icons").get("misc"),
+}
 
-  local get_plugins_list = function()
-    local list = {}
-    local tmp = vim.split(fn.globpath(modules_dir, '*/plugins.lua'), '\n')
-    for _, f in ipairs(tmp) do
-      list[#list + 1] = f:sub(#modules_dir - 6, -1)
-    end
-    return list
-  end
+local Lazy = {}
 
-  local plugins_file = get_plugins_list()
-  for _, m in ipairs(plugins_file) do
-    require(m:sub(0, #m - 4))
-  end
+function Lazy:load_plugins()
+	self.modules = {}
+
+	local append_nativertp = function()
+		package.path = package.path
+			.. string.format(";%s;%s", modules_dir .. "/configs/?.lua", modules_dir .. "/configs/?/init.lua")
+	end
+
+	local get_plugins_list = function()
+		local list = {}
+		local plugins_list = vim.split(fn.glob(modules_dir .. "/plugins/*.lua"), "\n")
+		if type(plugins_list) == "table" then
+			for _, f in ipairs(plugins_list) do
+				-- fill list with `plugins/*.lua`'s path used for later `require` like this:
+				-- list[#list + 1] = "plugins/completion.lua"
+				list[#list + 1] = f:sub(#modules_dir - 6, -1)
+			end
+		end
+		return list
+	end
+
+	append_nativertp()
+
+	local plugins_file = get_plugins_list()
+	for _, m in ipairs(plugins_file) do
+		-- require modules which returned in previous operation like this:
+		-- local modules = require("modules/plugins/completion.lua")
+		local modules = require(m:sub(0, #m - 4))
+		if type(modules) == "table" then
+			for name, conf in pairs(modules) do
+				self.modules[#self.modules + 1] = vim.tbl_extend("force", { name }, conf)
+			end
+		end
+	end
 end
 
-function Packer:load_packer()
-  if not packer then
-    api.nvim_command('packadd packer.nvim')
-    packer = require('packer')
-  end
-  packer.init {
-    compile_path = packer_compiled,
-    git = { clone_timeout = 120 },
-    disable_commands = true,
-  }
-  packer.reset()
-  local use = packer.use
-  self:load_plugins()
-  use {
-    'lewis6991/impatient.nvim',
-    config = function()
-      require('impatient')
-    end,
-  }
-  use { 'wbthomason/packer.nvim', opt = true }
-  for _, repo in ipairs(self.repos) do
-    use(repo)
-  end
+function Lazy:load_lazy()
+	if not vim.loop.fs_stat(lazy_path) then
+		local lazy_repo = use_ssh and "git@github.com:folke/lazy.nvim.git " or "https://github.com/folke/lazy.nvim.git "
+		api.nvim_command("!git clone --filter=blob:none --branch=stable " .. lazy_repo .. lazy_path)
+	end
+	self:load_plugins()
+
+	local clone_prefix = use_ssh and "git@github.com:%s.git" or "https://github.com/%s.git"
+	local lazy_settings = {
+		root = data_dir .. "lazy", -- directory where plugins will be installed
+		git = {
+			-- log = { "-10" }, -- show the last 10 commits
+			timeout = 300,
+			url_format = clone_prefix,
+		},
+		install = {
+			-- install missing plugins on startup. This doesn't increase startup time.
+			missing = true,
+			colorscheme = { "catppuccin" },
+		},
+		ui = {
+			-- a number <1 is a percentage., >1 is a fixed size
+			size = { width = 0.88, height = 0.8 },
+			wrap = true, -- wrap the lines in the ui
+			-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+			border = "rounded",
+			icons = {
+				cmd = icons.misc.Code,
+				config = icons.ui.Gear,
+				event = icons.kind.Event,
+				ft = icons.documents.Files,
+				init = icons.misc.ManUp,
+				import = icons.documents.Import,
+				keys = icons.ui.Keyboard,
+				loaded = icons.ui.Check,
+				not_loaded = icons.misc.Ghost,
+				plugin = icons.ui.Package,
+				runtime = icons.misc.Vim,
+				source = icons.kind.StaticMethod,
+				start = icons.ui.Play,
+				list = {
+					icons.ui_sep.BigCircle,
+					icons.ui_sep.BigUnfilledCircle,
+					icons.ui_sep.Square,
+					icons.ui_sep.ChevronRight,
+				},
+			},
+		},
+		performance = {
+			cache = {
+				enabled = true,
+				path = vim.fn.stdpath("cache") .. "/lazy/cache",
+				-- Once one of the following events triggers, caching will be disabled.
+				-- To cache all modules, set this to `{}`, but that is not recommended.
+				disable_events = { "UIEnter", "BufReadPre" },
+				ttl = 3600 * 24 * 2, -- keep unused modules for up to 2 days
+			},
+			reset_packpath = true, -- reset the package path to improve startup time
+			rtp = {
+				reset = true, -- reset the runtime path to $VIMRUNTIME and the config directory
+				---@type string[]
+				paths = {}, -- add any custom paths here that you want to include in the rtp
+			},
+		},
+	}
+	if is_mac then
+		lazy_settings.concurrency = 20
+	end
+
+	vim.opt.rtp:prepend(lazy_path)
+	require("lazy").setup(self.modules, lazy_settings)
 end
 
-function Packer:init_ensure_plugins()
-  local packer_dir = data_dir .. 'pack/packer/opt/packer.nvim'
-  local state = uv.fs_stat(packer_dir)
-  if not state then
-    local cmd = '!git clone https://github.com/wbthomason/packer.nvim ' .. packer_dir
-    api.nvim_command(cmd)
-    uv.fs_mkdir(data_dir .. 'lua', 511, function()
-      assert('make compile path dir faield')
-    end)
-    self:load_packer()
-    packer.install()
-  end
-end
-
-local plugins = setmetatable({}, {
-  __index = function(_, key)
-    if not packer then
-      Packer:load_packer()
-    end
-    return packer[key]
-  end,
-})
-
-function plugins.ensure_plugins()
-  Packer:init_ensure_plugins()
-end
-
-function plugins.package(repo)
-  table.insert(Packer.repos, repo)
-end
-
-function plugins.compile_notify()
-  plugins.compile()
-  vim.notify('Compile Done!', 'info', { title = 'Packer' })
-end
-
-function plugins.auto_compile()
-  local file = vim.fn.expand('%:p')
-  if not file:match(vim_path) then
-    return
-  end
-
-  if file:match('plugins.lua') then
-    plugins.clean()
-  end
-  plugins.compile_notify()
-  require('packer_compiled')
-end
-
-function plugins.load_compile()
-  if vim.fn.filereadable(packer_compiled) == 1 then
-    require('packer_compiled')
-  else
-    vim.notify('Run PackerInstall', 'info', { title = 'Packer' })
-  end
-
-  vim.cmd([[command! PackerCompile lua require('core.pack').compile_notify()]])
-  vim.cmd([[command! PackerInstall lua require('core.pack').install()]])
-  vim.cmd([[command! PackerUpdate lua require('core.pack').update()]])
-  vim.cmd([[command! PackerSync lua require('core.pack').sync()]])
-  vim.cmd([[command! PackerClean lua require('core.pack').clean()]])
-  vim.cmd([[command! PackerStatus  lua require('packer').status()]])
-
-  api.nvim_create_autocmd('BufWritePost', {
-    pattern = '*.lua',
-    callback = function()
-      plugins.auto_compile()
-    end,
-    desc = 'Auto Compile the neovim config which write in lua',
-  })
-end
-
-return plugins
+Lazy:load_lazy()
