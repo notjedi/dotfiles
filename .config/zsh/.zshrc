@@ -60,11 +60,12 @@ autoload edit-command-line;
 zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-bindkey -s '^a' '^ueva\n'
+bindkey -s '^a' '^ufend\n'
 
 # https://stackoverflow.com/questions/17051123/source-a-file-in-zsh-when-entering-a-directory
 autoload -U add-zsh-hook
 load-local-conf() {
+     [ -d ivy ] && condainit && conda activate ivy_dev
      [ -d pystk_gym ] && source venv/bin/activate
      [ -f go.mod ] && alias gg="go run ."
 }

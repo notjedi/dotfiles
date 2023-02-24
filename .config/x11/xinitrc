@@ -6,6 +6,8 @@ remaps &
 clipmenud &
 dwmblocks &
 redshift -O 2600 &
+transmission-daemon &
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh &
 
 while true; do
   ssh-agent dwm || break

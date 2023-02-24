@@ -4,6 +4,7 @@
 
 [core]
     pager = delta
+    sshCommand = ssh -i $HOME/.ssh/git
 
 [interactive]
     diffFilter = delta --color-only
