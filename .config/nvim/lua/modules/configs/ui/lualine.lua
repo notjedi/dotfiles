@@ -148,7 +148,6 @@ return function()
 		extensions = {
 			"quickfix",
 			"nvim-tree",
-			"nvim-dap-ui",
 			"toggleterm",
 			"fugitive",
 			outline,

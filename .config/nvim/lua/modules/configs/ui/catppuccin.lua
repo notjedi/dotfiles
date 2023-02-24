@@ -51,7 +51,6 @@ return function()
 			beacon = false,
 			cmp = true,
 			coc_nvim = false,
-			dap = { enabled = true, enable_ui = true },
 			dashboard = false,
 			fern = false,
 			fidget = true,

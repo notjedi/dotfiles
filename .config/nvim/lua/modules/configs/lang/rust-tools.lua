@@ -169,15 +169,6 @@ return function()
 			-- setting it to false may improve startup time
 			standalone = true,
 		}, -- rust-analyer options
-
-		-- debugging stuff
-		dap = {
-			adapter = {
-				type = "executable",
-				command = "lldb-vscode",
-				name = "rt_lldb",
-			},
-		},
 	}
 
 	require("rust-tools").setup(opts)

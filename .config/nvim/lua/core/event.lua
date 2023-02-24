@@ -41,7 +41,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		"terminal",
 		"prompt",
 		"toggleterm",
-		"copilot",
 		"startuptime",
 		"tsplayground",
 		"PlenaryTestPopup",
@@ -121,7 +120,6 @@ function autocmd.load_autocmds()
 			{ "FileType", "alpha", "set showtabline=0" },
 			{ "FileType", "markdown", "set wrap" },
 			{ "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
-			{ "FileType", "dap-repl", "lua require('dap.ext.autocompl').attach()" },
 			{
 				"FileType",
 				"*",

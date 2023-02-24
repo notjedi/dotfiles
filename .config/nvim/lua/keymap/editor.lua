@@ -76,8 +76,8 @@ local plug_map = {
 	["n|<leader>w"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
 	["n|<leader>j"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
 	["n|<leader>k"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
-	["n|<leader>c"] = map_cu("HopChar1"):with_noremap():with_desc("jump: Goto one char"),
-	["n|<leader>cc"] = map_cu("HopChar2"):with_noremap():with_desc("jump: Goto two chars"),
+	["n|t"] = map_cu("HopWordCurrentLineAC"):with_noremap():with_desc("jump: within line"),
+	["n|T"] = map_cu("HopWordCurrentLineBC"):with_noremap():with_desc("jump: within line"),
 
 	-- Plugin: tabout
 	["i|<A-l>"] = map_cmd("<Plug>(TaboutMulti)"):with_silent():with_noremap():with_desc("edit: Goto end of pair"),

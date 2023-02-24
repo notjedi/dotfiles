@@ -15,10 +15,6 @@ ui["catppuccin/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
-ui["sainnhe/edge"] = {
-	lazy = true,
-	config = require("ui.edge"),
-}
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
@@ -48,10 +44,6 @@ ui["karb94/neoscroll.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 	config = require("ui.neoscroll"),
-}
-ui["shaunsingh/nord.nvim"] = {
-	lazy = true,
-	config = require("ui.nord"),
 }
 ui["dstein64/nvim-scrollview"] = {
 	lazy = true,
