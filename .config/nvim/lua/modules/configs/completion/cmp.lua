@@ -110,14 +110,10 @@ return function()
 			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
 			{ name = "path" },
-			{ name = "treesitter" },
 			{ name = "spell" },
-			{ name = "tmux" },
 			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
-			-- { name = "codeium" },
-			-- { name = "cmp_tabnine" },
 		},
 	})
 end

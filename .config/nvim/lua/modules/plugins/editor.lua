@@ -33,10 +33,6 @@ editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
 }
-editor["junegunn/vim-easy-align"] = {
-	lazy = true,
-	cmd = "EasyAlign",
-}
 editor["phaazon/hop.nvim"] = {
 	lazy = true,
 	branch = "v2",
