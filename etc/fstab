@@ -1,0 +1,18 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sdc1
+UUID=6C3B-6236      				        /boot     	    vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sdc2
+UUID=ab9dbad5-9581-46d5-85c9-80b38f44e114	/         	    ext4      	rw,relatime	0 1
+
+# /dev/sdc3
+UUID=1eee2494-8b4a-4184-bd78-6bb4d6215574	/home     	    ext4      	rw,relatime	0 2
+
+# HDD
+UUID=5337223E5FD987E2 				        /mnt/Seagate 	ntfs-3g     uid=jedi,gid=998,user,rw,umask=0000,fmask=0111,errors=remount-ro,x-gvfs-show,x-systemd.mount-timeout=10,nofail 0 2
+
+# 2TB SSD
+/dev/mapper/cryptroot   /mnt/samsung    btrfs   noatime,compress=zstd,discard=async,clear_cache,nospace_cache,nofail,x-systemd.mount-timeout=10,subvol=media  0   2
