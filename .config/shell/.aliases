@@ -64,6 +64,14 @@ alias lh="lf $HOME" \
     lsc="lf $HDD/screenshots" \
     lwal="lf $HDD/wallpapers"
 
+# cargo alias
+alias ca="cargo add" \
+    cr="cargo run" \
+    cb="cargo build" \
+    cre="cargo remove" \
+    crr="cargo run --release" \
+    cbr="cargo build --release"
+
 # pacman aliases
 alias p="doas pacman" \
     pacorphan="pacman -Qtdq" \
