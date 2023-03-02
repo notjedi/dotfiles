@@ -1,0 +1,88 @@
+version: '3.5'
+
+services:
+  photoprism:
+    image: photoprism/photoprism:arm64
+    depends_on:
+      - mariadb
+    restart: always
+
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+
+    ports:
+      - "2342:2342"
+
+    environment:
+      PHOTOPRISM_ADMIN_USER: "jedi"
+      PHOTOPRISM_ADMIN_PASSWORD: "sirsudo"          # initial superadmin password (minimum 8 characters)
+      PHOTOPRISM_AUTH_MODE: "sirsudo"
+      PHOTOPRISM_SITE_URL: "http://192.168.1.10:2342/"
+      PHOTOPRISM_ORIGINALS_LIMIT: 5000
+      PHOTOPRISM_HTTP_COMPRESSION: "gzip"
+      PHOTOPRISM_WORKERS: 2
+      PHOTOPRISM_LOG_LEVEL: "info"
+      PHOTOPRISM_READONLY: "false"
+      PHOTOPRISM_EXPERIMENTAL: "false"
+      PHOTOPRISM_DISABLE_CHOWN: "false"              # disables updating storage permissions via chmod and chown on startup
+      PHOTOPRISM_DISABLE_WEBDAV: "true"
+      PHOTOPRISM_DISABLE_SETTINGS: "false"
+      PHOTOPRISM_DISABLE_TENSORFLOW: "false"
+      PHOTOPRISM_DISABLE_FACES: "false"
+      PHOTOPRISM_DISABLE_CLASSIFICATION: "false"
+      PHOTOPRISM_DISABLE_RAW: "false"
+      PHOTOPRISM_RAW_PRESETS: "false"
+      PHOTOPRISM_JPEG_QUALITY: 90
+      PHOTOPRISM_DETECT_NSFW: "false"
+      PHOTOPRISM_UPLOAD_NSFW: "true"
+      PHOTOPRISM_DATABASE_DRIVER: "mysql"
+      PHOTOPRISM_DATABASE_SERVER: "mariadb:3300"
+      PHOTOPRISM_DATABASE_NAME: "photoprism"
+      PHOTOPRISM_DATABASE_USER: "photoprism"
+      PHOTOPRISM_DATABASE_PASSWORD: "sirsudo"
+      PHOTOPRISM_SITE_CAPTION: "AI-Powered Photos App"
+      PHOTOPRISM_SITE_DESCRIPTION: ""
+      PHOTOPRISM_SITE_AUTHOR: ""
+
+      ## Hardware Video Transcoding (only available for sponsors):
+      # PHOTOPRISM_FFMPEG_ENCODER: "software"        # FFmpeg encoder ("software", "intel", "nvidia", "apple", "raspberry")
+      # PHOTOPRISM_FFMPEG_BITRATE: "32"              # FFmpeg encoding bitrate limit in Mbit/s (default: 50)
+
+      ## Run/install on first startup (options: update, gpu, tensorflow, davfs, clean):
+      # PHOTOPRISM_INIT: "update clean gpu tensorflow"
+
+      ## Run as a non-root user after initialization (supported: 0, 33, 50-99, 500-600, and 900-1200):
+      # PHOTOPRISM_UID: 1000
+      # PHOTOPRISM_GID: 1000
+      # PHOTOPRISM_UMASK: 0000
+
+    working_dir: "/photoprism"
+
+    volumes:
+      - "/mnt/nextcloud/jedi/files:/photoprism/originals"                 # Original media files (DO NOT REMOVE)
+      - "/mnt/photoprism/storage:/photoprism/storage"                     # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
+
+
+  mariadb:
+    restart: always
+    image: arm64v8/mariadb:10.10
+    command: mysqld --innodb-buffer-pool-size=256M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120
+
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    ports:
+      - "3300:3300"
+
+    volumes:
+      - "/mnt/photoprism/database:/var/lib/mysql"
+
+    environment:
+      MARIADB_AUTO_UPGRADE: "1"
+      MARIADB_INITDB_SKIP_TZINFO: "1"
+      MARIADB_DATABASE: "photoprism"
+      MARIADB_USER: "photoprism"
+      MARIADB_PASSWORD: "sirsudo"
+      MARIADB_ROOT_PASSWORD: "sirsudo"
+      MYSQL_TCP_PORT: 3300
