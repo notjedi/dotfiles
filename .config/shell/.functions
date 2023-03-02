@@ -74,6 +74,10 @@ function pacsort() {
     pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -rh | bat
 }
 
+function pacbrow() {
+    pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
+}
+
 function condainit() {
   __conda_setup="$('/home/jedi/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
   if [ $? -eq 0 ]; then
