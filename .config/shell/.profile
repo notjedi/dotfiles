@@ -1,12 +1,12 @@
 #!/bin/bash
 
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
-[[ -d "$HOME/.local/jedi/bin/" ]] && export PATH="$HOME/.local/jedi/bin:$PATH"
+[[ -d "$HOME/.local/scripts" ]] && export PATH="$HOME/.local/scripts:$PATH"
 [[ -d "/opt/android-studio/bin" ]] && export PATH="/opt/android-studio/bin:$PATH"
 [[ -d "$HOME/.local/share/go/bin" ]] && export PATH="$HOME/.local/share/go/bin:$PATH"
 [[ -d "$HOME/.local/share/npm/bin" ]] && export PATH="$HOME/.local/share/npm/bin:$PATH"
 [[ -d "$HOME/.local/share/cargo/bin" ]] && export PATH="$HOME/.local/share/cargo/bin:$PATH"
-[[ -d "$HOME/.local/jedi/bin/dwmblocks" ]] && export PATH="$HOME/.local/jedi/bin/dwmblocks:$PATH"
+[[ -d "$HOME/.local/scripts/dwmblocks" ]] && export PATH="$HOME/.local/scripts/dwmblocks:$PATH"
 [[ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]] && export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 [[ -d "$HOME/.local/share/miniconda/condabin" ]] && export PATH="$HOME/.local/share/miniconda/condabin:$PATH"
 
@@ -37,11 +37,27 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 export LESS_TERMCAP_me=$(tput sgr0)
 export LESS_TERMCAP_ue=$(tput sgr0)
-export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
-export LESS_TERMCAP_so=$(tput bold; tput setaf 3)
-export LESS_TERMCAP_md=$(tput bold; tput setaf 2)
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1)
+export LESS_TERMCAP_se=$(
+	tput rmso
+	tput sgr0
+)
+export LESS_TERMCAP_so=$(
+	tput bold
+	tput setaf 3
+)
+export LESS_TERMCAP_md=$(
+	tput bold
+	tput setaf 2
+)
+export LESS_TERMCAP_mb=$(
+	tput bold
+	tput setaf 2
+)
+export LESS_TERMCAP_us=$(
+	tput smul
+	tput bold
+	tput setaf 1
+)
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export CONDA_ROOT="$XDG_CONFIG_HOME/conda"
