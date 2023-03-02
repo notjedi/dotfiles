@@ -29,7 +29,7 @@ pacman -S --no-confim grub grub-btrfs btrfs-progs efibootmgr networkmanager zsh 
 	ntfs-3g pamixer sudo
 
 # wifi and bluetooth stuff
-# pacman -S grub network-manager-applet dialog wpa_supplicant mtools dosfstools \
+# pacman -S network-manager-applet dialog wpa_supplicant mtools dosfstools \
 # dnsutils bluez bluez-utils
 
 # user programs
@@ -37,7 +37,7 @@ pacman -S --no-confirm neovim git alacritty unzip bat clipmenu opendoas ranger \
 	lf rustup sccache scrcpy sxiv tealdeer thunar nautilus tmux transmission-cli \
 	ueberzug zathura go python jq firefox dunst ffmpegthumbnailer flameshot \
 	android-tools chromium bpython bat-extras bpytop btop xdg-utils xdg-user-dirs \
-	man-pages man-db gtk3 gtk4 fd zsh-syntax-highlighting
+	man-pages man-db gtk3 gtk4 fd zsh-syntax-highlighting dust bc
 
 # xorg
 pacman -S --no-confirm xorg-server xwallpaper xorg-xinit xorg-server xcape \

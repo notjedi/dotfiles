@@ -32,9 +32,8 @@ profiles/
 .config/transmission-daemon/resume
 .config/transmission-daemon/dht.dat
 .config/transmission-daemon/stats.json
-
-.local/share/fonts/misc
+.config/transmission-daemon/bandwidth-groups.json
 
 .uuid
-
-bandwidth-groups.json
+.local/share/fonts/misc
+.config/gup/assetes

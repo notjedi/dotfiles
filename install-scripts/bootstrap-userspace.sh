@@ -14,7 +14,7 @@ paru -S --no-confirm android-studio ctpv-git brave-bin downgrade librewolf-bin \
 	yay viddy catppuccin-gtk-theme-mocha droidcam instaloader qrcp xdg-ninja-git \
 	arttime-git gofumpt peerflix jellyfin-bin pfetch-git tremc vimv-git \
 	visual-studio-code-bin golangci-lint-bin localsend-bin \
-	zsh-fast-syntax-highlighting
+	zsh-fast-syntax-highlighting fzf-tab-git
 
 # wayland aur
 # paru -S --no-confim hyprland-nvidia
