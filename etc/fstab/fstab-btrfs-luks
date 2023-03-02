@@ -1,0 +1,15 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda1
+UUID=744D-C9FD					            /boot         	vfat     	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/mapper/root
+UUID=b85c6c7f-cd05-4ac7-ab8a-81290a713bb2	/         	    btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=256,subvol=/@root	0 0
+
+# /dev/mapper/root
+UUID=b85c6c7f-cd05-4ac7-ab8a-81290a713bb2	/home     	    btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=257,subvol=/@home	0 0
+
+# 2TB SSD
+/dev/mapper/media                           /mnt/samsung    btrfs       noatime,compress=zstd,discard=async,clear_cache,nospace_cache,nofail,x-systemd.mount-timeout=10,subvol=media  0   2
