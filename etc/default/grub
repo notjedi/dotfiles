@@ -5,9 +5,8 @@ GRUB_TIMEOUT="10"
 GRUB_DISTRIBUTOR="Arch"
 # set hugepages for mining
 # GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet default_hugepagesz=2M hugepagesz=1G hugepages=3"
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet"
-# forgot what i set this for, prolly has to do something with the old gpu
-# GRUB_CMDLINE_LINUX="amdgpu.ppfeaturemask=0xfffd7fff"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet nvidia_drm.modeset=1 cryptdevice=UUID=5347e81b-a872-49e8-a602-c4f96b4200a5:root root=/dev/mapper/root"
+GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"

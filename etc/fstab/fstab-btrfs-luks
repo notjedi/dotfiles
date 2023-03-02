@@ -12,4 +12,4 @@ UUID=b85c6c7f-cd05-4ac7-ab8a-81290a713bb2	/         	    btrfs     	rw,noatime,c
 UUID=b85c6c7f-cd05-4ac7-ab8a-81290a713bb2	/home     	    btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=257,subvol=/@home	0 0
 
 # 2TB SSD
-/dev/mapper/media                           /mnt/samsung    btrfs       noatime,compress=zstd,discard=async,clear_cache,nospace_cache,nofail,x-systemd.mount-timeout=10,subvol=media  0   2
+/dev/mapper/media                           /mnt/samsung    btrfs       noatime,compress=zstd:3,discard=async,space_cache=v2,nofail,x-systemd.mount-timeout=10,subvol=media  0   2
