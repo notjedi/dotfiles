@@ -36,3 +36,5 @@ profiles/
 .local/share/fonts/misc
 
 .uuid
+
+bandwidth-groups.json
