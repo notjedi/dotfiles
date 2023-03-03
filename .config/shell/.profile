@@ -17,19 +17,26 @@ export EDITOR="nvim"
 export PAGER="bat -p"
 export READER="zathura"
 export CODEEDITOR="code"
-export HDD="/mnt/Seagate"
+export HDD="/mnt/seagate"
 export BROWSER="librewolf"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-export SSH_ASKPASS=ssh-askpass
-export SSH_ASKPASS_REQUIRE=prefer
+# export SSH_ASKPASS=ssh-askpass
+# export SSH_ASKPASS_REQUIRE=prefer
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/git"
 export PF_INFO="ascii title os kernel uptime pkgs memory palette"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 
+# wayland stuff
+# export XDG_CURRENT_DESKTOP="hyprland"
+# export WLR_NO_HARDWARE_CURSORS=1
+# export WAYLAND_DISPLAY="wayland-0"
+# export XDG_SESSION_TYPE="wayland"
+
+export XDG_CURRENT_DESKTOP="dwm"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"

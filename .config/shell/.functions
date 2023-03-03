@@ -1,120 +1,120 @@
 #!/bin/bash
 
 function usage() {
-  du "$1" -ah --max-depth=1 2> /dev/null | sort -rh
+	du "$1" -ah --max-depth=1 2>/dev/null | sort -rh
 }
 
 function co() {
-  local dir
-  dir=$(find $GRAB_HOME/github.com -mindepth 2 -maxdepth 2 -type d -printf '%P\n' | fzf)
-  [ -z "$dir" ] || cd "$GRAB_HOME/github.com/$dir" || exit
+	local dir
+	dir=$(find $GRAB_HOME/github.com -mindepth 2 -maxdepth 2 -type d -printf '%P\n' | fzf)
+	[ -z "$dir" ] || cd "$GRAB_HOME/github.com/$dir" || exit
 }
 
 function conf() {
-  dir="$GRAB_HOME/github.com/notjedi/dotfiles/"
-  find "$dir" -type f |
-    grep -vi '\.git\|watch_later\|autoload\|license\|\.*md\|resume\|torrent\|pycache\|fonts' |
-      sed "s|^"$dir"||" | fzf |
-        xargs -I'{}' -r $EDITOR $dir{}
+	dir="$GRAB_HOME/github.com/notjedi/dotfiles/"
+	find "$dir" -type f |
+		grep -vi '\.git\|watch_later\|autoload\|license\|\.*md\|resume\|torrent\|pycache\|fonts' |
+		sed "s|^"$dir"||" | fzf |
+		xargs -I'{}' -r $EDITOR $dir{}
 }
 
 function fzfcd() {
-  dir=$(find -L . -maxdepth 3 -path './.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
-    'devtmpfs' -o -fstype 'proc' -prune -o -type d,l -print 2> /dev/null | cut -b3- | fzf)
-  [ -z "$dir" ] || cd "$dir" || exit
+	dir=$(find -L . -maxdepth 3 -path './.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
+		'devtmpfs' -o -fstype 'proc' -prune -o -type d,l -print 2>/dev/null | cut -b3- | fzf)
+	[ -z "$dir" ] || cd "$dir" || exit
 }
 
 function fzfcdhidden() {
-  dir=$(find -L . -maxdepth 3 -path '.' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
-    'devtmpfs' -o -fstype 'proc' -prune -o -type d,l -print 2> /dev/null | cut -b3- | fzf)
-  [ -z "$dir" ] || cd "$dir" || exit
+	dir=$(find -L . -maxdepth 3 -path '.' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype \
+		'devtmpfs' -o -fstype 'proc' -prune -o -type d,l -print 2>/dev/null | cut -b3- | fzf)
+	[ -z "$dir" ] || cd "$dir" || exit
 }
 
 # https://news.ycombinator.com/item?id=32106770
 function fcd() {
-  local dir
+	local dir
 
-  while true; do
-    dir="$(ls -a1p | grep '/$' | grep -v '^./$' |
-      fzf --height 40% --reverse --no-multi --preview 'pwd' --preview-window=up,1,border-none --no-info)"
-    if [[ -z "${dir}" ]]; then
-      break
-    else
-      cd "${dir}" || return
-    fi
-  done
+	while true; do
+		dir="$(ls -a1p | grep '/$' | grep -v '^./$' |
+			fzf --height 40% --reverse --no-multi --preview 'pwd' --preview-window=up,1,border-none --no-info)"
+		if [[ -z "${dir}" ]]; then
+			break
+		else
+			cd "${dir}" || return
+		fi
+	done
 }
 
 function open() {
-  find . -type f -maxdepth 3 2> /dev/null | grep -vi \
-    '\.git\|\.miniconda3\|\.android\|\.cache\|\.librewolf\|watch_later\|autoload\|pycache\|fonts\|tags' |
-    fzf | xargs -r "$EDITOR"
+	find . -type f -maxdepth 3 2>/dev/null | grep -vi \
+		'\.git\|\.miniconda3\|\.android\|\.cache\|\.librewolf\|watch_later\|autoload\|pycache\|fonts\|tags' |
+		fzf | xargs -r "$EDITOR"
 }
 
 function pipup() {
-  pip list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' |
-    xargs -r -I'{}' pip install --upgrade {} || true
+	pip list --outdated | tail -n +3 | tee /dev/tty | awk '{print $ 1}' |
+		xargs -r -I'{}' pip install --upgrade {} || true
 }
 
 function lspacs() {
-  pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $4 $5, name}' | sort -hr
+	pacman -Qi | awk '/^Name/{name=$ 3} /^Installed Size/{print $4 $5, name}' | sort -hr
 }
 
 function pacusage() {
-  # https://serverfault.com/questions/375096/bash-sed-awk-etc-remove-every-other-newline/375104
-  pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste - - |
-    sed 's/^ //g; s/ K/K/g; s/ M/M/g' | tr -d '\t' | sort -rhk 2 | less
+	# https://serverfault.com/questions/375096/bash-sed-awk-etc-remove-every-other-newline/375104
+	pacman -Qi | grep -E '^(Name|Installed)' | cut -f2 -d':' | paste - - |
+		sed 's/^ //g; s/ K/K/g; s/ M/M/g' | tr -d '\t' | sort -rhk 2 | less
 }
 
 function lsalias() {
-  alias | awk -F'[ =]' '{ print $2 }' | tr -d "'"
+	alias | awk -F'[ =]' '{ print $2 }' | tr -d "'"
 }
 
 function pacsort() {
-    pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -rh | bat
+	pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -rh | bat
 }
 
 function pacbrow() {
-    pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
+	pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
 }
 
 function condainit() {
-  __conda_setup="$('/home/jedi/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-  if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-  else
-    if [ -f "/home/jedi/.miniconda3/etc/profile.d/conda.sh" ]; then
-      . "/home/jedi/.miniconda3/etc/profile.d/conda.sh"
-    else
-      export PATH="/home/jedi/.miniconda3/bin:$PATH"
-    fi
-  fi
-  unset __conda_setup
+	__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+	if [ $? -eq 0 ]; then
+		eval "$__conda_setup"
+	else
+		if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "/opt/miniconda3/etc/profile.d/conda.sh"
+		else
+			export PATH="/opt/miniconda3/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
 }
 
 function pyenvinit() {
-  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
+	command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
 }
 
 function yta() {
-  mpv --loop --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+	mpv --loop --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
 
 function countdown() {
-  date1=$(($(date +%s) + $1))
-  while [ "$date1" -ge "$(date +%s)" ]; do
-    echo -ne "$(date -u --date @$((date1 - $(date +%s))) +%H:%M:%S)\r"
-    sleep 0.1
-  done
+	date1=$(($(date +%s) + $1))
+	while [ "$date1" -ge "$(date +%s)" ]; do
+		echo -ne "$(date -u --date @$((date1 - $(date +%s))) +%H:%M:%S)\r"
+		sleep 0.1
+	done
 }
 
 function stopwatch() {
-  date1=$(date +%s)
-  while true; do
-    echo -ne "$(date -u --date @$(($(date +%s) - date1)) +%H:%M:%S)\r"
-    sleep 0.1
-  done
+	date1=$(date +%s)
+	while true; do
+		echo -ne "$(date -u --date @$(($(date +%s) - date1)) +%H:%M:%S)\r"
+		sleep 0.1
+	done
 }
 
 bindkey -s '^n' '^uco\n'
