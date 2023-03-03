@@ -27,7 +27,7 @@ echo root:password | chpasswd
 pacman -S --no-confim grub grub-btrfs btrfs-progs efibootmgr networkmanager zsh \
 	base-devel linux-headers xdg-user-dirs xdg-utils alsa-utils pipewire \
 	pipewire-alsa pipewire-pulse pipewire-jack openssh rsync reflector os-prober \
-	ntfs-3g pamixer sudo opendoas
+	ntfs-3g pamixer sudo opendoas pulsemixer wireplumber
 
 # wifi and bluetooth stuff
 # pacman -S network-manager-applet dialog wpa_supplicant mtools dosfstools \
@@ -37,7 +37,7 @@ pacman -S --no-confim grub grub-btrfs btrfs-progs efibootmgr networkmanager zsh 
 reflector -c India -a 12 --sort rate --save /etc/pacman.d/mirrorlist
 
 # user programs
-pacman -S --no-confirm neovim git alacritty unzip bat ranger lf rustup sccache \
+pacman -S --noconfirm neovim git alacritty unzip bat ranger lf rustup sccache \
 	scrcpy sxiv tealdeer thunar nautilus tmux transmission-cli ueberzug zathura go \
 	python jq firefox dunst ffmpegthumbnailer flameshot android-tools chromium \
 	bpython bat-extras bpytop btop xdg-utils xdg-user-dirs man-pages man-db gtk3 \
@@ -45,10 +45,11 @@ pacman -S --no-confirm neovim git alacritty unzip bat ranger lf rustup sccache \
 	obs-studio mpv youtube-dl yt-dlp aria2 zathura-pdf-mupdf stylua strace ripgrep \
 	python-pip pyenv linux-tools mlocate lua jupyter-notebook jre11-openjdk \
 	jre11-openjdk-headless jdk11-openjdk hugo hexyl helix gopls glow flake8 exa \
-	duf ipython arch-install-scripts # jre8-openjdk jre8-openjdk-headless jdk8-openjdk
+	duf ipython arch-install-scripts make otf-font-awesome
+# jre8-openjdk jre8-openjdk-headless jdk8-openjdk
 
 # xorg
-pacman -S --no-confirm xorg xwallpaper xorg-xinit xcape x11-ssh-askpass \
+pacman -S --noconfirm xorg xwallpaper xorg-xinit xcape x11-ssh-askpass \
 	redshift maim python-pywal rofi xorg-xclipboard xclip dmenu rofi-emoji \
 	clipmenu
 
@@ -57,7 +58,9 @@ pacman -S --noconfirm nvidia nvidia-utils nvidia-settings nvtop cudnn
 # pacman -S --noconfirm xf86-video-amdgpu
 
 # wayland
-# pacman -S --no-confirm wofi waybar
+# pacman -S --noconfirm wofi waybar wl-clipboard wldash wtype \
+# 	xdg-desktop-portal-wlr grim slurp nemo gammastep imv swayimg wf-recorder swaybg \
+# 	trayer
 
 ########## create dirs ##########
 mkdir -p "$HOME/.local/share/gnupg"
@@ -70,7 +73,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ########## Enable systemd units ##########
 systemctl enable NetworkManager
 systemctl enable reflector.timer
-# systmectl enable --user pipewire
+systmectl enable --user pipewire
 
 ########## Crate user ##########
 useradd --create-home --shell "$(which zsh)" --groups wheel jedi
