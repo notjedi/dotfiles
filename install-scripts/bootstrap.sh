@@ -45,7 +45,8 @@ pacman -S --noconfirm neovim git alacritty unzip bat ranger lf rustup sccache \
 	obs-studio mpv youtube-dl yt-dlp aria2 zathura-pdf-mupdf stylua strace ripgrep \
 	python-pip pyenv linux-tools mlocate lua jupyter-notebook jre11-openjdk \
 	jre11-openjdk-headless jdk11-openjdk hugo hexyl helix gopls glow flake8 exa \
-	duf ipython arch-install-scripts make otf-font-awesome
+	duf ipython arch-install-scripts make otf-font-awesome ttf-hack-nerd \
+	otf-hasklig-nerd ttf-jetbrains-mono-nerd woff2-fira-code playerctl
 # jre8-openjdk jre8-openjdk-headless jdk8-openjdk
 
 # xorg
