@@ -27,4 +27,9 @@ lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
 }
+lang["jakewvincent/mkdnflow.nvim"] = {
+	lazy = true,
+	ft = "markdown",
+	config = require("lang.mkdnflow"),
+}
 return lang
