@@ -47,7 +47,7 @@ pacman -S --noconfirm neovim git alacritty unzip bat ranger lf rustup sccache \
 	jre11-openjdk-headless jdk11-openjdk hugo hexyl helix gopls glow flake8 exa \
 	duf ipython arch-install-scripts make cmake ninja clang otf-font-awesome \
 	ttf-hack-nerd otf-hasklig-nerd ttf-jetbrains-mono-nerd woff2-fira-code \
-	playerctl
+	playerctl tokei
 # jre8-openjdk jre8-openjdk-headless jdk8-openjdk
 
 # xorg
