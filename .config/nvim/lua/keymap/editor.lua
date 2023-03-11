@@ -61,7 +61,7 @@ local plug_map = {
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap():with_desc("git: Close diff"),
 
 	-- Plugin: hop
-	["n|<leader>w"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
+	["n|<leader>e"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
 	["n|<leader>j"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
 	["n|<leader>k"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
 	["n|t"] = map_cu("HopWordCurrentLineAC"):with_noremap():with_desc("jump: within line"),

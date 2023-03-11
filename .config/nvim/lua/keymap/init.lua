@@ -1,8 +1,8 @@
 require("keymap.helpers")
 local bind = require("keymap.bind")
 local map_cr = bind.map_cr
+local map_cmd = bind.map_cmd
 -- local map_cu = bind.map_cu
--- local map_cmd = bind.map_cmd
 -- local map_callback = bind.map_callback
 
 local plug_map = {
@@ -19,7 +19,22 @@ local plug_map = {
 	["n|<leader>px"] = map_cr("Lazy clean"):with_silent():with_noremap():with_nowait():with_desc("package: Clean"),
 }
 
+local default_map = {
+	["n|<leader>q"] = map_cr("quit"):with_silent():with_noremap():with_nowait():with_desc("quit nvim"),
+	["n|<leader>w"] = map_cr("write"):with_silent():with_noremap():with_nowait():with_desc("write file"),
+	["n|cu"] = map_cmd("veU"):with_silent():with_noremap():with_nowait():with_desc("make word uppercase"),
+	["n|cl"] = map_cmd("veu"):with_silent():with_noremap():with_nowait():with_desc("make word lowercase"),
+
+	["i|<esc>"] = map_cmd("<esc>l"):with_noremap(),
+	["i|<C-h>"] = map_cmd("<Left>"):with_noremap(),
+	["i|<C-l>"] = map_cmd("<Right>"):with_noremap(),
+	["i|<C-a>"] = map_cmd("<esc>^i"):with_noremap(),
+
+	["x|p"] = map_cmd('"_dP'):with_noremap(),
+}
+
 bind.nvim_load_mapping(plug_map)
+bind.nvim_load_mapping(default_map)
 
 -- Plugin keymaps
 require("keymap.completion")
