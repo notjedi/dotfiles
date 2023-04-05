@@ -17,7 +17,7 @@
     "cache-size-mb": 4,
     "default-trackers": "",
     "dht-enabled": true,
-    "download-dir": "/mnt/Seagate/movies",
+    "download-dir": "/home/jedi/Downloads",
     "download-queue-enabled": true,
     "download-queue-size": 10,
     "encryption": 1,

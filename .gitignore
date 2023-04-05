@@ -37,3 +37,5 @@ profiles/
 .uuid
 .local/share/fonts/misc
 .config/gup/assets
+
+*bpython.desktop

@@ -35,7 +35,7 @@ cmd open ${{
 }}
 
 cmd usg ${{
-  dust -rxd 1 | bat --pager "less -R"
+  dust --no-progress -rxd 1 | bat --pager "less -R"
 }}
 
 cmd unarchive ${{
