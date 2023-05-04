@@ -1,16 +1,12 @@
-version: '3'
-
+version: "3"
 volumes:
   nextcloud:
   nextcloud-db:
-
 networks:
   frontend:
     name: proxy
   backend:
-
 services:
-
   nextcloud-app:
     image: nextcloud
     restart: always
@@ -29,7 +25,6 @@ services:
     networks:
       - frontend
       - backend
-
   nextcloud-db:
     image: mariadb
     restart: always
