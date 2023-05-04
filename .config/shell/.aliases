@@ -2,109 +2,92 @@
 
 # verbose aliases
 alias rm="rm -vi" \
-    ln="ln -v" \
-    cp="cp -iv" \
-    mv="mv -iv" \
-    less="less -I" \
-    mkd="mkdir -pv"
+	ln="ln -v" \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	less="less -I" \
+	mkd="mkdir -pv"
 
 # git aliases
 alias g="git" \
-    ga="git add" \
-    gd="git diff" \
-    gp="git push" \
-    gpu="git pull" \
-    gr="git reset" \
-    gs="git status" \
-    gc="git commit" \
-    gsh="git switch" \
-    gre="git remote" \
-    gch="git checkout"
+	ga="git add" \
+	gd="git diff" \
+	gp="git push" \
+	gpu="git pull" \
+	gr="git reset" \
+	gs="git status" \
+	gc="git commit" \
+	gsh="git switch" \
+	gre="git remote" \
+	grs="git restore" \
+	gch="git checkout"
 
 # ls aliases
 alias l="ls -A" \
-    ll='ls -ahlF'
+	ll='ls -ahlF'
 
 # colorize aliases
 alias ls='ls --color=auto' \
-    grep='grep --color=auto'
+	grep='grep --color=auto'
 
 # cd aliases
 alias ..="cd .." \
-    chd="cd $HDD" \
-    ...="cd ../.." \
-    cfg="cd $HOME/.config" \
-    cdd="cd $HDD/Documents" \
-    cdo="cd $HOME/Downloads" \
-    csc="cd $HDD/screenshots" \
-    cwal="cd $HDD/wallpapers"
-
-# ranger aliases
-alias rh="ranger $HOME" \
-    rhd="ranger $HDD" \
-    rmo="ranger $HDD/movies" \
-    rim="ranger $HDD/Images" \
-    rlo="ranger $HOME/.local" \
-    rd="ranger $HDD/Documents" \
-    rfg="ranger $HOME/.config" \
-    rdo="ranger $HOME/Downloads" \
-    rsc="ranger $HDD/screenshots" \
-    rwal="ranger $HDD/wallpapers"
+	chd="cd $HDD" \
+	...="cd ../.." \
+	cfg="cd $HOME/.config" \
+	cdd="cd $HDD/documents" \
+	cdo="cd $HOME/Downloads"
 
 # lf aliases
 alias lh="lf $HOME" \
-    lhd="lf $HDD" \
-    lmo="lf $HDD/movies" \
-    lim="lf $HDD/Images" \
-    llo="lf $HOME/.local" \
-    ld="lf $HDD/Documents" \
-    lfg="lf $HOME/.config" \
-    lsy="lf $HDD/syncthing" \
-    ldo="lf $HOME/Downloads" \
-    lsc="lf $HDD/screenshots" \
-    lwal="lf $HDD/wallpapers"
+	lhd="lf $HDD" \
+	lmo="lf $HDD/movies" \
+	llo="lf $HOME/.local" \
+	ld="lf $HDD/documents" \
+	lfg="lf $HOME/.config" \
+	lpi="lf $HOME/pictures" \
+	ldo="lf $HOME/Downloads" \
+	lwal="lf $HOME/.local/wallpapers" \
+	lim="lf $HDD/nextcloud/jedi/files"
 
 # cargo alias
 alias ca="cargo add" \
-    cr="cargo run" \
-    cb="cargo build" \
-    cre="cargo remove" \
-    crr="cargo run --release" \
-    cbr="cargo build --release"
+	cr="cargo run" \
+	cb="cargo build" \
+	cre="cargo remove" \
+	crr="cargo run --release" \
+	cbr="cargo build --release"
 
 # pacman aliases
 alias p="doas pacman" \
-    pacorphan="pacman -Qtdq" \
-    pacins='doas pacman -S $(pacman -Ssq | fzf | tr -d "\n")' \
-    pacls="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
-
-# mining
-alias xmr="doas xmrig"
+	pacorphan="pacman -Qtdq" \
+	pacins='doas pacman -S $(pacman -Ssq | fzf | tr -d "\n")' \
+	pacls="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 
 # program aliases
 alias v="nvim" \
-    r="ranger" \
-    nb="newsboat"\
-    ncp="ncmpcpp"\
-    py="python3" \
-    ka="killall" \
-    ipy="ipython" \
-    sv="doas nvim" \
-    sn="sudo -E nvim" \
-    ipython="bpython" \
-    sudb="doas updatedb" \
-    jup="jupyter notebook & disown" \
-    startx="startx ~/.config/x11/xinitrc"
+	r="ranger" \
+	nb="newsboat" \
+	ncp="ncmpcpp" \
+	py="python3" \
+	ka="killall" \
+	ipy="ipython" \
+	sv="doas nvim" \
+	sn="sudo -E nvim" \
+	ipython="bpython" \
+	sudb="doas updatedb" \
+	startx="startx ~/.config/x11/xinitrc" \
+	jup="jupyter notebook --no-browser & disown"
 
 # misc
 alias pp="popd" \
-    push="pushd" \
-    gg="go run ." \
-    usg="dust -rxd 1" \
-    fin="ls -A | grep -i" \
-    ta="tmux attach-session" \
-    fig="figlet -f ansishadow" \
-    sag="ssh-add $HOME/.ssh/git" \
-    caps="xdotool key Caps_Lock" \
-    notes="nvim $GRAB_HOME/github.com/notjedi/journal-old/index.md" \
-    pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"
+	push="pushd" \
+	gg="go run ." \
+	fin="ls -A | grep -i" \
+	ta="tmux attach-session" \
+	fig="figlet -f ansishadow" \
+	sag="ssh-add $HOME/.ssh/git" \
+	caps="xdotool key Caps_Lock" \
+	usg="dust --no-progress -rxd 1" \
+	notes="nvim $GRAB_HOME/github.com/notjedi/journal/index.md" \
+	pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"

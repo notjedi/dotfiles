@@ -8,8 +8,8 @@ if [ "$1" == "-r" ]; then
   killall xcape 2> /dev/null
 else
   setxkbmap -option caps:super && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to Super_L"
+  xset -q | grep "Caps Lock:\s*on" && xdotool key 'Caps_Lock'
   killall xcape 2> /dev/null
   xcape -e 'Super_L=Escape'
   # xmodmap -e "keycode 9 = grave asciitilde"
-  xset -q | grep "Caps Lock:\s*on" && xdotool key 'Caps_Lock'
 fi

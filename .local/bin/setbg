@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-# if [ $# -eq 0 ]
-if [ ! -z "$1" ]; then
-	xwallpaper --zoom "$1"
-	wal -n -i "$1"
-	exit 0
+if [ -n "$1" ]; then
+  xwallpaper --zoom "$1"
+  wal -n -i "$1"
+  exit 0
 fi
 
-dirname="$HOME/Downloads/walls"
+dirname="$HOME/pictures/walls"
 file=$(find "$dirname" -type f | shuf -n 1)
 
 # set bg

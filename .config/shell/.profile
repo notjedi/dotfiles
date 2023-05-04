@@ -17,14 +17,14 @@ export EDITOR="nvim"
 export PAGER="bat -p"
 export READER="zathura"
 export CODEEDITOR="code"
-export HDD="/mnt/seagate"
+export HDD="/mnt/samsung"
 export BROWSER="librewolf"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# export SSH_ASKPASS=ssh-askpass
-# export SSH_ASKPASS_REQUIRE=prefer
+export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
+export SSH_ASKPASS_REQUIRE=prefer
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/git"
 export PF_INFO="ascii title os kernel uptime pkgs memory palette"
@@ -85,6 +85,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
+export PARALLEL_HOME="$XDG_DATA_HOME/parallel"
 export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
