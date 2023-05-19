@@ -25,7 +25,7 @@ local function load_options()
 		conceallevel = 0,
 		cursorcolumn = true,
 		cursorline = true,
-        -- guicursor = 'i:block',
+		-- guicursor = 'i:block',
 		diffopt = "filler,iwhite,internal,algorithm:patience",
 		display = "lastline",
 		encoding = "utf-8",
@@ -122,7 +122,6 @@ local function load_options()
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
-
 end
 
 load_options()

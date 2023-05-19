@@ -53,6 +53,7 @@ alias lh="lf $HOME" \
 # cargo alias
 alias ca="cargo add" \
 	cr="cargo run" \
+	ct="cargo test" \
 	cb="cargo build" \
 	cre="cargo remove" \
 	crr="cargo run --release" \
