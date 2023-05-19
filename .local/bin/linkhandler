@@ -2,19 +2,19 @@
 
 file=$(echo "$1" | awk -F'/' '{ print $NF }')
 case "$1" in
-  *mkv | *mp4 | *webm | *avi | *youtube.com/watch* | *youtube.com/playlist*)
-    setsid -f mpv "$1" > /dev/null 2>&1
-    ;;
-  *png | *pngblob | *jpg | *jpeg | *gif)
-    curl -sL "$1" -o "/tmp/$file" && setsid -f sxiv -a "/tmp/$file" > /dev/null 2>&1
-    ;;
-  *pdf)
-    curl -sL "$1" -o "/tmp/temp" && setsid -f zathura "/tmp/$file" > /dev/null 2>&1
-    ;;
-  *mp3 | *flac | *opus)
-    curl -sL "$1" -o "/tmp/$file" && st -e mpv --no-video "/tmp/$file" > /dev/null 2>&1
-    ;;
-  *)
-    "$BROWSER" "$1" > /dev/null 2>&1
-    ;;
+*mkv | *mp4 | *webm | *avi | *youtube.com/watch* | *youtube.com/playlist*)
+	setsid -f mpv "$1" >/dev/null 2>&1
+	;;
+*png | *pngblob | *jpg | *jpeg | *gif)
+	curl -sL "$1" -o "/tmp/$file" && setsid -f sxiv -a "/tmp/$file" >/dev/null 2>&1
+	;;
+*pdf)
+	curl -sL "$1" -o "/tmp/temp" && setsid -f zathura "/tmp/$file" >/dev/null 2>&1
+	;;
+*mp3 | *flac | *opus)
+	curl -sL "$1" -o "/tmp/$file" && st -e mpv --no-video "/tmp/$file" >/dev/null 2>&1
+	;;
+*)
+	"$BROWSER" "$1" >/dev/null 2>&1
+	;;
 esac

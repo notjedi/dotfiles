@@ -3,9 +3,9 @@
 filename=$1
 
 # Exit if filename is not specified
-[ -z $filename ] && echo "Filename not specified" && exit 1
+[ -z "$filename" ] && echo "Filename not specified" && exit 1
 
-cd "$HOME/.local/bin"
+cd "$HOME/.local/bin" || exit
 touch "$filename"
 chmod +x "$filename"
-echo "#!/usr/bin/env bash" > "$filename"
+echo "#!/usr/bin/env bash" >"$filename"

@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-if [ !$(pgrep "spotifyd") ]; then
-  sleep 5
-  spotifyd --no-daemon &
-  &> /dev/null
+if [ ! $(pgrep "spotifyd") ]; then
+	sleep 5
+	spotifyd --no-daemon &>/dev/null
 fi
 
 i3-msg 'workspace 6:6: ; exec alacritty -e spt'

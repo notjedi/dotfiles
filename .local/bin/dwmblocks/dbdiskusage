@@ -3,9 +3,9 @@
 usage=$(df -h / | awk '/^\/dev/ { print $5 }')
 
 case $BUTTON in
-  1) notify-send -t 10000 -u low "💽 Disk Usage:" "\n$(lsblk -o NAME,SIZE,FSUSED,FSAVAIL,MOUNTPOINT)" ;;
-  2) notify-send -t 10000 -u low "💽 Disk Usage:" "\n$(df -h --output=target,size,used,avail,pcent $HOME $HDD)" ;;
-  3) setsid -f $TERMINAL -e diskonaut $HOME ;;
+1) notify-send -t 10000 -u low "💽 Disk Usage:" "\n$(lsblk -o NAME,SIZE,FSUSED,FSAVAIL,MOUNTPOINT)" ;;
+2) notify-send -t 10000 -u low "💽 Disk Usage:" "\n$(df -h --output=target,size,used,avail,pcent "$HOME" "$HDD")" ;;
+3) setsid -f "$TERMINAL" -e diskonaut "$HOME" ;;
 esac
 
 echo "📂 $usage"

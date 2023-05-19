@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 list=$(transmission-remote -t all -i |
-  grep "Name:\|Have:\|Total size:" |
-  sed " # Replacing different words
+	grep "Name:\|Have:\|Total size:" |
+	sed " # Replacing different words
         s/.*Name://;
         s/.*Have:/Downloaded:/;
         s/.*Total size:/Total:/;
         # adding a newline after every Total line
         /^\s*Total/a \ ")
 
-[ -z "$list" ] && notify-send "Torrents" "None" || notify-send "Torrents" "$list"
+([ -z "$list" ] && notify-send "Torrents" "None") || notify-send "Torrents" "$list"

@@ -1,33 +1,33 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-STATUS=$(playerctl status 2> /dev/null)
+STATUS=$(playerctl status 2>/dev/null)
 
 if [ "$STATUS" != "Playing" ] && [ "$STATUS" != "Paused" ] && [ "$STATUS" != "Stopped" ]; then
-  echo ""
+	echo ""
 else
-  if [ "$(playerctl -l | grep "spotify")" == "spotify" ]; then
-    P_ICON=" "
-    S_ICON=" "
-  fi
-  METADATA="$(playerctl metadata title 2> /dev/null) - $(playerctl metadata artist 2> /dev/null)"
-  TRIM=$(echo $METADATA | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{print $1}')
-  ARTIST=$(playerctl metadata artist 2> /dev/null)
-  FULL_META=$(playerctl metadata 2> /dev/null)
-  case $STATUS in
-    "Playing")
-      # if spotify is playing on another device artist and song will be empty
-      if [[ "$ARTIST" == "" ]] && [[ "$FULL_META" =~ "spotify" ]]; then
-        echo $P_ICON "Playing on Another Device"
-      else
-        echo $P_ICON $TRIM - $ARTIST
-      fi
-      ;;
-    "Paused" | "Stopped")
-      if [[ "$ARTIST" == "" ]] && [[ "$FULL_META" =~ "spotify" ]]; then
-        echo $S_ICON "Paused on Another Device"
-      else
-        echo $S_ICON $TRIM - $ARTIST
-      fi
-      ;;
-  esac
+	if [ "$(playerctl -l | grep "spotify")" == "spotify" ]; then
+		P_ICON=" "
+		S_ICON=" "
+	fi
+	METADATA="$(playerctl metadata title 2>/dev/null) - $(playerctl metadata artist 2>/dev/null)"
+	TRIM=$(echo "$METADATA" | sed -e 's/([^()]*)//g' | cut -c 1-50 | awk -F '-' '{print $1}')
+	ARTIST=$(playerctl metadata artist 2>/dev/null)
+	FULL_META=$(playerctl metadata 2>/dev/null)
+	case $STATUS in
+	"Playing")
+		# if spotify is playing on another device artist and song will be empty
+		if [[ "$ARTIST" == "" ]] && [[ "$FULL_META" =~ "spotify" ]]; then
+			echo "$P_ICON" "Playing on Another Device"
+		else
+			echo "$P_ICON" "$TRIM" "- $ARTI"ST
+		fi
+		;;
+	"Paused" | "Stopped")
+		if [[ "$ARTIST" == "" ]] && [[ "$FULL_META" =~ "spotify" ]]; then
+			echo "$S_ICON" "Paused on Another Device"
+		else
+			echo "$S_ICON" "$TRIM" - "$ARTIST"
+		fi
+		;;
+	esac
 fi

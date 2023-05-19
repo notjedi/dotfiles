@@ -9,4 +9,4 @@
 
 temp=$(nvidia-smi -q -d TEMPERATURE | grep 'GPU Current Temp' | awk -F: '{ print $2 }' | tr -d ' ')
 
-echo $temp
+echo "$temp"

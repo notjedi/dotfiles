@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 if [ -n "$1" ]; then
-  xwallpaper --zoom "$1"
-  wal -n -i "$1"
-  exit 0
+	xwallpaper --zoom "$1"
+	wal -n -i "$1"
+	exit 0
 fi
 
 dirname="$HOME/pictures/walls"

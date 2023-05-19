@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-windowid=$(xdotool getactivewindow 2> /dev/null || echo "Desktop")
+windowid=$(xdotool getactivewindow 2>/dev/null || echo "Desktop")
 
 if [ "$windowid" == "Desktop" ]; then
-  echo ""
+	echo ""
 else
-  title=$(xprop -id $(echo $windowid) WM_NAME)
-  title=$(echo $title | grep -o '".*"')
-  title=$(echo "$title" | tr -d '"')
-  echo $title
+	title=$(xprop -id "$windowid" WM_NAME)
+	title=$(echo "$title" | grep -o '".*"')
+	title=$(echo "$title" | tr -d '"')
+	echo "$title"
 fi
 
 #else

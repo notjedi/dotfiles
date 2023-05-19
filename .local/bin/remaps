@@ -4,12 +4,12 @@ xset r rate 250 50
 xdotool key 'Num_Lock'
 
 if [ "$1" == "-r" ]; then
-  xmodmap -e "keycode 66 = Caps_Lock" && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to default"
-  killall xcape 2> /dev/null
+	xmodmap -e "keycode 66 = Caps_Lock" && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to default"
+	killall xcape 2>/dev/null
 else
-  setxkbmap -option caps:super && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to Super_L"
-  xset -q | grep "Caps Lock:\s*on" && xdotool key 'Caps_Lock'
-  killall xcape 2> /dev/null
-  xcape -e 'Super_L=Escape'
-  # xmodmap -e "keycode 9 = grave asciitilde"
+	setxkbmap -option caps:super && notify-send -t 2000 "Keyboard" "Remapped Caps_Lock to Super_L"
+	xset -q | grep "Caps Lock:\s*on" && xdotool key 'Caps_Lock'
+	killall xcape 2>/dev/null
+	xcape -e 'Super_L=Escape'
+	# xmodmap -e "keycode 9 = grave asciitilde"
 fi

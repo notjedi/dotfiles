@@ -1,8 +1,8 @@
-#!usr/bin/env bash
+#!/usr/bin/env bash
 
-adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db > app.db
-adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db-wal > app.db-wal
-adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db-shm > app.db-shm
+adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db >app.db
+adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db-wal >app.db-wal
+adb exec-out run-as com.attendancemanager cat databases/com.attendancemanager.db-shm >app.db-shm
 # Commit changes from WAL file to database file
 sqlite3 app.db "PRAGMA wal_checkpoint"
 # Delete files that are not needed anymore

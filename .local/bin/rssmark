@@ -3,4 +3,4 @@
 #  1    2     3     4
 # url title descp title
 content=$(echo "$@" | cut -d' ' -f1,2,4 | tr ' ' ',')
-echo "$content" >> "$HOME/.config/newsboat/bookmarks/$3"
+echo "$content" >>"$HOME/.config/newsboat/bookmarks/$3"

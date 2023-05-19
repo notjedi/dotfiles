@@ -3,8 +3,8 @@
 usage=$(top -bn1 | sed -n 3p | awk -F ',' '{ print 100 - $4 }' | tr -d ' id')
 
 case $BUTTON in
-  1) notify-send -u low -t 3000 "CPU Hogs:" "\n$(cpuintensive)" ;;
-  3) setsid -f $TERMINAL -e btop ;;
+1) notify-send -u low -t 3000 "CPU Hogs:" "\n$(cpuintensive)" ;;
+3) setsid -f "$TERMINAL" -e btop ;;
 esac
 
 echo "💻 $usage%"

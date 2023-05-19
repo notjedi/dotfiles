@@ -1,10 +1,10 @@
 #!/bin/sh
 
 case $BUTTON in
-  1) playerctl previous ;;
-  2) playerctl play-pause ;;
-  3) playerctl next ;;
+1) playerctl previous ;;
+2) playerctl play-pause ;;
+3) playerctl next ;;
 esac
 
-STATUS=$(playerctl metadata --format "{{trunc(title, 20)}} - {{trunc(artist, 15)}}" 2> /dev/null)
+STATUS=$(playerctl metadata --format "{{trunc(title, 20)}} - {{trunc(artist, 15)}}" 2>/dev/null)
 [ "$STATUS" != "" ] && echo "  $STATUS" || echo ""

@@ -3,8 +3,8 @@
 temp=$(sensors | grep Tctl | grep -o '[0-9]*[.].*' | tr -d ' ')
 
 case $BUTTON in
-  1) notify-send -u low "GPU temp:" "\n🔥 $(gputemp)" ;;
-  3) setsid -f $TERMINAL -e watch sensors ;;
+1) notify-send -u low "GPU temp:" "\n🔥 $(gputemp)" ;;
+3) setsid -f "$TERMINAL" -e watch sensors ;;
 esac
 
 echo "🔥 $temp"

@@ -9,13 +9,13 @@
 TEXTART_DIR="$HOME/.local/share/arttime/textart"
 
 if [ -z "$1" ]; then
-  # Pick random art from TEXTART_DIR directory
-  sed '/Custom/d' "$(find "$TEXTART_DIR" -type f | shuf -n1)"
-  exit 0
+	# Pick random art from TEXTART_DIR directory
+	sed '/Custom/d' "$(find "$TEXTART_DIR" -type f | shuf -n1)"
+	exit 0
 fi
 
 if [ -f "$TEXTART_DIR/$1" ]; then
-  sed '/Custom/d' "$TEXTART_DIR/$1"
+	sed '/Custom/d' "$TEXTART_DIR/$1"
 else
-  echo "$1" does not exist in "$TEXTART_DIR".
+	echo "$1" does not exist in "$TEXTART_DIR".
 fi
