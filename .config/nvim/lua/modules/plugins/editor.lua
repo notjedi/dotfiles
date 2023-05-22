@@ -2,7 +2,7 @@ local editor = {}
 
 editor["rmagatti/auto-session"] = {
 	lazy = true,
-	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
+	cmd = { "SessionSave", "SessionRestore", "SessionDelete" },
 	config = require("editor.auto-session"),
 }
 editor["m4xshen/autoclose.nvim"] = {

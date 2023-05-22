@@ -26,7 +26,7 @@ return function()
 		-- * after: highlights after the keyword (todo text)
 		highlight = {
 			multiline = true,
-			multiline_pattern = "^.",
+			multiline_pattern = "^[a-z]",
 			multiline_context = 10,
 			before = "",
 			keyword = "wide",
