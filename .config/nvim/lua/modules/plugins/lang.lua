@@ -7,6 +7,9 @@ lang["ray-x/go.nvim"] = {
 		"neovim/nvim-lspconfig",
 		"nvim-treesitter/nvim-treesitter",
 	},
+	config = function()
+		require("go").setup()
+	end,
 	ft = { "go", "gomod" },
 	build = ':lua require("go.install").update_all_sync()',
 }
