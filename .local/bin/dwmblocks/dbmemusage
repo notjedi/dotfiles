@@ -4,7 +4,8 @@
 mem=$(free | awk '/^Mem:/ { print int(($2-$NF) / 1024) }')
 
 if [ "$mem" -lt 1000 ]; then
-	mem="$("$mem")M"
+	# shellcheck disable=2116
+	mem="$(echo "$mem")M"
 else
 	mem=$(printf '%.1fG' "$(echo "scale=1; $mem/1000" | bc -l)")
 fi

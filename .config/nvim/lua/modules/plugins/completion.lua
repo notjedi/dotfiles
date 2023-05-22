@@ -5,8 +5,8 @@ completion["neovim/nvim-lspconfig"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("completion.lsp"),
 	dependencies = {
-		{ "ray-x/lsp_signature.nvim" },
 		{ "williamboman/mason.nvim" },
+		{ "ray-x/lsp_signature.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 		{
 			"glepnir/lspsaga.nvim",
@@ -27,20 +27,20 @@ completion["hrsh7th/nvim-cmp"] = {
 	event = "InsertEnter",
 	config = require("completion.cmp"),
 	dependencies = {
-        {
+		{
 			"L3MON4D3/LuaSnip",
 			dependencies = { "rafamadriz/friendly-snippets" },
 			config = require("completion.luasnip"),
 		},
-		{ "onsails/lspkind.nvim" },
-		{ "lukas-reineke/cmp-under-comparator" },
-        { "saadparwaiz1/cmp_luasnip" },
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-nvim-lua" },
 		{ "hrsh7th/cmp-path" },
 		{ "f3fora/cmp-spell" },
 		{ "hrsh7th/cmp-buffer" },
-		{ "kdheepak/cmp-latex-symbols" },
+		{ "onsails/lspkind.nvim" },
+		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "hrsh7th/cmp-nvim-lua" },
+		{ "saadparwaiz1/cmp_luasnip" },
+		{ "lukas-reineke/cmp-under-comparator" },
+		-- { "kdheepak/cmp-latex-symbols" },
 	},
 }
 

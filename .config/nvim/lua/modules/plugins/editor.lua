@@ -48,6 +48,11 @@ editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
+editor["toppair/reach.nvim"] = {
+	lazy = true,
+	cmd = { "ReachOpen" },
+	config = require("editor.reach"),
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
@@ -67,10 +72,10 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			"NvChad/nvim-colorizer.lua",
 			config = require("editor.colorizer"),
 		},
-		{
-			"abecodes/tabout.nvim",
-			config = require("editor.tabout"),
-		},
+		-- {
+		-- 	"abecodes/tabout.nvim",
+		-- 	config = require("editor.tabout"),
+		-- },
 	},
 }
 

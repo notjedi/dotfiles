@@ -1,0 +1,4 @@
+update grub entries
+update options for btrfs luks in current fstab
+find a way to add ssh-key while git clone
+add readme with instructions to clone

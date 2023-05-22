@@ -10,13 +10,6 @@ tool["folke/which-key.nvim"] = {
 	event = "VeryLazy",
 	config = require("tool.which-key"),
 }
--- only for fcitx5 user who uses non-English language during coding
--- tool["pysan3/fcitx5.nvim"] = {
--- 	lazy = true,
--- 	event = "BufReadPost",
--- 	cond = vim.fn.executable("fcitx5-remote") == 1,
--- 	config = require("tool.fcitx5"),
--- }
 tool["nvim-tree/nvim-tree.lua"] = {
 	lazy = true,
 	cmd = {
@@ -55,6 +48,46 @@ tool["gelguy/wilder.nvim"] = {
 	event = "CmdlineEnter",
 	config = require("tool.wilder"),
 	dependencies = { "romgrk/fzy-lua-native" },
+}
+tool["folke/todo-comments.nvim"] = {
+	lazy = true,
+	cmd = {
+		"TodoTrouble",
+		"TodoLocList",
+		"TodoQuickFix",
+		"TodoTelescope",
+	},
+	dependencies = { "nvim-lua/plenary.nvim" },
+}
+tool["lewis6991/hover.nvim"] = {
+	lazy = false,
+	config = function()
+		require("hover").setup({
+			init = function()
+				require("hover.providers.gh")
+				require("hover.providers.lsp")
+				require("hover.providers.man")
+				require("hover.providers.gh_user")
+				require("hover.providers.dictionary")
+			end,
+			preview_opts = {
+				border = nil,
+			},
+			preview_window = false,
+			title = true,
+		})
+
+		local bind = require("keymap.bind")
+
+		bind.nvim_load_mapping({
+			["n|K"] = bind.map_callback(function()
+				require("hover").hover()
+			end):with_desc("hover.nvim"),
+			["n|gK"] = bind.map_callback(function()
+				require("hover").hover_select()
+			end):with_desc("hover.nvim select"),
+		})
+	end,
 }
 
 ----------------------------------------------------------------------

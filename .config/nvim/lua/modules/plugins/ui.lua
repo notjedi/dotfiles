@@ -1,10 +1,10 @@
 local ui = {}
 
-ui["goolord/alpha-nvim"] = {
-	lazy = true,
-	event = "BufWinEnter",
-	config = require("ui.alpha"),
-}
+-- ui["goolord/alpha-nvim"] = {
+-- 	lazy = true,
+-- 	event = "BufWinEnter",
+-- 	config = require("ui.alpha"),
+-- }
 ui["akinsho/bufferline.nvim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -14,6 +14,29 @@ ui["catppuccin/nvim"] = {
 	lazy = false,
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
+}
+ui["rebelot/kanagawa.nvim"] = {
+	lazy = true,
+	name = "kanagawa",
+	cmd = { "LoadAllThemes" },
+	config = require("ui.kanagawa"),
+}
+ui["tiagovla/tokyodark.nvim"] = {
+	lazy = true,
+	name = "tokyodark",
+	cmd = { "LoadAllThemes" },
+}
+ui["folke/tokyonight.nvim"] = {
+	lazy = true,
+	name = "tokyonight",
+	cmd = { "LoadAllThemes" },
+	config = require("ui.tokyonight"),
+}
+ui["sam4llis/nvim-tundra"] = {
+	lazy = true,
+	name = "tundra",
+	cmd = { "LoadAllThemes", "Tundra" },
+	config = require("ui.tundra"),
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
@@ -45,10 +68,10 @@ ui["karb94/neoscroll.nvim"] = {
 	event = "BufReadPost",
 	config = require("ui.neoscroll"),
 }
-ui["dstein64/nvim-scrollview"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("ui.scrollview"),
-}
+-- ui["dstein64/nvim-scrollview"] = {
+-- 	lazy = true,
+-- 	event = "BufReadPost",
+-- 	config = require("ui.scrollview"),
+-- }
 
 return ui
