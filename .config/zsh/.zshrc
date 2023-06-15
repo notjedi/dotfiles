@@ -67,7 +67,6 @@ autoload -U add-zsh-hook
 load-local-conf() {
      [ -d ivy ] && condainit && conda activate ivy_dev
      [ -d pystk_gym ] && source venv/bin/activate
-     [ -f go.mod ] && alias gg="go run ."
 }
 add-zsh-hook chpwd load-local-conf
 

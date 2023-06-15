@@ -4,7 +4,6 @@ cur=$1
 icon=$2
 
 getFavCoins() {
-
 	notify-send -u low -t 1000 "🔃 Updating prices"
 	declare -a coins=("BTC" "ETH" "XMR" "MATIC" "DOT" "ADA")
 	for i in "${coins[@]}"; do
@@ -24,6 +23,6 @@ esac
 
 # price=$(curl -s "rate.sx/1$cur" | sed 's|\..*||g')
 # echo "$icon \$$price"
-price=$(curl --max-time 5 -s "inr.rate.sx/1$cur")
+price=$(curl --max-time 5 -s "rate.sx/1$cur")
 printf "%s %0.2f\n" "$icon" "$price"
 # echo $(printf "%s %0.2f\n" $icon $price)

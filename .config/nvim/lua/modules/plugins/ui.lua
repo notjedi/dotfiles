@@ -40,6 +40,7 @@ ui["sam4llis/nvim-tundra"] = {
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
+	tag = "legacy",
 	event = "BufReadPost",
 	config = require("ui.fidget"),
 }

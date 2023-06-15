@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+cd ~/pictures/batmobile || exit
+
+adb pull -a "/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Documents"
+adb pull -a "/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images"
+adb pull -a "/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Video"
+adb pull -a /storage/emulated/0/DCIM
+adb pull -a /storage/emulated/0/Pictures
+adb pull -a /storage/emulated/0/Download
+adb pull -a /storage/emulated/0/Movies/Infinity
