@@ -39,3 +39,7 @@ profiles/
 .config/gup/assets
 
 *bpython.desktop
+
+.local/share/applications/jupyter-nbclassic.desktop
+.local/share/applications/jupyter-notebook.desktop
+.local/share/applications/jupyterlab.desktop
