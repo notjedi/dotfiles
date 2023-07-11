@@ -51,7 +51,8 @@ alias lh="lf $HOME" \
 	lim="lf $HDD/nextcloud/jedi/files"
 
 # cargo alias
-alias ca="cargo add" \
+alias c="cargo" \
+	ca="cargo add" \
 	cr="cargo run" \
 	ct="cargo test" \
 	cb="cargo build" \
@@ -92,5 +93,4 @@ alias pp="popd" \
 	caps="xdotool key Caps_Lock" \
 	usg="dust --no-progress -rxd 1" \
 	notes="nvim $GRAB_HOME/github.com/notjedi/journal/index.md" \
-	pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host" \
-	alias ru="RUSTFLAGS='-C target-feature=+avx2 -C target-cpu=native' cargo +nightly test"
+	pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"
