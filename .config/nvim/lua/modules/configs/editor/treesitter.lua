@@ -12,7 +12,6 @@ return function()
 			"css",
 			"go",
 			"gomod",
-			"help",
 			"html",
 			"javascript",
 			"json",
@@ -24,7 +23,6 @@ return function()
 			"python",
 			"rust",
 			"typescript",
-			"vue",
 			"yaml",
 		},
 		highlight = {
