@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ~/pictures/batmobile || exit
+cd ~/pictures/pixel-6a || exit
 
 adb pull -a "/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Documents"
 adb pull -a "/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/WhatsApp Images"
