@@ -41,12 +41,12 @@ alias ..="cd .." \
 # lf aliases
 alias lh="lf $HOME" \
 	lhd="lf $HDD" \
-	lmo="lf $HDD/movies" \
 	llo="lf $HOME/.local" \
 	ld="lf $HDD/documents" \
 	lfg="lf $HOME/.config" \
 	lpi="lf $HOME/pictures" \
 	ldo="lf $HOME/Downloads" \
+	lmo="lf $HOME/Downloads/movies" \
 	lwal="lf $HOME/.local/wallpapers" \
 	lim="lf $HDD/nextcloud/jedi/files"
 

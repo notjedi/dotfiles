@@ -70,7 +70,7 @@ export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export FLUTTER_GIT_URL="ssh://git@github.com/flutter/flutter.git"
 
 export LESSHISTFILE="-"
-export RUSTC_WRAPPER="sccache"
+# export RUSTC_WRAPPER="sccache"
 export GRAB_HOME="$HOME/workspace"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH"
