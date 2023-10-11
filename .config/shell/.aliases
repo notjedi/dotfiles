@@ -92,5 +92,6 @@ alias pp="popd" \
 	sag="ssh-add $HOME/.ssh/git" \
 	caps="xdotool key Caps_Lock" \
 	usg="dust --no-progress -rxd 1" \
+	pi="pip install --break-system-packages" \
 	notes="nvim $GRAB_HOME/github.com/notjedi/journal/index.md" \
 	pixel3a="$HOME/Android/Sdk/emulator/emulator -avd Pixel_3a_API_28 -gpu host"
