@@ -11,9 +11,15 @@ ui["akinsho/bufferline.nvim"] = {
 	config = require("ui.bufferline"),
 }
 ui["catppuccin/nvim"] = {
-	lazy = false,
+	lazy = true,
 	name = "catppuccin",
+	cmd = { "LoadAllThemes" },
 	config = require("ui.catppuccin"),
+}
+ui["rose-pine/neovim"] = {
+	lazy = false,
+	name = "rosepine",
+	config = require("ui.rosepine"),
 }
 ui["rebelot/kanagawa.nvim"] = {
 	lazy = true,

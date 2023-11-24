@@ -3,44 +3,34 @@ window:
   padding:
     x: 6
     y: 6
-
   title: Alacritty
-
   class:
     instance: Alacritty
     general: Alacritty
-
 scrolling:
   history: 2000
   auto_scroll: true
-
 cursor:
   unfocused_hollow: true
-
 env:
   TERM: xterm-256color
-
 # Theme Configuration
 import:
-  - .config/alacritty/catppuccin.yml
-
+  - ~/.config/alacritty/themes/rose-pine-moon.yml
+  # - ~/.config/alacritty/themes/catppuccin.yml
 font:
   normal:
     # family: Hasklug Nerd Font
     # family: JetBrainsMono Nerd Font
     family: monospace
     style: Regular
-
   bold:
     family: monospace
     style: Bold
-
   italic:
     family: monospace
     style: Italic
-
   size: 9.5
-
 # Custom key bindings
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
