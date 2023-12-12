@@ -29,15 +29,15 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/git"
 export PF_INFO="ascii title os kernel uptime pkgs memory palette"
 # catppuccin
-# export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 # rose-pine-moon
-export FZF_DEFAULT_OPTS="
-	--height 40% --layout=reverse --border
-	--color=fg:#908caa,bg:#232136,hl:#ea9a97
-	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-	--color=border:#44415a,header:#3e8fb0,gutter:#232136
-	--color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+# export FZF_DEFAULT_OPTS="
+# 	--height 40% --layout=reverse --border
+# 	--color=fg:#908caa,bg:#232136,hl:#ea9a97
+# 	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+# 	--color=border:#44415a,header:#3e8fb0,gutter:#232136
+# 	--color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
+# 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
 # wayland stuff
 # export XDG_CURRENT_DESKTOP="hyprland"

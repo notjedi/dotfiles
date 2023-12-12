@@ -24,7 +24,7 @@ settings["load_big_files_faster"] = true
 settings["palette_overwrite"] = {}
 
 -- Set the colorscheme to use here.
-settings["colorscheme"] = "rose-pine-moon"
+settings["colorscheme"] = "catppuccin"
 
 -- Set background color to use here.
 -- Useful for when you want to use a colorscheme that has a light and dark variant like `edge`.

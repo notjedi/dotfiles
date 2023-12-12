@@ -11,7 +11,7 @@ gup update
 gh extension upgrade --all
 
 # python packages
-pip list --outdated | tail -n +3 | awk '{print $1}' | xargs -r -I'{}' pip install --upgrade {} || true
+pip list --outdated | tail -n +3 | awk '{print $1}' | xargs -r -I'{}' pip install --break-system-packages --upgrade {} || true
 
 # system packages
 yay -Syyu

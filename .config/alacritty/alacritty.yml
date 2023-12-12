@@ -16,8 +16,8 @@ env:
   TERM: xterm-256color
 # Theme Configuration
 import:
-  - ~/.config/alacritty/themes/rose-pine-moon.yml
-  # - ~/.config/alacritty/themes/catppuccin.yml
+  # - ~/.config/alacritty/themes/rose-pine-moon.yml
+  - ~/.config/alacritty/themes/catppuccin-mocha.yml
 font:
   normal:
     # family: Hasklug Nerd Font
@@ -33,7 +33,7 @@ font:
   size: 9.5
 # Custom key bindings
 key_bindings:
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy }
-  - { key: Q, mods: Control|Shift, action: Quit }
-  - { key: N, mods: Control|Shift, action: SpawnNewInstance }
+  - {key: V, mods: Control|Shift, action: Paste}
+  - {key: C, mods: Control|Shift, action: Copy}
+  - {key: Q, mods: Control|Shift, action: Quit}
+  - {key: N, mods: Control|Shift, action: SpawnNewInstance}
