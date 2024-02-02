@@ -39,13 +39,22 @@ return function()
 			additional_vim_regex_highlighting = { "c", "cpp" },
 		},
 		textobjects = {
+			lsp_interop = {
+				enable = true,
+				border = "rounded",
+				peek_definition_code = {
+					["df"] = "@function.outer",
+					["dF"] = "@class.outer",
+				},
+			},
 			select = {
 				enable = true,
+				lookahead = true,
 				keymaps = {
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
+					["af"] = { query = "@function.outer", desc = "Select outer part of a function" },
+					["if"] = { query = "@function.inner", desc = "Select inner part of a function" },
+					["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
+					["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 				},
 			},
 			move = {
