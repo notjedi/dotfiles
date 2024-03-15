@@ -42,7 +42,6 @@ alias ..="cd .." \
 alias lh="lf $HOME" \
 	lhd="lf $HDD" \
 	llo="lf $HOME/.local" \
-	ld="lf $HDD/documents" \
 	lfg="lf $HOME/.config" \
 	lpi="lf $HOME/pictures" \
 	ldo="lf $HOME/Downloads" \

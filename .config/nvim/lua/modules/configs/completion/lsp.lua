@@ -56,6 +56,43 @@ return function()
 		capabilities = capabilities,
 	}
 
+	local function on_attach(client, buf)
+		---Disable formatting for servers (Handled by null-ls)
+		---@see https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
+
+		---Disable |lsp-semantic_tokens| (conflicting with TS highlights)
+		client.server_capabilities.semanticTokensProvider = nil
+	end
+
+	nvim_lsp.rust_analyzer.setup({
+		flags = flags,
+		capabilities = capabilities,
+		on_attach = on_attach,
+		settings = {
+			["rust-analyzer"] = {
+				cargo = {
+					allFeatures = true,
+				},
+				checkOnSave = {
+					allFeatures = true,
+					command = "clippy",
+				},
+				check = {
+					allTargets = true,
+				},
+				procMacro = {
+					ignored = {
+						["async-trait"] = { "async_trait" },
+						["napi-derive"] = { "napi" },
+						["async-recursion"] = { "async_recursion" },
+					},
+				},
+			},
+		},
+	})
+
 	mason_lspconfig.setup_handlers({
 		function(server)
 			require("lspconfig")[server].setup({
