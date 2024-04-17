@@ -30,6 +30,8 @@ cmd open ${{
     test -L $f && f=$(readlink -f $f)
     case $(file --mime-type $f -b) in
         text/*) nvim $fx;;
+        application/json) nvim $fx;;
+        application/x-subrip) nvim $fx;;
         *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
     esac
 }}
