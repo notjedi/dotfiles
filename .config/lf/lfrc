@@ -110,16 +110,10 @@ map I push A<c-a>
 map a push A<a-b>
 map i push A<a-b><a-b><a-f>
 
-map gll cd ~/.local
 map gcn cd ~/.config
 map gdo cd ~/Downloads
-map gls cd ~/.local/src
-map gex cd /mnt/Seagate
-map gco cd /mnt/Seagate/Code
-map gsy cd /mnt/Seagate/syncthing
-map gsc cd /mnt/Seagate/screenshot
-map gwa cd /mnt/Seagate/wallpapers
-map gdt cd /mnt/Seagate/Code/dotfiles
+map gmo cd ~/Downloads/movies
+map gjo cd /mnt/linux/home/jedi
 
 map bg $setbg $f
 

@@ -8,4 +8,3 @@ adb pull -a "/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/Whats
 adb pull -a /storage/emulated/0/DCIM
 adb pull -a /storage/emulated/0/Pictures
 adb pull -a /storage/emulated/0/Download
-adb pull -a /storage/emulated/0/Movies/Infinity

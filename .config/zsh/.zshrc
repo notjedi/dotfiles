@@ -35,6 +35,7 @@ _comp_options+=(globdots)
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*' completer _complete _match _approximate
@@ -66,8 +67,10 @@ bindkey -s '^a' '^ufend\n'
 # https://stackoverflow.com/questions/17051123/source-a-file-in-zsh-when-entering-a-directory
 autoload -U add-zsh-hook
 load-local-conf() {
-     [ -d ivy ] && condainit && conda activate ivy_dev
-     [ -d pystk_gym ] && source venv/bin/activate
+  case $(basename $PWD) in
+    tuxkart-ai) condainit && conda activate pettingzoo;;
+    pystk-gym) condainit && conda activate pettingzoo;;
+  esac
 }
 add-zsh-hook chpwd load-local-conf
 
