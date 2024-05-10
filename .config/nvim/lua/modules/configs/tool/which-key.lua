@@ -2,9 +2,46 @@ return function()
 	local icons = {
 		ui = require("modules.utils.icons").get("ui"),
 		misc = require("modules.utils.icons").get("misc"),
+		git = require("modules.utils.icons").get("git", true),
+		cmp = require("modules.utils.icons").get("cmp", true),
 	}
 
-	require("which-key").setup({
+	require("which-key").register({
+		["<leader>"] = {
+			b = {
+				name = icons.ui.Buffer .. " Buffer",
+			},
+			d = {
+				name = icons.ui.Bug .. " Debug",
+			},
+			f = {
+				name = icons.ui.Telescope .. " Fuzzy Find",
+			},
+			g = {
+				name = icons.git.Git .. "Git",
+			},
+			l = {
+				name = icons.misc.LspAvailable .. " Lsp",
+			},
+			n = {
+				name = icons.ui.FolderOpen .. " Nvim Tree",
+			},
+			p = {
+				name = icons.ui.Package .. " Package",
+			},
+			s = {
+				name = icons.cmp.tmux .. "Session",
+			},
+			S = {
+				name = icons.ui.Search .. " Search",
+			},
+			W = {
+				name = icons.ui.Window .. " Window",
+			},
+		},
+	})
+
+	require("modules.utils").load_plugin("which-key", {
 		plugins = {
 			presets = {
 				operators = false,
@@ -20,7 +57,7 @@ return function()
 		icons = {
 			breadcrumb = icons.ui.Separator,
 			separator = icons.misc.Vbar,
-			group = icons.misc.Add,
+			group = "",
 		},
 
 		window = {

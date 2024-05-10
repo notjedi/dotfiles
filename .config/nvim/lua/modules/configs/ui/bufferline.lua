@@ -4,11 +4,13 @@ return function()
 	local opts = {
 		options = {
 			number = nil,
+			close_command = "BufDel! %d",
+			right_mouse_command = "BufDel! %d",
 			modified_icon = icons.ui.Modified,
 			buffer_close_icon = icons.ui.Close,
 			left_trunc_marker = icons.ui.Left,
 			right_trunc_marker = icons.ui.Right,
-			max_name_length = 14,
+			max_name_length = 20,
 			max_prefix_length = 13,
 			tab_size = 20,
 			color_icons = true,
@@ -16,7 +18,7 @@ return function()
 			show_buffer_close_icons = true,
 			show_close_icon = true,
 			show_tab_indicators = true,
-			enforce_regular_tabs = true,
+			enforce_regular_tabs = false,
 			persist_buffer_sort = true,
 			always_show_bufferline = true,
 			separator_style = "thin",
@@ -29,13 +31,13 @@ return function()
 					filetype = "NvimTree",
 					text = "File Explorer",
 					text_align = "center",
-					padding = 1,
+					padding = 0,
 				},
 				{
-					filetype = "lspsagaoutline",
-					text = "Lspsaga Outline",
+					filetype = "aerial",
+					text = "Symbol Outline",
 					text_align = "center",
-					padding = 1,
+					padding = 0,
 				},
 			},
 		},
@@ -44,14 +46,14 @@ return function()
 		highlights = {},
 	}
 
-	if vim.g.colors_name == "catppuccin" then
+	if vim.g.colors_name:find("catppuccin") then
 		local cp = require("modules.utils").get_palette() -- Get the palette.
 
 		local catppuccin_hl_overwrite = {
 			highlights = require("catppuccin.groups.integrations.bufferline").get({
 				styles = { "italic", "bold" },
 				custom = {
-					mocha = {
+					all = {
 						-- Hint
 						hint = { fg = cp.rosewater },
 						hint_visible = { fg = cp.rosewater },
@@ -67,5 +69,5 @@ return function()
 		opts = vim.tbl_deep_extend("force", opts, catppuccin_hl_overwrite)
 	end
 
-	require("bufferline").setup(opts)
+	require("modules.utils").load_plugin("bufferline", opts)
 end

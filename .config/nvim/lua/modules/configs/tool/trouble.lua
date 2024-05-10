@@ -4,7 +4,7 @@ return function()
 		diagnostics = require("modules.utils.icons").get("diagnostics"),
 	}
 
-	require("trouble").setup({
+	require("modules.utils").load_plugin("trouble", {
 		position = "bottom", -- position of the list can be: bottom, top, left, right
 		height = 10, -- height of the trouble list when position is top or bottom
 		width = 50, -- width of the list when position is left or right
@@ -19,7 +19,7 @@ return function()
 			-- map to {} to remove a mapping, for example:
 			-- close = {},
 			close = "q", -- close the list
-			cancel = "<ESC>", -- cancel the preview and get back to your last window / buffer / cursor
+			cancel = "<Esc>", -- cancel the preview and get back to your last window / buffer / cursor
 			refresh = "r", -- manually refresh
 			jump = { "<CR>", "<TAB>" }, -- jump to the diagnostic or open / close folds
 			open_split = { "<C-x>" }, -- open buffer in new split

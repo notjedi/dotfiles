@@ -1,60 +1,25 @@
--- return function()
--- 	local null_ls = require("null-ls")
--- 	local mason_null_ls = require("mason-null-ls")
--- 	local btnf = null_ls.builtins.formatting
--- 	local btnd = null_ls.builtins.diagnostics
--- 	local null_reg = null_ls.register
-
--- 	null_ls.setup({
--- 		debug = false,
--- 		update_in_insert = false,
--- 		diagnostics_format = "[#{s} #{c}] #{m}",
--- 	})
-
--- 	mason_null_ls.setup({
--- 		ensure_installed = require("core.settings").null_ls,
--- 		automatic_installation = true,
--- 		automatic_setup = true,
--- 	})
-
--- 	-- NOTE: Users don't need to specify null-ls sources if using only default config.
--- 	-- "mason-null-ls" will auto-setup for users.
--- 	mason_null_ls.setup({
--- 		handlers = {
--- 			black = function()
--- 				null_reg(btnf.black.with({ extra_args = { "--fast" } }))
--- 			end,
--- 			shfmt = function()
--- 				null_reg(btnf.shfmt.with({}))
--- 			end,
--- 			markdownlint = function()
--- 				null_reg(btnd.markdownlint.with({ extra_args = { "--disable MD033" } }))
--- 			end,
--- 			-- example for changing diagnostics_format
--- 			-- shellcheck = function()
--- 			-- 	null_reg(btnd.shellcheck.with({ diagnostics_format = "#{m} [#{s} #{c}]" }))
--- 			-- end,
--- 		},
--- 	})
-
--- 	require("completion.formatting").configure_format_on_save()
--- end
-
 return function()
 	local null_ls = require("null-ls")
-	local mason_null_ls = require("mason-null-ls")
 	local btns = null_ls.builtins
+
+	---Return formatter args required by `extra_args`
+	---@param formatter_name string
+	---@return table|nil
+	local function formatter_args(formatter_name)
+		local ok, args = pcall(require, "user.configs.formatters." .. formatter_name)
+		if not ok then
+			args = require("completion.formatters." .. formatter_name)
+		end
+		return args
+	end
 
 	-- Please set additional flags for the supported servers here
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
-		btns.formatting.black.with({
-			extra_args = { "--fast" },
+		btns.formatting.clang_format.with({
+			filetypes = { "c", "cpp" },
+			extra_args = formatter_args("clang_format"),
 		}),
-		btns.formatting.shfmt,
-		-- btns.formatting.shfmt.with({
-		-- 	args = { "-i 2", "-ci", "-sr", "-filename", "$FILENAME" },
-		-- }),
 		btns.formatting.prettier.with({
 			filetypes = {
 				"vue",
@@ -71,8 +36,7 @@ return function()
 			},
 		}),
 	}
-
-	null_ls.setup({
+	require("modules.utils").load_plugin("null-ls", {
 		border = "rounded",
 		debug = false,
 		log_level = "warn",
@@ -80,11 +44,32 @@ return function()
 		sources = sources,
 	})
 
-	mason_null_ls.setup({
-		ensure_installed = require("core.settings").null_ls_deps,
-		automatic_installation = false,
-		automatic_setup = true,
-		handlers = {},
+	require("completion.mason-null-ls").setup()
+
+	-- Setup usercmd to register/deregister available source(s)
+	local function _gen_completion()
+		local sources_cont = null_ls.get_source({
+			filetype = vim.api.nvim_get_option_value("filetype", { scope = "local" }),
+		})
+		local completion_items = {}
+		for _, server in pairs(sources_cont) do
+			table.insert(completion_items, server.name)
+		end
+		return completion_items
+	end
+	vim.api.nvim_create_user_command("NullLsToggle", function(opts)
+		if vim.tbl_contains(_gen_completion(), opts.args) then
+			null_ls.toggle({ name = opts.args })
+		else
+			vim.notify(
+				string.format("[Null-ls] Unable to find any registered source named [%s].", opts.args),
+				vim.log.levels.ERROR,
+				{ title = "Null-ls Internal Error" }
+			)
+		end
+	end, {
+		nargs = 1,
+		complete = _gen_completion,
 	})
 
 	require("completion.formatting").configure_format_on_save()

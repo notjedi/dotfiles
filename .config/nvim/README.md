@@ -4,7 +4,7 @@
     <a href="https://github.com/neovim/neovim/releases/tag/stable">
     <img
         alt="NeoVim Version Capability"
-        src="https://img.shields.io/badge/Supports%20Nvim-v0.8-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE">
+        src="https://img.shields.io/badge/Supports%20Nvim-v0.9-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE">
     </a>
     <a href="https://github.com/ayamir/nvimdots/releases">
     <img
@@ -36,20 +36,25 @@
 
 ## 🪷 Introduction
 
-This repo hosts my [NeoVim](https://neovim.io/) configuration for Linux, macOS, and Windows. `init.lua` is the config entry point.
+This repo hosts our [NeoVim](https://neovim.io/) configuration for Linux [(with NixOS support)](#nixos-support), macOS, and Windows. `init.lua` is the config entry point.
 
-It contains two branches:
+Branch info:
 
 <div align="center">
 
-| Branch |    Completion Solution     |
-| :----: | :------------------------: |
-|  main  | config for nvim 0.8 stable |
-|  0.7   | config for nvim 0.7 stable |
+| Branch | Supported neovim version |
+| :----: | :----------------------: |
+|  main  |     nvim 0.9 stable      |
+|  0.10  |    nvim 0.10 nightly     |
+|  0.8   |         nvim 0.8         |
+|  0.7   |         nvim 0.7         |
 
 </div>
 
-I use [lazy.nvim](https://github.com/folke/lazy.nvim) to manage plugins.
+> [!IMPORTANT]
+> The `0.10` branch is intended for nightly neovim builds and is **not** stable. It typically harbors subtle issues scattered throughout. Therefore, refrain from submitting issues if you happen to encounter them. They will be closed directly unless a viable solution is proposed or included.
+
+We currently manage plugins using [lazy.nvim](https://github.com/folke/lazy.nvim).
 
 Chinese introduction is [here](https://zhuanlan.zhihu.com/p/382092667).
 
@@ -88,25 +93,31 @@ It's strongly recommended to read [Wiki: Prerequisites](https://github.com/ayami
 <h3 align="center">
     🗺️ Keybindings
 </h3>
-<p align="center">Refer to <a href="https://github.com/ayamir/nvimdots/wiki/Keybindings" rel="nofollow">Wiki: Keybindings</a></p>
+<p align="center">See <a href="https://github.com/ayamir/nvimdots/wiki/Keybindings" rel="nofollow">Wiki: Keybindings</a> for details</p>
 <br>
 
 <h3 align="center">
     🔌 Plugins & Deps
 </h3>
-<p align="center">Refer to <a href="https://github.com/ayamir/nvimdots/wiki/Plugins" rel="nofollow">Wiki: Plugins</a> <br><em>(You can also find a deps diagram there!)</em></p>
+<p align="center">See <a href="https://github.com/ayamir/nvimdots/wiki/Plugins" rel="nofollow">Wiki: Plugins</a> for details <br><em>(You can also find a deps diagram there!)</em></p>
 <br>
 
 <h3 align="center">
     🔧 Usage & Customization
 </h3>
-<p align="center">Refer to <a href="https://github.com/ayamir/nvimdots/wiki/Usage" rel="nofollow">Wiki: Usage</a></p>
+<p align="center">See <a href="https://github.com/ayamir/nvimdots/wiki/Usage" rel="nofollow">Wiki: Usage</a> for details</p>
+<br>
+
+<h3 align="center" id="nixos-support" name="nixos-support">
+    ❄️  NixOS Support
+</h3>
+<p align="center">See <a href="https://github.com/ayamir/nvimdots/wiki/NixOS-Support" rel="nofollow">Wiki: NixOS Support</a> for details</p>
 <br>
 
 <h3 align="center">
     🤔 FAQ
 </h3>
-<p align="center">Refer to <a href="https://github.com/ayamir/nvimdots/wiki/Issues" rel="nofollow">Wiki: FAQ</a></p>
+<p align="center">See <a href="https://github.com/ayamir/nvimdots/wiki/Issues" rel="nofollow">Wiki: FAQ</a> for details</p>
 
 ## ✨ Features
 
@@ -153,19 +164,25 @@ It's strongly recommended to read [Wiki: Prerequisites](https://github.com/ayami
 <br>
 
 <p align="center">
+    <img src="https://raw.githubusercontent.com/ayamir/blog-imgs/main/code_action.png" alt="Code Action">
+    <em>Code Action</em>
+</p>
+<br>
+
+<p align="center">
     <img src="https://raw.githubusercontent.com/ayamir/blog-imgs/main/dap.png" alt="Debugging">
     <em>Debugging</em>
 </p>
 <br>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ayamir/blog-imgs/main/gitui.png" alt="Lazygit">
+    <img src="https://raw.githubusercontent.com/ayamir/blog-imgs/main/lazygit.png" alt="Lazygit">
     <em>Lazygit with built-in Terminal</em>
 </p>
 <br>
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ayamir/blog-imgs/main/legendary.png" alt="Legendary">
+    <img src="https://raw.githubusercontent.com/ayamir/blog-imgs/main/command_ref.png" alt="Command quickref">
     <em>Command quickref</em>
 </p>
 

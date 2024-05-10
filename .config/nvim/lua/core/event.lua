@@ -1,4 +1,4 @@
--- Now use `<A-k>` or `<A-1>` to back to the `dotstutor`.
+-- Now use `<A-o>` or `<A-1>` to back to the `dotstutor`.
 local autocmd = {}
 
 function autocmd.nvim_create_augroups(definitions)
@@ -13,6 +13,17 @@ function autocmd.nvim_create_augroups(definitions)
 	end
 end
 
+-- defer setting LSP-related keymaps till LspAttach
+local mapping = require("keymap.completion")
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("LspKeymapLoader", { clear = true }),
+	callback = function(event)
+		if not _G._debugging then
+			mapping.lsp(event.buf)
+		end
+	end,
+})
+
 -- auto close NvimTree
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
@@ -21,7 +32,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		local layout = vim.api.nvim_call_function("winlayout", {})
 		if
 			layout[1] == "leaf"
-			and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree"
+			and vim.api.nvim_get_option_value("filetype", { buf = vim.api.nvim_win_get_buf(layout[2]) }) == "NvimTree"
 			and layout[3] == nil
 		then
 			vim.api.nvim_command([[confirm quit]])
@@ -41,6 +52,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"terminal",
 		"prompt",
 		"toggleterm",
+		"copilot",
 		"startuptime",
 		"tsplayground",
 		"PlenaryTestPopup",
@@ -48,16 +60,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<CMD>close<CR>", { silent = true })
-	end,
-})
-
--- Fix fold issue of files opened by telescope
-vim.api.nvim_create_autocmd("BufRead", {
-	callback = function()
-		vim.api.nvim_create_autocmd("BufWinEnter", {
-			once = true,
-			command = "normal! zx",
-		})
 	end,
 })
 
@@ -87,11 +89,6 @@ function autocmd.load_autocmds()
 				"*",
 				[[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]],
 			},
-			-- Auto toggle fcitx5
-			-- {"InsertLeave", "* :silent", "!fcitx5-remote -c"},
-			-- {"BufCreate", "*", ":silent !fcitx5-remote -c"},
-			-- {"BufEnter", "*", ":silent !fcitx5-remote -c "},
-			-- {"BufLeave", "*", ":silent !fcitx5-remote -c "}
 		},
 		wins = {
 			-- Highlight current line only on focused window
@@ -105,11 +102,11 @@ function autocmd.load_autocmds()
 				"*",
 				[[if &cursorline && &filetype !~# '^\(dashboard\|clap_\)' && ! &pvw | setlocal nocursorline | endif]],
 			},
-			-- Force write shada on leaving nvim
+			-- Attempt to write shada when leaving nvim
 			{
 				"VimLeave",
 				"*",
-				[[if has('nvim') | wshada! | else | wviminfo! | endif]],
+				[[if has('nvim') | wshada | else | wviminfo! | endif]],
 			},
 			-- Check if file changed when its window is focus, more eager than 'autoread'
 			{ "FocusGained", "* checktime" },
@@ -120,6 +117,7 @@ function autocmd.load_autocmds()
 			{ "FileType", "alpha", "set showtabline=0" },
 			{ "FileType", "markdown", "set wrap" },
 			{ "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
+			{ "FileType", "dap-repl", "lua require('dap.ext.autocompl').attach()" },
 			{
 				"FileType",
 				"*",
@@ -139,8 +137,7 @@ function autocmd.load_autocmds()
 			},
 		},
 	}
-
-	autocmd.nvim_create_augroups(definitions)
+	autocmd.nvim_create_augroups(require("modules.utils").extend_config(definitions, "user.event"))
 end
 
 autocmd.load_autocmds()

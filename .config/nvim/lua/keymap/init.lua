@@ -19,13 +19,13 @@ local plug_map = {
 	["n|<leader>px"] = map_cr("Lazy clean"):with_silent():with_noremap():with_nowait():with_desc("package: Clean"),
 }
 
-local default_map = {
+local custom_mapping = {
 	["n|<leader>q"] = map_cr("quit"):with_silent():with_noremap():with_nowait():with_desc("quit nvim"),
 	["n|<leader>w"] = map_cr("write"):with_silent():with_noremap():with_nowait():with_desc("write file"),
 	["n|cu"] = map_cmd("veU"):with_silent():with_noremap():with_nowait():with_desc("make word uppercase"),
 	["n|cl"] = map_cmd("veu"):with_silent():with_noremap():with_nowait():with_desc("make word lowercase"),
 
-	["i|<esc>"] = map_cmd("<esc>l"):with_noremap(),
+	["i|<esc>"] = map_cmd("<esc>`^"):with_noremap(),
 	["i|<C-h>"] = map_cmd("<Left>"):with_noremap(),
 	["i|<C-l>"] = map_cmd("<Right>"):with_noremap(),
 	["i|<C-a>"] = map_cmd("<esc>^i"):with_noremap(),
@@ -34,7 +34,7 @@ local default_map = {
 }
 
 bind.nvim_load_mapping(plug_map)
-bind.nvim_load_mapping(default_map)
+bind.nvim_load_mapping(custom_mapping)
 
 -- Plugin keymaps
 require("keymap.completion")
@@ -42,3 +42,9 @@ require("keymap.editor")
 require("keymap.lang")
 require("keymap.tool")
 require("keymap.ui")
+
+-- User keymaps
+local ok, mappings = pcall(require, "user.keymap.init")
+if ok then
+	require("modules.utils.keymap").replace(mappings)
+end

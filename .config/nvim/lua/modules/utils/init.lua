@@ -29,14 +29,35 @@ local M = {}
 ---@field crust string
 ---@field none "NONE"
 
----@type palette
+---@type nil|palette
 local palette = nil
+
+-- Indicates if autocmd for refreshing the builtin palette has already been registered
+---@type boolean
+local _has_autocmd = false
 
 ---Initialize the palette
 ---@return palette
 local function init_palette()
+	-- Reinitialize the palette on event `ColorScheme`
+	if not _has_autocmd then
+		_has_autocmd = true
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			group = vim.api.nvim_create_augroup("__builtin_palette", { clear = true }),
+			pattern = "*",
+			callback = function()
+				palette = nil
+				init_palette()
+				-- Also refresh hard-coded hl groups
+				M.gen_alpha_hl()
+				M.gen_lspkind_hl()
+				pcall(vim.cmd.AlphaRedraw)
+			end,
+		})
+	end
+
 	if not palette then
-		palette = vim.g.colors_name == "catppuccin" and require("catppuccin.palettes").get_palette()
+		palette = vim.g.colors_name:find("catppuccin") and require("catppuccin.palettes").get_palette()
 			or {
 				rosewater = "#DC8A78",
 				flamingo = "#DD7878",
@@ -75,47 +96,24 @@ local function init_palette()
 end
 
 ---@param c string @The color in hexadecimal.
-local function hexToRgb(c)
+local function hex_to_rgb(c)
 	c = string.lower(c)
 	return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
 end
 
----Parse the `style` string into nvim_set_hl options
----@param style string @The style config
----@return table
-local function parse_style(style)
-	if not style or style == "NONE" then
-		return {}
-	end
-
-	local result = {}
-	for field in string.gmatch(style, "([^,]+)") do
-		result[field] = true
-	end
-
-	return result
-end
-
----Wrapper function for nvim_get_hl_by_name
----@param hl_group string @Highlight group name
----@return table
-local function get_highlight(hl_group)
-	local hl = vim.api.nvim_get_hl_by_name(hl_group, true)
-	if hl.link then
-		return get_highlight(hl.link)
-	end
-
-	local result = parse_style(hl.style)
-	result.fg = hl.foreground and string.format("#%06x", hl.foreground)
-	result.bg = hl.background and string.format("#%06x", hl.background)
-	result.sp = hl.special and string.format("#%06x", hl.special)
-	for attr, val in pairs(hl) do
-		if type(attr) == "string" and attr ~= "foreground" and attr ~= "background" and attr ~= "special" then
-			result[attr] = val
-		end
-	end
-
-	return result
+-- NOTE: If the active colorscheme isn't `catppuccin`, this function won't overwrite existing definitions
+---Sets a global highlight group.
+---@param name string @Highlight group name, e.g. "ErrorMsg"
+---@param foreground string @The foreground color
+---@param background? string @The background color
+---@param italic? boolean
+local function set_global_hl(name, foreground, background, italic)
+	vim.api.nvim_set_hl(0, name, {
+		fg = foreground,
+		bg = background,
+		italic = italic == true,
+		default = not vim.g.colors_name:find("catppuccin"),
+	})
 end
 
 ---Blend foreground with background
@@ -125,15 +123,15 @@ end
 function M.blend(foreground, background, alpha)
 	---@diagnostic disable-next-line: cast-local-type
 	alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
-	local bg = hexToRgb(background)
-	local fg = hexToRgb(foreground)
+	local bg = hex_to_rgb(background)
+	local fg = hex_to_rgb(foreground)
 
-	local blendChannel = function(i)
+	local blend_channel = function(i)
 		local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
 		return math.floor(math.min(math.max(0, ret), 255) + 0.5)
 	end
 
-	return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
+	return string.format("#%02x%02x%02x", blend_channel(1), blend_channel(2), blend_channel(3))
 end
 
 ---Get RGB highlight by highlight group
@@ -143,14 +141,14 @@ end
 ---@return string
 function M.hl_to_rgb(hl_group, use_bg, fallback_hl)
 	local hex = fallback_hl or "#000000"
-	local hlexists = pcall(vim.api.nvim_get_hl_by_name, hl_group, true)
+	local hlexists = pcall(vim.api.nvim_get_hl, 0, { name = hl_group, link = false })
 
 	if hlexists then
-		local result = get_highlight(hl_group)
+		local result = vim.api.nvim_get_hl(0, { name = hl_group, link = false })
 		if use_bg then
-			hex = result.bg and result.bg or "NONE"
+			hex = result.bg and string.format("#%06x", result.bg) or "NONE"
 		else
-			hex = result.fg and result.fg or "NONE"
+			hex = result.fg and string.format("#%06x", result.fg) or "NONE"
 		end
 	end
 
@@ -161,12 +159,12 @@ end
 ---@param name string @Target highlight group name
 ---@param def table @Attributes to be extended
 function M.extend_hl(name, def)
-	local hlexists = pcall(vim.api.nvim_get_hl_by_name, name, true)
+	local hlexists = pcall(vim.api.nvim_get_hl, 0, { name = name, link = false })
 	if not hlexists then
 		-- Do nothing if highlight group not found
 		return
 	end
-	local current_def = get_highlight(name)
+	local current_def = vim.api.nvim_get_hl(0, { name = name, link = false })
 	local combined_def = vim.tbl_deep_extend("force", current_def, def)
 
 	vim.api.nvim_set_hl(0, name, combined_def)
@@ -177,12 +175,13 @@ end
 ---@return palette
 function M.get_palette(overwrite)
 	if not overwrite then
-		return init_palette()
+		return vim.deepcopy(init_palette())
 	else
 		return vim.tbl_extend("force", init_palette(), overwrite)
 	end
 end
 
+-- Generate highlight groups for lspsaga. Existing attributes will NOT be overwritten
 function M.gen_lspkind_hl()
 	local colors = M.get_palette()
 	local dat = {
@@ -205,7 +204,7 @@ function M.gen_lspkind_hl()
 		Package = colors.blue,
 		Property = colors.teal,
 		Struct = colors.yellow,
-		TypeParameter = colors.maroon,
+		TypeParameter = colors.blue,
 		Variable = colors.peach,
 		Array = colors.peach,
 		Boolean = colors.peach,
@@ -223,7 +222,31 @@ function M.gen_lspkind_hl()
 	}
 
 	for kind, color in pairs(dat) do
-		vim.api.nvim_set_hl(0, "LspKind" .. kind, { fg = color, default = true })
+		set_global_hl("LspKind" .. kind, color)
+	end
+end
+
+-- Generate highlight groups for alpha. Existing attributes will NOT be overwritten
+function M.gen_alpha_hl()
+	local colors = M.get_palette()
+
+	set_global_hl("AlphaHeader", colors.blue)
+	set_global_hl("AlphaButtons", colors.green)
+	set_global_hl("AlphaShortcut", colors.pink, nil, true)
+	set_global_hl("AlphaFooter", colors.yellow)
+end
+
+-- Generate blend_color for neodim.
+function M.gen_neodim_blend_attr()
+	local trans_bg = require("core.settings").transparent_background
+	local appearance = require("core.settings").background
+
+	if trans_bg and appearance == "dark" then
+		return "#000000"
+	elseif trans_bg and appearance == "light" then
+		return "#FFFFFF"
+	else
+		return M.hl_to_rgb("Normal", true)
 	end
 end
 
@@ -237,11 +260,111 @@ function M.tobool(value)
 		return true
 	else
 		vim.notify(
-			"Attempt to convert data of type '" .. type(value) .. "' [other than 0 or 1] to boolean",
+			"Attempting to convert data of type '" .. type(value) .. "' [other than 0 or 1] to boolean",
 			vim.log.levels.ERROR,
-			{ title = "[utils] Runtime error" }
+			{ title = "[utils] Runtime Error" }
 		)
 		return nil
+	end
+end
+
+--- Function to recursively merge src into dst
+--- Unlike vim.tbl_deep_extend(), this function extends if the original value is a list
+---@paramm dst table @Table which will be modified and appended to
+---@paramm src table @Table from which values will be inserted
+---@return table @Modified table
+local function tbl_recursive_merge(dst, src)
+	for key, value in pairs(src) do
+		if type(dst[key]) == "table" and type(value) == "function" then
+			dst[key] = value(dst[key])
+		elseif type(dst[key]) == "table" and vim.tbl_islist(dst[key]) and key ~= "dashboard_image" then
+			vim.list_extend(dst[key], value)
+		elseif type(dst[key]) == "table" and type(value) == "table" and not vim.tbl_islist(dst[key]) then
+			tbl_recursive_merge(dst[key], value)
+		else
+			dst[key] = value
+		end
+	end
+	return dst
+end
+
+-- Function to extend existing core configs (settings, events, etc.)
+---@param config table @The default config to be merged with
+---@param user_config string @The module name used to require user config
+---@return table @Extended config
+function M.extend_config(config, user_config)
+	local ok, extras = pcall(require, user_config)
+	if ok and type(extras) == "table" then
+		config = tbl_recursive_merge(config, extras)
+	end
+	return config
+end
+
+---@param plugin_name string @Module name of the plugin (used to setup itself)
+---@param opts nil|table @The default config to be merged with
+---@param vim_plugin? boolean @If this plugin is written in vimscript or not
+---@param setup_callback? function @Add new callback if the plugin needs unusual setup function
+function M.load_plugin(plugin_name, opts, vim_plugin, setup_callback)
+	vim_plugin = vim_plugin or false
+
+	-- Get the file name of the default config
+	local fname = debug.getinfo(2, "S").source:match("[^@/\\]*.lua$")
+	local ok, user_config = pcall(require, "user.configs." .. fname:sub(0, #fname - 4))
+	if ok and vim_plugin then
+		if user_config == false then
+			-- Return early if the user explicitly requires disabling plugin setup
+			return
+		elseif type(user_config) == "function" then
+			-- OK, setup as instructed by the user
+			user_config()
+		else
+			vim.notify(
+				string.format(
+					"<%s> is not a typical Lua plugin, please return a function with\nthe corresponding options defined instead (usually via `vim.g.*`)",
+					plugin_name
+				),
+				vim.log.levels.ERROR,
+				{ title = "[utils] Runtime Error (User Config)" }
+			)
+		end
+	elseif not vim_plugin then
+		if user_config == false then
+			-- Return early if the user explicitly requires disabling plugin setup
+			return
+		else
+			setup_callback = setup_callback or require(plugin_name).setup
+			-- User config exists?
+			if ok then
+				-- Extend base config if the returned user config is a table
+				if type(user_config) == "table" then
+					opts = tbl_recursive_merge(opts, user_config)
+					setup_callback(opts)
+				-- Replace base config if the returned user config is a function
+				elseif type(user_config) == "function" then
+					local user_opts = user_config(opts)
+					if type(user_opts) == "table" then
+						setup_callback(user_opts)
+					end
+				else
+					vim.notify(
+						string.format(
+							[[
+Please return a `table` if you want to override some of the default options OR a
+`function` returning a `table` if you want to replace the default options completely.
+
+We received a `%s` for plugin <%s>.]],
+							type(user_config),
+							plugin_name
+						),
+						vim.log.levels.ERROR,
+						{ title = "[utils] Runtime Error (User Config)" }
+					)
+				end
+			else
+				-- Nothing provided... Fallback as default setup of the plugin
+				setup_callback(opts)
+			end
+		end
 	end
 end
 

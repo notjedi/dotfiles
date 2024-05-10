@@ -1,22 +1,25 @@
 local lang = {}
 
+lang["kevinhwang91/nvim-bqf"] = {
+	lazy = true,
+	ft = "qf",
+	config = require("lang.bqf"),
+	dependencies = {
+		{ "junegunn/fzf", build = ":call fzf#install()" },
+	},
+}
 lang["ray-x/go.nvim"] = {
 	lazy = true,
-	dependencies = { -- optional packages
-		"ray-x/guihua.lua",
-		"neovim/nvim-lspconfig",
-		"nvim-treesitter/nvim-treesitter",
-	},
-	config = function()
-		require("go").setup()
-	end,
-	ft = { "go", "gomod" },
-	build = ':lua require("go.install").update_all_sync()',
+	ft = { "go", "gomod", "gosum" },
+	build = ":GoInstallBinaries",
+	config = require("lang.go"),
+	dependencies = { "ray-x/guihua.lua" },
 }
-lang["simrat39/rust-tools.nvim"] = {
+lang["mrcjkb/rustaceanvim"] = {
 	lazy = true,
 	ft = "rust",
-	config = require("lang.rust-tools"),
+	version = "^3",
+	init = require("lang.rust"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
 lang["Saecki/crates.nvim"] = {

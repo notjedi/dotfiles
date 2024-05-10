@@ -1,9 +1,9 @@
 return function()
-	require("project_nvim").setup({
+	require("modules.utils").load_plugin("project_nvim", {
 		manual_mode = false,
 		detection_methods = { "lsp", "pattern" },
 		patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-		ignore_lsp = { "efm", "copilot" },
+		ignore_lsp = { "null-ls", "copilot" },
 		exclude_dirs = {},
 		show_hidden = false,
 		silent_chdir = true,

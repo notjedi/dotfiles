@@ -9,7 +9,7 @@ local plug_map = {
 	-- Plugin: vim-fugitive
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent():with_desc("git: Pull"),
-	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
+	["n|<leader>gG"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
 
 	-- Plugin: nvim-tree
 	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
@@ -17,9 +17,8 @@ local plug_map = {
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent():with_desc("filetree: Refresh"),
 
 	-- Plugin: toggleterm
-	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
-	["t|jk"] = map_cmd([[<C-\><C-n>]]):with_silent(), -- switch to normal mode in terminal.
-	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]])
+	["t|<Esc><Esc>"] = map_cmd([[<C-\><C-n>]]):with_noremap():with_silent(), -- switch to normal mode in terminal.
+	["n|<C-\\>"] = map_cr("ToggleTerm direction=horizontal")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
@@ -27,11 +26,8 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle horizontal"),
-	["t|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle horizontal"),
-	["n|<A-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]])
+	["t|<C-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle horizontal"),
+	["n|<A-\\>"] = map_cr("ToggleTerm direction=vertical")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
@@ -39,26 +35,14 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
-	["t|<A-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["n|<A-d>"] = map_cr([[execute v:count . "ToggleTerm direction=float"]])
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle float"),
+	["t|<A-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
+	["n|<A-d>"] = map_cr("ToggleTerm direction=float"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
 		:with_noremap()
 		:with_silent()
 		:with_desc("terminal: Toggle float"),
-	["t|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
-	["n|<leader>g"] = map_callback(function()
-			_toggle_lazygit()
-		end)
-		:with_noremap()
-		:with_silent()
-		:with_desc("git: Toggle lazygit"),
-	["t|<leader>g"] = map_callback(function()
+	["t|<A-d>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
+	["n|<leader>gg"] = map_callback(function()
 			_toggle_lazygit()
 		end)
 		:with_noremap()
@@ -67,23 +51,23 @@ local plug_map = {
 
 	-- Plugin: trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
-	["n|<leader>tr"] = map_cr("TroubleToggle lsp_references")
+	["n|<leader>ll"] = map_cr("TroubleToggle lsp_references")
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show lsp references"),
-	["n|<leader>td"] = map_cr("TroubleToggle document_diagnostics")
+	["n|<leader>ld"] = map_cr("TroubleToggle document_diagnostics")
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show document diagnostics"),
-	["n|<leader>tw"] = map_cr("TroubleToggle workspace_diagnostics")
+	["n|<leader>lw"] = map_cr("TroubleToggle workspace_diagnostics")
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show workspace diagnostics"),
-	["n|<leader>tq"] = map_cr("TroubleToggle quickfix")
+	["n|<leader>lq"] = map_cr("TroubleToggle quickfix")
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show quickfix list"),
-	["n|<leader>tl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
+	["n|<leader>lL"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent():with_desc("lsp: Show loclist"),
 
 	-- Plugin: telescope
 	["n|<C-p>"] = map_callback(function()
@@ -105,7 +89,7 @@ local plug_map = {
 		:with_silent()
 		:with_desc("find: Project"),
 	["n|<leader>fr"] = map_callback(function()
-			require("telescope").extensions.frecency.frecency()
+			require("telescope").extensions.frecency.frecency({})
 		end)
 		:with_noremap()
 		:with_silent()
@@ -118,18 +102,30 @@ local plug_map = {
 		:with_desc("find: Word in project"),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent():with_desc("find: File by history"),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
-	["n|<leader>fc"] = map_cu("Telescope colorscheme")
+	["n|<leader>fc"] = map_callback(function()
+			require("telescope.builtin").colorscheme({ enable_preview = true })
+		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("ui: Change colorscheme for current session"),
-	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
+	["n|<leader>bn"] = map_cu(":enew"):with_noremap():with_silent():with_desc("buffer: New"),
 	["n|<leader>fg"] = map_cu("Telescope git_files")
 		:with_noremap()
 		:with_silent()
 		:with_desc("find: file in git project"),
+	["n|<leader>fz"] = map_cu("Telescope zoxide list")
+		:with_noremap()
+		:with_silent()
+		:with_desc("edit: Change current directory by zoxide"),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent():with_desc("find: Buffer opened"),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent():with_desc("find: Current word"),
-
+	["v|<leader>fs"] = map_callback(function()
+			require("telescope.builtin").grep_string({ search = _buf_vtext() })
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("find: Selection text"),
+	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent():with_desc("find: Session"),
 }
 
 bind.nvim_load_mapping(plug_map)

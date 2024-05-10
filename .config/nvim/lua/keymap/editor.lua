@@ -6,21 +6,13 @@ local map_callback = bind.map_callback
 local et = bind.escape_termcode
 
 local plug_map = {
-	-- Plugin: auto_session
+	-- Plugin persisted.nvim
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent():with_desc("session: Save"),
-	["n|<leader>sr"] = map_cu("SessionRestore"):with_noremap():with_silent():with_desc("session: Restore"),
+	["n|<leader>sl"] = map_cu("SessionLoad"):with_noremap():with_silent():with_desc("session: Load current"),
 	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent():with_desc("session: Delete"),
 
 	-- Plugin: nvim-bufdel
 	["n|<A-q>"] = map_cr("BufDel"):with_noremap():with_silent():with_desc("buffer: Close current"),
-
-	-- Plugin: clever-f
-	["n|;"] = map_callback(function()
-		return et("<Plug>(clever-f-repeat-forward)")
-	end):with_expr(),
-	["n|,"] = map_callback(function()
-		return et("<Plug>(clever-f-repeat-back)")
-	end):with_expr(),
 
 	-- Plugin: comment.nvim
 	["n|gcc"] = map_callback(function()
@@ -56,20 +48,62 @@ local plug_map = {
 		:with_noremap()
 		:with_desc("edit: Toggle comment for block with selection"),
 
-	-- Plugin: diffview
-	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap():with_desc("git: Show diff"),
-	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap():with_desc("git: Close diff"),
+	-- Plugin: diffview.nvim
+	["n|<leader>gd"] = map_cr("DiffviewOpen"):with_silent():with_noremap():with_desc("git: Show diff"),
+	["n|<leader>gD"] = map_cr("DiffviewClose"):with_silent():with_noremap():with_desc("git: Close diff"),
 
-	-- Plugin: hop
-	["n|<leader>e"] = map_cu("HopWord"):with_noremap():with_desc("jump: Goto word"),
-	["n|<leader>j"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
-	["n|<leader>k"] = map_cu("HopLine"):with_noremap():with_desc("jump: Goto line"),
-	["n|t"] = map_cu("HopWordCurrentLineAC"):with_noremap():with_desc("jump: within line"),
-	["n|T"] = map_cu("HopWordCurrentLineBC"):with_noremap():with_desc("jump: within line"),
+	-- Plugin: hop.nvim
+	["nv|<leader>r"] = map_cmd("<Cmd>HopWordMW<CR>"):with_noremap():with_desc("jump: Goto word"),
+	["nv|<leader>j"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap():with_desc("jump: Goto line"),
+	["nv|<leader>k"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap():with_desc("jump: Goto line"),
+	["nv|<leader>c"] = map_cmd("<Cmd>HopChar1MW<CR>"):with_noremap():with_desc("jump: Goto one char"),
+	["nv|<leader>C"] = map_cmd("<Cmd>HopChar2MW<CR>"):with_noremap():with_desc("jump: Goto two chars"),
 
-	-- Plugin: tabout
-	["i|<A-l>"] = map_cmd("<Plug>(TaboutMulti)"):with_silent():with_noremap():with_desc("edit: Goto end of pair"),
-	["i|<A-h>"] = map_cmd("<Plug>(TaboutBackMulti)"):with_silent():with_noremap():with_desc("edit: Goto begin of pair"),
+	-- Plugin: smart-splits.nvim
+	["n|<A-h>"] = map_cu("SmartResizeLeft"):with_silent():with_noremap():with_desc("window: Resize -3 horizontally"),
+	["n|<A-j>"] = map_cu("SmartResizeDown"):with_silent():with_noremap():with_desc("window: Resize -3 vertically"),
+	["n|<A-k>"] = map_cu("SmartResizeUp"):with_silent():with_noremap():with_desc("window: Resize +3 vertically"),
+	["n|<A-l>"] = map_cu("SmartResizeRight"):with_silent():with_noremap():with_desc("window: Resize +3 horizontally"),
+	["n|<C-h>"] = map_cu("SmartCursorMoveLeft"):with_silent():with_noremap():with_desc("window: Focus left"),
+	["n|<C-j>"] = map_cu("SmartCursorMoveDown"):with_silent():with_noremap():with_desc("window: Focus down"),
+	["n|<C-k>"] = map_cu("SmartCursorMoveUp"):with_silent():with_noremap():with_desc("window: Focus up"),
+	["n|<C-l>"] = map_cu("SmartCursorMoveRight"):with_silent():with_noremap():with_desc("window: Focus right"),
+	["n|<leader>Wh"] = map_cu("SmartSwapLeft"):with_silent():with_noremap():with_desc("window: Move window leftward"),
+	["n|<leader>Wj"] = map_cu("SmartSwapDown"):with_silent():with_noremap():with_desc("window: Move window downward"),
+	["n|<leader>Wk"] = map_cu("SmartSwapUp"):with_silent():with_noremap():with_desc("window: Move window upward"),
+	["n|<leader>Wl"] = map_cu("SmartSwapRight"):with_silent():with_noremap():with_desc("window: Move window rightward"),
+
+	-- Plugin: nvim-spectre
+	["n|<leader>Ss"] = map_callback(function()
+			require("spectre").toggle()
+		end)
+		:with_silent()
+		:with_noremap()
+		:with_desc("editn: Toggle search & replace panel"),
+	["n|<leader>Sp"] = map_callback(function()
+			require("spectre").open_visual({ select_word = true })
+		end)
+		:with_silent()
+		:with_noremap()
+		:with_desc("editn: search&replace current word (project)"),
+	["v|<leader>Sp"] = map_callback(function()
+			require("spectre").open_visual()
+		end)
+		:with_silent()
+		:with_noremap()
+		:with_desc("edit: search & replace current word (project)"),
+	["n|<leader>Sf"] = map_callback(function()
+			require("spectre").open_file_search({ select_word = true })
+		end)
+		:with_silent()
+		:with_noremap()
+		:with_desc("editn: search & replace current word (file)"),
+
+	-- Plugin: nvim-treehopper
+	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),
+
+	-- Plugin suda.vim
+	["n|<A-s>"] = map_cu("SudaWrite"):with_silent():with_noremap():with_desc("editn: Save file using sudo"),
 }
 
 bind.nvim_load_mapping(plug_map)

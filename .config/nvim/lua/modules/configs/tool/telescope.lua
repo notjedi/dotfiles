@@ -2,8 +2,16 @@ return function()
 	local icons = { ui = require("modules.utils.icons").get("ui", true) }
 	local lga_actions = require("telescope-live-grep-args.actions")
 
-	require("telescope").setup({
+	require("modules.utils").load_plugin("telescope", {
 		defaults = {
+			vimgrep_arguments = {
+				"rg",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+			},
 			initial_mode = "insert",
 			prompt_prefix = " " .. icons.ui.Telescope .. " ",
 			selection_caret = icons.ui.ChevronRight,
@@ -11,56 +19,38 @@ return function()
 			results_title = false,
 			layout_strategy = "horizontal",
 			path_display = { "absolute" },
-			file_ignore_patterns = {
-				".git/",
-				"dist/",
-				".idea/",
-				".cache/",
-				".vscode/",
-				"%.history/",
-				"node_modules/",
-				"events.out.*",
-				"%.class",
-				"%.pdf",
-				"%.mkv",
-				"%.mp4",
-				"%.zip",
-				"%.pth",
-				"%.jpg",
-				"%.png",
-				"%.jpeg",
-			},
+			selection_strategy = "reset",
+			sorting_strategy = "ascending",
+			color_devicons = true,
+			file_ignore_patterns = { ".git/", ".cache", "build/", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
 			layout_config = {
 				horizontal = {
-					preview_width = 0.5,
+					prompt_position = "bottom",
+					preview_width = 0.55,
+					results_width = 0.8,
 				},
-			},
-			vimgrep_arguments = {
-				"rg",
-				"--ignore",
-				"--color=never",
-				"--no-heading",
-				"--with-filename",
-				"--line-number",
-				"--column",
-				"--hidden",
-				"--smart-case",
+				vertical = {
+					mirror = false,
+				},
+				width = 0.85,
+				height = 0.92,
+				preview_cutoff = 120,
 			},
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 			file_sorter = require("telescope.sorters").get_fuzzy_file,
 			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-		},
-		pickers = {
-			find_files = {
-				hidden = true,
-			},
-			keymaps = {
-				theme = "dropdown",
-			},
+			buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 		},
 		extensions = {
+			aerial = {
+				show_lines = false,
+				show_nesting = {
+					["_"] = false, -- This key will be the default
+					lua = true, -- You can set the option for specific filetypes
+				},
+			},
 			fzf = {
 				fuzzy = false,
 				override_generic_sorter = true,
@@ -104,4 +94,7 @@ return function()
 	require("telescope").load_extension("live_grep_args")
 	require("telescope").load_extension("projects")
 	require("telescope").load_extension("undo")
+	require("telescope").load_extension("zoxide")
+	require("telescope").load_extension("persisted")
+	require("telescope").load_extension("aerial")
 end
