@@ -18,6 +18,7 @@ ui["catppuccin/nvim"] = {
 ui["rose-pine/neovim"] = {
 	lazy = true,
 	name = "rosepine",
+	cmd = { "LoadAllThemes" },
 	config = require("ui.rosepine"),
 }
 ui["rebelot/kanagawa.nvim"] = {

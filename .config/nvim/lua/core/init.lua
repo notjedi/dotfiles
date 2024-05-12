@@ -128,6 +128,12 @@ local load_core = function()
 	local background = settings.background
 	vim.api.nvim_command("set background=" .. background)
 	vim.api.nvim_command("colorscheme " .. colorscheme)
+
+	vim.api.nvim_create_autocmd("BufReadPost", {
+		callback = function()
+			vim.api.nvim_command("LocalHighlightOn")
+		end,
+	})
 end
 
 load_core()
