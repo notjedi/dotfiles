@@ -1,56 +1,29 @@
-import = ["/home/jedi/.config/alacritty/themes/catppuccin-mocha.toml"]
-
-[cursor]
-unfocused_hollow = true
+import = ["~/.config/alacritty/themes/catppuccin-mocha.toml"]
 
 [env]
 TERM = "xterm-256color"
 
-[font]
-size = 9.5
-
-[font.bold]
-family = "monospace"
-style = "Bold"
-
-[font.italic]
-family = "monospace"
-style = "Italic"
-
-[font.normal]
-family = "monospace"
-style = "Regular"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Quit"
-key = "Q"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "N"
-mods = "Control|Shift"
+[cursor]
+unfocused_hollow = true
 
 [scrolling]
 history = 2000
 
+[font]
+size = 9
+bold = { family = "monospace", style = "Heavy" }
+normal = { family = "monospace", style = "Bold" }
+italic = { family = "monospace", style = "Italic" }
+
+[keyboard]
+bindings = [
+	{ mods = "Control|Shift", key = "Q", action = "Quit" },
+	{ mods = "Control|Shift", key = "C", action = "Copy" },
+	{ mods = "Control|Shift", key = "V", action = "Paste" },
+	{ mods = "Control|Shift", key = "N", action = "SpawnNewInstance" },
+]
+
 [window]
 title = "Alacritty"
-
-[window.class]
-general = "Alacritty"
-instance = "Alacritty"
-
-[window.padding]
-x = 6
-y = 6
+padding = { x = 6, y = 6 }
+class = { general = "Alacritty", instance = "Alacritty" }

@@ -123,7 +123,6 @@ settings["null_ls_deps"] = {
 	"markdownlint",
 	"prettier",
 	"prettierd",
-	"rustfmt",
 	"shfmt",
 	"stylua",
 	"vint",
