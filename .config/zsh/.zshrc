@@ -68,7 +68,7 @@ bindkey -s '^a' '^ufend\n'
 autoload -U add-zsh-hook
 load-local-conf() {
   case $(basename $PWD) in
-    tuxkart-ai) condainit && conda activate pettingzoo;;
+    tuxkart-ai) condainit && conda activate tuxkart;;
     pystk-gym) condainit && conda activate pettingzoo;;
   esac
 }
