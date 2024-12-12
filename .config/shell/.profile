@@ -9,11 +9,13 @@
 [[ -d "$HOME/.local/scripts/dwmblocks" ]] && export PATH="$HOME/.local/scripts/dwmblocks:$PATH"
 [[ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ]] && export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 [[ -d "$HOME/.local/share/miniconda/condabin" ]] && export PATH="$HOME/.local/share/miniconda/condabin:$PATH"
+[[ -d "/opt/cuda/targets/x86_64-linux/lib" ]] && export LD_LIBRARY_PATH="/opt/cuda/targets/x86_64-linux/lib:$LD_LIBRARY_PATH"
 
 export WM="dwm"
 export VISUAL="nvim"
 export EDITOR="nvim"
 export PAGER="bat -p"
+export MANROFFOPT="-c"
 export READER="zathura"
 export CODEEDITOR="code"
 export HDD="/mnt/samsung"
@@ -21,7 +23,7 @@ export BROWSER="librewolf"
 export TERMINAL="alacritty"
 export TERM="xterm-256color"
 export COLORTERM="truecolor"
-export MANPAGER="bat -l man -p"
+export MANPAGER="sh -c 'col -bx | bat -pl man'"
 
 export SSH_ASKPASS=/usr/lib/ssh/ssh-askpass
 export SSH_ASKPASS_REQUIRE=prefer
@@ -157,4 +159,4 @@ ex=🎯:\
 *.java=♨:\
 "
 
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep Xorg && startx $HOME/.config/x11/xinitrc
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep Xorg && startx "$HOME/.config/x11/xinitrc"

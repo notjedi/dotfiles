@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # mem=$(free -h | awk '/^Mem:/ { print $3 }' | sed 's/i//')
 mem=$(free | awk '/^Mem:/ { print int(($2-$NF) / 1024) }')

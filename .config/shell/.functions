@@ -15,7 +15,7 @@ function conf() {
 	find "$dir" -type f |
 		grep -vi '\.git\|watch_later\|autoload\|license\|\.*md\|resume\|torrent\|pycache\|fonts' |
 		sed "s|^"$dir"||" | fzf |
-		xargs -I'{}' -r $EDITOR $dir{}
+		xargs -I'{}' -r "$EDITOR" "$dir"{}
 }
 
 function fzfcd() {
@@ -46,9 +46,12 @@ function fcd() {
 }
 
 function open() {
-	find . -type f -maxdepth 3 2>/dev/null | grep -vi \
-		'\.git\|\.miniconda3\|\.android\|\.cache\|\.librewolf\|watch_later\|autoload\|pycache\|fonts\|tags' |
-		fzf | xargs -r "$EDITOR"
+	find . -type d \( -path '*/.git' -o -path '*/.miniconda3' -o -path '*/venv' \
+		-o -path '*/.venv' -o -path '*/.android' -o -path '*/.cache' -o \
+		-path '*/.librewolf' -o -path '*/watch_later' -o -path '*/autoload' -o \
+		-path '*/__pycache__' -o -path '*/fonts' -o -path '*/tags' -o -path '*/target' \
+		-o -path '*/node_modules' \) -prune -o -type f -print 2>/dev/null | fzf |
+		xargs -r "$EDITOR"
 }
 
 function pipup() {

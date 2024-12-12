@@ -64,6 +64,7 @@ return function()
 			},
 			live_grep_args = {
 				auto_quoting = true, -- enable/disable auto-quoting
+				timeout = 1000,
 				-- define mappings, e.g.
 				mappings = { -- extend mappings
 					i = {
